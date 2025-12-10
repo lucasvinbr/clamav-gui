@@ -61,6 +61,8 @@ void setupFileHandler::setSetupFileName(QString filename)
             file.close();
             file.flush();
         }
+
+        delete tempDir;
     }
 }
 
