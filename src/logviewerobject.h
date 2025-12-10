@@ -24,6 +24,7 @@
 #include <QWidget>
 #include <QFile>
 #include <QDir>
+#include <QList>
 #include "setupfilehandler.h"
 #include "partiallogobject.h"
 
@@ -43,6 +44,7 @@ private:
     Ui::logViewerObject *m_ui;
     setupFileHandler    *m_setupfile;
     QString m_logFileName;
+    QList<partialLogObject*> m_logObjectsList;
     void loadLogFile(QString);
     void saveLog();
 

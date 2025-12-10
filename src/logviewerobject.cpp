@@ -5,6 +5,7 @@ logViewerObject::logViewerObject(QWidget* parent, setupFileHandler* setupFile) :
 {
     //m_setupfile = new setupFileHandler(QDir::homePath() + "/.clamav-gui/settings.ini", this); --> uses the setupFileHandler provided by the clamav_gui class
     m_ui->setupUi(this);
+    m_logObjectsList = QList<partialLogObject*>();
     slot_profilesChanged();
 }
 
@@ -56,6 +57,12 @@ void logViewerObject::loadLogFile(QString profile)
         m_ui->logTab->removeTab(0);
     }
 
+    for(int i = 0; i < m_logObjectsList.count(); i++) {
+        delete m_logObjectsList[i];
+    }
+
+    m_logObjectsList.clear();
+
     values = sf->getSectionValue("Directories", "ScanReportToFile").split("|");
     if (values.count() == 2) {
         QFile file(values[1]);
@@ -66,6 +73,7 @@ void logViewerObject::loadLogFile(QString profile)
             logs = buffer.split("<Scanning startet>");
             for (int i = 1; i < logs.count(); i++) {
                 partialLogObject* log = new partialLogObject(this, logs[i], css);
+                m_logObjectsList.append(log);
                 connect(this, SIGNAL(logHighlightingChanged(bool)), log, SLOT(slot_add_remove_highlighter(bool)));
                 tabHeader = logs[i].mid(1, logs[i].indexOf("\n") - 1);
                 m_ui->logTab->insertTab(0, log, QIcon(":/icons/icons/information.png"), tabHeader);
@@ -75,6 +83,8 @@ void logViewerObject::loadLogFile(QString profile)
             file.close();
         }
     }
+
+    delete sf;
 }
 
 void logViewerObject::slot_profileSeclectionChanged()
