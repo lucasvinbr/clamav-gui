@@ -61,10 +61,10 @@ void ProfileManager::slot_readProfileSettings()
     targets = tempSetupFile->getSectionValue(profileName, "Directories").split('\n');
     options = tempSetupFile->getKeywords("SelectedOptions");
 
-    if ((targets[0] != "") & (targets.count() > 0))
+    if ((targets[0] != "") && (targets.count() > 0))
         targetLabel = targetLabel + targets[0];
     for (int i = 1; i < targets.count(); i++) {
-        if ((targets[i] != "") & (targetLabel != "")) {
+        if ((targets[i] != "") && (targetLabel != "")) {
             targetLabel = targetLabel + "\n" + targets[i];
         }
         else {
@@ -208,6 +208,9 @@ void ProfileManager::slot_readProfileSettings()
     }
 
     m_ui->filenameTextLabel->setText(logFile);
+
+
+    delete tempSetupFile;
 }
 
 void ProfileManager::slot_addProfileButtonClicked()

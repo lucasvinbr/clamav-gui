@@ -583,7 +583,7 @@ void ProfileWizardDialog::slot_checkNavigationButtons()
             break;
         case 1:
             m_ui->previousButton->setEnabled(true);
-            if ((m_ui->profileNameLineEdit->text() == "") | (checkFile.exists()))
+            if ((m_ui->profileNameLineEdit->text() == "") && (!checkFile.exists()))
                 m_ui->nextButton->setEnabled(false);
             else
                 m_ui->nextButton->setEnabled(true);

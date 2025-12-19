@@ -203,8 +203,8 @@ void scheduleScanObject::slot_scanProcessHasErrOutput()
 
 void scheduleScanObject::slot_scanProcessFinished(int exitCode, QProcess::ExitStatus status)
 {
-    exitCode = exitCode;
-    status = status;
+    //exitCode = exitCode;
+    //status = status;
     QString temp;
     int pos, end;
 

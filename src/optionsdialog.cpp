@@ -560,7 +560,7 @@ void optionsDialog::slot_logViewerButtonClicked()
 {
     QFile file;
 
-    if ((m_ui.scanReportToFileCheckBox->isChecked() == true) & (m_ui.scanReportToFileLineEdit->text() != "")) {
+    if ((m_ui.scanReportToFileCheckBox->isChecked() == true) && (m_ui.scanReportToFileLineEdit->text() != "")) {
         file.setFileName(m_ui.scanReportToFileLineEdit->text());
         if (file.exists()) {
             logViewObject* logView = new logViewObject(this, m_ui.scanReportToFileLineEdit->text());
