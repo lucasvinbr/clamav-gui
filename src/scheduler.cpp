@@ -22,7 +22,7 @@ scheduler::scheduler(QWidget* parent, setupFileHandler* setupFile)
     m_checkTimer = new QTimer(this);
     m_checkTimer->setSingleShot(false);
     connect(m_checkTimer, SIGNAL(timeout()), this, SLOT(slot_checkTimerTimeout()));
-    m_checkTimer->start(15000);
+    m_checkTimer->start(120000);
 }
 
 void scheduler::slot_addDailyScanJobButtonClicked()
