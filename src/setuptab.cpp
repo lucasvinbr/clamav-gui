@@ -191,7 +191,7 @@ void setupTab::slot_clamdscanComboBoxClicked()
 void setupTab::slot_logHightlighterCheckBoxClicked()
 {
     m_setupFile->setSectionValue("Setup", "DisableLogHighlighter", m_ui.logHighlighterCheckBox->isChecked());
-    logHighlightingChanged(m_ui.logHighlighterCheckBox->isChecked());
+    emit logHighlightingChanged(m_ui.logHighlighterCheckBox->isChecked());
     m_monochrome = m_ui.logHighlighterCheckBox->isChecked();
     slot_updateSystemInfo();
 }

@@ -38,7 +38,7 @@ QString clamdManager::trimLocationOutput(QString value)
 void clamdManager::initClamdSettings()
 {
     m_initprocessrunning = true;
-    QStringList keywords;
+    // QStringList keywords;
     m_dirsUnderMonitoring = 0;
     m_logHighlighter = NULL;
 

@@ -605,7 +605,7 @@ void clamav_gui::slot_scanProcessFinished(int exitCode, QProcess::ExitStatus sta
 {
     Q_UNUSED(exitCode);
     Q_UNUSED(status);
-    QStringList m_parameters;
+    // QStringList m_parameters;
     bool monochrome = m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter");
     QString m_color;
 

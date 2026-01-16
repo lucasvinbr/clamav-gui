@@ -32,7 +32,7 @@ void scheduler::slot_addDailyScanJobButtonClicked()
     if (scanTime.length() < 8)
         scanTime = scanTime + ":00";
     QDateTime nextScanObject = QDateTime(QDate::currentDate(), QTime::fromString(scanTime));
-    QString id = QString::number(QDateTime::currentDateTimeUtc().toMSecsSinceEpoch());
+    QString id = QString::number(QDateTime::currentMSecsSinceEpoch());
     QString entry;
 
     if (nextScanObject < currentDateTime)
@@ -46,7 +46,7 @@ void scheduler::slot_addWeeklyScanJobButtonClicked()
 {
     QDateTime currentDateTime = QDateTime::currentDateTime();
     QDateTime nextScanObject = currentDateTime;
-    QString id = QString::number(QDateTime::currentDateTimeUtc().toMSecsSinceEpoch());
+    QString id = QString::number(QDateTime::currentMSecsSinceEpoch());
     int currentDayofweek = currentDateTime.date().dayOfWeek();
     int dayofweek = m_ui.weeklyDayOfWeekComboBox->currentIndex() + 1;
     QString entry;
@@ -79,8 +79,8 @@ void scheduler::slot_addWeeklyScanJobButtonClicked()
 void scheduler::slot_addMonthlyScanJobButtonClicked()
 {
     QString entry;
-    QString id = QString::number(QDateTime::currentDateTimeUtc().toMSecsSinceEpoch());
-    QDateTime currentDateTime = QDateTime::currentDateTime();
+    QString id = QString::number(QDateTime::currentMSecsSinceEpoch());
+    // QDateTime currentDateTime = QDateTime::currentDateTime();
     QString scanTime = m_ui.monthlyTimeEdit->text();
     if (scanTime.length() < 8)
         scanTime = scanTime + ":00";
@@ -186,7 +186,7 @@ void scheduler::slot_scanButtonClicked(int id)
 {
     int rc = QMessageBox::information(this, tr("Start Scan-Job"), tr("Do you realy want to start this Scan-Job?"), QMessageBox::Yes, QMessageBox::No);
     QString profileName;
-    qint64 today = QDateTime::currentDateTime().toMSecsSinceEpoch();
+    qint64 today = QDateTime::currentMSecsSinceEpoch();
     QStringList values;
     QString temp;
     QString scanID;
@@ -387,7 +387,7 @@ void scheduler::slot_checkTimerTimeout()
     QStringList scanJobs = m_setupFile->getKeywords("ScanJobs");
     QStringList values;
     QString line;
-    qint64 today = QDateTime::currentDateTime().toMSecsSinceEpoch();
+    qint64 today = QDateTime::currentMSecsSinceEpoch();
     qint64 scanDate;
     QDateTime scanDateTime;
 

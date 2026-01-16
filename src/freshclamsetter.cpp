@@ -369,7 +369,7 @@ void freshclamsetter::slot_startDelayTimerExpired()
 void freshclamsetter::slot_updaterFinished(int rc)
 {
     delete m_busyLabel;
-    QString rcstring = m_updater->readAll();
+    // QString rcstring = m_updater->readAll();
 
     if (rc == 0) {
         emit setBallonMessage(0, tr("INFO"), tr("Update-Process finished"));

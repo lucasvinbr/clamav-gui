@@ -14,7 +14,7 @@ void dragablePushButton::mouseMoveEvent(QMouseEvent* event)
 {
     QUrl url("file://" + m_dragDropText);
     QList<QUrl> urls;
-    event = event;
+    //event = event;
 
     urls << url;
     QDrag* drag = new QDrag(this);
