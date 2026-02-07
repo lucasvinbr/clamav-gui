@@ -98,6 +98,7 @@ void scanTab::slot_updateDeviceList()
     QStringList dirs = dir.entryList(filters, QDir::AllDirs | QDir::NoDotAndDotDot);
     QStringList dirsUbuntu = dirUbuntu.entryList(filters, QDir::AllDirs | QDir::NoDotAndDotDot);
     m_devicelabel = new QLabel(tr("Devices"));
+    m_devicelabel->setMaximumHeight(30);
     QLayoutItem* item = NULL;
 
     while ((item = m_ui.devicesFrame->layout()->takeAt(0)) != 0) {

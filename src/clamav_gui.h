@@ -120,7 +120,7 @@ private slots:
     void slot_sudoGUIProcessFinished();
     void slot_switchActiveTab(int index);
     void slot_quitApplication();
-    void slot_receiveVersionInformation(QString info);
+    // void slot_receiveVersionInformation(QString info);
 
 signals:
     void showHideDropZoneTriggered();
