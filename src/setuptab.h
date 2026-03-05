@@ -2,6 +2,7 @@
 #define SETUPTAB_H
 
 #include <QFileSystemWatcher>
+#include <QTranslator>
 #include <QFileDialog>
 #include <QProcess>
 #include <QPixmap>
@@ -31,6 +32,7 @@ private:
     bool                  m_supressMessage;
     bool                  m_monochrome;
     QString checkmonochrome(QString color);
+    void findTranslation();
 
 private slots:
     void slot_selectedLanguageChanged();
@@ -41,7 +43,7 @@ private slots:
     void slot_freshclamButtonClicked();
     void slot_clamdscanComboBoxClicked();
     void slot_logHightlighterCheckBoxClicked();
-
+    
 signals:
     void switchActiveTab(int);
     void sendSystemInfo(QString);

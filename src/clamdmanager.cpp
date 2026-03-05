@@ -45,9 +45,9 @@ void clamdManager::initClamdSettings()
     m_sudoGUI = m_setupFile->getSectionValue("Settings", "SudoGUI");
 
     QFile clamdConfFile(QDir::homePath() + "/.clamav-gui/clamd.conf");
-    m_clamdConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/clamd.conf", this);
 
     if (clamdConfFile.exists() == false) {
+        m_clamdConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/clamd.conf", this);
         QString value = m_setupFile->getSectionValue("Directories", "LoadSupportedDBFiles");
         if (value.indexOf("checked|") == 0)
             m_clamdConf->addSingleLineValue("DatabaseDirectory", value.mid(value.indexOf("|") + 1));
@@ -71,6 +71,8 @@ void clamdManager::initClamdSettings()
         m_clamdConf->setSingleLineValue("OnAccessRetryAttempts", "0");
         m_clamdConf->setSingleLineValue("OnAccessExcludeUname", "root");
         m_clamdConf->setSingleLineValue("OnAccessExcludeUID", "0");
+    } else {
+        m_clamdConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/clamd.conf", this);
     }
 
     QStringList parameters;
@@ -183,10 +185,11 @@ void clamdManager::slot_logFileContentChanged()
     QString content;
     QString checkString;
 
-    file.open(QIODevice::ReadOnly);
-    QTextStream stream(&file);
-    content = stream.readAll();
-    file.close();
+    if (file.open(QIODevice::ReadOnly)) {
+        QTextStream stream(&file);
+        content = stream.readAll();
+        file.close();
+    }
 
     QStringList lines = content.split("\n");
     foreach (QString line, lines) {
@@ -247,10 +250,11 @@ void clamdManager::slot_clamdStartStopButtonClicked()
         QFile logFile(QDir::homePath() + "/.clamav-gui/clamd.log");
         if (logFile.exists() == true)
             logFile.remove();
-        logFile.open(QIODevice::ReadWrite);
-        QTextStream stream(&logFile);
-        stream << "";
-        logFile.close();
+        if (logFile.open(QIODevice::ReadWrite)) {
+            QTextStream stream(&logFile);
+            stream << "";
+            logFile.close();
+        }
         m_clamdLogWatcher->addPath(QDir::homePath() + "/.clamav-gui/clamd.log");
 
         m_ui.clamdLogPlainTextEdit->clear();
@@ -288,10 +292,12 @@ void clamdManager::slot_clamdStartStopButtonClicked()
     else {
         m_setupFile->setSectionValue("Clamd", "Status", "shutting down ...");
         emit systemStatusChanged();
-        pidFile.open(QIODevice::ReadOnly);
-        QTextStream stream(&pidFile);
-        QString pid = stream.readLine();
-        pidFile.close();
+        QString pid = "";
+        if (pidFile.open(QIODevice::ReadOnly)) {
+            QTextStream stream(&pidFile);
+            pid = stream.readLine();
+            pidFile.close();
+        }
         m_ui.startStopClamdPushButton->setText(tr("  Stopping Clamd. Please wait!"));
         QFile stopclamdFile(QDir::homePath() + "/.clamav-gui/stopclamd.sh");
         if (stopclamdFile.exists() == true)
@@ -352,15 +358,16 @@ void clamdManager::slot_startClamdProcessFinished(int exitCode, QProcess::ExitSt
         m_clamdPidWatcher->addPath("/tmp/clamd.pid");
 
         QFile pidFile("/tmp/clamd.pid");
-        pidFile.open(QIODevice::ReadOnly);
-        QTextStream stream(&pidFile);
-        QString pid = stream.readLine();
-        pid = pid.replace("\n", "");
+        if (pidFile.open(QIODevice::ReadOnly)) {
+            QTextStream stream(&pidFile);
+            QString pid = stream.readLine();
+            pid = pid.replace("\n", "");
 
-        m_setupFile->setSectionValue("Clamd", "ClamdPid", pid);
-        m_setupFile->setSectionValue("Clamd", "Status", "is running");
+            m_setupFile->setSectionValue("Clamd", "ClamdPid", pid);
+            m_setupFile->setSectionValue("Clamd", "Status", "is running");
 
-        pidFile.close();
+            pidFile.close();
+        }
 
         emit systemStatusChanged();
         m_ui.startStopClamdPushButton->setStyleSheet(selectColor("green"));
@@ -627,11 +634,13 @@ void clamdManager::slot_restartClamonaccProcessFinished()
 
 void clamdManager::slot_restartClamdButtonClicked()
 {
+    QString pid = "";
     QFile pidFile("/tmp/clamd.pid");
-    pidFile.open(QIODevice::ReadOnly);
-    QTextStream stream(&pidFile);
-    QString pid = stream.readLine();
-    pidFile.close();
+    if (pidFile.open(QIODevice::ReadOnly)) {
+        QTextStream stream(&pidFile);
+        pid = stream.readLine();
+        pidFile.close();
+    }
 
     m_setupFile->setSectionValue("Clamd", "ClamdPid", pid);
 
@@ -743,17 +752,19 @@ bool clamdManager::checkClamdRunning()
     parameters << "clamd";
 
     int pid = checkPIDProcess.execute("pidof", parameters);
+
     if (pid == 0) {
         rc = true;
         QFile pidFile("/tmp/clamd.pid");
-        pidFile.open(QIODevice::ReadOnly);
-        QTextStream stream(&pidFile);
-        QString pidString = stream.readLine();
-        pidString = pidString.replace("\n", "");
-        m_setupFile->setSectionValue("Clamd", "ClamdPid", pidString);
-        m_setupFile->setSectionValue("Clamd", "Status", "is running");
-        m_ui.startStopClamdPushButton->setStyleSheet(selectColor("green"));
-        pidFile.close();
+        if (pidFile.open(QIODevice::ReadOnly)) {
+            QTextStream stream(&pidFile);
+            QString pidString = stream.readLine();
+            pidString = pidString.replace("\n", "");
+            m_setupFile->setSectionValue("Clamd", "ClamdPid", pidString);
+            m_setupFile->setSectionValue("Clamd", "Status", "is running");
+            m_ui.startStopClamdPushButton->setStyleSheet(selectColor("green"));
+            pidFile.close();
+        }
 
         emit systemStatusChanged();
     }
@@ -792,7 +803,12 @@ void clamdManager::initClamdConfElements()
     if (m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter") == false) {
         m_logHighlighter = new highlighter(m_ui.clamdLogPlainTextEdit->document());
         m_monochrome = false;
-        m_ui.startStopClamdPushButton->setStyleSheet(selectColor("red"));
+        if (checkClamdRunning() == true) {
+            m_ui.startStopClamdPushButton->setStyleSheet(selectColor("green"));
+        }
+        else {
+            m_ui.startStopClamdPushButton->setStyleSheet(selectColor("red"));
+        }
         m_ui.clamonaccLabel->setStyleSheet("background-color:#c0c0c0;color:black;padding:3px");
         m_ui.clamdLabel_3->setStyleSheet("background-color:#c0c0c0;color:black;padding:3px");
     }

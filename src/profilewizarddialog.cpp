@@ -591,7 +591,7 @@ void ProfileWizardDialog::slot_checkNavigationButtons()
             break;
         case 1:
             m_ui->previousButton->setEnabled(true);
-            if ((m_ui->profileNameLineEdit->text() == "") && (!checkFile.exists()))
+            if ((m_ui->profileNameLineEdit->text() == "") | (checkFile.exists()))
                 m_ui->nextButton->setEnabled(false);
             else
                 m_ui->nextButton->setEnabled(true);
@@ -697,8 +697,8 @@ void ProfileWizardDialog::slot_createButtonClicked()
     QString checked;
     QString keyword;
     QString value;
-    // QString optionString;
-    // QString tooltipString;
+    /*QString optionString;
+    QString tooltipString;*/
 
     m_newProfile = false;
     for (int i = 0; i < list.count(); i++) {
@@ -953,6 +953,8 @@ void ProfileWizardDialog::slot_createButtonClicked()
 
     emit signal_profileSaved();
     this->accept();
+
+    delete profiles;
 }
 
 void ProfileWizardDialog::slot_getClamscanProcessHasOutput()

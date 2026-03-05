@@ -41,8 +41,8 @@ public:
     ~logViewerObject();
 
 private:
-    Ui::logViewerObject *m_ui;
     setupFileHandler    *m_setupfile;
+    Ui::logViewerObject *m_ui;
     QString m_logFileName;
     QList<partialLogObject*> m_logObjectsList;
     void loadLogFile(QString);

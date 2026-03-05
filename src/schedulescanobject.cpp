@@ -203,8 +203,8 @@ void scheduleScanObject::slot_scanProcessHasErrOutput()
 
 void scheduleScanObject::slot_scanProcessFinished(int exitCode, QProcess::ExitStatus status)
 {
-    //exitCode = exitCode;
-    //status = status;
+    exitCode = exitCode;
+    status = status;
     QString temp;
     int pos, end;
 
@@ -343,8 +343,8 @@ void scheduleScanObject::slot_totalErrorButtonClicked()
 void scheduleScanObject::slot_infectedFilesButtonClicked()
 {
     QTextCursor cursor = m_ui.logMessagePlainTextEdit->textCursor();
-    QString searchString = "FOUND";
-    int pos = m_ui.logMessagePlainTextEdit->toPlainText().indexOf(searchString, m_infectedStart);
+    QString searchString = " FOUND\n";
+    int pos = m_ui.logMessagePlainTextEdit->toPlainText().toUpper().indexOf(searchString, m_infectedStart);
 
     if (pos >= 0) {
         m_infectedStart = pos + searchString.length();
@@ -353,7 +353,7 @@ void scheduleScanObject::slot_infectedFilesButtonClicked()
         cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, searchString.length());
         m_ui.logMessagePlainTextEdit->setTextCursor(cursor);
         m_ui.logMessagePlainTextEdit->ensureCursorVisible();
-        if (m_ui.logMessagePlainTextEdit->toPlainText().indexOf(searchString, m_infectedStart) == -1) {
+        if (m_ui.logMessagePlainTextEdit->toPlainText().toUpper().indexOf(searchString, m_infectedStart) == -1) {
             m_infectedStart = 0;
         }
     }

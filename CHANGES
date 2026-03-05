@@ -1,5 +1,30 @@
+* Sun Mar 1 2026 - Version 1.2.4
+- If in the Options Tab -> Directories section the checkbox for "Save Scan-Reports to file" is activated a log is created for Direct Scans (through Context-Menu) and scans
+- initiated in the Scan Tab of the application. This log is now shown in the Log Tab as logs for "Direct Scan".
+
+* Sat Feb 28 2026 - Version 1.2.3
+- Changed the setup tab language selection. The full name of the selected country is now provided by qlocale. File "countryfullnames.txt" removed from the project. (obsolete)
+- Also the combobox with the available languages is set to the current selected language.
+
+* Fri Feb 27 2026 - Version 1.2.2
+- Fixed memory leaks in several modules. (regarding the use of the setupfilehandler and log-tabs)
+
+* Fri Feb 27 2026 - Version 1.2.1
+- Fixed the highlighter. Only " FOUND\n" is highlighted.
+- the search function through the "infected files" button is fixed as well. Only entries with " FOUND\n" are found.
+
+* Thu Feb 26 2026 - Version 1.2.0
+- in the Profile-Wizzard the name of the profile is used as part of the logfile (lucasvinbr)
+- Fixed the initial creation of the clamd.conf file. (broken due to unknown reason???)
+- Fixed the color-setting of the start/stop button for clamd. After restart of the program the button was red even when clamd was running (text was right).
+
+* Tue Feb 24 2026 - Version 1.1.9
+- Chinese added as supported language
+- Complete revision of the translation part in the setup tab.
+- Fixed the context menu.
+
 * Wed Nov 26 2025 - Version 1.1.8
-- Fixed a minor bug in the setup wizzard and a wrong signalname in the logview class (switching to monochrome mode.)
+- Fixed a minor bug in the setup wizzard and a wrong signalname in the option tab (switching to monochrome mode.)
 
 * Thu Nov 25 2025 - Version 1.1.7
 - Fixed a bug in the options tab, regarding the directory information saved in the setup file (settings.ini).

@@ -2,8 +2,11 @@
 #define TRANSLATOR_H
 
 #include <QMessageBox>
+#include <QTextStream>
 #include <QStringList>
 #include <QString>
+#include <QFile>
+#include <QDir>
 
 /*!
  * \brief The translator class provides translation services for the application.
@@ -23,6 +26,7 @@ public:
         * \brief translateit Translates the given string based on the selected language.
         * \param original The original string to be translated.
         * \return The translated string.
+        * \OBSOLETE due to changes mode in the translation files.
     */
     QString translateit(QString original);
 

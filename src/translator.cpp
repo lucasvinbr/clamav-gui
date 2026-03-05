@@ -766,7 +766,7 @@ QString translator::translateit(QString original) {
             base_it_IT = base_it_IT + "Applicare limiti simili a FIPS sull'utilizzo di algoritmi hash per scopi crittografici. Disabiliterà MD5 e SHA1. PHP firma e richiederà file '.sign' per verificare l'autenticità CVD.";
 
 // translations da_DK
-    QString base_da_DK = "Sei mitteilsam|";
+    QString base_da_DK = "Vær kommunikativ|";
             base_da_DK = base_da_DK + "Vis filer i arkiver|";
             base_da_DK = base_da_DK + "Aktiver libclamavs fejlfindingsmeddelelser|";
             base_da_DK = base_da_DK + "Udsender kun fejlmeddelelser|";
@@ -1529,6 +1529,19 @@ QString translator::translateit(QString original) {
     } else helper = "<<< " + original + ">>>";
 
     rc = helper;
+
+    if (rc != "") {
+        QString firstblock = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!DOCTYPE TS>\n<TS version=\"2.1\" language=\"" + m_languageset.mid(1,5) + "\" sourcelanguage=\"en_US\">\n<context>\n\t<name>ClamAV</name>";
+        QString newBlock = "\t<message>\n\t\t<source>" + original + "</source>\n\t\t<translation>" + rc + "</translation>\n\t</message>\n";
+        QFile file (QDir::homePath() + "/translation.ts");
+        if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            QTextStream stream(&file);
+            QString content = stream.readAll().toLocal8Bit().constData();
+            if (content == "") newBlock = firstblock + newBlock;
+            stream << newBlock;
+            file.close();
+        }
+    }
 
     return rc;
 }

@@ -5,7 +5,6 @@ logViewerObject::logViewerObject(QWidget* parent, setupFileHandler* setupFile) :
 {
     //m_setupfile = new setupFileHandler(QDir::homePath() + "/.clamav-gui/settings.ini", this); --> uses the setupFileHandler provided by the clamav_gui class
     m_ui->setupUi(this);
-    m_logObjectsList = QList<partialLogObject*>();
     slot_profilesChanged();
 }
 
@@ -34,6 +33,12 @@ void logViewerObject::slot_profilesChanged()
     }
 
     m_ui->profileComboBox->clear();
+
+    QString SRTFvalue = m_setupfile->getSectionValue("Directories","ScanReportToFile");
+    if (SRTFvalue.indexOf("checked|") == 0) {
+        m_ui->profileComboBox->addItem("Direct Scan");
+    }
+
     m_ui->profileComboBox->addItems(profilesWithLog);
     if (m_ui->profileComboBox->findText(actualProfileName) != -1) {
         m_ui->profileComboBox->setCurrentIndex(m_ui->profileComboBox->findText(actualProfileName));
@@ -54,16 +59,20 @@ void logViewerObject::loadLogFile(QString profile)
     QStringList values;
 
     while (m_ui->logTab->count() > 0) {
+        QWidget * tempwidget = m_ui->logTab->widget(0);
         m_ui->logTab->removeTab(0);
+
+        if (tempwidget != nullptr) {
+            delete tempwidget;
+        }
     }
 
-    for(int i = 0; i < m_logObjectsList.count(); i++) {
-        delete m_logObjectsList[i];
+    if (profile == "Direct Scan") {
+        values = m_setupfile->getSectionValue("Directories", "ScanReportToFile").split("|");
+    } else
+    {
+        values = sf->getSectionValue("Directories", "ScanReportToFile").split("|");
     }
-
-    m_logObjectsList.clear();
-
-    values = sf->getSectionValue("Directories", "ScanReportToFile").split("|");
     if (values.count() == 2) {
         QFile file(values[1]);
         m_logFileName = values[1];
@@ -73,7 +82,6 @@ void logViewerObject::loadLogFile(QString profile)
             logs = buffer.split("<Scanning startet>");
             for (int i = 1; i < logs.count(); i++) {
                 partialLogObject* log = new partialLogObject(this, logs[i], css);
-                m_logObjectsList.append(log);
                 connect(this, SIGNAL(logHighlightingChanged(bool)), log, SLOT(slot_add_remove_highlighter(bool)));
                 tabHeader = logs[i].mid(1, logs[i].indexOf("\n") - 1);
                 m_ui->logTab->insertTab(0, log, QIcon(":/icons/icons/information.png"), tabHeader);
