@@ -188,7 +188,13 @@ void setupTab::findTranslation()
         if (m_file.indexOf(".qm") != -1 && m_file.contains("gui")) {
             QString m_lang = m_file.mid(11,5);
             QLocale locale(m_lang);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 2, 0))
             m_country = locale.territoryToString(locale.territory());
+#else
+            m_country = locale.countryToString(locale.country());
+#endif
+
             m_ui.languageSelectComboBox->addItem(QIcon(translation_path + "languageicons/" + m_lang + ".png"),"[" + m_lang + "] " + m_country);        
         }
     }
