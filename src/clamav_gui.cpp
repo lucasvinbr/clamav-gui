@@ -363,7 +363,7 @@ void clamav_gui::slot_scanRequest(QStringList scanObjects)
     QString color;
 
     emit setScannerForm(false);
-    monochrome == true ? color = "#404040;m_color:white" : color = "#ffff00";
+    monochrome == true ? color = "#404040;color:white" : color = "#ffff00;color:black";
     m_scannerTab->setStatusBarMessage(tr("Scanning started ......."), color);
 
     if (m_setupFile->getSectionValue("Clamd", "Status") == "is running") {
@@ -614,23 +614,23 @@ void clamav_gui::slot_scanProcessFinished(int exitCode, QProcess::ExitStatus sta
     QString m_color;
 
     if (status == QProcess::CrashExit) {
-        monochrome == true ? m_color = "#404040;m_color:white" : m_color = "#ff0000";
+        monochrome == true ? m_color = "#404040;color:white" : m_color = "#ff0000;color:white";
         m_scannerTab->setStatusBarMessage(tr("Scan-Process aborted ......"), m_color);
         m_trayIcon->showMessage(tr("Scan-Status"), tr("Scan Process aborted ....."), QSystemTrayIcon::Warning, 5000);
     }
     else {
         if (exitCode == 0) {
-            monochrome == true ? m_color = "#404040;m_color:white" : m_color = "#00ff00";
+            monochrome == true ? m_color = "#404040;color:white" : m_color = "#00ff00;color:white";
             m_scannerTab->setStatusBarMessage(tr("Scan-Process finished ...... no Virus found!"), m_color);
             m_trayIcon->showMessage(tr("Scan-Status"), tr("Scan Process finished ..... no virus found!"), QSystemTrayIcon::Information, 5000);
         }
         else if (exitCode == 1) {
-            monochrome == true ? m_color = "#404040;m_color:white" : m_color = "#ff0000";
+            monochrome == true ? m_color = "#404040;color:white" : m_color = "#ff0000;color:white";
             m_scannerTab->setStatusBarMessage(tr("Scan-Process finished ...... Virus found!"), m_color);
             m_trayIcon->showMessage(tr("Scan-Status"), tr("Scan Process finished ..... a virus was found!"), QSystemTrayIcon::Critical, 5000);
         }
         else {
-            monochrome == true ? m_color = "#404040;m_color:white" : m_color = "#ff0000";
+            monochrome == true ? m_color = "#404040;color:white" : m_color = "#ff0000;color:white";
             m_scannerTab->setStatusBarMessage(tr("Scan-Process finished ...... an error occured!"), m_color);
             m_trayIcon->showMessage(tr("Scan-Status"), tr("Scan Process finished ..... an error occurred!"), QSystemTrayIcon::Warning, 5000);
         }
@@ -650,7 +650,7 @@ void clamav_gui::slot_abortScan()
     bool monochrome = m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter");
     QString color;
 
-    monochrome == true ? color = "#404040;m_color:white" : color = "#ff0000";
+    monochrome == true ? color = "#404040;color:white" : color = "#ff0000;color:white";
     m_scannerTab->setStatusMessage(tr("Scan-Process aborted!"));
     m_scannerTab->setStatusBarMessage(tr("Scan-Process aborted!"), color);
 

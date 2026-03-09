@@ -4,716 +4,864 @@
 <context>
     <name>ClamAV</name>
     <message>
-      <source>Be verbose</source>
-      <translation>Vær kommunikativ</translation>
+        <source>Be verbose.</source>
+        <translation>Vær ordrig.</translation>
     </message>
     <message>
-      <source>Show filenames inside scanned archives</source>
-      <translation>Vis filer i arkiver</translation>
+        <source>Show filenames inside scanned archives.</source>
+        <translation>Vis filnavne i scannede arkiver.</translation>
     </message>
     <message>
-      <source>Enable libclamav's debug messages</source>
-      <translation>Aktiver libclamavs fejlfindingsmeddelelser</translation>
+        <source>Enable libclamav&apos;s debug messages.</source>
+        <translation>Aktiver libclamavs fejlfindingsbeskeder.</translation>
     </message>
     <message>
-      <source>Only output error messages</source>
-      <translation>Udsender kun fejlmeddelelser</translation>
+        <source>Only output error messages.</source>
+        <translation>Udskriv kun fejlmeddelelser.</translation>
     </message>
     <message>
-      <source>Write to stdout instead of stderr. Does not affect 'debug' messages.</source>
-      <translation>Skriv til stdout i stedet for stderr. Påvirker ikke 'debug'-meddelelser</translation>
+        <source>Write to stdout instead of stderr. Does not affect &apos;debug&apos; messages.</source>
+        <translation>Skriv til stdout i stedet for stderr. Påvirker ikke &apos;debug&apos;-beskeder.</translation>
     </message>
     <message>
-      <source>Disable summary at end of scanning</source>
-      <translation>Deaktiver scanningsoversigten ved afslutningen af scanningsprocessen</translation>
+        <source>Disable summary at end of scanning.</source>
+        <translation>Deaktiver oversigt ved afslutning af scanning.</translation>
     </message>
     <message>
-      <source>Only print infected files</source>
-      <translation>Udsender kun inficerede filer</translation>
+        <source>Only print infected files.</source>
+        <translation>Udskriv kun inficerede filer.</translation>
     </message>
     <message>
-      <source>Skip printing OK files</source>
-      <translation>Spring output af OK-filer over</translation>
+        <source>Skip printing OK files.</source>
+        <translation>Spring udskrivning af OK-filer over.</translation>
     </message>
     <message>
-      <source>Sound bell on virus detection</source>
-      <translation>Klokke til virusdetektion</translation>
+        <source>Sound bell on virus detection.</source>
+        <translation>Lydklokke ved virusdetektion.</translation>
     </message>
     <message>
-      <source>Do not remove temporary files</source>
-      <translation>Fjern ikke midlertidige filer</translation>
+        <source>Do not remove temporary files.</source>
+        <translation>Fjern ikke midlertidige filer.</translation>
     </message>
     <message>
-      <source>Generate JSON description of scanned file(s). JSON will be printed and also-</source>
-      <translation>Opret JSON-beskrivelse af scannede filer. JSON er output og også</translation>
+        <source>Create temporary files for nested file scans that would otherwise be in-memory only.</source>
+        <translation>Opret midlertidige filer til indbyggede filscanninger, der ellers kun ville være i hukommelsen.</translation>
     </message>
     <message>
-      <source>Only load official signatures</source>
-      <translation>Indlæs kun officielle underskrifter</translation>
+        <source>Generate JSON metadata for the scanned file(s). For testing &amp; development use ONLY.</source>
+        <translation>Generer JSON-metadata for den/de scannede fil(er). KUN til brug for test og udvikling.</translation>
     </message>
     <message>
-      <source>Scan subdirectories recursively</source>
-      <translation>Scan undermapper rekursivt</translation>
+        <source>Store html URIs in metadata. URIs will be written to the metadata.json file in an array called &apos;URIs&apos;.</source>
+        <translation>Gem html-URI&apos;er i metadata. URI&apos;er vil blive skrevet til metadata.json-filen i et array kaldet &apos;URI&apos;er&apos;.</translation>
     </message>
     <message>
-      <source>Continue scanning within file after finding a match</source>
-      <translation>Fortsæt med at scanne i filen, hvis der opnås et hit</translation>
+        <source>Store pdf URIs in metadata. URIs will be written to the metadata.json file in an array called &apos;URIs&apos;.</source>
+        <translation>Gem pdf-URI&apos;er i metadata. URI&apos;er vil blive skrevet til metadata.json-filen i et array kaldet &apos;URI&apos;er&apos;.</translation>
     </message>
     <message>
-      <source>Scan files and directories on other filesystems</source>
-      <translation>Scan filer og mapper på andre filsystemer</translation>
+        <source>Store md5 and sha1 in addition to sha2-256 in metadata.</source>
+        <translation>Gem md5 og sha1 ud over sha2-256 i metadata.</translation>
     </message>
     <message>
-      <source>Remove infected files. Be careful!</source>
-      <translation>Fjern inficerede filer. Vær forsigtig!</translation>
+        <source>Only load official signatures.</source>
+        <translation>Indlæs kun officielle underskrifter.</translation>
     </message>
     <message>
-      <source>Load unsigned bytecode. **Caution**: You should NEVER run bytecode signatures from untrusted sources. Doing so may result in arbitrary code execution</source>
-      <translation>Indlæs usigneret bytekode. **Forsigtig**: Du bør ALDRIG køre bytekode-signaturer fra upålidelige kilder. Hvis du gør det, kan det resultere i udførelse af vilkårlig kode</translation>
+        <source>Scan subdirectories recursively.</source>
+        <translation>Scan undermapper rekursivt.</translation>
     </message>
     <message>
-      <source>Detect Possibly Unwanted Applications</source>
-      <translation>Genkender formentlig uønskede programmer</translation>
+        <source>Continue scanning within file after finding a match.</source>
+        <translation>Fortsæt scanningen i filen, efter du har fundet et match.</translation>
     </message>
     <message>
-      <source>Detect structured data (SSN, Credit Card)</source>
-      <translation>Genkender strukturerede data (SSN, kreditkort)</translation>
+        <source>Scan files and directories on other filesystems.</source>
+        <translation>Scan filer og mapper på andre filsystemer.</translation>
     </message>
     <message>
-      <source>Scan mail files</source>
-      <translation>Scanning af mailfiler</translation>
+        <source>Remove infected files. Be careful!</source>
+        <translation>Fjern inficerede filer. Vær forsigtig!</translation>
     </message>
     <message>
-      <source>Enable email signature-based phishing detection</source>
-      <translation>Aktivér phishing-registrering med e-mail-signaturer</translation>
+        <source>Load unsigned bytecode. **Caution**: You should NEVER run bytecode signatures from untrusted sources. Doing so may result in arbitrary code execution.</source>
+        <translation>Indlæs usigneret bytekode. **Advarsel**: Du bør ALDRIG køre bytekodesignaturer fra kilder, du ikke har tillid til. Dette kan resultere i vilkårlig kodeudførelse.</translation>
     </message>
     <message>
-      <source>Enable URL signature-based phishing detection</source>
-      <translation>Aktivér URL-signatur og phishing-registrering</translation>
+        <source>Detect Possibly Unwanted Applications.</source>
+        <translation>Find muligvis uønskede programmer.</translation>
     </message>
     <message>
-      <source>Heuristic alerts</source>
-      <translation>Heuristiske advarsler</translation>
+        <source>Detect structured data (SSN, Credit Card).</source>
+        <translation>Registrer strukturerede data (crp-nummer, kreditkort).</translation>
     </message>
     <message>
-      <source>Stop scanning as soon as a heuristic match is found</source>
-      <translation>Stop søgningen, så snart der er fundet et heuristisk match</translation>
+        <source>Scan mail files.</source>
+        <translation>Scan mailfiler.</translation>
     </message>
     <message>
-      <source>Normalize html, script, and text files. Use normalize=no for yara compatibility</source>
-      <translation>Normaliser HTML-, script- og tekstfiler. Brug normalise=no for Yara-kompatibilitet</translation>
+        <source>Enable email signature-based phishing detection.</source>
+        <translation>Aktivér phishing-detektion baseret på e-mailsignaturer.</translation>
     </message>
     <message>
-      <source>Scan PE files</source>
-      <translation>Scan PE-filer</translation>
+        <source>Enable URL signature-based phishing detection.</source>
+        <translation>Aktivér phishing-detektion baseret på URL-signatur.</translation>
     </message>
     <message>
-      <source>Scan ELF files</source>
-      <translation>Scanning af ELF-filer</translation>
+        <source>Heuristic alerts.</source>
+        <translation>Heuristiske alarmer.</translation>
     </message>
     <message>
-      <source>Scan OLE2 containers</source>
-      <translation>Scan OLE2-container</translation>
+        <source>Stop scanning as soon as a heuristic match is found.</source>
+        <translation>Stop scanningen, så snart der findes et heuristisk match.</translation>
     </message>
     <message>
-      <source>Scan PDF files</source>
-      <translation>Scan PDF-filer</translation>
+        <source>Normalize html, script, and text files. Use normalize=no for yara compatibility.</source>
+        <translation>Normaliser html-, script- og tekstfiler. Brug normalize=no for Yara-kompatibilitet.</translation>
     </message>
     <message>
-      <source>Scan SWF files</source>
-      <translation>Scan SWF-filer</translation>
+        <source>Scan PE files.</source>
+        <translation>Scan PE-filer.</translation>
     </message>
     <message>
-      <source>Scan HTML files</source>
-      <translation>Scan HTML-filer</translation>
+        <source>Scan ELF files.</source>
+        <translation>Scan ELF-filer.</translation>
     </message>
     <message>
-      <source>Scan xml-based document files</source>
-      <translation>Scan xml-baserede dokumentfiler</translation>
+        <source>Scan OLE2 containers.</source>
+        <translation>Scan OLE2-containere.</translation>
     </message>
     <message>
-      <source>Scan HWP3 files</source>
-      <translation>Scan HWP3-filer</translation>
+        <source>Scan PDF files.</source>
+        <translation>Scan PDF-filer.</translation>
     </message>
     <message>
-      <source>Scan archive files (supported by libclamav)</source>
-      <translation>Scanning af arkivfiler (understøttes af libclamav)</translation>
+        <source>Scan SWF files.</source>
+        <translation>Scan SWF-filer.</translation>
     </message>
     <message>
-      <source>Alert on broken executable files (PE &amp; ELF)</source>
-      <translation>Advarsel om defekte eksekverbare filer (PE &amp; ELF)</translation>
+        <source>Scan HTML files.</source>
+        <translation>Scan HTML-filer.</translation>
     </message>
     <message>
-      <source>Alert on broken graphics files (JPEG, TIFF, PNG, GIF)</source>
-      <translation>Advarsel om defekte grafikfiler (JPEG, TIFF, PNG, GIF)</translation>
+        <source>Scan xml-based document files.</source>
+        <translation>Scan xml-baserede dokumentfiler.</translation>
     </message>
     <message>
-      <source>Alert on encrypted archives and documents</source>
-      <translation>Advarsel om krypterede arkiver og dokumenter</translation>
+        <source>Scan HWP3 files.</source>
+        <translation>Scan HWP3-filer.</translation>
     </message>
     <message>
-      <source>Alert on encrypted archives</source>
-      <translation>Advarsel for krypterede arkiver</translation>
+        <source>Scan OneNote files.</source>
+        <translation>Scan OneNote-filer.</translation>
     </message>
     <message>
-      <source>Alert on encrypted documents</source>
-      <translation>Advarsel for krypterede dokumenter</translation>
+        <source>Scan archive files (supported by libclamav).</source>
+        <translation>Scan arkivfiler (understøttet af libclamav).</translation>
     </message>
     <message>
-      <source>Alert on OLE2 files containing VBA macros</source>
-      <translation>Advarsel om OLE2-filer, der indeholder VBA-makroer</translation>
+        <source>Scan image (graphics) files.</source>
+        <translation>Scan billedfiler (grafikfiler).</translation>
     </message>
     <message>
-      <source>Alert on files that exceed max file size, max scan size, or max recursion limit</source>
-      <translation>Advarsel for filer, der overskrider den maksimale filstørrelse, den maksimale scanningsstørrelse eller den maksimale rekursionsgrænse</translation>
+        <source>Detect files by calculating image (graphics) fuzzy hashes.</source>
+        <translation>Find filer ved at beregne fuzzy hashes for billeder (grafik).</translation>
     </message>
     <message>
-      <source>Alert on emails containing SSL mismatches in URLs</source>
-      <translation>Advarsel for e-mails, der indeholder SSL-misforhold i URL'er</translation>
+        <source>Alert on broken executable files (PE &amp; ELF).</source>
+        <translation>Advarsel om ødelagte eksekverbare filer (PE &amp; ELF).</translation>
     </message>
     <message>
-      <source>Alert on emails containing cloaked URLs</source>
-      <translation>Advarsel om e-mails med skjulte URL'er</translation>
+        <source>Alert on broken graphics files (JPEG, TIFF, PNG, GIF).</source>
+        <translation>Advarsel om ødelagte grafikfiler (JPEG, TIFF, PNG, GIF).</translation>
     </message>
     <message>
-      <source>Alert on raw DMG image files containing partition intersections</source>
-      <translation>Advarsel for rå DMG-billedfiler, der indeholder partitionsoverlapninger</translation>
+        <source>Alert on encrypted archives and documents.</source>
+        <translation>Advarsel om krypterede arkiver og dokumenter.</translation>
     </message>
     <message>
-      <source>Disable authenticode certificate chain verification in PE files</source>
-      <translation>Deaktivering af Authenticode-certifikatkædekontrol i PE-filer</translation>
+        <source>Alert on encrypted archives.</source>
+        <translation>Advarsel om krypterede arkiver.</translation>
     </message>
     <message>
-      <source>Dump authenticode certificate chain in PE files</source>
-      <translation>Dump af Authenticode-certifikatkæden i PE-filer</translation>
+        <source>Alert on encrypted documents.</source>
+        <translation>Advarsel om krypterede dokumenter.</translation>
     </message>
     <message>
-      <source>Disable caching and cache checks for hash sums of scanned files</source>
-      <translation>Deaktiver caching og cache-kontrol af hashsummer for scannede filer</translation>
+        <source>Alert on OLE2 files containing VBA macros.</source>
+        <translation>Advarsel om OLE2-filer, der indeholder VBA-makroer.</translation>
     </message>
     <message>
-      <source>Create temporary files for nested file scans that would otherwise be in-memory only</source>
-      <translation>Opret midlertidige filer til indlejrede filscanninger, der ellers kun ville være i hukommelsen</translation>
+        <source>Alert on files that exceed max file size, max scan size, or max recursion limit.</source>
+        <translation>Advarsel om filer, der overstiger den maksimale filstørrelse, den maksimale scanningsstørrelse eller den maksimale rekursionsgrænse.</translation>
     </message>
     <message>
-      <source>Generate JSON metadata for the scanned file(s). For testing &amp; development use ONLY</source>
-      <translation>Generer JSON-metadata for de scannede filer. KUN til test- og udviklingsbrug</translation>
+        <source>Alert on emails containing SSL mismatches in URLs.</source>
+        <translation>Advarsel om e-mails, der indeholder SSL-uoverensstemmelser i URL&apos;er.</translation>
     </message>
     <message>
-      <source>Return with a nonzero error code if virus database outdated</source>
-      <translation>Returneres med en fejlkode forskellig fra nul, hvis virusdatabasen er forældet</translation>
+        <source>Alert on emails containing cloaked URLs.</source>
+        <translation>Advarsel om e-mails, der indeholder skjulte URL&apos;er.</translation>
     </message>
     <message>
-      <source>Scan OneNote files</source>
-      <translation>Scan OneNote-filer</translation>
+        <source>Alert on raw DMG image files containing partition intersections.</source>
+        <translation>Advarsel om rå DMG-billedfiler, der indeholder partitionsskæringer.</translation>
     </message>
     <message>
-      <source>Scan image (graphics) files</source>
-      <translation>Scanning af billedfiler (grafik)</translation>
+        <source>Disable authenticode certificate chain verification in PE files.</source>
+        <translation>Deaktiver verifikation af authenticode-certifikatkæde i PE-filer.</translation>
     </message>
     <message>
-      <source>Detect files by calculating image (graphics) fuzzy hashes</source>
-      <translation>Registrer filer ved at beregne fuzzy hashes for billeder (grafik)</translation>
+        <source>Dump authenticode certificate chain in PE files.</source>
+        <translation>Dump Authenticode-certifikatkæden i PE-filer.</translation>
     </message>
     <message>
-      <source>Create temporary files for nested file scans that would otherwise be in-memory only</source>
-      <translation>Opret midlertidige filer til indlejrede filscanninger, der ellers kun ville være i hukommelsen</translation>
+        <source>Disable caching and cache checks for hash sums of scanned files.</source>
+        <translation>Deaktiver caching og cachekontroller for hashsummer af scannede filer.</translation>
     </message>
     <message>
-      <source>Save all reports to a log file. Default: disabled</source>
-      <translation>Gem alle rapporter i en logfil. Standard: deaktiveret</translation>
+        <source>Print the file hash after each file scanned.</source>
+        <translation>Udskriv filens hashtag efter hver scannet fil.</translation>
     </message>
     <message>
-      <source>By default the log file is locked for writing and only a single daemon process can write to it. This option disables the lock. Default: no</source>
-      <translation>Som standard er logfilen låst til skrivning, og kun en enkelt dæmonproces kan skrive til den. Denne mulighed deaktiverer låsen. Standard: nej</translation>
+        <source>Print the file type after each file scanned.</source>
+        <translation>Udskriv filtypen efter hver scannet fil.</translation>
     </message>
     <message>
-      <source>Maximum size of the log file. Value of 0 disables the limit. Default: 1048576</source>
-      <translation>Maksimal størrelse af logfilen. Værdi på 0 deaktiverer grænsen. Standard: 1048576</translation>
+        <source>Enforce FIPS-like limits on using hash algorithms for cryptographic purposes. Will disable MD5 &amp; SHA1. FP sigs and will require &apos;.sign&apos; files to verify CVD authenticity.</source>
+        <translation>Håndhæv FIPS-lignende begrænsninger for brug af hash-algoritmer til kryptografiske formål. Vil deaktivere MD5 og SHA1. PHP-signaturer og vil kræve &apos;.sign&apos;-filer for at verificere CVD-ægthed.</translation>
     </message>
     <message>
-      <source>Log time for each message. Default: no</source>
-      <translation>Logtid for hver besked. Standard: nej</translation>
+        <source>By default the log file is locked for writing and only a single daemon process can write to it. This option disables the lock. Default: no</source>
+        <translation>Som standard er logfilen låst for skrivning, og kun én daemon-proces kan skrive til den. Denne indstilling deaktiverer låsen. Standard: nej</translation>
     </message>
     <message>
-      <source>Log all clean files. Useful in debugging but drastically increases the log size. Default: no</source>
-      <translation>Log alle rene filer. Nyttigt ved fejlfinding, men øger logstørrelsen drastisk. Standard: nej</translation>
+        <source>Maximum size of the log file. Value of 0 disables the limit. Default: 1048576</source>
+        <translation>Maksimal størrelse på logfilen. Værdien 0 deaktiverer grænsen. Standard: 1048576</translation>
     </message>
     <message>
-      <source>Use the system logger (can work together with LogFile). Default: no</source>
-      <translation>Brug systemloggeren (kan fungere sammen med LogFile). Standard: nej</translation>
+        <source>Log time for each message. Default: no</source>
+        <translation>Logtidspunkt for hver besked. Standard: nej</translation>
     </message>
     <message>
-      <source>Type of syslog messages. Please refer to 'man syslog' for facility names. (LOG_LOCAL6, LOG_MAIL), Default: LOG_LOCAL6</source>
-      <translation>Type syslog-meddelelser. Se venligst 'man syslog' for facilitetsnavne. (LOG_LOCAL6, LOG_MAIL), Standard: LOG_LOCAL6</translation>
+        <source>Log all clean files. Useful in debugging but drastically increases the log size. Default: no</source>
+        <translation>Log alle rene filer. Nyttig til fejlfinding, men øger logstørrelsen drastisk. Standard: nej</translation>
     </message>
     <message>
-      <source>Enable verbose logging. Default: no</source>
-      <translation>Aktiver detaljeret logning. Standard: nej</translation>
+        <source>Use the system logger (can work together with LogFile). Default: no</source>
+        <translation>Brug systemloggeren (kan fungere sammen med LogFile). Standard: nej</translation>
     </message>
     <message>
-      <source>Rotate log file. Requires LogFileMaxSize option set prior to this option. Default: no</source>
-      <translation>Roter logfil. Kræver LogFileMaxSize-indstilling forud for denne indstilling. Standard: nej</translation>
+        <source>Type of syslog messages Please refer to &apos;man syslog&apos; for facility names. Default: LOG_LOCAL6</source>
+        <translation>Type af syslog-meddelelser Se &apos;man syslog&apos; for facilitetsnavne. Standard: LOG_LOCAL6</translation>
     </message>
     <message>
-      <source>Log additional information about the infected file, such as its size and hash, together with the virus name. Default: no</source>
-      <translation>Log yderligere oplysninger om den inficerede fil, såsom dens størrelse og hash, sammen med virusnavnet. Standard: nej</translation>
+        <source>Enable verbose logging. Default: no</source>
+        <translation>Aktivér detaljeret logføring. Standard: nej</translation>
     </message>
     <message>
-      <source>Write the daemon's pid to the specified file. Default: disabled</source>
-      <translation>Skriv dæmonens pid til den angivne fil. Standard: disabled</translation>
+        <source>Rotate log file. Requires LogFileMaxSize option set prior to this option. Default: no</source>
+        <translation>Roter logfil. Kræver, at LogFileMaxSize-indstillingen er angivet før denne indstilling. Standard: nej</translation>
     </message>
     <message>
-      <source>This option allows you to change the default temporary directory. Default: /tmp</source>
-      <translation>Denne mulighed giver dig mulighed for at ændre den midlertidige standardmappe. Standard: /tmp</translation>
+        <source>Log additional information about the infected file, such as its size and hash, together with the virus name. Default: no</source>
+        <translation>Log yderligere oplysninger om den inficerede fil, såsom dens størrelse og hash, sammen med virusnavnet. Standard: nej</translation>
     </message>
     <message>
-      <source>This option allows you to change the default database directory. If you enable it, please make sure it points to the same directory in both clamd and freshclam. Default: /usr/local/share/clamav</source>
-      <translation>Denne mulighed giver dig mulighed for at ændre standarddatabasebiblioteket. Hvis du aktiverer det, skal du sørge for, at det peger på det samme bibliotek i både clamd og freshclam. Standard: /usr/local/share/clamav</translation>
+        <source>This option allows you to change the default temporary directory. Default: system specific (usually /tmp or /var/tmp).</source>
+        <translation>Denne indstilling giver dig mulighed for at ændre den midlertidige standardmappe. Standard: systemspecifik (normalt /tmp eller /var/tmp).</translation>
     </message>
     <message>
-      <source>Only load the official signatures published by the ClamAV project. Default: no</source>
-      <translation>Indlæs kun de officielle signaturer udgivet af ClamAV-projektet. Standard: nej</translation>
+        <source>This option allows you to change the default database directory. If you enable it, please make sure it points to the same direc‐ tory in both clamd and freshclam. Default: defined at configuration (/usr/local/share/clamav)</source>
+        <translation>Denne indstilling giver dig mulighed for at ændre standarddatabasemappen. Hvis du aktiverer den, skal du sørge for, at den peger på den samme mappe i både clamd og freshclam. Standard: defineret i konfigurationen (/usr/local/share/clamav)</translation>
     </message>
     <message>
-      <source>Return with a nonzero error code if the virus database is older than the specified number of days. Default: -1</source>
-      <translation>Retur med en fejlkode, der ikke er nul, hvis virusdatabasen er ældre end det angivne antal dage. Standard: -1</translation>
+        <source>Path to a directory containing ClamAV CA certificate files used to verify signed database archives (e.g. CVD files). This direc‐ tory must already exist, be an absolute path, be readable by freshclam, clamd, clamscan, and sigtool. Default: /etc/certs</source>
+        <translation>Sti til en mappe, der indeholder ClamAV CA-certifikatfiler, der bruges til at verificere signerede databasearkiver (f.eks. CVD-filer). Denne mappe skal allerede eksistere, være en absolut sti og kunne læses af freshclam, clamd, clamscan og sigtool. Standard: /etc/certs</translation>
     </message>
     <message>
-      <source>Path to a local (Unix) socket the daemon will listen on. Default: disabled</source>
-      <translation>Sti til en lokal (Unix) socket dæmonen vil lytte på. Standard: deaktiveret</translation>
+        <source>Enforce FIPS-like limits on using hash algorithms for crypto‐ graphic purposes. Will disable MD5 &amp; SHA1 FP sigs and will re‐ quire &apos;.sign&apos; files to verify CVD authenticity. Default: no</source>
+        <translation>Håndhæv FIPS-lignende begrænsninger for brug af hash-algoritmer til kryptografiske formål. Vil deaktivere MD5- og SHA1 FP-signaturer og kræve &apos;.sign&apos;-filer for at verificere CVD-ægthed. Standard: nej</translation>
     </message>
     <message>
-      <source>Sets the group ownership on the unix socket. Default:</source>
-      <translation>Indstiller gruppeejerskabet på unix-socket. Standard:</translation>
+        <source>Only load the official signatures published by the ClamAV project. Default: no</source>
+        <translation>Indlæs kun de officielle signaturer, der er udgivet af ClamAV-projektet. Standard: nej</translation>
     </message>
     <message>
-      <source>Sets the permissions on the unix socket to the specified mode. Default: 660</source>
-      <translation>Sætter tilladelserne på unix-socket til den angivne tilstand. Standard: 660</translation>
+        <source>Return with a nonzero error code if the virus database is older than the specified number of days. Default: -1</source>
+        <translation>Returner med en fejlkode, der ikke er nul, hvis virusdatabasen er ældre end det angivne antal dage. Standard: -1</translation>
     </message>
     <message>
-      <source>Remove stale socket after unclean shutdown. Default: yes</source>
-      <translation>Fjern forældet sokkel efter uren nedlukning. Standard: yes</translation>
+        <source>Remove stale socket after unclean shutdown. Default: yes</source>
+        <translation>Fjern gammel sokkel efter uren nedlukning. Standard: ja</translation>
     </message>
     <message>
-      <source>TCP port number the daemon will listen on. Default: disabled</source>
-      <translation>TCP-portnummer dæmonen vil lytte på. Standard: deaktiveret</translation>
+        <source>TCP port number the daemon will listen on. Default: disabled</source>
+        <translation>TCP-portnummeret som dæmonen lytter på. Standard: deaktiveret</translation>
     </message>
     <message>
-      <source>By default clamd binds to INADDR_ANY. This option allows you to restrict the TCP address and provide some degree of protection from the outside world. This option can be specified multiple times in order to listen on multiple IPs. IPv6 is now supported. Default: disabled</source>
-      <translation>Som standard binder clamd til INADDR_ANY. Denne mulighed giver dig mulighed for at begrænse TCP-adressen og give en vis grad af beskyttelse fra omverdenen. Denne mulighed kan specificeres flere gange for at lytte på flere IP'er. IPv6 er nu understøttet. Standard: deaktiveret</translation>
+        <source>By default clamd binds to INADDR_ANY. This option allows you to restrict the TCP address and provide some degree of protection from the outside world. This option can be specified multiple times in order to listen on multiple IPs. IPv6 is now supported. Default: disabled</source>
+        <translation>Som standard binder clamd sig til INADDR_ANY. Denne indstilling giver dig mulighed for at begrænse TCP-adressen og give en vis grad af beskyttelse mod omverdenen. Denne indstilling kan angives flere gange for at lytte på flere IP-adresser. IPv6 understøttes nu. Standard: deaktiveret.</translation>
     </message>
     <message>
-      <source>Maximum length the queue of pending connections may grow to. Default: 200</source>
-      <translation>Maksimal længde køen af ​​afventende forbindelser kan vokse til. Standard: 200</translation>
+        <source>Maximum length the queue of pending connections may grow to. Default: 200</source>
+        <translation>Maksimal længde, som køen af ​​ventende forbindelser må vokse til. Standard: 200</translation>
     </message>
     <message>
-      <source>Close the STREAM session when the data size limit is exceeded. The value should match your MTA's limit for the maximum attachment size. Default: 100M</source>
-      <translation>Luk STREAM-sessionen, når datastørrelsesgrænsen er overskredet. Værdien bør matche din MTA's grænse for den maksimale vedhæftede filstørrelse. Standard: 100M</translation>
+        <source>Close the STREAM session when the data size limit is exceeded. The value should match your MTA&apos;s limit for the maximum attach‐ ment size. Default: 100M</source>
+        <translation>Luk STREAM-sessionen, når datastørrelsesgrænsen overskrides. Værdien skal stemme overens med din MTA&apos;s grænse for den maksimale vedhæftede filstørrelse. Standard: 100M</translation>
     </message>
     <message>
-      <source>The STREAM command uses an FTP-like protocol. This option sets the lower boundary for the port range. Default: 1024</source>
-      <translation>STREAM-kommandoen bruger en FTP-lignende protokol. Denne indstilling sætter den nedre grænse for portområdet. Standard: 1024</translation>
+        <source>The STREAM command uses an FTP-like protocol. This option sets the lower boundary for the port range. Default: 1024</source>
+        <translation>STREAM-kommandoen bruger en FTP-lignende protokol. Denne indstilling angiver den nedre grænse for portintervallet. Standard: 1024</translation>
     </message>
     <message>
-      <source>This option sets the upper boundary for the port range. Default: 2048</source>
-      <translation>Denne indstilling sætter den øvre grænse for portområdet. Standard: 2048</translation>
+        <source>This option sets the upper boundary for the port range. Default: 2048</source>
+        <translation>Denne indstilling angiver den øvre grænse for portintervallet. Standard: 2048</translation>
     </message>
     <message>
-      <source>Maximum number of threads running at the same time. Default: 10</source>
-      <translation>Maksimalt antal tråde, der kører på samme tid. Standard: 10</translation>
+        <source>Maximum number of threads running at the same time. Default: 10</source>
+        <translation>Maksimalt antal tråde, der kører på samme tid. Standard: 10</translation>
     </message>
     <message>
-      <source>This option specifies the time (in seconds) after which clamd should timeout if a client doesn't provide any data. Default: 120</source>
-      <translation>Denne indstilling angiver den tid (i sekunder), hvorefter clamd skal timeout, hvis en klient ikke leverer nogen data. Standard: 120</translation>
+        <source>This option specifies the time (in seconds) after which clamd should timeout if a client doesn&apos;t provide any data. Default: 120</source>
+        <translation>Denne indstilling angiver tiden (i sekunder), hvorefter clamd skal timeoute, hvis en klient ikke leverer nogen data. Standard: 120</translation>
     </message>
     <message>
-      <source>This option specifies the time (in seconds) after which clamd should timeout if a client doesn't provide any initial command after connecting.  The default is set to 30 to avoid timeouts with TCP sockets  when  processing large messages.  If using a Unix socket, the value can be changed to 5.  Note: the timeout for subsequents commands, and/or data chunks is specified by ReadTimeout. Default: 30</source>
-      <translation>Denne indstilling specificerer tiden (i sekunder), hvorefter clamd skal timeout, hvis en klient ikke giver nogen indledende kommando efter tilslutning. Standarden er sat til 30 for at undgå timeouts med TCP-sockets ved behandling af store meddelelser. Hvis du bruger en Unix-socket, kan værdien ændres til 5, og efterfølgende kommandoer er specificeret for data eller timeouts ved hjælp af timeouts. ReadTimeout. Standard: 30</translation>
+        <source>This option specifies the time (in seconds) after which clamd should timeout if a client doesn&apos;t provide any initial command after connecting. The default is set to 30 to avoid timeouts with TCP sockets when processing large messages. If using a Unix socket, the value can be changed to 5. Note: the timeout for subsequents commands, and/or data chunks is specified by Read‐ Timeout. Default: 30</source>
+        <translation>Denne indstilling angiver tiden (i sekunder), hvorefter clamd skal timeoute, hvis en klient ikke giver nogen initial kommando efter forbindelse. Standardindstillingen er indstillet til 30 for at undgå timeouts med TCP-sockets ved behandling af store meddelelser. Hvis du bruger en Unix-socket, kan værdien ændres til 5. Bemærk: timeout for efterfølgende kommandoer og/eller datastykker er angivet af Read-Timeout. Standard: 30</translation>
     </message>
     <message>
-      <source>This option specifies how long to wait (in milliseconds) if the send buffer is full.  Keep this value low to prevent clamd hanging. Default: 500</source>
-      <translation>Denne indstilling angiver, hvor længe der skal ventes (i millisekunder), hvis sendebufferen er fuld. Hold denne værdi lav for at forhindre, at clamd hænger. Standard: 500</translation>
+        <source>This option specifies how long to wait (in milliseconds) if the send buffer is full. Keep this value low to prevent clamd hang‐ ing. Default: 500</source>
+        <translation>Denne indstilling angiver, hvor længe der skal ventes (i millisekunder), hvis sendebufferen er fuld. Hold denne værdi lav for at forhindre, at clamd hænger. Standard: 500</translation>
     </message>
     <message>
-      <source>Maximum number of queued items (including those being processed by MaxThreads threads).  It is recommended to have this value at least twice MaxThreads if possible. WARNING: you shouldn't increase this too much to avoid running out of file descriptors, the following condition should hold: MaxThreads*MaxRecursion + MaxQueue - MaxThreads + 6 &lt; RLIMIT_NOFILE.  RLIMIT_NOFILE is the maximum number of open file descriptors (usually 1024), set by ulimit -n. Default: 100</source>
-      <translation>Maksimalt antal elementer i kø (inklusive dem, der behandles af MaxThreads-tråde). Det anbefales at have denne værdi mindst to gange MaxThreads, hvis det er muligt. ADVARSEL: du bør ikke øge dette for meget for at undgå at løbe tør for filbeskrivelser. RLIMIT_NOFILE RLIMIT_NOFILE er det maksimale antal åbne filbeskrivelser (normalt 1024), angivet af ulimit -n. Standard: 100</translation>
+        <source>Maximum number of queued items (including those being processed by MaxThreads threads). It is recommended to have this value at least twice MaxThreads if possible. WARNING: you shouldn&apos;t increase this too much to avoid running out of file descriptors, the following condition should hold: MaxThreads*MaxRecursion + MaxQueue - MaxThreads + 6 &lt; RLIMIT_NOFILE. RLIMIT_NOFILE is the maximum number of open file descriptors (usually 1024), set by ulimit -n. Default: 100</source>
+        <translation>Maksimalt antal elementer i kø (inklusive dem, der behandles af MaxThreads-tråde). Det anbefales at have denne værdi mindst dobbelt så stor som MaxThreads, hvis det er muligt. ADVARSEL: Du bør ikke øge dette for meget for at undgå at løbe tør for filbeskrivelser. Følgende betingelse skal være gældende: MaxThreads*MaxRecursion + MaxQueue - MaxThreads + 6 &lt; RLIMIT_NOFILE. RLIMIT_NOFILE er det maksimale antal åbne filbeskrivelser (normalt 1024), indstillet af ulimit -n. Standard: 100</translation>
     </message>
     <message>
-      <source>This option specifies how long (in seconds) the process should wait for a new job. Default: 30</source>
-      <translation>Denne indstilling angiver, hvor længe (i sekunder) processen skal vente på et nyt job. Standard: 30</translation>
+        <source>This option specifies how long (in seconds) the process should wait for a new job. Default: 30</source>
+        <translation>Denne indstilling angiver, hvor længe (i sekunder) processen skal vente på et nyt job. Standard: 30</translation>
     </message>
     <message>
-      <source>Don't scan files and directories matching REGEX. This directive can be used multiple times. Default: disabled</source>
-      <translation>Scan ikke filer og mapper, der matcher REGEX. Dette direktiv kan bruges flere gange. Standard: deaktiveret</translation>
+        <source>Maximum depth directories are scanned at. Default: 15</source>
+        <translation>Maksimal dybde scannes i mapper. Standard: 15</translation>
     </message>
     <message>
-      <source>Maximum depth directories are scanned at. Default: 15</source>
-      <translation>Maksimal dybde mapper scannes på. Standard: 15</translation>
+        <source>Follow directory symlinks. Default: no</source>
+        <translation>Følg mappens symbolske links. Standard: nej</translation>
     </message>
     <message>
-      <source>Follow directory symlinks. Default: no</source>
-      <translation>Følg mappesymlinks. Standard: nej</translation>
+        <source>Scan files and directories on other filesystems. Default: yes</source>
+        <translation>Scan filer og mapper på andre filsystemer. Standard: ja</translation>
     </message>
     <message>
-      <source>Scan files and directories on other filesystems. Default: yes</source>
-      <translation>Scan filer og mapper på andre filsystemer. Standard: yes</translation>
+        <source>Follow regular file symlinks. Default: no</source>
+        <translation>Følg almindelige filsymboliske links. Standard: nej</translation>
     </message>
     <message>
-      <source>Follow regular file symlinks. Default: no</source>
-      <translation>Følg almindelige fil-symlinks. Standard: nej</translation>
+        <source>This option specifies the time intervals (in seconds) in which clamd should perform a database check. Default: 600</source>
+        <translation>Denne indstilling angiver tidsintervallerne (i sekunder), hvor clamd skal udføre en databasekontrol. Standard: 600</translation>
     </message>
     <message>
-      <source>This option specifies the time intervals (in seconds) in which clamd should perform a database check. Default: 600</source>
-      <translation>Denne indstilling specificerer tidsintervallerne (i sekunder), hvori clamd skal udføre en databasekontrol. Standard: 600</translation>
+        <source>Enable non-blocking (multi-threaded/concurrent) database reloads. This feature will temporarily load a second scanning engine while scanning continues using the first engine. Once loaded, the new engine takes over. The old engine is removed as soon as all scans using the old engine have completed. This feature requires more RAM, so this option is provided in case users are willing to block scans during reload in exchange for lower RAM requirements. Default: yes</source>
+        <translation>Aktiver ikke-blokerende (multi-threaded/samtidige) databasegenindlæsninger. Denne funktion indlæser midlertidigt en anden scanningsmotor, mens scanningen fortsætter med den første motor. Når den er indlæst, overtager den nye motor. Den gamle motor fjernes, så snart alle scanninger med den gamle motor er fuldført. Denne funktion kræver mere RAM, så denne mulighed er tilgængelig, hvis brugerne er villige til at blokere scanninger under genindlæsning til gengæld for lavere RAM-krav. Standard: ja</translation>
     </message>
     <message>
-      <source>Enable non-blocking (multi-threaded/concurrent) database reloads. This feature will temporarily load a second scanning engine while scanning continues using the first engine. Once loaded, the new engine  takes  over.  The old  engine  is removed as soon as all scans using the old engine have completed. This feature requires more RAM, so this option is provided in case users are willing to block scans during reload in exchange for lower RAM requirements. Default: yes</source>
-      <translation>Aktiver ikke-blokerende (multi-threaded/samtidige) databasegenindlæsninger. Denne funktion indlæser midlertidigt en anden scanningsmotor, mens scanningen fortsætter med at bruge den første motor. Når den er indlæst, overtager den nye motor. Den gamle motor fjernes, så snart alle scanninger, der bruger den gamle motor, er fuldført. Denne funktion kræver, at brugerne genindlæser i tilfælde af RAM, så denne mulighed skal genindlæses under RAM. i bytte for lavere RAM-krav Standard: ja</translation>
+        <source>Execute a command when virus is found. Use the following envi‐ ronment variables to identify the file and virus names: - $CLAM_VIRUSEVENT_FILENAME - $CLAM_VIRUSEVENT_VIRUSNAME In the command string, &apos;%v&apos; will also be replaced with the virus name. Note: The &apos;%f&apos; filename format character has been disabled and will no longer be replaced with the file name, due to command in‐ jection security concerns. Use the &apos;CLAM_VIRUSEVENT_FILENAME&apos; environment variable instead. For the same reason, you should NOT use the environment variables in the command directly, but should use it carefully from your executed script. Default: disabled</source>
+        <translation>Udfør en kommando, når der findes en virus. Brug følgende miljøvariabler til at identificere fil- og virusnavnene: - $CLAM_VIRUSEVENT_FILENAME - $CLAM_VIRUSEVENT_VIRUSNAME I kommandostrengen vil &apos;%v&apos; også blive erstattet med virusnavnet. Bemærk: Filnavnsformattegnet &apos;%f&apos; er blevet deaktiveret og vil ikke længere blive erstattet med filnavnet på grund af sikkerhedsproblemer med kommandoinjektion. Brug i stedet miljøvariablen &apos;CLAM_VIRUSEVENT_FILENAME&apos;. Af samme grund bør du IKKE bruge miljøvariablerne direkte i kommandoen, men bør bruge dem forsigtigt fra dit udførte script. Standard: deaktiveret</translation>
     </message>
     <message>
-      <source>Execute a command when virus is found.  Use the following environment variables to identify the file and virus names: - $CLAVIRUSEVENT_FILENAME - $CLAVIRUSEVENT_VIRUSNAME In the command string, '%v' will also  be  replaced  with  the  virus name.  Note: The '%f' filename format character has been disabled and will no longer be replaced with the file name, due to command injection security concerns.  Use the 'CLAVIRUSEVENT_FILENAME' environment variable instead.  For the same reason, you should NOT use the environment variables in the command directly, but should use it carefully from your executed script. Default: disabled</source>
-      <translation>Stop dæmon når libclamav rapporterer uden hukommelse. Standard: nej</translation>
+        <source>Stop daemon when libclamav reports out of memory condition. Default: no</source>
+        <translation>Stop dæmonen, når libclamav rapporterer, at der ikke er mere hukommelse. Standard: nej</translation>
     </message>
     <message>
-      <source>Stop daemon when libclamav reports out of memory condition. Default: no</source>
-      <translation>Tillad brug af ALLMATCHSCAN-kommandoen. Standard: yes</translation>
+        <source>Permit use of the ALLMATCHSCAN command. Default: yes</source>
+        <translation>Tillad brug af ALLMATCHSCAN-kommandoen. Standard: ja</translation>
     </message>
     <message>
-      <source>Permit use of the ALLMATCHSCAN command. Default: yes</source>
-      <translation>Forkast ikke i baggrunden. Standard: nej</translation>
+        <source>Don&apos;t fork into background. Default: no</source>
+        <translation>Gå ikke ind i baggrunden. Standard: nej</translation>
     </message>
     <message>
-      <source>Don't fork into background. Default: no</source>
-      <translation>Aktiver fejlretningsmeddelelser fra libclamav. Standard: nej</translation>
+        <source>Enable debug messages from libclamav. Default: no</source>
+        <translation>Aktivér fejlfindingsmeddelelser fra libclamav. Standard: nej</translation>
     </message>
     <message>
-      <source>Enable debug messages from libclamav. Default: no</source>
-      <translation>Fjern ikke midlertidige filer (til fejlretningsformål). Standard: nej GenerateMetadataJson BOOL Optag metadata om filen, der scannes. Scanningsmetadata er nyttige til filanalyseformål og til fejlfinding af scanningsadfærd. JSON-metadataene vil blive udskrevet, efter scanningen er fuldført, hvis Debug-filen kan skrives til temp. mappe hvis LeaveTemporaryFiles er aktiveret Standard: nej</translation>
+        <source>Do not remove temporary files (for debugging purpose). Default: no</source>
+        <translation>Fjern ikke midlertidige filer (til fejlfindingsformål). Standard: nej</translation>
     </message>
     <message>
-      <source>Do not remove temporary files (for debugging purpose). Default: no GenerateMetadataJson BOOL Record metadata about the file being scanned.  Scan metadata is useful for file analysis purposes and for debugging scan behavior.  The JSON metadata will be printed after the scan is complete if Debug is enabled. A metadata.json file will be written to the scan temp directory if LeaveTemporaryFiles is enabled. Default: no</source>
-      <translation>Kør dæmonen som en specificeret bruger (processen skal startes af root). Standard: disabled</translation>
+        <source>Record metadata about the file being scanned. Scan metadata is useful for file analysis purposes and for debugging scan behav‐ ior. The JSON metadata will be printed after the scan is com‐ plete if Debug is enabled. A metadata.json file will be written to the scan temp directory if LeaveTemporaryFiles is enabled. Default: no</source>
+        <translation>Registrer metadata om den fil, der scannes. Scanningsmetadata er nyttige til filanalyseformål og til fejlfinding af scanningsadfærd. JSON-metadataene udskrives, når scanningen er fuldført, hvis fejlfinding er aktiveret. En metadata.json-fil skrives til scanningsmappen for midlertidige meddelelser, hvis LeaveTemporaryFiles er aktiveret. Standard: nej</translation>
     </message>
     <message>
-      <source>Run the daemon as a specified user (the process must be started by root). Default: disabled</source>
-      <translation>Med denne mulighed aktiveret vil ClamAV indlæse bytekode fra databasen. Det anbefales stærkt, at du holder denne indstilling slået til, ellers kan du gå glip af registreringer for mange nye vira. Standard: ja</translation>
+        <source>Store URIs found in html files to the json metadata. URIs will be stored in an array with the tag &apos;URIs&apos;. GenerateMetadataJson is required for this feature. Default: yes (if GenerateMetadataJson is used)</source>
+        <translation>Gem URI&apos;er, der findes i html-filer, i json-metadataene. URI&apos;er gemmes i et array med tagget &apos;URI&apos;er&apos;. GenerateMetadataJson er påkrævet for denne funktion. Standard: ja (hvis GenerateMetadataJson bruges)</translation>
     </message>
     <message>
-      <source>With this option enabled ClamAV will load bytecode from the database. It is highly recommended you keep this option turned on, otherwise you may miss detections for many new viruses. Default: yes</source>
-      <translation>Indstil bytekode sikkerhedsniveau. Mulige værdier: TrustSigned - trust bytecode indlæst fra signerede .c[lv]d filer og indsæt runtime sikkerhedstjek for bytekode indlæst fra andre kilder, Paranoid - stol ikke på nogen bytecode, indsæt runtime checks for all TrustteSigned, insert runtime checks for all. har allerede disse kontroller (TrustSigned, Paranoid) Standard: TrustSigned</translation>
+        <source>Store URIs found in pdf files to the json metadata. URIs will be stored in an array with the tag &apos;URIs&apos;. GenerateMetadataJson is required for this feature. Default: yes (if GenerateMetadataJson is used)</source>
+        <translation>Gem URI&apos;er fundet i PDF-filer i JSON-metadataene. URI&apos;er gemmes i et array med tagget &apos;URI&apos;er&apos;. GenerateMetadataJson er påkrævet for denne funktion. Standard: ja (hvis GenerateMetadataJson bruges)</translation>
     </message>
     <message>
-      <source>Set bytecode security level. Possible values: TrustSigned - trust bytecode loaded from signed .c[lv]d files and insert runtime safety checks for bytecode loaded from other sources, Paranoid - don't trust any bytecode, insert runtime checks for all. Recommended: TrustSigned, because bytecode in .cvd files already has these checks. (TrustSigned, Paranoid) Default: TrustSigned</source>
-      <translation>Sæt bytekode timeout i millisekunder. Standard: 10000</translation>
+        <source>Calculate MD5 and SHA1 hashes (in addition to SHA2-256) and store to the json metadata. GenerateMetadataJson is required for this feature. Default: no</source>
+        <translation>Beregn MD5- og SHA1-hashes (ud over SHA2-256) og gem dem i json-metadataene. GenerateMetadataJson er påkrævet for denne funktion. Standard: nej</translation>
     </message>
     <message>
-      <source>Set bytecode timeout in milliseconds. Default: 10000</source>
-      <translation>Tillad indlæsning af bytekode udefra digitalt signerede .c[lv]d-filer. **Forsigtig**: Du bør ALDRIG køre bytekodesignaturer fra ikke-pålidelige kilder. Hvis du gør det, kan det resultere i vilkårlig kodeudførelse. Standard: nej</translation>
+        <source>Run the daemon as a specified user (the process must be started by root). Default: disabled</source>
+        <translation>Kør dæmonen som en specificeret bruger (processen skal startes af root). Standard: deaktiveret</translation>
     </message>
     <message>
-      <source>Allow loading bytecode from outside digitally signed .c[lv]d files.  **Caution**: You should NEVER run bytecode signatures from untrusted sources.  Doing so may result in arbitrary code execution. Default: no</source>
-      <translation>Indstil bytecode execution mode. Mulige værdier: Auto - vælg automatisk JIT hvis muligt, fallback til tolk ForceJIT - vælg altid JIT, fail hvis ikke muligt ForceInterpreter - vælg altid tolk Test - kør med både JIT og tolk og sammenlign resultater. Gør alle fejl fatale. Standard: Auto</translation>
+        <source>With this option enabled ClamAV will load bytecode from the data‐ base. It is highly recommended you keep this option turned on, otherwise you may miss detections for many new viruses. Default: yes</source>
+        <translation>Når denne indstilling er aktiveret, indlæser ClamAV bytekode fra databasen. Det anbefales kraftigt, at du holder denne indstilling aktiveret, ellers kan du gå glip af detektioner af mange nye vira. Standard: ja</translation>
     </message>
     <message>
-      <source>Set bytecode execution mode. Possible values: Auto - automatically choose JIT if possible, fallback to interpreter ForceJIT - always choose JIT, fail if not possible ForceInterpreter - always choose interpreter Test - run with both JIT and interpreter and compare results. Make all failures fatal. Default: Auto</source>
-      <translation>Detekter muligvis uønskede applikationer. Standard: nej</translation>
+        <source>Set bytecode security level. Possible values: TrustSigned - trust bytecode loaded from signed .c[lv]d files and insert runtime safety checks for bytecode loaded from other sources, Paranoid - don&apos;t trust any bytecode, insert runtime checks for all. Recommended: TrustSigned, because bytecode in .cvd files already has these checks. Default: TrustSigned</source>
+        <translation>Indstil sikkerhedsniveauet for bytekode. Mulige værdier: TrustSigned - stol på bytekode indlæst fra signerede .c[lv]d-filer og indsæt runtime-sikkerhedstjek for bytekode indlæst fra andre kilder. Paranoid - stol ikke på nogen bytekode, indsæt runtime-tjek for alle. Anbefalet: TrustSigned, fordi bytekode i .cvd-filer allerede har disse tjek. Standard: TrustSigned</translation>
     </message>
     <message>
-      <source>Detect Possibly Unwanted Applications. Default: no</source>
-      <translation>Ekskluder en specifik PUA-kategori. Dette direktiv kan bruges flere gange. Se https://docs.clamav.net/faq/faq-pua.html for den komplette liste over PUA-kategorier. Standard: deaktiveret</translation>
+        <source>Set bytecode timeout in milliseconds. Default: 10000</source>
+        <translation>Indstil bytecode-timeout i millisekunder. Standard: 10000</translation>
     </message>
     <message>
-      <source>Exclude a specific PUA category. This directive can be used multiple times. See https://docs.clamav.net/faq/faq-pua.html for the complete list of PUA categories. Default: disabled</source>
-      <translation>Inkluder kun en specifik PUA-kategori. Dette direktiv kan bruges flere gange. Se https://docs.clamav.net/faq/faq-pua.html for den komplette liste over PUA-kategorier. Standard: deaktiveret</translation>
+        <source>Allow loading bytecode from outside digitally signed .c[lv]d files. **Caution**: You should NEVER run bytecode signatures from untrusted sources. Doing so may result in arbitrary code execution. Default: no</source>
+        <translation>Tillad indlæsning af bytekode uden for digitalt signerede .c[lv]d-filer. **Advarsel**: Du bør ALDRIG køre bytekodesignaturer fra kilder, du ikke har tillid til. Dette kan resultere i vilkårlig kodeudførelse. Standard: nej</translation>
     </message>
     <message>
-      <source>Only include a specific PUA category. This directive can be used multiple times. See https://docs.clamav.net/faq/faq-pua.html for the complete list of PUA categories. Default: disabled</source>
-      <translation>I nogle tilfælde (f.eks. kompleks malware, udnyttelser i grafiske filer og andre), bruger ClamAV specielle algoritmer til at give nøjagtig detektion. Denne mulighed styrer den algoritmiske detektion. Standard: yes</translation>
+        <source>Set bytecode execution mode. Possible values: Auto - automatically choose JIT if possible, fallback to in‐ terpreter ForceJIT - always choose JIT, fail if not possible ForceInterpreter - always choose interpreter Test - run with both JIT and interpreter and compare results. Make all failures fatal. Default: Auto</source>
+        <translation>Indstil bytecode-udførelsestilstand. Mulige værdier: Auto - vælg automatisk JIT hvis muligt, fallback til fortolker. ForceJIT - vælg altid JIT, fejl hvis ikke muligt. ForceInterpreter - vælg altid fortolker. Test - kør med både JIT og fortolker, og sammenlign resultater. Gør alle fejl fatale. Standard: Auto</translation>
     </message>
     <message>
-      <source>In some cases (eg. complex malware, exploits in graphic files, and others), ClamAV uses special algorithms to provide accurate detection. This option controls the algorithmic detection. Default: yes</source>
-      <translation>PE står for Portable Executable - det er et eksekverbart filformat, der bruges i alle 32- og 64-bit versioner af Windows-operativsystemer. Denne mulighed giver ClamAV mulighed for at udføre en dybere analyse af eksekverbare filer, og det er også påkrævet til dekomprimering af populære eksekverbare pakker såsom UPX. Hvis du deaktiverer denne mulighed, vil den originale scanning stadig blive slået fra uden yderligere scanning. Standard: ja</translation>
+        <source>Detect Possibly Unwanted Applications. Default: No</source>
+        <translation>Registrer muligvis uønskede programmer. Standard: Nej</translation>
     </message>
     <message>
-      <source>PE stands for Portable Executable - it's an executable file format used in all 32 and 64-bit versions of Windows operating systems. This option allows ClamAV to perform a deeper analysis of executable files and it's  also required for decompression of popular executable packers such as UPX. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
-      <translation>Executable and Linking Format er et standardformat for UN*X eksekverbare filer. Denne mulighed giver dig mulighed for at kontrollere scanningen af ​​ELF-filer. Hvis du slår denne mulighed fra, vil de originale filer stadig blive scannet, men uden yderligere behandling. Standard: ja</translation>
+        <source>In some cases (eg. complex malware, exploits in graphic files, and others), ClamAV uses special algorithms to provide accurate detection. This option controls the algorithmic detection. Default: yes</source>
+        <translation>I nogle tilfælde (f.eks. kompleks malware, udnyttelse af grafikfiler og andre) bruger ClamAV særlige algoritmer til at give præcis detektion. Denne indstilling styrer den algoritmiske detektion. Standard: ja</translation>
     </message>
     <message>
-      <source>Executable and Linking Format is a standard format for UN*X executables. This option allows you to control the scanning of ELF files. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
-      <translation>Aktiver scanning af mailfiler. Hvis du slår denne mulighed fra, vil de originale filer stadig blive scannet, men uden at parse individuelle meddelelser/vedhæftede filer. Standard: ja</translation>
+        <source>Allow heuristic match to take precedence. When enabled, if a heuristic scan (such as phishingScan) detects a possible virus/phishing it will stop scanning immediately. Recommended, saves CPU scan-time. When disabled, virus/phishing detected by heuristic scans will be reported only at the end of a scan. If an archive contains both a heuristically detected virus/phishing, and a real malware, the real malware will be reported. Keep this disabled if you intend to handle &quot;*.Heuristics.*&quot; viruses dif‐ ferently from &quot;real&quot; malware. If a non-heuristically-detected virus (signature-based) is found first, the scan is interrupted immediately, regardless of this config option. Default: no</source>
+        <translation>Tillad, at heuristisk match prioriteres. Når den er aktiveret, stopper scanningen med det samme, hvis en heuristisk scanning (f.eks. phishingScan) registrerer en mulig virus/phishing. Anbefales, sparer CPU-scanningstid. Når den er deaktiveret, rapporteres virus/phishing, der registreres af heuristiske scanninger, først ved afslutningen af ​​scanningen. Hvis et arkiv indeholder både en heuristisk registreret virus/phishing og en reel malware, rapporteres den reelle malware. Hold denne funktion deaktiveret, hvis du har til hensigt at håndtere &quot;*.Heuristics.*&quot;-virusser anderledes end &quot;rigtig&quot; malware. Hvis en ikke-heuristisk registreret virus (signaturbaseret) findes først, afbrydes scanningen med det samme, uanset denne konfigurationsindstilling. Standard: nej</translation>
     </message>
     <message>
-      <source>Enable scanning of mail files. If you turn off this option, the original files will still be scanned, but without parsing individual messages/attachments. Default: yes</source>
-      <translation>Scan RFC1341-meddelelser opdelt over mange e-mails. Du skal med jævne mellemrum rydde op i $TemporaryDirectory/clamav-partial bibliotek. ADVARSEL: Denne mulighed kan åbne dit system for et DoS-angreb. Brug det aldrig på indlæste servere. Standard: nej</translation>
+        <source>PE stands for Portable Executable - it&apos;s an executable file for‐ mat used in all 32 and 64-bit versions of Windows operating sys‐ tems. This option allows ClamAV to perform a deeper analysis of executable files and it&apos;s also required for decompression of pop‐ ular executable packers such as UPX. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
+        <translation>PE står for Portable Executable - det er et eksekverbart filformat, der bruges i alle 32- og 64-bit versioner af Windows-operativsystemer. Denne indstilling giver ClamAV mulighed for at udføre en dybere analyse af eksekverbare filer, og den er også nødvendig for dekomprimering af populære eksekverbare pakkere såsom UPX. Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden yderligere behandling. Standard: ja</translation>
     </message>
     <message>
-      <source>Scan RFC1341 messages split over many emails. You will need to periodically clean up $TemporaryDirectory/clamav-partial directory. WARNING: This option may open your system to a DoS attack. Never use it on loaded servers. Default: no</source>
-      <translation>Aktiver e-mailsignatur-baseret phishing-detektion. Standard: yes</translation>
+        <source>Executable and Linking Format is a standard format for UN*X exe‐ cutables. This option allows you to control the scanning of ELF files. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
+        <translation>Eksekverbar og linkformat er et standardformat for UN*X-eksekverbare filer. Denne indstilling giver dig mulighed for at kontrollere scanningen af ​​ELF-filer. Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden yderligere behandling. Standard: ja</translation>
     </message>
     <message>
-      <source>Enable email signature-based phishing detection. Default: yes</source>
-      <translation>Aktiver URL-signaturbaseret phishing-detektion (Heuristics.Phishing.Email.*) Standard: yes</translation>
+        <source>Enable scanning of mail files. If you turn off this option, the original files will still be scanned, but without parsing individual messages/attachments. Default: yes</source>
+        <translation>Aktivér scanning af mailfiler. Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden at individuelle beskeder/vedhæftede filer analyseres. Standard: ja</translation>
     </message>
     <message>
-      <source>Enable URL signature-based phishing detection (Heuristics.Phishing.Email.*) Default: yes</source>
-      <translation>Aktiver DLP-modulet. Standard: nej</translation>
+        <source>Scan RFC1341 messages split over many emails. You will need to periodically clean up $TemporaryDirectory/clamav-partial direc‐ tory. WARNING: This option may open your system to a DoS attack. Never use it on loaded servers. Default: no</source>
+        <translation>Scan RFC1341-meddelelser fordelt på mange e-mails. Du skal regelmæssigt rydde op i $TemporaryDirectory/clamav-partial-mappen. ADVARSEL: Denne indstilling kan udsætte dit system for et DoS-angreb. Brug den aldrig på overbelastede servere. Standard: nej</translation>
     </message>
     <message>
-      <source>Enable the DLP module. Default: no</source>
-      <translation>Denne mulighed indstiller det laveste antal kreditkortnumre fundet i en fil til at generere en detektering. Standard: 3</translation>
+        <source>Enable email signature-based phishing detection. Default: yes</source>
+        <translation>Aktivér phishing-detektion baseret på e-mailsignaturer. Standard: ja</translation>
     </message>
     <message>
-      <source>This option sets the lowest number of Credit Card numbers found in a file to generate a detect. Default: 3</source>
-      <translation>Med denne mulighed aktiveret vil DLP-modulet kun søge efter gyldige kreditkortnumre. Debet- og Private Label-kort vil ikke blive søgt. Standard: nej</translation>
+        <source>Enable URL signature-based phishing detection (Heuristics.Phish‐ ing.Email.*) Default: yes</source>
+        <translation>Aktivér phishing-detektion baseret på URL-signatur (Heuristics.Phishing.Email.*) Standard: ja</translation>
     </message>
     <message>
-      <source>With this option enabled the DLP module will search for valid Credit Card0umbers only. Debit and Private Label cards will not be searched. Default: no</source>
-      <translation>Denne indstilling indstiller det laveste antal CPR-numre fundet i en fil til at generere en detektion. Standard: 3</translation>
+        <source>Enable the DLP module. Default: no</source>
+        <translation>Aktiver DLP-modulet. Standard: nej</translation>
     </message>
     <message>
-      <source>This option sets the lowest number of Social Security Numbers found in a file to generate a detect. Default: 3</source>
-      <translation>Med denne indstilling aktiveret vil DLP-modulet søge efter gyldige SSN'er formateret som xxx-yy-zzzz. Standard: yes</translation>
+        <source>This option sets the lowest number of Credit Card numbers found in a file to generate a detect. Default: 3</source>
+        <translation>Denne indstilling angiver det laveste antal kreditkortnumre, der findes i en fil, for at generere en detektion. Standard: 3</translation>
     </message>
     <message>
-      <source>With this option enabled the DLP module will search for valid SSNs formatted as xxx-yy-zzzz. Default: yes</source>
-      <translation>Med denne indstilling aktiveret vil DLP-modulet søge efter gyldige SSN'er formateret som xxxyyzzzz. Standard: nej</translation>
+        <source>With this option enabled the DLP module will search for valid Credit Card0umbers only. Debit and Private Label cards will not be searched. Default: No</source>
+        <translation>Når denne indstilling er aktiveret, søger DLP-modulet kun efter gyldige kreditkortnumre. Der søges ikke efter debetkort og private label-kort. Standard: Nej</translation>
     </message>
     <message>
-      <source>With this option enabled the DLP module will search for valid SSNs formatted as xxxyyzzzz. Default: no</source>
-      <translation>Udfør HTML/JavaScript/ScriptEncoder normalisering og dekryptering. Hvis du slår denne mulighed fra, vil de originale filer stadig blive scannet, men uden yderligere behandling. Standard: ja</translation>
+        <source>This option sets the lowest number of Social Security Numbers found in a file to generate a detect. Default: 3</source>
+        <translation>Denne indstilling angiver det laveste antal CPR-numre, der findes i en fil, for at generere en detektion. Standard: 3</translation>
     </message>
     <message>
-      <source>Perform HTML/JavaScript/ScriptEncoder normalisation and decryption. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
-      <translation>Denne mulighed aktiverer scanning af OLE2-filer, såsom Microsoft Office-dokumenter og .msi-filer. Hvis du slår denne indstilling fra, vil de originale filer stadig blive scannet, men uden yderligere behandling. Standard: ja</translation>
+        <source>With this option enabled the DLP module will search for valid SSNs formatted as xxx-yy-zzzz. Default: Yes</source>
+        <translation>Når denne indstilling er aktiveret, søger DLP-modulet efter gyldige CPR-numre formateret som xxx-yy-zzzz. Standard: Ja</translation>
     </message>
     <message>
-      <source>This option enables scanning of OLE2 files, such as Microsoft Office documents and .msi files. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
-      <translation>Denne mulighed aktiverer scanning i PDF-filer. Hvis du slår denne indstilling fra, vil de originale filer stadig blive scannet, men uden yderligere behandling. Standard: yes</translation>
+        <source>With this option enabled the DLP module will search for valid SSNs formatted as xxxyyzzzz. Default: No</source>
+        <translation>Når denne indstilling er aktiveret, søger DLP-modulet efter gyldige CPR-numre formateret som xxxyyzzzz. Standard: Nej</translation>
     </message>
     <message>
-      <source>This option enables scanning within PDF files. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
-      <translation>Denne mulighed aktiverer scanning i SWF-filer. Hvis du slår denne indstilling fra, vil de originale filer stadig blive scannet, men uden afkodning og yderligere behandling. Standard: yes</translation>
+        <source>Perform HTML/JavaScript/ScriptEncoder normalisation and decryp‐ tion. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
+        <translation>Udfør normalisering og dekryptering af HTML/JavaScript/Script Encoder. Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden yderligere behandling. Standard: ja</translation>
     </message>
     <message>
-      <source>This option enables scanning within SWF files. If you turn off this option, the original files will still be scanned, but without decoding and additional processing. Default: yes</source>
-      <translation>Denne mulighed gør det muligt at scanne xml-baserede dokumentfiler understøttet af libclamav. Hvis du slår denne indstilling fra, vil de originale filer stadig blive scannet, men uden yderligere behandling. Standard: ja</translation>
+        <source>This option enables scanning of OLE2 files, such as Microsoft Of‐ fice documents and .msi files. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
+        <translation>Denne indstilling aktiverer scanning af OLE2-filer, f.eks. Microsoft Office-dokumenter og .msi-filer. Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden yderligere behandling. Standard: ja</translation>
     </message>
     <message>
-      <source>This option enables scanning xml-based document files supported by libclamav. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
-      <translation>Denne mulighed gør det muligt at scanne HWP3-filer. Hvis du slår denne indstilling fra, vil de originale filer stadig blive scannet, men uden yderligere behandling. Standard: ja</translation>
+        <source>This option enables scanning within PDF files. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
+        <translation>Denne indstilling aktiverer scanning i PDF-filer. Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden yderligere behandling. Standard: ja</translation>
     </message>
     <message>
-      <source>This option enables scanning HWP3 files. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
-      <translation>Denne mulighed gør det muligt at scanne OneNote-filer. Hvis du slår denne indstilling fra, vil de originale filer stadig blive scannet, men uden yderligere behandling. Standard: ja</translation>
+        <source>This option enables scanning within SWF files. If you turn off this option, the original files will still be scanned, but without decoding and additional processing. Default: yes</source>
+        <translation>Denne indstilling aktiverer scanning i SWF-filer. Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden afkodning og yderligere behandling. Standard: ja</translation>
     </message>
     <message>
-      <source>This option enables scanning OneNote files. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
-      <translation>Scan i arkiver og komprimerede filer. Hvis du slår denne mulighed fra, vil de originale filer stadig blive scannet, men uden udpakning og yderligere behandling. Standard: ja</translation>
+        <source>This option enables scanning xml-based document files supported by libclamav. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
+        <translation>Denne indstilling aktiverer scanning af xml-baserede dokumentfiler, der understøttes af libclamav. Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden yderligere behandling. Standard: ja</translation>
     </message>
     <message>
-      <source>Scan within archives and compressed files. If you turn off this option, the original files will still be scanned, but without unpacking and additional processing. Default: yes</source>
-      <translation>Denne mulighed aktiverer scanning af billede (grafik). Hvis du slår denne indstilling fra, vil de originale filer stadig blive scannet, men uden udpakning og yderligere behandling. Standard: ja</translation>
+        <source>This option enables scanning HWP3 files. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
+        <translation>Denne indstilling aktiverer scanning af HWP3-filer. Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden yderligere behandling. Standard: ja</translation>
     </message>
     <message>
-      <source>This option enables scanning of image (graphics). If you turn off this option, the original files will still be scanned, but without unpacking and additional processing. Default: yes</source>
-      <translation>Denne mulighed aktiverer detektion ved at beregne en fuzzy hash af billedfiler (grafikfiler). Signaturer, der bruger billedfuzzy hashes, matcher typisk filer og dokumenter ved at identificere billeder, der er indlejret eller vedhæftet til disse filer. Hvis du slår denne mulighed fra, kan nogle filer muligvis ikke længere registreres. Standard: ja</translation>
+        <source>This option enables scanning OneNote files. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
+        <translation>Denne indstilling aktiverer scanning af OneNote-filer. Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden yderligere behandling. Standard: ja</translation>
     </message>
     <message>
-      <source>This option enables detection by calculating a fuzzy hash of image (graphics) files. Signatures using image fuzzy hashes typically match files and documents by identifying images embedded or attached to those files. If you turn off this option, then some files may no longer be detected. Default: yes</source>
-      <translation>Advarsel om ødelagte eksekverbare filer (PE &amp; ELF). Standard: nej</translation>
+        <source>Scan within archives and compressed files. If you turn off this option, the original files will still be scanned, but without unpacking and additional processing. Default: yes</source>
+        <translation>Scan i arkiver og komprimerede filer. Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden udpakning og yderligere behandling. Standard: ja</translation>
     </message>
     <message>
-      <source>Alert on broken executable files (PE &amp; ELF). Default: no</source>
-      <translation>Advarsel om ødelagte grafikfiler (JPEG, TIFF, PNG, GIF). Standard: nej</translation>
+        <source>This option enables scanning of image (graphics). If you turn off this option, the original files will still be scanned, but without unpacking and additional processing. Default: yes</source>
+        <translation>Denne indstilling aktiverer scanning af billeder (grafik). Hvis du deaktiverer denne indstilling, scannes de originale filer stadig, men uden udpakning og yderligere behandling. Standard: ja</translation>
     </message>
     <message>
-      <source>Alert on broken graphics files (JPEG, TIFF, PNG, GIF). Default: no</source>
-      <translation>Advarsel om krypterede arkiver og dokumenter (krypteret .zip, .7zip, .rar, .pdf). Standard: nej</translation>
+        <source>This option enables detection by calculating a fuzzy hash of im‐ age (graphics) files. Signatures using image fuzzy hashes typi‐ cally match files and documents by identifying images embedded or attached to those files. If you turn off this option, then some files may no longer be de‐ tected. Default: yes</source>
+        <translation>Denne indstilling muliggør detektion ved at beregne en fuzzy hash af billedfiler (grafikfiler). Signaturer, der bruger fuzzy hashes af billeder, matcher typisk filer og dokumenter ved at identificere billeder, der er integreret eller vedhæftet disse filer. Hvis du deaktiverer denne indstilling, kan nogle filer muligvis ikke længere detekteres. Standard: ja</translation>
     </message>
     <message>
-      <source>Alert on encrypted archives and documents (encrypted .zip, .7zip, .rar, .pdf). Default: no</source>
-      <translation>Advarsel om krypterede arkiver (krypteret .zip, .7zip, .rar). Standard: nej</translation>
+        <source>Alert on broken executable files (PE &amp; ELF). Default: no</source>
+        <translation>Advarsel om ødelagte eksekverbare filer (PE &amp; ELF). Standard: nej</translation>
     </message>
     <message>
-      <source>Alert on encrypted archives (encrypted .zip, .7zip, .rar). Default: no</source>
-      <translation>Advarsel om krypterede dokumenter (krypteret .pdf). Standard: nej</translation>
+        <source>Alert on broken graphics files (JPEG, TIFF, PNG, GIF). Default: no</source>
+        <translation>Advarsel om ødelagte grafikfiler (JPEG, TIFF, PNG, GIF). Standard: nej</translation>
     </message>
     <message>
-      <source>Alert on encrypted documents (encrypted .pdf). Default: no</source>
-      <translation>Advarsel om OLE2-filer, der indeholder VBA-makroer (Heuristics.OLE2.ContainsMacros). Standard: nej</translation>
+        <source>Alert on encrypted archives and documents (encrypted .zip, .7zip, .rar, .pdf). Default: no</source>
+        <translation>Advarsel om krypterede arkiver og dokumenter (krypteret .zip, .7zip, .rar, .pdf). Standard: nej</translation>
     </message>
     <message>
-      <source>Alert on OLE2 files containing VBA macros (Heuristics.OLE2.ContainsMacros). Default: no</source>
-      <translation>Advarsel om e-mails, der indeholder SSL-uoverensstemmelser i URL'er (kan føre til falske positiver!). Standard: nej</translation>
+        <source>Alert on encrypted archives (encrypted .zip, .7zip, .rar). Default: no</source>
+        <translation>Advarsel om krypterede arkiver (krypteret .zip, .7zip, .rar). Standard: nej</translation>
     </message>
     <message>
-      <source>Alert on emails containing SSL mismatches in URLs (might lead to false positives!). Default: no</source>
-      <translation>Advarsel om e-mails, der indeholder tilslørede URL'er (kan føre til nogle falske positiver). Standard: nej</translation>
+        <source>Alert on encrypted documents (encrypted .pdf). Default: no</source>
+        <translation>Advarsel om krypterede dokumenter (krypteret .pdf). Standard: nej</translation>
     </message>
     <message>
-      <source>Alert on emails containing cloaked URLs (might lead to some false positives). Default: no</source>
-      <translation>Advarsel om rå DMG-billedfiler, der indeholder partitionskryds. Standard: nej</translation>
+        <source>Alert on OLE2 files containing VBA macros (Heuristics.OLE2.Con‐ tainsMacros). Default: no</source>
+        <translation>Advarsel om OLE2-filer, der indeholder VBA-makroer (Heuristics.OLE2.ContainsMacros). Standard: nej</translation>
     </message>
     <message>
-      <source>Alert on raw DMG image files containing partition intersections. Default: no</source>
-      <translation>Denne mulighed giver dig mulighed for at deaktivere motorens cachefunktion. Som standard vil motoren gemme en MD5 i en cache af alle filer, der ikke er markeret som virus eller som hit begrænser kontrol. Advarsel: Deaktivering af cachen vil have en negativ effekt på ydeevnen på store scanninger. Standard: nej</translation>
+        <source>When AlertExceedsMax is set, files exceeding the MaxFileSize, MaxScanSize, or MaxRecursion limit will be flagged with the virus name starting with &quot;Heuristics.Limits.Exceeded&quot;. Default: no</source>
+        <translation>Når AlertExceedsMax er indstillet, vil filer, der overstiger grænsen for MaxFileSize, MaxScanSize eller MaxRecursion, blive markeret med virusnavnet, der starter med &quot;Heuristics.Limits.Exceeded&quot;. Standard: nej</translation>
     </message>
     <message>
-      <source>This option allows you to disable the caching feature of the engine. By default, the engine will store an MD5 in a cache of any files that are not flagged as virus or that hit limits checks. Warning: Disabling the cache will have a negative performance impact on large scans. Default: no</source>
-      <translation>Denne mulighed giver dig mulighed for at indstille antallet af poster, som cachen kan gemme. Værdien skal være et kvadrattal eller vil blive rundet op til nærmeste kvadrattal. Standard: 65536</translation>
+        <source>Alert on emails containing SSL mismatches in URLs (might lead to false positives!). Default: no</source>
+        <translation>Advarsel om e-mails, der indeholder SSL-uoverensstemmelser i URL&apos;er (kan føre til falske positiver!). Standard: nej</translation>
     </message>
     <message>
-      <source>This option allows you to set the number of entries the cache can store. The value should be a square number or will be rounded up to the nearest square number. Default: 65536</source>
-      <translation>Denne mulighed får hukommelses- eller indlejrede kortscanninger til at dumpe indholdet til disken. Hvis du slår denne mulighed til, skrives flere data til disken og er tilgængelig, når muligheden for leave-temps er aktiveret på bekostning af flere diskskrivninger. Standard: nej</translation>
+        <source>Alert on emails containing cloaked URLs (might lead to some false positives). Default: no</source>
+        <translation>Advarsel om e-mails, der indeholder skjulte URL&apos;er (kan føre til falske positiver). Standard: nej</translation>
     </message>
     <message>
-      <source>This option causes memory or nested map scans to dump the content to disk. If you turn on this option, more data is written to disk and is available when the leave-temps option is enabled at the cost of more disk writes. Default: no</source>
-      <translation>Denne indstilling angiver den maksimale tid, en scanning kan tage at fuldføre. Værdien er i millisekunder. Værdien 0 deaktiverer grænsen. ADVARSEL: Deaktivering af denne grænse eller indstilling for høj kan resultere i, at scanning af visse filer kan låse scanningsprocessen/trådene, hvilket resulterer i et Denial of Service: 12000</translation>
+        <source>Alert on raw DMG image files containing partition intersections. Default: no</source>
+        <translation>Advarsel om rå DMG-billedfiler, der indeholder partitionskryds. Standard: nej</translation>
     </message>
     <message>
-      <source>This  option  sets the maximum amount of time a scan may take to complete. The value is in milliseconds. The value of 0 disables the limit. WARNING: disabling this limit or setting it too high may result allow scanning of certain files to lock up the scanning process/threads resulting in a Denial of Service. Default: 120000</source>
-      <translation>Indstiller den maksimale mængde data, der skal scannes for hver inputfil. Arkiver og andre beholdere udtrækkes rekursivt og scannes op til denne værdi. Størrelsen af ​​et arkiv plus summen af ​​størrelserne af alle filer i arkivet tæller med i scanningsstørrelsen. For eksempel, et 1M ukomprimeret enkelt arkiv til 1M max. scanningsstørrelse Advarsel: Deaktivering af denne grænse eller indstilling for høj kan resultere i alvorlig skade på systemet</translation>
+        <source>This option allows you to disable the caching feature of the en‐ gine. By default, the engine will store an MD5 in a cache of any files that are not flagged as virus or that hit limits checks. Warning: Disabling the cache will have a negative performance impact on large scans. Default: no</source>
+        <translation>Denne indstilling giver dig mulighed for at deaktivere motorens cachefunktion. Som standard gemmer motoren en MD5 i en cache over alle filer, der ikke er markeret som virus, eller som rammer grænserne. Advarsel: Deaktivering af cachen vil have en negativ indvirkning på ydeevnen ved store scanninger. Standard: nej</translation>
     </message>
     <message>
-      <source>Sets the maximum amount of data to be scanned for each input file. Archives and other containers are recursively extracted and scanned up to this value. The size of an archive plus the sum of the sizes of all files within archive count toward the scan size. For example, a 1M uncompressed archive containing a single 1M inner file counts as 2M toward the max scan size. Warning: disabling this limit or setting it too high may result in severe damage to the system. Default: 400M</source>
-      <translation>Filer, der er større end denne grænse, vil ikke blive scannet. Påvirker selve inputfilen såvel som filer indeholdt i den (når inputfilen er et arkiv, et dokument eller en anden form for container). Advarsel: Deaktivering af denne grænse eller indstilling for høj kan resultere i alvorlig skade på systemet. Tekniske designbegrænsninger fra scanning af 2maV-filer forhindrer denne standardtid. 100M</translation>
+        <source>This option allows you to set the number of entries the cache can store. The value should be a square number or will be rounded up to the nearest square number. Default: 65536</source>
+        <translation>Denne indstilling giver dig mulighed for at indstille antallet af poster, som cachen kan gemme. Værdien skal være et kvadrattal eller rundes op til nærmeste kvadrattal. Standard: 65536</translation>
     </message>
     <message>
-      <source>Files larger than this limit won't be scanned. Affects the input file itself as well as files contained inside it (when the input file is an archive, a document or some other kind of container).  Warning:  disabling  this limit or setting it too high may result in severe damage to the system. Technical design limitations prevent ClamAV from scanning files greater than 2 GB at this time. Default: 100M</source>
-      <translation>Antal filer, der skal scannes i et arkiv, et dokument eller enhver anden form for container. Advarsel: Deaktivering af denne grænse eller indstilling for høj kan resultere i alvorlig skade på systemet. Standard: 10000</translation>
+        <source>This option causes memory or nested map scans to dump the content to disk. If you turn on this option, more data is written to disk and is available when the leave-temps option is enabled at the cost of more disk writes. Default: no</source>
+        <translation>Denne indstilling får hukommelses- eller indbyggede kortscanninger til at dumpe indholdet til disken. Hvis du aktiverer denne indstilling, skrives der mere data til disken, og disse er tilgængelige, når indstillingen &quot;Leave-Temps&quot; er aktiveret, hvilket medfører flere diskskrivninger. Standard: nej</translation>
     </message>
     <message>
-      <source>Nested  archives are scanned recursively, e.g. if a Zip archive contains a RAR file, all files within it will also be scanned. This options specifies how deeply the process should be continued. Warning: setting this limit too high may result in severe damage to the system. Default: 17</source>
-      <translation>Denne indstilling indstiller den maksimale størrelse på en fil for at kontrollere for indlejret PE. Filer større end denne værdi vil springe det yderligere analysetrin over. Negative værdier er ikke tilladt. Standard: 40M</translation>
+        <source>This option sets the maximum amount of time a scan may take to complete. The value is in milliseconds. The value of 0 disables the limit. WARNING: disabling this limit or setting it too high may result allow scanning of certain files to lock up the scan‐ ning process/threads resulting in a Denial of Service. Default: 120000</source>
+        <translation>Denne indstilling angiver den maksimale tid, det må tage at fuldføre en scanning. Værdien er i millisekunder. Værdien 0 deaktiverer grænsen. ADVARSEL: Deaktivering af denne grænse eller en for høj indstilling kan medføre, at scanning af bestemte filer låser scanningsprocessen/trådene, hvilket resulterer i et Denial of Service. Standard: 120000</translation>
     </message>
     <message>
-      <source>Number of files to be scanned within an archive, a document, or any other kind of container. Warning: disabling this limit or setting it too high may result in severe damage to the system. Default: 10000</source>
-      <translation>Denne indstilling indstiller den maksimale størrelse af en HTML-fil til normalisering. HTML-filer større end denne værdi vil ikke blive normaliseret eller scannet. Negative værdier er ikke tilladt. Standard: 40M</translation>
+        <source>Sets the maximum amount of data to be scanned for each input file. Archives and other containers are recursively extracted and scanned up to this value. The size of an archive plus the sum of the sizes of all files within archive count toward the scan size. For example, a 1M uncompressed archive containing a single 1M in‐ ner file counts as 2M toward the max scan size. Warning: dis‐ abling this limit or setting it too high may result in severe damage to the system. Default: 400M</source>
+        <translation>Angiver den maksimale mængde data, der skal scannes for hver inputfil. Arkiver og andre containere udtrækkes rekursivt og scannes op til denne værdi. Størrelsen på et arkiv plus summen af ​​størrelserne på alle filer i arkivet tæller med i scanningsstørrelsen. For eksempel tæller et ukomprimeret arkiv på 1 MB, der indeholder en enkelt indre fil på 1 MB, som 2 MB i forhold til den maksimale scanningsstørrelse. Advarsel: Deaktivering af denne grænse eller for høj indstilling kan resultere i alvorlig skade på systemet. Standard: 400 MB</translation>
     </message>
     <message>
-      <source>This option sets the maximum size of a file to check for embedded PE. Files larger than this value will skip the additional analysis step. Negative values are not allowed. Default: 40M</source>
-      <translation>Denne indstilling indstiller den maksimale størrelse af en normaliseret HTML-fil, der skal scannes. HTML-filer større end denne værdi efter normalisering vil ikke blive scannet. Negative værdier er ikke tilladt. Standard: 8M</translation>
+        <source>Files larger than this limit won&apos;t be scanned. Affects the input file itself as well as files contained inside it (when the input file is an archive, a document or some other kind of container). Warning: disabling this limit or setting it too high may result in severe damage to the system. Technical design limitations pre‐ vent ClamAV from scanning files greater than 2 GB at this time. Default: 100M</source>
+        <translation>Filer større end denne grænse scannes ikke. Påvirker selve inputfilen samt filer indeholdt i den (når inputfilen er et arkiv, et dokument eller en anden form for container). Advarsel: Deaktivering af denne grænse eller en for høj indstilling kan resultere i alvorlig skade på systemet. Tekniske designbegrænsninger forhindrer ClamAV i at scanne filer større end 2 GB på nuværende tidspunkt. Standard: 100M</translation>
     </message>
     <message>
-      <source>This option sets the maximum size of a HTML file to normalize. HTML files larger than this value will not be normalized or scanned. Negative values are not allowed. Default: 40M</source>
-      <translation>Denne indstilling indstiller den maksimale størrelse af en scriptfil til normalisering. Scriptindhold større end denne værdi vil ikke blive normaliseret eller scannet. Negative værdier er ikke tilladt. Standard: 20M</translation>
+        <source>Nested archives are scanned recursively, e.g. if a Zip archive contains a RAR file, all files within it will also be scanned. This options specifies how deeply the process should be contin‐ ued. Warning: setting this limit too high may result in severe damage to the system. Default: 17</source>
+        <translation>Indlejrede arkiver scannes rekursivt, f.eks. hvis et Zip-arkiv indeholder en RAR-fil, scannes alle filer i det også. Denne indstilling angiver, hvor dybt processen skal fortsættes. Advarsel: Hvis denne grænse indstilles for højt, kan det resultere i alvorlig skade på systemet. Standard: 17</translation>
     </message>
     <message>
-      <source>This option sets the maximum size of a normalized HTML file to scan. HTML files larger than this value after normalization will not be scanned. Negative values are not allowed. Default: 8M</source>
-      <translation>Denne indstilling indstiller den maksimale størrelse af en ZIP-fil til at genanalysere typegenkendelse. ZIP-filer, der er større end denne værdi, vil springe trinnet over for potentielt at genanalysere som PE. Negative værdier er ikke tilladt. ADVARSEL: Hvis denne grænse indstilles for højt, kan det resultere i alvorlig skade eller påvirkningsydelse. Standard: 1M</translation>
+        <source>Number of files to be scanned within an archive, a document, or any other kind of container. Warning: disabling this limit or setting it too high may result in severe damage to the system. Default: 10000</source>
+        <translation>Antal filer, der skal scannes i et arkiv, et dokument eller enhver anden form for container. Advarsel: Deaktivering af denne grænse eller for høj indstilling kan resultere i alvorlig skade på systemet. Standard: 10000</translation>
     </message>
     <message>
-      <source>This option sets the maximum size of a script file to normalize. Script content larger than this value will not be normalized or scanned. Negative values are not allowed. Default: 20M</source>
-      <translation>Denne indstilling indstiller det maksimale antal partitioner af et rå diskbillede, der skal scannes. Raw diskbilleder med flere partitioner end denne værdi vil have op til de scannede værdipartitioner. Negative værdier er ikke tilladt. ADVARSEL: Hvis denne grænse indstilles for højt, kan det resultere i alvorlige skader eller påvirkningsydelse. Standard: 50</translation>
+        <source>This option sets the maximum size of a file to check for embedded PE. Files larger than this value will skip the additional analysis step. Negative values are not allowed. Default: 40M</source>
+        <translation>Denne indstilling angiver den maksimale størrelse på en fil, der skal kontrolleres for indlejret PE. Filer, der er større end denne værdi, springer det ekstra analysetrin over. Negative værdier er ikke tilladt. Standard: 40M</translation>
     </message>
     <message>
-      <source>This option sets the maximum size of a ZIP file to reanalyze type recognition. ZIP files larger than this value will skip the step to potentially reanalyze as PE. Negative values are not allowed. WARNING: setting this limit too high may result in severe damage or impact performance. Default: 1M</source>
-      <translation>Denne mulighed indstiller det maksimale antal ikoner inden for en PE, der skal scannes. PE-filer med flere ikoner end denne værdi vil have op til værdien antal ikoner scannet. Negative værdier er ikke tilladt. ADVARSEL: Hvis denne grænse indstilles for højt, kan det resultere i alvorlig skade eller stødydelse</translation>
+        <source>This option sets the maximum size of a HTML file to normalize. HTML files larger than this value will not be normalized or scanned. Negative values are not allowed. Default: 40M</source>
+        <translation>Denne indstilling angiver den maksimale størrelse for en HTML-fil, der skal normaliseres. HTML-filer større end denne værdi vil ikke blive normaliseret eller scannet. Negative værdier er ikke tilladt. Standard: 40M</translation>
     </message>
     <message>
-      <source>This option sets the maximum number of partitions of a raw disk image to be scanned. Raw disk images with more partitions than this value will have up to the value partitions scanned. Negative values are not allowed. WARNING: setting this limit too high may result in severe damage or impact performance. Default: 50</source>
-      <translation>Denne indstilling indstiller de maksimale rekursive opkald til HWP3-parsing-funktionen. HWP3-filer, der bruger mere end denne grænse, vil blive afsluttet og advare brugeren. Scanninger vil ikke være i stand til at scanne nogen HWP3-vedhæftede filer, hvis den rekursive grænse er nået. Negative værdier er ikke tilladt. ADVARSEL: kan resultere i alvorlige skader eller ydelse</translation>
+        <source>This option sets the maximum size of a normalized HTML file to scan. HTML files larger than this value after normalization will not be scanned. Negative values are not allowed. Default: 8M</source>
+        <translation>Denne indstilling angiver den maksimale størrelse for en normaliseret HTML-fil, der skal scannes. HTML-filer, der er større end denne værdi efter normalisering, scannes ikke. Negative værdier er ikke tilladt. Standard: 8M</translation>
     </message>
     <message>
-      <source>This option sets the maximum number of icons within a PE to be scanned. PE files with more icons than this value will have up to the value number icons scanned. Negative values are not allowed. WARNING: setting this limit too high may result in severe damage or impact performance</source>
-      <translation>Denne indstilling indstiller de maksimale kald til PCRE-matchfunktionen under en forekomst af regex-matching. Forekomster, der bruger mere end denne grænse, vil blive afsluttet og advare brugeren, men scanningen fortsætter. Se PCRE-dokumentationen for mere information om match_limit. Negative værdier er ikke tilladt. ADVARSEL: at sætte denne grænse for høj effekt:|0fault kan se</translation>
+        <source>This option sets the maximum size of a script file to normalize. Script content larger than this value will not be normalized or scanned. Negative values are not allowed. Default: 20M</source>
+        <translation>Denne indstilling angiver den maksimale størrelse for en scriptfil, der skal normaliseres. Scriptindhold, der er større end denne værdi, vil ikke blive normaliseret eller scannet. Negative værdier er ikke tilladt. Standard: 20M</translation>
     </message>
     <message>
-      <source>This option sets the maximum recursive calls to HWP3 parsing function. HWP3 files using more than this limit will be terminated and alert the user. Scans will be unable to scan any HWP3 attachments if the recursive limit is reached. Negative values are not allowed. WARNING: setting this limit too high may result in severe damage or impact performance</source>
-      <translation>Denne mulighed indstiller de maksimale rekursive kald til PCRE-matchfunktionen under en forekomst af regex-matching. Forekomster, der bruger mere end denne grænse, vil blive afsluttet og advare brugeren, men scanningen fortsætter. For mere information om match_limit_recursion, se PCRE-dokumentationen. Negative værdier er ikke tilladt, og grænseværdier er for høje .MatchLimit&gt; PCRE-værdier er for høje. kan påvirke ydeevnen alvorligt. Standard: 2000</translation>
+        <source>This option sets the maximum size of a ZIP file to reanalyze type recognition. ZIP files larger than this value will skip the step to poten‐ tially reanalyze as PE. Negative values are not allowed. WARNING: setting this limit too high may result in severe damage or impact performance. Default: 1M</source>
+        <translation>Denne indstilling angiver den maksimale størrelse på en ZIP-fil til genanalyse af typegenkendelse. ZIP-filer større end denne værdi springer trinnet over til potentiel genanalyse som PE. Negative værdier er ikke tilladt. ADVARSEL: Hvis denne grænse angives for højt, kan det resultere i alvorlig skade eller påvirke ydeevnen. Standard: 1M</translation>
     </message>
     <message>
-      <source>This option sets the maximum calls to the PCRE match function during an instance of regex matching. Instances using more than this limit will be terminated and alert the user but the scan will continue. For more information on match_limit, see the PCRE documentation. Negative values are not allowed. WARNING: setting this limit too high may severely impact performance. Default: 10000</source>
-      <translation>Denne indstilling indstiller den maksimale filstørrelse, for hvilken PCRE subsigs vil blive eksekveret. Filer, der overskrider denne grænse, vil ikke have PCRE subsigs eksekveret, medmindre en subsig er omfattet af en mindre buffer. Negative værdier er ikke tilladt. Indstilling af denne værdi til nul deaktiverer grænsen. ADVARSEL: indstilling af denne grænse kan påvirke ydelsen for høj eller deaktivere. 100M</translation>
+        <source>This option sets the maximum number of partitions of a raw disk image to be scanned. Raw disk images with more partitions than this value will have up to the value partitions scanned. Negative values are not allowed. WARNING: setting this limit too high may result in severe damage or impact performance. Default: 50</source>
+        <translation>Denne indstilling angiver det maksimale antal partitioner af et råt diskbillede, der skal scannes. Rå diskbilleder med flere partitioner end denne værdi vil have op til den værdi, der er scannet for partitioner. Negative værdier er ikke tilladt. ADVARSEL: Hvis denne grænse indstilles for højt, kan det resultere i alvorlig skade eller påvirke ydeevnen. Standard: 50</translation>
     </message>
     <message>
-      <source>This option sets the maximum recursive calls to the PCRE match function during an instance of regex matching. Instances using more than this limit will be terminated and alert the user but the scan will continue. For more information on match_limit_recursion, see the PCRE documentation. Negative values are not allowed and values &gt; PCREMatchLimit are superfluous. WARNING: setting this limit too high may severely impact performance. Default: 2000</source>
-      <translation>Denne mulighed specificerer en mappe (inklusive alle filer og mapper i den), som skal scannes ved adgang. Denne mulighed kan bruges flere gange. Standard: deaktiveret</translation>
+        <source>This option sets the maximum number of icons within a PE to be scanned. PE files with more icons than this value will have up to the value number icons scanned. Negative values are not allowed. WARNING: setting this limit too high may result in severe damage or impact performance. Default: 100</source>
+        <translation>Denne indstilling angiver det maksimale antal ikoner inden for en PE, der skal scannes. PE-filer med flere ikoner end denne værdi vil have op til værdien antal ikoner scannet. Negative værdier er ikke tilladt. ADVARSEL: Hvis denne grænse er for høj, kan det resultere i alvorlig skade eller påvirke ydeevnen. Standard: 100</translation>
     </message>
     <message>
-      <source>This option sets the maximum filesize for which PCRE subsigs will be executed. Files exceeding this limit will not have PCRE subsigs executed unless a subsig is encompassed to a smaller buffer. Negative values are not allowed. Setting this value to zero disables the limit. WARNING: setting this limit too high or disabling it may severely impact performance. Default: 100M</source>
-      <translation>Denne mulighed tillader at ekskludere mapper fra scanning ved adgang. Den kan bruges flere gange. Standard: deaktiveret</translation>
+        <source>This option sets the maximum recursive calls to HWP3 parsing function. HWP3 files using more than this limit will be terminated and alert the user. Scans will be unable to scan any HWP3 attachments if the recur‐ sive limit is reached. Negative values are not allowed. WARNING: setting this limit too high may result in severe damage or impact performance. Default: 16</source>
+        <translation>Denne indstilling angiver det maksimale antal rekursive kald til HWP3-parsningsfunktionen. HWP3-filer, der bruger mere end denne grænse, vil blive afsluttet og advare brugeren. Scanninger vil ikke være i stand til at scanne nogen HWP3-vedhæftede filer, hvis den rekursive grænse nås. Negative værdier er ikke tilladt. ADVARSEL: Hvis denne grænse indstilles for højt, kan det resultere i alvorlig skade eller påvirke ydeevnen. Standard: 16</translation>
     </message>
     <message>
-      <source>This option specifies a directory (including all files and directories inside it), which should be scanned on access. This option can be used multiple times. Default: disabled</source>
-      <translation>Med denne mulighed kan du udelukke root-UID'et (0). Processer, der køres under root, vil være i stand til at få adgang til alle filer uden at udløse scanninger eller tilladelses nægtede hændelser. Bemærk, at hvis clamd ikke kan kontrollere uid'et for den proces, der genererede en on-access-scanningshændelse (f. OnAccessExcludeRootUID er ikke garanteret at forhindre enhver adgang fra root-brugeren i at udløse en scanning (medmindre OnAccessPrevention er aktiveret: nej</translation>
+        <source>This option sets the maximum calls to the PCRE match function during an instance of regex matching. Instances using more than this limit will be terminated and alert the user but the scan will continue. For more information on match_limit, see the PCRE documentation. Negative values are not allowed. WARNING: setting this limit too high may severely impact perfor‐ mance. Default: 10000</source>
+        <translation>Denne indstilling angiver det maksimale antal kald til PCRE-matchfunktionen under en instans af regex-matchning. Instanser, der bruger mere end denne grænse, vil blive afsluttet og advare brugeren, men scanningen vil fortsætte. For mere information om match_limit, se PCRE-dokumentationen. Negative værdier er ikke tilladt. ADVARSEL: Hvis denne grænse er for høj, kan det have alvorlig indflydelse på ydeevnen. Standard: 10000</translation>
     </message>
     <message>
-      <source>This option allows excluding directories from on-access scanning. It can be used multiple times. Default: disabled</source>
-      <translation>Med denne indstilling kan du udelukke specifikke UID'er. Processer med disse UID'er vil være i stand til at få adgang til alle filer uden at udløse scanninger eller tilladelses nægtede hændelser. Denne mulighed kan bruges flere gange (én pr. linje). Bemærk: Brug af en værdi på 0 på en linje vil deaktivere denne mulighed helt. For at udelukke root-UID'et, skal du også ikke Acceptere det Onoot-ID (0) clamd kan ikke kontrollere uid'et for den proces, der genererede en on-access scanningshændelse (f.eks. fordi OnAccessPrevention ikke var aktiveret, og processen allerede er afsluttet), vil clamd udføre en scanning. Indstilling af OnAccessExcludeUID er derfor ikke garanteret at forhindre enhver adgang fra den angivne uid i at udløse en scanning (medmindre OnAccessPrevention er slået til</translation>
+        <source>This option sets the maximum recursive calls to the PCRE match function during an instance of regex matching. Instances using more than this limit will be terminated and alert the user but the scan will continue. For more information on match_limit_recursion, see the PCRE docu‐ mentation. Negative values are not allowed and values &gt; PCREMatchLimit are superfluous. WARNING: setting this limit too high may severely impact perfor‐ mance. Default: 2000</source>
+        <translation>Denne indstilling angiver det maksimale antal rekursive kald til PCRE-matchfunktionen under en instans af regex-matchning. Instanser, der bruger mere end denne grænse, vil blive afsluttet og advare brugeren, men scanningen vil fortsætte. For mere information om match_limit_recursion, se PCRE-dokumentationen. Negative værdier er ikke tilladt, og værdier &gt; PCREMatchLimit er overflødige. ADVARSEL: Hvis denne grænse angives for højt, kan det have alvorlig indflydelse på ydeevnen. Standard: 2000</translation>
     </message>
     <message>
-      <source>With this option you can exclude the root UID (0). Processes run under root will be able to access all files without triggering scans or permission denied events. Note that if clamd cannot check the uid of the process that generated an on-access scan event (e.g., because OnAccessPrevention was not enabled, and the process already exited), clamd will perform a scan.   Thus,  setting OnAccessExcludeRootUID is not guaranteed to prevent every access by the root user from triggering a scan (unless OnAccessPrevention is enabled). Default: no</source>
-      <translation>Denne mulighed tillader ekskluderinger via brugernavne, når du bruger scanningsklienten ved adgang. Den kan bruges flere gange og har de samme potentielle begrænsninger for racetilstanden som OnAccessExcludeUID-indstillingen. Standard: deaktiveret</translation>
+        <source>This option sets the maximum filesize for which PCRE subsigs will be executed. Files exceeding this limit will not have PCRE subsigs executed unless a subsig is encompassed to a smaller buffer. Negative values are not allowed. Setting this value to zero disables the limit. WARNING: setting this limit too high or disabling it may severely impact performance. Default: 100M</source>
+        <translation>Denne indstilling angiver den maksimale filstørrelse, som PCRE-undersignaturer vil blive udført for. Filer, der overstiger denne grænse, vil ikke få PCRE-undersignaturer udført, medmindre en undersignature er omsluttet af en mindre buffer. Negative værdier er ikke tilladt. Indstilling af denne værdi til nul deaktiverer grænsen. ADVARSEL: Hvis denne grænse indstilles for højt eller deaktiveres, kan det have alvorlig indflydelse på ydeevnen. Standard: 100M</translation>
     </message>
     <message>
-      <source>With this option you can exclude specific UIDs. Processes with these UIDs will be able to access all files without triggering scans or permission denied events. This option can be used multiple times (one per line). Note: using a value of 0 on any line will disable this option entirely. To exclude the root UID (0) please enable the OnAccessExcludeRootUID option. Also note that if clamd cannot check the uid of the process that generated an on-access scan event (e.g., because OnAccessPrevention was not enabled, and the process already exited), clamd will perform a scan.  Thus, set- ting OnAccessExcludeUID is not guaranteed to prevent every access by the specified uid from triggering a scan (unless OnAccessPrevention is enabled). Default: disabled</source>
-      <translation>Filer større end denne værdi vil ikke blive scannet ind ved adgang. Standard: 5M</translation>
+        <source>With this option you can exclude the root UID (0). Processes run under root will be able to access all files without triggering scans or permission denied events. Note that if clamd cannot check the uid of the process that gen‐ erated an on-access scan event (e.g., because OnAccessPrevention was not enabled, and the process already exited), clamd will per‐ form a scan. Thus, setting OnAccessExcludeRootUID is not guaran‐ teed to prevent every access by the root user from triggering a scan (unless OnAccessPrevention is enabled). Default: no</source>
+        <translation>Med denne indstilling kan du udelade root UID (0). Processer, der kører under root, vil kunne få adgang til alle filer uden at udløse scanninger eller hændelser med nægtet tilladelse. Bemærk, at hvis clamd ikke kan kontrollere uid&apos;en for den proces, der genererede en scanningshændelse ved adgang (f.eks. fordi OnAccessPrevention ikke var aktiveret, og processen allerede var afsluttet), vil clamd udføre en scanning. Derfor er det ikke garanteret, at indstilling af OnAccessExcludeRootUID forhindrer enhver adgang fra root-brugeren i at udløse en scanning (medmindre OnAccessPrevention er aktiveret). Standard: nej</translation>
     </message>
     <message>
-      <source>This option allows exclusions via user names when using the on-access scanning client. It can be used multiple times, and has the same potential race condition limitations of the OnAccessExcludeUID option. Default: disabled</source>
-      <translation>Maksimalt antal scanningstråde, der skal allokeres til OnAccess-trådpuljen ved opstart. Disse tråde er dem, der er ansvarlige for at skabe en forbindelse med dæmonen og starte scanningen efter en hændelse er blevet behandlet. For at forhindre clamonacc i at forbruge alle clamds ressourcer, hold dette lavere end clamds ressourcer</translation>
+        <source>Files larger than this value will not be scanned in on access. Default: 5M</source>
+        <translation>Filer større end denne værdi scannes ikke ved adgang. Standard: 5M</translation>
     </message>
     <message>
-      <source>Files larger than this value will not be scanned in on access. Default: 5M</source>
-      <translation>Maks. tid (i millisekunder), som OnAccess-klienten skal bruge for hvert forsøg på at forbinde, sende og modtage, når der kommunikeres med clamd via curl. Standard: 5000 (5 sekunder)</translation>
+        <source>Max number of scanning threads to allocate to the OnAccess thread pool at startup. These threads are the ones responsible for cre‐ ating a connection with the daemon and kicking off scanning after an event has been processed. To prevent clamonacc from consuming all clamd&apos;s resources keep this lower than clamd&apos;s max threads. Default: 5</source>
+        <translation>Maksimalt antal scanningstråde, der skal allokeres til OnAccess-trådpuljen ved opstart. Disse tråde er ansvarlige for at oprette en forbindelse med dæmonen og starte scanningen, efter at en hændelse er blevet behandlet. For at forhindre clamonacc i at bruge alle clams ressourcer, skal dette holdes lavere end clams maksimale tråde. Standard: 5</translation>
     </message>
     <message>
-      <source>Max number of scanning threads to allocate to the OnAccess thread pool at startup. These threads are the ones responsible for creating a connection with the daemon and kicking off scanning after an  event  has  been  pro- cessed. To prevent clamonacc from consuming all clamd's resources keep this lower than clamd's max threads. Default: 5</source>
-      <translation>Specificerer et monteringspunkt (inklusive alle filer og mapper under det), som skal scannes ved adgang. Denne mulighed kan bruges flere gange. Standard: deaktiveret</translation>
+        <source>Max amount of time (in milliseconds) that the OnAccess client should spend for every connect, send, and receive attempt when communicating with clamd via curl. Default: 5000 (5 seconds)</source>
+        <translation>Maksimal tid (i millisekunder), som OnAccess-klienten skal bruge på hvert forsøg på at oprette forbindelse, sende og modtage, når der kommunikeres med clamd via curl. Standard: 5000 (5 sekunder)</translation>
     </message>
     <message>
-      <source>Max amount of time (in milliseconds) that the OnAccess client should spend for every connect, send, and receive attempt when communicating with clamd via curl. Default: 5000 (5 seconds)</source>
-      <translation>Deaktiverer det dynamiske biblioteksbestemmelsessystem, som giver mulighed for rekursiv overvågning af inkluderede stier. Standard: nej</translation>
+        <source>Specifies a mount point (including all files and directories un‐ der it), which should be scanned on access. This option can be used multiple times. Default: disabled</source>
+        <translation>Angiver et monteringspunkt (inklusive alle filer og mapper deri), som skal scannes ved adgang. Denne indstilling kan bruges flere gange. Standard: deaktiveret</translation>
     </message>
     <message>
-      <source>Specifies a mount point (including all files and directories under it), which should be scanned on access. This option can be used multiple times. Default: disabled</source>
-      <translation>Aktiverer fanotify-blokering, når der findes skadelige filer. Standard: deaktiveret</translation>
+        <source>Disables the dynamic directory determination system which allows for recursively watching include paths. Default: no</source>
+        <translation>Deaktiverer det dynamiske mappebestemmelsessystem, som tillader rekursiv overvågning af inkluderingsstier. Standard: nej</translation>
     </message>
     <message>
-      <source>Disables the dynamic directory determination system which allows for recursively watching include paths. Default: no</source>
-      <translation>Antal gange OnAccess-klienten vil prøve en mislykket scanning igen på grund af forbindelsesproblemer (eller andre problemer). Standard: 0</translation>
+        <source>Enables fanotify blocking when malicious files are found. Default: disabled</source>
+        <translation>Aktiverer fanotify-blokering, når der findes skadelige filer. Standard: deaktiveret</translation>
     </message>
     <message>
-      <source>Enables fanotify blocking when malicious files are found. Default: disabled</source>
-      <translation>Når du bruger forebyggelse, hvis denne mulighed er slået til, vil eventuelle fejl, der opstår under scanning, resultere i, at hændelsesforsøget afvises. Dette kan potentielt føre til uønsket systemadfærd med visse konfigurationer, så klienten sætter dette som standard til fra og foretrækker at tillade adgangsbegivenheder i tilfælde af scannings- eller forbindelsesfejl. Standard: nej</translation>
+        <source>Number of times the OnAccess client will retry a failed scan due to connection problems (or other issues). Default: 0</source>
+        <translation>Antal gange OnAccess-klienten forsøger en mislykket scanning igen på grund af forbindelsesproblemer (eller andre problemer). Standard: 0</translation>
     </message>
     <message>
-      <source>Number of times the OnAccess client will retry a failed scan due to connection problems (or other issues). Default: 0</source>
-      <translation>Skifter ekstra scanning og meddelelser, når en fil eller mappe oprettes eller flyttes. Kræver DDD-systemet for at starte ekstra scanninger. Standard: nej</translation>
+        <source>When using prevention, if this option is turned on, any errors that occur during scanning will result in the event attempt be‐ ing denied. This could potentially lead to unwanted system behav‐ iour with certain configurations, so the client defaults this to off and prefers allowing access events in case of scan or connec‐ tion error. Default: no</source>
+        <translation>Når forebyggelse bruges, og denne indstilling er aktiveret, vil eventuelle fejl, der opstår under scanningen, resultere i, at hændelsesforsøget afvises. Dette kan potentielt føre til uønsket systemadfærd med visse konfigurationer, så klienten indstiller dette som standard til deaktiveret og foretrækker at tillade adgangshændelser i tilfælde af scannings- eller forbindelsesfejl. Standard: nej</translation>
     </message>
     <message>
-      <source>When  using  prevention,  if this option is turned on, any errors that occur during  scanning will result in the event attempt being denied. This could potentially lead to unwanted system behaviour with certain configurations, so the client defaults this to off and prefers allowing access events in case of scan or connection error. Default: no</source>
-      <translation>Deaktiver verifikation af autentikode-certifikatkæde i PE-filer. Standard: nej</translation>
+        <source>Toggles extra scanning and notifications when a file or directory is created or moved. Requires the DDD system to kick-off extra scans. Default: no</source>
+        <translation>Slår ekstra scanning og notifikationer til/fra, når en fil eller mappe oprettes eller flyttes. Kræver, at DDD-systemet starter ekstra scanninger. Standard: nej</translation>
     </message>
     <message>
-      <source>Toggles extra scanning and notifications when a file or directory is created or moved. Requires the  DDD system to kick-off extra scans. Default: no</source>
-      <translation>Gem html-URI'er i metadata. URI'er vil blive skrevet til filen metadata.json i et array kaldet 'URI'er'</translation>
+        <source>Enable libclamav&apos;s debug messages</source>
+        <translation>Aktiver libclamavs fejlfindingsbeskeder.</translation>
     </message>
     <message>
-      <source>Disable authenticode certificate chain verification in PE files. Default: no</source>
-      <translation>Gem pdf-URI'er i metadata. URI'er vil blive skrevet til filen metadata.json i et array kaldet 'URI'er'</translation>
+        <source>Be verbose</source>
+        <translation>Vær ordrig.</translation>
     </message>
+     <message>
+        <source>Only print infected files</source>
+        <translation>Udskriv kun inficerede filer.</translation>
+    </message>
+    <message>
+        <source>Sound bell on virus detection</source>
+        <translation>Lydklokke ved virusdetektion.</translation>
+    </message>
+    <message>
+        <source>Create temporary files for nested file scans that would otherwise be in-memory only</source>
+        <translation>Opret midlertidige filer til indbyggede filscanninger, der ellers kun ville være i hukommelsen.</translation>
+    </message>
+    <message>
+        <source>Continue scanning within file after finding a match</source>
+        <translation>Fortsæt scanningen i filen, efter du har fundet et match.</translation>
+    </message>
+    <message>
+        <source>Show filenames inside scanned archives</source>
+        <translation>Vis filnavne i scannede arkiver.</translation>
+    </message>
+    <message>
+        <source>Only output error messages</source>
+        <translation>Udskriv kun fejlmeddelelser.</translation>
+    </message>
+    <message>
+        <source>Disable summary at end of scanning</source>
+        <translation>Deaktiver oversigt ved afslutning af scanning.</translation>
+    </message>
+    <message>
+        <source>Skip printing OK files</source>
+        <translation>Spring udskrivning af OK-filer over.</translation>
+    </message>
+    <message>
+        <source>Do not remove temporary files</source>
+        <translation>Fjern ikke midlertidige filer.</translation>
+    </message>
+    <message>
+        <source>Scan subdirectories recursively</source>
+        <translation>Scan undermapper rekursivt.</translation>
+    </message>
+    <message>
+        <source>Detect Possibly Unwanted Applications</source>
+        <translation>Find muligvis uønskede programmer.</translation>
+    </message>
+    <message>
+        <source>Scan files and directories on other filesystems</source>
+        <translation>Scan filer og mapper på andre filsystemer.</translation>
+    </message>
+    <message>
+        <source>Scan mail files</source>
+        <translation>Scan mailfiler.</translation>
+    </message>
+    <message>
+        <source>Detect structured data (SSN, Credit Card)</source>
+        <translation>Registrer strukturerede data (crp-nummer, kreditkort).</translation>
+    </message>
+    <message>
+        <source>Enable URL signature-based phishing detection</source>
+        <translation>Aktivér phishing-detektion baseret på URL-signatur.</translation>
+    </message>
+    <message>
+        <source>Stop scanning as soon as a heuristic match is found</source>
+        <translation>Stop scanningen, så snart der findes et heuristisk match.</translation>
+    </message>
+    <message>
+        <source>Enable email signature-based phishing detection</source>
+        <translation>Aktivér phishing-detektion baseret på e-mailsignaturer.</translation>
+    </message>
+    <message>
+        <source>Heuristic alerts</source>
+        <translation>Heuristiske alarmer.</translation>
+    </message>
+    <message>
+        <source>Normalize html, script, and text files. Use normalize=no for yara compatibility</source>
+        <translation>Normaliser html-, script- og tekstfiler. Brug normalize=no for Yara-kompatibilitet.</translation>
+    </message>
+    <message>
+        <source>Scan PE files</source>
+        <translation>Scan PE-filer.</translation>
+    </message>
+    <message>
+        <source>Scan ELF files</source>
+        <translation>Scan ELF-filer.</translation>
+    </message>
+    <message>
+        <source>Scan OLE2 containers</source>
+        <translation>Scan OLE2-containere.</translation>
+    </message>
+    <message>
+        <source>Scan PDF files</source>
+        <translation>Scan PDF-filer.</translation>
+    </message>
+    <message>
+        <source>Scan SWF files</source>
+        <translation>Scan SWF-filer.</translation>
+    </message>
+    <message>
+        <source>Scan HTML files</source>
+        <translation>Scan HTML-filer.</translation>
+    </message>
+    <message>
+        <source>Scan xml-based document files</source>
+        <translation>Scan xml-baserede dokumentfiler.</translation>
+    </message>
+    <message>
+        <source>Scan HWP3 files</source>
+        <translation>Scan HWP3-filer.</translation>
+    </message>
+    <message>
+        <source>Scan archive files (supported by libclamav)</source>
+        <translation>Scan arkivfiler (understøttet af libclamav).</translation>
+    </message>
+    <message>
+        <source>Alert on broken executable files (PE &amp; ELF)</source>
+        <translation>Advarsel om ødelagte eksekverbare filer (PE &amp; ELF).</translation>
+    </message>
+    <message>
+        <source>Scan OneNote files</source>
+        <translation>Scan OneNote-filer.</translation>
+    </message>
+    <message>
+        <source>Scan image (graphics) files</source>
+        <translation>Scan billedfiler (grafikfiler).</translation>
+    </message>
+    <message>
+        <source>Detect files by calculating image (graphics) fuzzy hashes</source>
+        <translation>Find filer ved at beregne fuzzy hashes for billeder (grafik).</translation>
+    </message>
+    <message>
+        <source>Alert on encrypted archives and documents</source>
+        <translation>Advarsel om krypterede arkiver og dokumenter.</translation>
+    </message>
+    <message>
+        <source>Alert on encrypted documents</source>
+        <translation>Advarsel om krypterede dokumenter.</translation>
+    </message>
+    <message>
+        <source>Alert on OLE2 files containing VBA macros</source>
+        <translation>Advarsel om OLE2-filer, der indeholder VBA-makroer.</translation>
+    </message>
+    <message>
+        <source>Alert on encrypted archives</source>
+        <translation>Advarsel om krypterede arkiver og dokumenter.</translation>
+    </message>
+    <message>
+        <source>Alert on files that exceed max file size, max scan size, or max recursion limit</source>
+        <translation>Advarsel om filer, der overstiger den maksimale filstørrelse, den maksimale scanningsstørrelse eller den maksimale rekursionsgrænse.</translation>
+    </message>
     <message>
-      <source>Store html URIs in metadata. URIs will be written to the metadata.json file in an array called 'URIs'</source>
-      <translation>Gem md5 og sha1 ud over sha2-256 i metadata</translation>
+        <source>Alert on emails containing cloaked URLs</source>
+        <translation>Advarsel om e-mails, der indeholder skjulte URL&apos;er.</translation>
     </message>
     <message>
-      <source>Store pdf URIs in metadata. URIs will be written to the metadata.json file in an array called 'URIs'</source>
-      <translation>Udskriv filhashen efter hver scannet fil</translation>
+        <source>Disable authenticode certificate chain verification in PE files</source>
+        <translation>Deaktiver verifikation af authenticode-certifikatkæde i PE-filer.</translation>
     </message>
     <message>
-      <source>Store md5 and sha1 in addition to sha2-256 in metadata</source>
-      <translation>Udskriv filtypen efter hver scannet fil</translation>
+        <source>Alert on broken graphics files (JPEG, TIFF, PNG, GIF)</source>
+        <translation>Advarsel om ødelagte grafikfiler (JPEG, TIFF, PNG, GIF).</translation>
     </message>
     <message>
-      <source>Print the file hash after each file scanned</source>
-      <translation/>
+        <source>Alert on emails containing SSL mismatches in URLs</source>
+        <translation>Advarsel om e-mails, der indeholder SSL-uoverensstemmelser i URL&apos;er.</translation>
     </message>
     <message>
-      <source>Print the file type after each file scanned</source>
-      <translation/>
+        <source>Alert on raw DMG image files containing partition intersections</source>
+        <translation>Advarsel om rå DMG-billedfiler, der indeholder partitionsskæringer.</translation>
     </message>
-    </context>
+</context>
 </TS>

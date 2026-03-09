@@ -5,24 +5,26 @@ clamdconfspinboxoption::clamdconfspinboxoption(QWidget* parent, QString keyword,
                                                setupFileHandler* setupFile)
     : QWidget(parent), m_optionKeyword(keyword), m_setupFile(setupFile)
 {
-    translator trans(language);
-
     m_ui.setupUi(this);
     m_ui.checkBox->setChecked(checked);
 
     QStringList values = options.split(",");
+    QString StringSpinMin = values.at(0);
+    QString StringSpinMax = values.at(1);
+    QString StringSpinValue = values.at(2);
     int spinvalue;
     int spinmin;
     int spinmax;
-    spinmin = values.at(0).toInt();  //helper.toInt();
-    spinmax = values.at(1).toInt();
-    spinvalue = values.at(2).toInt();
-
-    if (spinvalue > 1048576) {
-        spinmin = spinmin / 1048576;
-        spinmax = spinmax / 1048576;
-        spinvalue = spinvalue / 1048576;
+    if (StringSpinMax.indexOf("M") != -1) {
+        m_ui.label->setText("MB");
+        StringSpinValue = StringSpinValue.replace("M","");
+        StringSpinMax = StringSpinMax.replace("M","");
+        StringSpinMin = StringSpinMin.replace("M","");
     }
+    spinmin = StringSpinMin.toInt();
+    spinmax = StringSpinMax.toInt();
+    spinvalue = StringSpinValue.toInt();
+
     m_ui.spinBox->setMinimum(spinmin);
     m_ui.spinBox->setMaximum(spinmax);
     connect(m_ui.checkBox, SIGNAL(clicked(bool)), this, SLOT(slot_checkboxClicked()));
@@ -40,9 +42,19 @@ clamdconfspinboxoption::clamdconfspinboxoption(QWidget* parent, QString keyword,
         m_ui.spinBox->setValue(spinvalue);
     }
 
-    //label = trans.translateit(label);
+// -------------------------------------------------------------------------
+// For DEBUG reasons only.
+/*    QFile file(QDir::homePath() + "/clamav-xx_XX.ts");
+    if (file.open(QIODevice::WriteOnly|QIODevice::Text|QIODevice::Append)) {
+        QTextStream stream(&file);
+        stream << "    <message>\n        <source>" << label << "</source>\n        <translation>TRANS</translation>\n    </message>\n";
+        file.close();
+    }*/
+// -------------------------------------------------------------------------
+
     label = QCoreApplication::translate("ClamAV", label.toUtf8().constData());
     m_ui.checkBox->setText(translator::beautifyString(label, 120));
+    m_ui.checkBox->setToolTip(keyword);
     m_startup = false;
 
     slot_checkboxClicked();

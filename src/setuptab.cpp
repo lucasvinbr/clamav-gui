@@ -185,13 +185,10 @@ void setupTab::findTranslation()
     QDir directory(translation_path);
     QStringList m_filelist = directory.entryList(QDir::Files);
     foreach(QString m_file, m_filelist) {
-        qDebug() << m_file;
         if (m_file.indexOf(".qm") != -1 && m_file.contains("gui")) {
-            qDebug() << m_file;
             QString m_lang = m_file.mid(11,5);
             QLocale locale(m_lang);
             m_country = locale.territoryToString(locale.territory());
-            qDebug() << m_country;
             m_ui.languageSelectComboBox->addItem(QIcon(translation_path + "languageicons/" + m_lang + ".png"),"[" + m_lang + "] " + m_country);        
         }
     }

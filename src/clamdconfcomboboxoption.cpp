@@ -28,9 +28,19 @@ clamdconfcomboboxoption::clamdconfcomboboxoption(QWidget* parent, QString keywor
         m_ui.comboBox->setVisible(false);
     }
 
-    //label = trans.translateit(label);
+ // -------------------------------------------------------------------------
+ // For DEBUG reasons only.
+/*    QFile file(QDir::homePath() + "/clamav-xx_XX.ts");
+    if (file.open(QIODevice::WriteOnly|QIODevice::Text|QIODevice::Append)) {
+        QTextStream stream(&file);
+        stream << "    <message>\n        <source>" << label << "</source>\n        <translation>TRANS</translation>\n    </message>\n";
+        file.close();
+    }*/
+ // -------------------------------------------------------------------------
+
     label = QCoreApplication::translate("ClamAV", label.toUtf8().constData());
     m_ui.checkBox->setText(translator::beautifyString(label, 120));
+    m_ui.checkBox->setToolTip(keyword);
 
     m_startup = false;
 

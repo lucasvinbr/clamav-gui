@@ -11,6 +11,8 @@
 
 #include <QFileDialog>
 #include <QFileSystemWatcher>
+#include <QFile>
+#include <QTextStream>
 #include <QMovie>
 #include <QProcess>
 #include <QTimer>
@@ -40,6 +42,7 @@ private:
     QProcess* m_findclamonaccProcess;      // clamd
     QProcess* m_restartClamonaccProcess;   // clamd
     QProcess* m_killProcess;
+    QProcess* m_getclamdconfparameters;
     QString m_clamdLocation;      // clamd
     QString m_clamonaccLocation;  // clamd
     QString m_clamonaccPid;       // clamd
@@ -61,7 +64,6 @@ private:
     QString trimLocationOutput(QString);
     void initClamdSettings();  // clamd
     void restartClamonacc();   // clamd
-    void initClamdConfElements();
     bool checkClamdRunning();  // clamd
     QString selectColor(QString color);
 
@@ -85,6 +87,7 @@ private slots:
     void slot_waitForFreshclamStarted();
     void slot_processWatcherExpired();
     void slot_add_remove_highlighter(bool);
+    void slot_clamdConfElements();
 signals:
     void setBallonMessage(int, QString, QString);  // clamd
     void setActiveTab();

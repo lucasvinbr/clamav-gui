@@ -20,7 +20,16 @@ clamdManager::clamdManager(QWidget* parent, setupFileHandler* setupFile) : QWidg
     m_processWatcher->start(30000);
 
     initClamdSettings();
-    initClamdConfElements();
+    m_getclamdconfparameters = new QProcess(this);
+    QFile m_getmaninfo(QDir::homePath() + "/.clamav-gui/getmaninfo.sh");
+    if (m_getmaninfo.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream stream(&m_getmaninfo);
+        stream << "#!/bin/bash\nman clamd.conf > " + QDir::homePath() + "/.clamav-gui/clamd.conf.man";
+        m_getmaninfo.close();
+        m_getmaninfo.setPermissions(QFileDevice::ExeOwner|QFileDevice::ExeGroup|QFileDevice::ExeOther|QFileDevice::ReadUser|QFileDevice::ReadGroup|QFileDevice::ReadOther);
+    }
+    connect(m_getclamdconfparameters,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slot_clamdConfElements()));
+    m_getclamdconfparameters->start(QDir::homePath() + "/.clamav-gui/getmaninfo.sh");
 }
 
 QString clamdManager::trimLocationOutput(QString value)
@@ -797,8 +806,20 @@ QString clamdManager::selectColor(QString color)
     return rc;
 }
 
-void clamdManager::initClamdConfElements()
+void clamdManager::slot_clamdConfElements()
 {
+    QString possibleValues;
+    QString keyword;
+    QString content;
+    QStringList splitter;
+    QString valuetype;
+    QString skipvalues = "|Example|OnAccessIncludePath|OnAccessExcludePath|OnAccessExcludeUID|OnAccessExcludeUname|LogFile|PidFile|LocalSocket|LocalSocketGroup|ExcludePath|"
+        "ExcludePUA|IncludePUA|LocalSocketMode|EnableShutdownCommand|EnableReloadCommand|EnableVersionCommand|EnableStatsCommand|";
+    int poscounter = 0;
+    bool skip = false;
+    QStringList clamdConfElement;
+
+    delete m_getclamdconfparameters;
 
     if (m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter") == false) {
         m_logHighlighter = new highlighter(m_ui.clamdLogPlainTextEdit->document());
@@ -819,282 +840,141 @@ void clamdManager::initClamdConfElements()
         m_ui.clamdLabel_3->setStyleSheet("padding:3px");
     }
 
-    QStringList clamdConfElement;
-    //    clamdConfElement << "2OnAccessIncludePath STRING|This option specifies a directory (including all files and directories inside it), which should be scanned on access. This option can be used multiple times. Default: disabled|";
-    //    clamdConfElement << "2OnAccessExcludePath STRING|This option allows excluding directories from on-access scanning. It can be used multiple times. Default: disabled|";
-    clamdConfElement << "2OnAccessExcludeRootUID BOOL|With this option you can exclude the root UID (0). Processes run under root will be able to "
-                        "access all files without triggering scans or permission denied events. Note that if clamd cannot check the uid of the "
-                        "process that generated an on-access scan event (e.g., because OnAccessPrevention was not enabled, and the process already "
-                        "exited), clamd will perform a scan.   Thus,  setting OnAccessExcludeRootUID is not guaranteed to prevent every access by "
-                        "the root user from triggering a scan (unless OnAccessPrevention is enabled). Default: no|yes,no,no";
-    //    clamdConfElement << "2OnAccessExcludeUID NUMBER|With this option you can exclude specific UIDs. Processes with these UIDs will be able to access all files without triggering scans or permission denied events. This option can be used multiple times (one per line). Note: using a value of 0 on any line will disable this option entirely. To exclude the root UID (0) please enable the OnAccessExcludeRootUID option. Also note that if clamd cannot check the uid of the process that generated an on-access scan event (e.g., because OnAccessPrevention was not enabled, and the process already exited), clamd will perform a scan.  Thus, set- ting OnAccessExcludeUID is not guaranteed to prevent every access by the specified uid from triggering a scan (unless OnAccessPrevention is enabled). Default: disabled|0,1024,0";
-    //    clamdConfElement << "2OnAccessExcludeUname STRING|This option allows exclusions via user names when using the on-access scanning client. It can be used multiple times, and has the same potential race condition limitations of the OnAccessExcludeUID option. Default: disabled|";
-    clamdConfElement << "2OnAccessMaxFileSize SIZE|Files larger than this value will not be scanned in on access. Default: 5M|0,10485760,5242880";
-    clamdConfElement
-        << "2OnAccessMaxThreads NUMBER|Max number of scanning threads to allocate to the OnAccess thread pool at startup. These threads are the ones "
-           "responsible for creating a connection with the daemon and kicking off scanning after an  event  has  been  pro- cessed. To prevent "
-           "clamonacc from consuming all clamd's resources keep this lower than clamd's max threads. Default: 5|0,10,5";
-    clamdConfElement << "2OnAccessCurlTimeout NUMBER|Max amount of time (in milliseconds) that the OnAccess client should spend for every connect, "
-                        "send, and receive attempt when communicating with clamd via curl. Default: 5000 (5 seconds)|0,10000,5000";
-    clamdConfElement << "2OnAccessMountPath STRING|Specifies a mount point (including all files and directories under it), which should be scanned "
-                        "on access. This option can be used multiple times. Default: disabled|";
-    clamdConfElement << "2OnAccessDisableDDD BOOL|Disables the dynamic directory determination system which allows for recursively watching include "
-                        "paths. Default: no|yes,no,no";
-    clamdConfElement << "2OnAccessPrevention BOOL|Enables fanotify blocking when malicious files are found. Default: disabled|yes,no,no";
-    clamdConfElement << "2OnAccessRetryAttempts NUMBER|Number of times the OnAccess client will retry a failed scan due to connection problems (or "
-                        "other issues). Default: 0|0,5,0";
-    clamdConfElement
-        << "2OnAccessDenyOnError BOOL|When  using  prevention,  if this option is turned on, any errors that occur during  scanning will result in "
-           "the event attempt being denied. This could potentially lead to unwanted system behaviour with certain configurations, so the client "
-           "defaults this to off and prefers allowing access events in case of scan or connection error. Default: no|yes,no,no";
-    clamdConfElement << "2OnAccessExtraScanning BOOL|Toggles extra scanning and notifications when a file or directory is created or moved. Requires "
-                        "the  DDD system to kick-off extra scans. Default: no|yes,no,no";
-    //    clamdConfElement << "1LogFile STRING|Save all reports to a log file. Default: disabled|disabled";
-    clamdConfElement << "1LogFileUnlock BOOL|By default the log file is locked for writing and only a single daemon process can write to it. This "
-                        "option disables the lock. Default: no|yes,no,no";
-    clamdConfElement << "1LogFileMaxSize SIZE|Maximum size of the log file. Value of 0 disables the limit. Default: 1048576|0,10485760,1048576";
-    clamdConfElement << "1LogTime BOOL|Log time for each message. Default: no|yes,no,no";
-    clamdConfElement << "1LogClean BOOL|Log all clean files. Useful in debugging but drastically increases the log size. Default: no|yes,no,no";
-    clamdConfElement << "1LogSyslog BOOL|Use the system logger (can work together with LogFile). Default: no|yes,no,no";
-    clamdConfElement << "1LogFacility STRING|Type of syslog messages. Please refer to 'man syslog' for facility names. (LOG_LOCAL6, LOG_MAIL), "
-                        "Default: LOG_LOCAL6|LOG_LOCAL6,LOG_MAIL,LOG_LOCAL6";
-    clamdConfElement << "1LogVerbose BOOL|Enable verbose logging. Default: no|yes,no,no";
-    clamdConfElement << "1LogRotate BOOL|Rotate log file. Requires LogFileMaxSize option set prior to this option. Default: no|yes,no,no";
-    clamdConfElement << "1ExtendedDetectionInfo BOOL|Log additional information about the infected file, such as its size and hash, together with "
-                        "the virus name. Default: no|yes,no,no";
-    //    clamdConfElement << "1PidFile STRING|Write the daemon's pid to the specified file. Default: disabled|yes,no,no";
-    clamdConfElement << "1TemporaryDirectory STRING|This option allows you to change the default temporary directory. Default: /tmp|/tmp";
-    clamdConfElement << "1DatabaseDirectory STRING|This option allows you to change the default database directory. If you enable it, please make "
-                        "sure it points to the same directory in both clamd and freshclam. Default: /usr/local/share/clamav|/usr/local/share/clamav";
-    clamdConfElement << "1OfficialDatabaseOnly BOOL|Only load the official signatures published by the ClamAV project. Default: no|yes,no,no";
-    clamdConfElement << "1FailIfCvdOlderThan NUMBER|Return with a nonzero error code if the virus database is older than the specified number of "
-                        "days. Default: -1|-1,30,-1";
-    //    clamdConfElement << "1LocalSocket STRING|Path to a local (Unix) socket the daemon will listen on. Default: disabled|";
-    //    clamdConfElement << "1LocalSocketGroup STRING|Sets the group ownership on the unix socket. Default: |";
-    clamdConfElement << "1LocalSocketMode STRING|Sets the permissions on the unix socket to the specified mode. Default: 660|660";
-    clamdConfElement << "1FixStaleSocket BOOL|Remove stale socket after unclean shutdown. Default: yes|yes,no,yes";
-    clamdConfElement << "1TCPSocket NUMBER|TCP port number the daemon will listen on. Default: disabled|0,65535,0";
-    clamdConfElement << "1TCPAddr STRING|By default clamd binds to INADDR_ANY. This option allows you to restrict the TCP address and provide some "
-                        "degree of protection from the outside world. This option can be specified multiple times in order to listen on multiple "
-                        "IPs. IPv6 is now supported. Default: disabled|";
-    clamdConfElement << "1MaxConnectionQueueLength NUMBER|Maximum length the queue of pending connections may grow to. Default: 200|0,500,200";
-    clamdConfElement << "1StreamMaxLength SIZE|Close the STREAM session when the data size limit is exceeded. The value should match your MTA's "
-                        "limit for the maximum attachment size. Default: 100M|0,1048576000,104857600";
-    clamdConfElement << "1StreamMinPort NUMBER|The STREAM command uses an FTP-like protocol. This option sets the lower boundary for the port range. "
-                        "Default: 1024|0,4096,1024";
-    clamdConfElement << "1StreamMaxPort NUMBER|This option sets the upper boundary for the port range. Default: 2048|0,4096,2048";
-    clamdConfElement << "1MaxThreads NUMBER|Maximum number of threads running at the same time. Default: 10|0,20,10";
-    clamdConfElement << "1ReadTimeout NUMBER|This option specifies the time (in seconds) after which clamd should timeout if a client doesn't "
-                        "provide any data. Default: 120|0,300,120";
-    clamdConfElement << "1CommandReadTimeout NUMBER|This option specifies the time (in seconds) after which clamd should timeout if a client doesn't "
-                        "provide any initial command after connecting.  The default is set to 30 to avoid timeouts with TCP sockets  when  "
-                        "processing large messages.  If using a Unix socket, the value can be changed to 5.  Note: the timeout for subsequents "
-                        "commands, and/or data chunks is specified by ReadTimeout. Default: 30|0,60,30";
-    clamdConfElement << "1SendBufTimeout NUMBER|This option specifies how long to wait (in milliseconds) if the send buffer is full.  Keep this "
-                        "value low to prevent clamd hanging. Default: 500|0,1000,500";
-    clamdConfElement
-        << "1MaxQueue NUMBER|Maximum number of queued items (including those being processed by MaxThreads threads).  It is recommended to have this "
-           "value at least twice MaxThreads if possible. WARNING: you shouldn't increase this too much to avoid running out of file descriptors, the "
-           "following condition should hold: MaxThreads*MaxRecursion + MaxQueue - MaxThreads + 6 < RLIMIT_NOFILE.  RLIMIT_NOFILE is the maximum "
-           "number of open file descriptors (usually 1024), set by ulimit -n. Default: 100|0,2048,100";
-    clamdConfElement << "1IdleTimeout NUMBER|This option specifies how long (in seconds) the process should wait for a new job. Default: 30|0,60,30";
-    //    clamdConfElement << "2ExcludePath REGEX|Don't scan files and directories matching REGEX. This directive can be used multiple times. Default: disabled|";
-    clamdConfElement << "1MaxDirectoryRecursion NUMBER|Maximum depth directories are scanned at. Default: 15|0,30,15";
-    clamdConfElement << "1FollowDirectorySymlinks BOOL|Follow directory symlinks. Default: no|yes,no,no";
-    clamdConfElement << "1CrossFilesystems BOOL|Scan files and directories on other filesystems. Default: yes|yes,no,yes";
-    clamdConfElement << "1FollowFileSymlinks BOOL|Follow regular file symlinks. Default: no|yes,no,no";
-    clamdConfElement << "1SelfCheck NUMBER|This option specifies the time intervals (in seconds) in which clamd should perform a database check. "
-                        "Default: 600|0,1200,600";
-    clamdConfElement
-        << "1ConcurrentDatabaseReload BOOL|Enable non-blocking (multi-threaded/concurrent) database reloads. This feature will temporarily load a "
-           "second scanning engine while scanning continues using the first engine. Once loaded, the new engine  takes  over.  The old  engine  is "
-           "removed as soon as all scans using the old engine have completed. This feature requires more RAM, so this option is provided in case "
-           "users are willing to block scans during reload in exchange for lower RAM requirements. Default: yes|yes,no,yes";
-    clamdConfElement
-        << "1VirusEvent COMMAND|Execute a command when virus is found.  Use the following environment variables to identify the file and virus "
-           "names: - $CLAVIRUSEVENT_FILENAME - $CLAVIRUSEVENT_VIRUSNAME In the command string, '%v' will also  be  replaced  with  the  virus name.  "
-           "Note: The '%f' filename format character has been disabled and will no longer be replaced with the file name, due to command injection "
-           "security concerns.  Use the 'CLAVIRUSEVENT_FILENAME' environment variable instead.  For the same reason, you should NOT use the "
-           "environment variables in the command directly, but should use it carefully from your executed script. Default: disabled|";
-    clamdConfElement << "1ExitOnOOM BOOL|Stop daemon when libclamav reports out of memory condition. Default: no|yes,no,no";
-    clamdConfElement << "1AllowAllMatchScan BOOL|Permit use of the ALLMATCHSCAN command. Default: yes|yes,no,yes";
-    clamdConfElement << "1Foreground BOOL|Don't fork into background. Default: no|yes,no,no";
-    clamdConfElement << "1Debug BOOL|Enable debug messages from libclamav. Default: no|yes,no,no";
-    clamdConfElement << "1LeaveTemporaryFiles BOOL|Do not remove temporary files (for debugging purpose). Default: no GenerateMetadataJson BOOL "
-                        "Record metadata about the file being scanned.  Scan metadata is useful for file analysis purposes and for debugging scan "
-                        "behavior.  The JSON metadata will be printed after the scan is complete if Debug is enabled. A metadata.json file will be "
-                        "written to the scan temp directory if LeaveTemporaryFiles is enabled. Default: no|yes,no,no";
-    clamdConfElement << "1User STRING|Run the daemon as a specified user (the process must be started by root). Default: disabled|root";
-    clamdConfElement << "1Bytecode BOOL|With this option enabled ClamAV will load bytecode from the database. It is highly recommended you keep this "
-                        "option turned on, otherwise you may miss detections for many new viruses. Default: yes|yes,no,yes";
-    clamdConfElement << "1BytecodeSecurity STRING|Set bytecode security level. Possible values: TrustSigned - trust bytecode loaded from signed "
-                        ".c[lv]d files and insert runtime safety checks for bytecode loaded from other sources, Paranoid - don't trust any bytecode, "
-                        "insert runtime checks for all. Recommended: TrustSigned, because bytecode in .cvd files already has these checks. "
-                        "(TrustSigned, Paranoid) Default: TrustSigned|TrustSigned,Paranoid,TrustSigned";
-    clamdConfElement << "1BytecodeTimeout NUMBER|Set bytecode timeout in milliseconds. Default: 10000|0,100000,10000";
-    clamdConfElement << "1BytecodeUnsigned BOOL|Allow loading bytecode from outside digitally signed .c[lv]d files.  **Caution**: You should NEVER "
-                        "run bytecode signatures from untrusted sources.  Doing so may result in arbitrary code execution. Default: no|yes,no,no";
-    clamdConfElement
-        << "1BytecodeMode STRING|Set bytecode execution mode. Possible values: Auto - automatically choose JIT if possible, fallback to interpreter "
-           "ForceJIT - always choose JIT, fail if not possible ForceInterpreter - always choose interpreter Test - run with both JIT and interpreter "
-           "and compare results. Make all failures fatal. Default: Auto|Auto,ForceJIT,ForceInterpreter,Test,Auto";
-    clamdConfElement << "1DetectPUA BOOL|Detect Possibly Unwanted Applications. Default: no|yes,no,no";
-    //    clamdConfElement << "1ExcludePUA CATEGORY|Exclude a specific PUA category. This directive can be used multiple times. See https://docs.clamav.net/faq/faq-pua.html for the complete list of PUA categories. Default: disabled|";
-    //    clamdConfElement << "1IncludePUA CATEGORY|Only include a specific PUA category. This directive can be used multiple times. See https://docs.clamav.net/faq/faq-pua.html for the complete list of PUA categories. Default: disabled|";
-    clamdConfElement << "1HeuristicAlerts BOOL|In some cases (eg. complex malware, exploits in graphic files, and others), ClamAV uses special "
-                        "algorithms to provide accurate detection. This option controls the algorithmic detection. Default: yes|yes,no,yes";
-    clamdConfElement
-        << "1HeuristicScanPrecedence BOOL|Allow  heuristic  match  to  take  precedence. When enabled, if a heuristic scan (such as phishingScan) "
-           "detects a possible virus/phishing it will stop scanning immediately. Recommended, saves CPU scan-time. When disabled, virus/phishing "
-           "detected by heuristic scans will be reported only at the end of a scan. If an archive contains both a heuristically detected "
-           "virus/phishing, and a real malware, the real malware will be reported. Keep  this disabled  if  you intend to handle \"*.Heuristics.*\" "
-           "viruses  differently from \"real\" malware. If a non-heuristically-detected virus (signature-based) is found first, the scan is "
-           "interrupted immediately, regardless of this config option. Default: no|yes,no,no";
-    clamdConfElement << "1ScanPE BOOL|PE stands for Portable Executable - it's an executable file format used in all 32 and 64-bit versions of "
-                        "Windows operating systems. This option allows ClamAV to perform a deeper analysis of executable files and it's  also "
-                        "required for decompression of popular executable packers such as UPX. If you turn off this option, the original files will "
-                        "still be scanned, but without additional processing. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanELF BOOL|Executable and Linking Format is a standard format for UN*X executables. This option allows you to control "
-                        "the scanning of ELF files. If you turn off this option, the original files will still be scanned, but without additional "
-                        "processing. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanMail BOOL|Enable scanning of mail files. If you turn off this option, the original files will still be scanned, but "
-                        "without parsing individual messages/attachments. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanPartialMessages BOOL|Scan RFC1341 messages split over many emails. You will need to periodically clean up "
-                        "$TemporaryDirectory/clamav-partial directory. WARNING: This option may open your system to a DoS attack. Never use it on "
-                        "loaded servers. Default: no|yes,no,no";
-    clamdConfElement << "1PhishingSignatures BOOL|Enable email signature-based phishing detection. Default: yes|yes,no,yes";
-    clamdConfElement << "1PhishingScanURLs BOOL|Enable URL signature-based phishing detection (Heuristics.Phishing.Email.*) Default: yes|yes,no,yes";
-    clamdConfElement << "1StructuredDataDetection BOOL|Enable the DLP module. Default: no|yes,no,no";
-    clamdConfElement << "1StructuredMinCreditCardCount NUMBER|This option sets the lowest number of Credit Card numbers found in a file to generate "
-                        "a detect. Default: 3|0,9,3";
-    clamdConfElement << "1StructuredCCOnly BOOL|With this option enabled the DLP module will search for valid Credit Card0umbers only. Debit and "
-                        "Private Label cards will not be searched. Default: no|yes,no,no";
-    clamdConfElement << "1StructuredMinSSNCount NUMBER|This option sets the lowest number of Social Security Numbers found in a file to generate a "
-                        "detect. Default: 3|0,9,3";
-    clamdConfElement << "1StructuredSSNFormatNormal BOOL|With this option enabled the DLP module will search for valid SSNs formatted as "
-                        "xxx-yy-zzzz. Default: yes|yes,no,yes";
-    clamdConfElement << "1StructuredSSNFormatStripped BOOL|With this option enabled the DLP module will search for valid SSNs formatted as "
-                        "xxxyyzzzz. Default: no|yes,no,no";
-    clamdConfElement << "1ScanHTML BOOL|Perform HTML/JavaScript/ScriptEncoder normalisation and decryption. If you turn off this option, the "
-                        "original files will still be scanned, but without additional processing. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanOLE2 BOOL|This option enables scanning of OLE2 files, such as Microsoft Office documents and .msi files. If you turn "
-                        "off this option, the original files will still be scanned, but without additional processing. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanPDF BOOL|This option enables scanning within PDF files. If you turn off this option, the original files will still be "
-                        "scanned, but without additional processing. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanSWF BOOL|This option enables scanning within SWF files. If you turn off this option, the original files will still be "
-                        "scanned, but without decoding and additional processing. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanXMLDOCS BOOL|This option enables scanning xml-based document files supported by libclamav. If you turn off this "
-                        "option, the original files will still be scanned, but without additional processing. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanHWP3 BOOL|This option enables scanning HWP3 files. If you turn off this option, the original files will still be "
-                        "scanned, but without additional processing. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanOneNote BOOL|This option enables scanning OneNote files. If you turn off this option, the original files will still be "
-                        "scanned, but without additional processing. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanArchive BOOL|Scan within archives and compressed files. If you turn off this option, the original files will still be "
-                        "scanned, but without unpacking and additional processing. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanImage BOOL|This option enables scanning of image (graphics). If you turn off this option, the original files will "
-                        "still be scanned, but without unpacking and additional processing. Default: yes|yes,no,yes";
-    clamdConfElement << "1ScanImageFuzzyHash BOOL|This option enables detection by calculating a fuzzy hash of image (graphics) files. Signatures "
-                        "using image fuzzy hashes typically match files and documents by identifying images embedded or attached to those files. If "
-                        "you turn off this option, then some files may no longer be detected. Default: yes|yes,no,yes";
-    clamdConfElement << "1AlertBrokenExecutables BOOL|Alert on broken executable files (PE & ELF). Default: no|yes,no,no";
-    clamdConfElement << "1AlertBrokenMedia BOOL|Alert on broken graphics files (JPEG, TIFF, PNG, GIF). Default: no|yes,no,no";
-    clamdConfElement << "1AlertEncrypted BOOL|Alert on encrypted archives and documents (encrypted .zip, .7zip, .rar, .pdf). Default: no|yes,no,no";
-    clamdConfElement << "1AlertEncryptedArchive BOOL|Alert on encrypted archives (encrypted .zip, .7zip, .rar). Default: no|yes,no,no";
-    clamdConfElement << "1AlertEncryptedDoc BOOL|Alert on encrypted documents (encrypted .pdf). Default: no|yes,no,no";
-    clamdConfElement << "1AlertOLE2Macros BOOL|Alert on OLE2 files containing VBA macros (Heuristics.OLE2.ContainsMacros). Default: no|yes,no,no";
-    clamdConfElement << "1AlertExceedsMax BOOL|When AlertExceedsMax is set, files exceeding the MaxFileSize, MaxScanSize, or MaxRecursion limit will "
-                        "be flagged with the virus name starting with \"Heuristics.Limits.Exceeded\". Default: no|yes,no,no";
-    clamdConfElement
-        << "1AlertPhishingSSLMismatch BOOL|Alert on emails containing SSL mismatches in URLs (might lead to false positives!). Default: no|yes,no,no";
-    clamdConfElement
-        << "1AlertPhishingCloak BOOL|Alert on emails containing cloaked URLs (might lead to some false positives). Default: no|yes,no,no";
-    clamdConfElement << "1AlertPartitionIntersection BOOL|Alert on raw DMG image files containing partition intersections. Default: no|yes,no,no";
-    clamdConfElement << "1DisableCache BOOL|This option allows you to disable the caching feature of the engine. By default, the engine will store "
-                        "an MD5 in a cache of any files that are not flagged as virus or that hit limits checks. Warning: Disabling the cache will "
-                        "have a negative performance impact on large scans. Default: no|yes,no,no";
-    clamdConfElement << "1CacheSize NUMBER|This option allows you to set the number of entries the cache can store. The value should be a square "
-                        "number or will be rounded up to the nearest square number. Default: 65536|0,655360,65536";
-    clamdConfElement
-        << "1ForceToDisk BOOL|This option causes memory or nested map scans to dump the content to disk. If you turn on this option, more data is "
-           "written to disk and is available when the leave-temps option is enabled at the cost of more disk writes. Default: no|yes,no,no";
-    clamdConfElement << "1MaxScanTime SIZE|This  option  sets the maximum amount of time a scan may take to complete. The value is in milliseconds. "
-                        "The value of 0 disables the limit. WARNING: disabling this limit or setting it too high may result allow scanning of "
-                        "certain files to lock up the scanning process/threads resulting in a Denial of Service. Default: 120000|0,240000,120000";
-    clamdConfElement
-        << "1MaxScanSize SIZE|Sets the maximum amount of data to be scanned for each input file. Archives and other containers are recursively "
-           "extracted and scanned up to this value. The size of an archive plus the sum of the sizes of all files within archive count toward the "
-           "scan size. For example, a 1M uncompressed archive containing a single 1M inner file counts as 2M toward the max scan size. Warning: "
-           "disabling this limit or setting it too high may result in severe damage to the system. Default: 400M|0,1048576000,419430400";
-    clamdConfElement << "1MaxFileSize SIZE|Files larger than this limit won't be scanned. Affects the input file itself as well as files contained "
-                        "inside it (when the input file is an archive, a document or some other kind of container).  Warning:  disabling  this limit "
-                        "or setting it too high may result in severe damage to the system. Technical design limitations prevent ClamAV from scanning "
-                        "files greater than 2 GB at this time. Default: 100M|0,1048576000,104857600";
-    clamdConfElement << "1MaxRecursion NUMBER|Nested  archives are scanned recursively, e.g. if a Zip archive contains a RAR file, all files within "
-                        "it will also be scanned. This options specifies how deeply the process should be continued. Warning: setting this limit too "
-                        "high may result in severe damage to the system. Default: 17|0,34,17";
-    clamdConfElement << "1MaxFiles NUMBER|Number of files to be scanned within an archive, a document, or any other kind of container. Warning: "
-                        "disabling this limit or setting it too high may result in severe damage to the system. Default: 10000|0,20000,10000";
-    clamdConfElement << "1MaxEmbeddedPE SIZE|This option sets the maximum size of a file to check for embedded PE. Files larger than this value will "
-                        "skip the additional analysis step. Negative values are not allowed. Default: 40M|0,41943040,104857600";
-    clamdConfElement << "1MaxHTMLNormalize SIZE|This option sets the maximum size of a HTML file to normalize. HTML files larger than this value "
-                        "will not be normalized or scanned. Negative values are not allowed. Default: 40M|0,41943040,104857600";
-    clamdConfElement << "1MaxHTMLNoTags SIZE|This option sets the maximum size of a normalized HTML file to scan. HTML files larger than this value "
-                        "after normalization will not be scanned. Negative values are not allowed. Default: 8M|0,16777216,8388608";
-    clamdConfElement << "1MaxScriptNormalize SIZE|This option sets the maximum size of a script file to normalize. Script content larger than this "
-                        "value will not be normalized or scanned. Negative values are not allowed. Default: 20M|0,41943040,20971520";
-    clamdConfElement << "1MaxZipTypeRcg SIZE|This option sets the maximum size of a ZIP file to reanalyze type recognition. ZIP files larger than "
-                        "this value will skip the step to potentially reanalyze as PE. Negative values are not allowed. WARNING: setting this limit "
-                        "too high may result in severe damage or impact performance. Default: 1M|0,10485760,1048576";
-    clamdConfElement << "1MaxPartitions SIZE|This option sets the maximum number of partitions of a raw disk image to be scanned. Raw disk images "
-                        "with more partitions than this value will have up to the value partitions scanned. Negative values are not allowed. "
-                        "WARNING: setting this limit too high may result in severe damage or impact performance. Default: 50|0,70,50";
-    clamdConfElement << "1MaxIconsPE SIZE|This option sets the maximum number of icons within a PE to be scanned. PE files with more icons than this "
-                        "value will have up to the value number icons scanned. Negative values are not allowed. WARNING: setting this limit too high "
-                        "may result in severe damage or impact performance.|0,10485760,1048576";
-    clamdConfElement
-        << "1MaxRecHWP3 NUMBER|This option sets the maximum recursive calls to HWP3 parsing function. HWP3 files using more than this limit will be "
-           "terminated and alert the user. Scans will be unable to scan any HWP3 attachments if the recursive limit is reached. Negative values are "
-           "not allowed. WARNING: setting this limit too high may result in severe damage or impact performance.|0,30,15";
-    clamdConfElement << "1PCREMatchLimit NUMBER|This option sets the maximum calls to the PCRE match function during an instance of regex matching. "
-                        "Instances using more than this limit will be terminated and alert the user but the scan will continue. For more information "
-                        "on match_limit, see the PCRE documentation. Negative values are not allowed. WARNING: setting this limit too high may "
-                        "severely impact performance. Default: 10000|0,100000,10000";
-    clamdConfElement
-        << "1PCRERecMatchLimit NUMBER|This option sets the maximum recursive calls to the PCRE match function during an instance of regex matching. "
-           "Instances using more than this limit will be terminated and alert the user but the scan will continue. For more information on "
-           "match_limit_recursion, see the PCRE documentation. Negative values are not allowed and values > PCREMatchLimit are superfluous. WARNING: "
-           "setting this limit too high may severely impact performance. Default: 2000|0,4000,2000";
-    clamdConfElement << "1PCREMaxFileSize SIZE|This option sets the maximum filesize for which PCRE subsigs will be executed. Files exceeding this "
-                        "limit will not have PCRE subsigs executed unless a subsig is encompassed to a smaller buffer. Negative values are not "
-                        "allowed. Setting this value to zero disables the limit. WARNING: setting this limit too high or disabling it may severely "
-                        "impact performance. Default: 100M|0,1048576000,104857600";
-    clamdConfElement << "1DisableCertCheck BOOL|Disable authenticode certificate chain verification in PE files. Default: no|yes,no,no";
+    QFile file(QDir::homePath() + "/.clamav-gui/clamd.conf.man");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream stream(&file);
+        content = stream.readAll();
+        file.close();
+
+        content = content.mid(content.indexOf("Example"));
+        content = content.left(content.indexOf("NOTES"));
+        content = content.trimmed();
+        QStringList lines = content.split("\n");
+        content = "";
+
+        foreach(QString line, lines){
+            if (line != "") {
+                if (line.mid(0,14) != "              ") {
+                    skip = false;
+                    line = line.trimmed();
+                    poscounter = 0;
+                    splitter = line.split(" ");
+                    keyword = splitter[0];
+                    if (splitter.length() == 2) valuetype = splitter[1]; else valuetype = "VALUETYPE";
+                    if (skipvalues.indexOf("|" + keyword + "|") != -1) skip = true; else content = content + "\n";
+                }
+                if (skip == false) {
+                    if (poscounter == 0) {
+                        line = line.trimmed();
+                        if ((line.indexOf("ExcludePath") == 0) || (line.indexOf("OnAccess") == 0)) line = "2" + line; else line = "1" + line;
+                        if (valuetype == "VALUETYPE") {
+                            content = content + line + " VALUETYPE|";
+                        } else {
+                            content = content + line + "|";
+                        }
+                    } else {
+                        if (line.left(18) == "                  ") {
+                            QString helperstring = line.mid(18);
+                            if (helperstring.indexOf(" - ") != -1) {
+                                QString newValue = helperstring.left(helperstring.indexOf(" - "));
+                                possibleValues == ""?possibleValues = possibleValues + newValue:possibleValues = possibleValues + "," + newValue;
+                            }
+                        }
+                        line = line.trimmed();
+                        content.right(1) == "|"?content = content + line:content = content + " " + line;
+                        if (line.indexOf("Default:") != -1) {
+                            QString defaultvalue = line.mid(line.indexOf("Default:") + 9);
+                            if (valuetype == "VALUETYPE") {
+                                if ((defaultvalue.indexOf("yes") != -1) || (defaultvalue.indexOf("no") != -1)) {
+                                    valuetype = "BOOL";
+                                } else {
+                                    valuetype = "NUMBER";
+                                }
+                                content = content.replace("VALUETYPE",valuetype);
+                            }
+                            //if (valuetype == "SIZE") qDebug() << "Keyword: " << keyword << " Value: " << valuetype << " Default: " << defaultvalue;
+                            if (valuetype == "BOOL") {
+                                defaultvalue = defaultvalue.left(3);
+                                defaultvalue = defaultvalue.trimmed();
+                                content = content + "|yes,no," + defaultvalue;
+                            }
+                            if ((valuetype == "STRING") || (valuetype == "CATEGORY") || (valuetype == "COMMAND") || (valuetype == "REGEX")) {
+                                if (defaultvalue == "LOG_LOCAL6") possibleValues = "LOG_LOCAL6,LOG_MAIL";
+                                possibleValues != ""?content = content + "|" + possibleValues + "," + defaultvalue:content = content + "|" + defaultvalue;
+                            }
+                            if (valuetype == "NUMBER") {
+                                if ((defaultvalue == "disabled") && (keyword.indexOf("Socket") != -1)) {
+                                    content = content + "|0,4096,0";
+                                } else {
+                                    if (keyword.indexOf("Port") != -1) {
+                                        content = content + "|0,65536," + defaultvalue;
+                                    } else {
+                                        int defaultIntValue = defaultvalue.toInt();
+                                        if (defaultIntValue < 0) content = content + "|-1,30,-1";
+                                        if ((defaultIntValue >= 0) && (defaultIntValue < 1000)) content = content + "|0," + QString::number(defaultIntValue * 3) + "," + defaultvalue;
+                                        if ((defaultIntValue >= 1000) && (defaultIntValue < 10000)) content = content + "|0," + QString::number(defaultIntValue * 2) + "," + defaultvalue;
+                                        if (defaultIntValue >= 10000) content = content + "|0," + QString::number(defaultIntValue * 10) + "," + defaultvalue;
+                                    }
+
+                                }
+                            }
+                            if (valuetype == "SIZE") {
+                                int maxIntValue = 0;
+                                bool mega = false;
+                                if (defaultvalue.indexOf("M") != -1) {
+                                    defaultvalue = defaultvalue.replace("M","");
+                                    mega = true;
+                                }
+                                maxIntValue = defaultvalue.toInt() * 2;
+                                if (mega == true) {
+                                    content = content + "|0," + QString::number(maxIntValue) + "M," + defaultvalue + "M";
+                                } else {
+                                    content = content + "|0," + QString::number(maxIntValue) + "," + defaultvalue;
+                                }
+                            }
+                            possibleValues = "";
+                        }
+                    }
+                    poscounter++;
+                }
+            }
+        }
+        content = content.trimmed();
+    }
+
+    while (content.indexOf("  ") != -1) content = content.replace("  "," ");
+    clamdConfElement = content.split("\n");
 
     // STRING, CATEGORY, COMMAND, REGEX ----> checkbox + lineedit
     // NUMBER, SIZE ----> checkbox + spinbox
     // BOOL ----> checkbox + combobox [yes,no,....] "scanoption"
 
-    QString keyword;
     QString keywordHelper;
     QString label;
     QString optionValues;
     QString element;
     QString group;
     QString container;
+
     bool checked = false;
+    // QTextStream stream;
     clamdConfStringOption* stringOption;
     clamdconfspinboxoption* spinboxOption;
     clamdconfcomboboxoption* comboboxOption;
     QString language = setupFileHandler::getSectionValue(QDir::homePath() + "/.clamav-gui/settings.ini","Setup","language");
     if (language == "") language = "[en_GB]";
-
-
-    for (int i = 0; i < clamdConfElement.length(); i++) {
+    // DEBUG ONLY
+    // QFile labeloutput("/home/wusel/labels.txt");
+    // if (labeloutput.open(QIODevice::WriteOnly|QIODevice::Text)) {
+    //     stream.setDevice(&labeloutput);
+    // }
+    for (int i = 0; i < clamdConfElement.length()-1; i++) {
         element = clamdConfElement.at(i);
 
         QStringList values = element.split("|");
         keywordHelper = values.at(0);
         label = values.at(1);
+        // stream << label << "\n";
         optionValues = values.at(2);
 
         QStringList splitter = keywordHelper.split(" ");
@@ -1105,7 +985,6 @@ void clamdManager::initClamdConfElements()
 
         if (optionValues == "disabled")
             optionValues = "";
-
         if ((group == "STRING") || (group == "CATEGORY") || (group == "COMMAND") || (group == "REGEX")) {
             if (optionValues.indexOf(",") == -1) {
                 stringOption = new clamdConfStringOption(this, keyword, checked, label, optionValues, language, m_clamdConf);
@@ -1120,6 +999,7 @@ void clamdManager::initClamdConfElements()
         }
 
         if ((group == "NUMBER") || (group == "SIZE")) {
+            //if (group == "SIZE") qDebug() << keyword << optionValues;
             spinboxOption = new clamdconfspinboxoption(this, keyword, checked, label, optionValues, language, m_clamdConf);
             connect(spinboxOption, SIGNAL(settingChanged()), this, SLOT(slot_clamdSettingsChanged()));
             container != "2" ? m_ui.layout1->addWidget(spinboxOption) : m_ui.layout2->addWidget(spinboxOption);
@@ -1131,4 +1011,5 @@ void clamdManager::initClamdConfElements()
             container != "2" ? m_ui.layout1->addWidget(comboboxOption) : m_ui.layout2->addWidget(comboboxOption);
         }
     }
+    // labeloutput.close();
 }

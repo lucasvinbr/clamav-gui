@@ -113,7 +113,17 @@ TRANSLATIONS += translations/clamav-gui-de_DE.ts \
     translations/clamav-gui-pt_PT.ts \
     translations/clamav-gui-it_IT.ts \
     translations/clamav-gui-uk_UA.ts \
-    translations/clamav-gui-zh_CN.ts
+    translations/clamav-gui-zh_CN.ts \
+    translations/clamav-de_DE.ts \
+    translations/clamav-en_GB.ts \
+    translations/clamav-da_DK.ts \
+    translations/clamav-es_ES.ts \
+    translations/clamav-fr_FR.ts \
+    translations/clamav-pt_PT.ts \
+    translations/clamav-it_IT.ts \
+    translations/clamav-uk_UA.ts \
+    translations/clamav-zh_CN.ts
+
 
 INSTALLS += target \
     icon16 \
@@ -168,10 +178,10 @@ servicemenufile.path = /$(DESTDIR)/usr/share/kio/servicemenus
 servicemenufile.files = extra/ClamAV-GUI-ServiceMenu.desktop
 
 translation.path = /$(DESTDIR)/usr/share/clamav-gui
-translation.files = translations/clamav-gui-de_DE.qm translations/clamav-gui-en_GB.qm translations/clamav-gui-da_DK.qm translations/clamav-gui-es_ES.qm translations/clamav-gui-fr_FR.qm translations/clamav-gui-pt_PT.qm translations/clamav-gui-it_IT.qm translations/clamav-gui-uk_UA.qm
+translation.files = translations/clamav-gui-de_DE.qm translations/clamav-gui-en_GB.qm translations/clamav-gui-da_DK.qm translations/clamav-gui-es_ES.qm translations/clamav-gui-fr_FR.qm translations/clamav-gui-pt_PT.qm translations/clamav-gui-it_IT.qm translations/clamav-gui-uk_UA.qm translations/clamav-de_DE.qm translations/clamav-en_GB.qm translations/clamav-da_DK.qm translations/clamav-es_ES.qm translations/clamav-fr_FR.qm translations/clamav-pt_PT.qm translations/clamav-it_IT.qm translations/clamav-uk_UA.qm
 
 langicons.path = /$(DESTDIR)/usr/share/clamav-gui/languageicons
-langicons.files = icons/da_DK.png de_DE.png en_AU.png en_GB.png en_IE.png en_NZ.png en_US.png es_ES.png fr_FR.png it_IT.png pt_AO.png pt_BR.png pt_CV.png pt_MO.png pt_MZ.png pt_PT.png pt_ST.png pt_TL.png uk_UA.png zh_CN.png
+langicons.files = icons/da_DK.png icons/de_DE.png icons/en_AU.png icons/en_GB.png icons/en_IE.png icons/en_NZ.png icons/en_US.png icons/es_ES.png icons/fr_FR.png icons/it_IT.png icons/pt_AO.png icons/pt_BR.png icons/pt_CV.png icons/pt_MO.png icons/pt_MZ.png icons/pt_PT.png icons/pt_ST.png icons/pt_TL.png icons/uk_UA.png icons/zh_CN.png
 
 manpages_de.path = /$(DESTDIR)/usr/share/man/de/man1
 manpages_de.files = man/de/clamav-gui.1.gz

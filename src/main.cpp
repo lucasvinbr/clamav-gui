@@ -12,7 +12,8 @@
 
 int main(int argc, char *argv[])
 {
-    QTranslator translator(0);
+    QTranslator translator1(0);
+    QTranslator translator2(0);
     QTcpServer server;
     QStringList parameters;
     QString lang;
@@ -175,12 +176,16 @@ int main(int argc, char *argv[])
         }
 
         QString filename = "clamav-gui-" + lang + ".qm";
-
         if (QFile::exists("/usr/share/clamav-gui/" + filename)){
-            translatorLoaded = translator.load(filename,"/usr/share/clamav-gui");
-        }
+            translatorLoaded = translator1.load(filename,"/usr/share/clamav-gui");
+            if (translatorLoaded == true) a.installTranslator(&translator1);
 
-        if (translatorLoaded == true) a.installTranslator(&translator);
+            filename = "clamav-" + lang + ".qm";
+            if (QFile::exists("/usr/share/clamav-gui/" + filename)){
+                translatorLoaded = translator2.load(filename,"/usr/share/clamav-gui");
+                if (translatorLoaded == true) a.installTranslator(&translator2);
+            }
+        }
 
         clamav_gui w;
         w.show();

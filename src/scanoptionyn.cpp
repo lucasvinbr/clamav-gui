@@ -8,14 +8,19 @@ scanoptionyn::scanoptionyn(QWidget *parent, QString setupFileName, QString secti
     m_setupFile = new setupFileHandler(setupFileName,this);
     m_setupFileSection = section;
 
-    /*setupFileHandler * baseSetup = new setupFileHandler(QDir::homePath() + "/.clamav-gui/settings.ini",this);
-    QString languageset = baseSetup->getSectionValue("Setup","language");
-    delete baseSetup;*/ // obsolete due to a static "getSectionValue" Method in setupFileHandler
-
     translator trans(language);
 
     m_option = label.mid(0,label.indexOf("<equal>"));
-    //m_com = trans.translateit(comment);
+// -------------------------------------------------------------------------
+// For DEBUG reasons only.
+/*    QFile file(QDir::homePath() + "/clamav-xx_XX.ts");
+    if (file.open(QIODevice::WriteOnly|QIODevice::Text|QIODevice::Append)) {
+        QTextStream stream(&file);
+        stream << "    <message>\n        <source>" << comment << "</source>\n        <translation>TRANS</translation>\n    </message>\n";
+        file.close();
+    }*/
+// -------------------------------------------------------------------------
+
     m_com = QCoreApplication::translate("ClamAV", comment.toUtf8().constData());
     m_ui.checkBox->setChecked(checked);
     m_ui.comboBox->setEnabled(checked);

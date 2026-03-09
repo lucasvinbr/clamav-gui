@@ -1,3 +1,7 @@
+* Sat Mar 7 2026 - Version 1.2.5
+- Remodeling of the clamd tab. The man pages for clamd.conf are parsed to automaticaly create the options for clamd and clamonaccess. This required also the modification of
+- the translation model and all translation files.
+
 * Sun Mar 1 2026 - Version 1.2.4
 - If in the Options Tab -> Directories section the checkbox for "Save Scan-Reports to file" is activated a log is created for Direct Scans (through Context-Menu) and scans
 - initiated in the Scan Tab of the application. This log is now shown in the Log Tab as logs for "Direct Scan".
