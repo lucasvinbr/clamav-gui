@@ -1,3 +1,14 @@
+* Sun Mar 15 2026 - Version 1.2.8
+- Added a initial Startup-Dialog where the user can set various aspects for the application.
+- A lot of initial stuff is also moved from the vaious tabs to this initial Startup-Dialog.
+- Did some more code optimization and cleanup.
+
+* Sat Mar 14 2026 - Version 1.2.7
+- Code optimization and cleanup
+
+* Tue Mar 10 2026 - Version 1.2.6
+- Added multiline options in clamd.conf (Options that can be used more the ones).
+
 * Sat Mar 7 2026 - Version 1.2.5
 - Remodeling of the clamd tab. The man pages for clamd.conf are parsed to automaticaly create the options for clamd and clamonaccess. This required also the modification of
 - the translation model and all translation files.

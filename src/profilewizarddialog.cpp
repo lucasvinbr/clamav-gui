@@ -45,15 +45,8 @@ ProfileWizardDialog::ProfileWizardDialog(QWidget* parent, QString name) : QDialo
 
     slot_previousButtonClicked();
 
-    m_getClamscanParametersProcess = new QProcess(this);
-    connect(m_getClamscanParametersProcess, SIGNAL(readyReadStandardError()), this, SLOT(slot_getClamscanProcessHasOutput()));
-    connect(m_getClamscanParametersProcess, SIGNAL(readyReadStandardOutput()), this, SLOT(slot_getClamscanProcessHasOutput()));
-    connect(m_getClamscanParametersProcess, SIGNAL(finished(int)), this, SLOT(slot_getClamscanProcessFinished()));
+    getClamscanOptions();
 
-    QStringList parameters;
-    parameters << "--help";
-
-    m_getClamscanParametersProcess->start("clamscan", parameters);
 }
 
 ProfileWizardDialog::~ProfileWizardDialog()
@@ -515,17 +508,17 @@ void ProfileWizardDialog::readSettings()
                     bool optionfound = false;
                     if (m_setupFile->keywordExists("SelectedOptions", keyword + "<equal>yes") == true) {
                         optionyn = new scanoptionyn(this, newProfilename, "SelectedOptions", true, keyword + "<equal>yes",
-                                                    m_setupFile->getSectionValue("AvailableOptions", optionText),language);
+                                                    m_setupFile->getSectionValue("AvailableOptions", optionText));
                         optionfound = true;
                     }
                     if ((m_setupFile->keywordExists("SelectedOptions", keyword + "<equal>no") == true) && (optionfound == false)) {
                         optionyn = new scanoptionyn(this, newProfilename, "SelectedOptions", true, keyword + "<equal>no",
-                                                    m_setupFile->getSectionValue("AvailableOptions", optionText),language);
+                                                    m_setupFile->getSectionValue("AvailableOptions", optionText));
                         optionfound = true;
                     }
                     if (optionfound == false) {
                         optionyn = new scanoptionyn(this, newProfilename, "SelectedOptions", false, keyword + "<equal>" + yes_no,
-                                                    m_setupFile->getSectionValue("AvailableOptions", optionText),language);
+                                                    m_setupFile->getSectionValue("AvailableOptions", optionText));
                     }
                     m_ui->optionLayout->addWidget(optionyn);
                 }
@@ -533,11 +526,11 @@ void ProfileWizardDialog::readSettings()
                     // --Switches without yes/no
                     if (m_setupFile->keywordExists("SelectedOptions", optionText) == true) {
                         option = new scanoption(this, newProfilename, "SelectedOptions", true, optionText,
-                                                m_setupFile->getSectionValue("AvailableOptions", optionText),language);
+                                                m_setupFile->getSectionValue("AvailableOptions", optionText));
                     }
                     else {
                         option = new scanoption(this, newProfilename, "SelectedOptions", false, optionText,
-                                                m_setupFile->getSectionValue("AvailableOptions", optionText),language);
+                                                m_setupFile->getSectionValue("AvailableOptions", optionText));
                     }
                     m_ui->optionLayout->addWidget(option);
                 }
@@ -957,248 +950,98 @@ void ProfileWizardDialog::slot_createButtonClicked()
     delete profiles;
 }
 
-void ProfileWizardDialog::slot_getClamscanProcessHasOutput()
+void ProfileWizardDialog::getClamscanOptions()
 {
-    m_getClamscanProcessOutput = m_getClamscanProcessOutput + m_getClamscanParametersProcess->readAll();
-}
+    m_setupFile = new setupFileHandler(QDir::homePath() + "/.clamav-gui/settings.ini", this);
 
-void ProfileWizardDialog::slot_getClamscanProcessFinished()
-{
-    m_getClamscanProcessOutput = m_getClamscanProcessOutput + m_getClamscanParametersProcess->readAll();
+    m_ui->pwBytecodeTimeoutCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--bytecode-timeout"));
+    m_ui->pwBytecodeTimeoutSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--bytecode-timeout"));
 
-    m_ui->pwBytecodeTimeoutCheckBox->setVisible(false);
-    m_ui->pwBytecodeTimeoutSpinBox->setVisible(false);
+    m_ui->pwExecutionStatisticsCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--statistics"));
+    m_ui->pwExecutionStatisticsComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--statistics"));
 
-    m_ui->pwExecutionStatisticsCheckBox->setVisible(false);
-    m_ui->pwExecutionStatisticsComboBox->setVisible(false);
+    m_ui->pwMaxCallsPCREMatchFunctionCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--pcre-match-limit"));
+    m_ui->pwMaxCallsPCREMatchFunctionSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--pcre-match-limit"));
 
-    m_ui->pwMaxCallsPCREMatchFunctionCheckBox->setVisible(false);
-    m_ui->pwMaxCallsPCREMatchFunctionSpinBox->setVisible(false);
+    m_ui->pwMaxPCREFileSizeCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--pcre-max-filesize"));
+    m_ui->pwMaxPCREFileSizeComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--pcre-max-filesize"));
+    m_ui->pwMaxPCREFileSizeSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--pcre-max-filesize"));
 
-    m_ui->pwMaxPCREFileSizeCheckBox->setVisible(false);
-    m_ui->pwMaxPCREFileSizeComboBox->setVisible(false);
-    m_ui->pwMaxPCREFileSizeSpinBox->setVisible(false);
+    m_ui->pwMaxRecursionCallsPCREMatchFunctionCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--pcre-recmatch-limit"));
+    m_ui->pwMaxRecursionCallsPCREMatchFunctionCpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--pcre-recmatch-limit"));
 
-    m_ui->pwMaxRecursionCallsPCREMatchFunctionCheckBox->setVisible(false);
-    m_ui->pwMaxRecursionCallsPCREMatchFunctionCpinBox->setVisible(false);
+    m_ui->pwMaxRecursionHWP3CheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-rechwp3"));
+    m_ui->pwMaxRecursionHWP3SpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-rechwp3"));
 
-    m_ui->pwMaxRecursionHWP3CheckBox->setVisible(false);
-    m_ui->pwMaxRecursionHWP3SpinBox->setVisible(false);
+    m_ui->pwMaxScanTimeCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-scantime"));
+    m_ui->pwMaxScanTimeSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-scantime"));
 
-    m_ui->pwMaxScanTimeCheckBox->setVisible(false);
-    m_ui->pwMaxScanTimeSpinBox->setVisible(false);
+    m_ui->pwStructuredCCCountCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--structured-cc-count"));
+    m_ui->pwStructuredCCCountSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--structured-cc-count"));
 
-    m_ui->pwStructuredCCCountCheckBox->setVisible(false);
-    m_ui->pwStructuredCCCountSpinBox->setVisible(false);
+    m_ui->pwStructuredCCModeCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--structured-cc-mode"));
+    m_ui->pwStructuredCCModeComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--structured-cc-mode"));
 
-    m_ui->pwStructuredCCModeCheckBox->setVisible(false);
-    m_ui->pwStructuredCCModeComboBox->setVisible(false);
+    m_ui->pwStructuredSSNCountCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--structured-ssn-count"));
+    m_ui->pwStructuredSSNCountSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--structured-ssn-count"));
 
-    m_ui->pwStructuredSSNCountCheckBox->setVisible(false);
-    m_ui->pwStructuredSSNCountSpinBox->setVisible(false);
+    m_ui->pwstructuredSSNFormatCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--structured-ssn-format"));
+    m_ui->pwStructuredSSNFormatComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--structured-ssn-format"));
 
-    m_ui->pwstructuredSSNFormatCheckBox->setVisible(false);
-    m_ui->pwStructuredSSNFormatComboBox->setVisible(false);
+    m_ui->pwdatabaseOutdatedCheckbox->setVisible(m_setupFile->keywordExists("OtherKeywords","--fail-if-cvd-older-than"));
+    m_ui->pwdatabaseOutdatedSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--fail-if-cvd-older-than"));
 
-    m_ui->pwdatabaseOutdatedCheckbox->setVisible(false);
-    m_ui->pwdatabaseOutdatedSpinBox->setVisible(false);
+    m_ui->pwfilesLargerThanThisCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-filesize"));
+    m_ui->pwfilesLargerThanThisComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-filesize"));
+    m_ui->pwfilesLargerThanThisSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-filesize"));
 
-    m_ui->pwfilesLargerThanThisCheckBox->setVisible(false);
-    m_ui->pwfilesLargerThanThisComboBox->setVisible(false);
-    m_ui->pwfilesLargerThanThisSpinBox->setVisible(false);
+    m_ui->pwmaxAmountForContainerCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-scansize"));
+    m_ui->pwmaxAmountForContainerComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-scansize"));
+    m_ui->pwmaxAmountForContainerSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-scansize"));
 
-    m_ui->pwmaxAmountForContainerCheckBox->setVisible(false);
-    m_ui->pwmaxAmountForContainerComboBox->setVisible(false);
-    m_ui->pwmaxAmountForContainerSpinBox->setVisible(false);
+    m_ui->pwmaxArchiveRecursionForContainerCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-recursion"));
+    m_ui->pwmaxArchiveRecursionForContainerComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-recursion"));
+    m_ui->pwmaxArchiveRecursionForContainerSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-recursion"));
 
-    m_ui->pwmaxArchiveRecursionForContainerCheckBox->setVisible(false);
-    m_ui->pwmaxArchiveRecursionForContainerComboBox->setVisible(false);
-    m_ui->pwmaxArchiveRecursionForContainerSpinBox->setVisible(false);
+    m_ui->pwmaxDirRecursionLevelCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-dir-recursion"));
+    m_ui->pwmaxDirRecursionLevelComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-dir-recursion"));
+    m_ui->pwmaxDirRecursionLevelSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-dir-recursion"));
 
-    m_ui->pwmaxDirRecursionLevelCheckBox->setVisible(false);
-    m_ui->pwmaxDirRecursionLevelComboBox->setVisible(false);
-    m_ui->pwmaxDirRecursionLevelSpinBox->setVisible(false);
+    m_ui->pwmaxNumberForContainerCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-files"));
+    m_ui->pwmaxNumberForContainerComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-files"));
+    m_ui->pwmaxNumberForContainerSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-files"));
 
-    m_ui->pwmaxNumberForContainerCheckBox->setVisible(false);
-    m_ui->pwmaxNumberForContainerComboBox->setVisible(false);
-    m_ui->pwmaxNumberForContainerSpinBox->setVisible(false);
+    m_ui->pwmaxNumberOfIconsInPEFileCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-iconspe"));
+    m_ui->pwmaxNumberOfIconsInPEFileComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-iconspe"));
+    m_ui->pwmaxNumberOfIconsInPEFileSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-iconspe"));
 
-    m_ui->pwmaxNumberOfIconsInPEFileCheckBox->setVisible(false);
-    m_ui->pwmaxNumberOfIconsInPEFileComboBox->setVisible(false);
-    m_ui->pwmaxNumberOfIconsInPEFileSpinBox->setVisible(false);
+    m_ui->pwmaxNumberOfPartitionsInDiskImageCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-partitions"));
+    m_ui->pwmaxNumberOfPartitionsInDiskImageComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-partitions"));
+    m_ui->pwmaxNumberOfPartitionsInDiskImageSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-partitions"));
 
-    m_ui->pwmaxNumberOfPartitionsInDiskImageCheckBox->setVisible(false);
-    m_ui->pwmaxNumberOfPartitionsInDiskImageComboBox->setVisible(false);
-    m_ui->pwmaxNumberOfPartitionsInDiskImageSpinBox->setVisible(false);
+    m_ui->pwmaxSizeFileForPECheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-embeddedpe"));
+    m_ui->pwmaxSizeFileForPEComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-embeddedpe"));
+    m_ui->pwmaxSizeFileForPESpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-embeddedpe"));
 
-    m_ui->pwmaxSizeFileForPECheckBox->setVisible(false);
-    m_ui->pwmaxSizeFileForPEComboBox->setVisible(false);
-    m_ui->pwmaxSizeFileForPESpinBox->setVisible(false);
+    m_ui->pwmaxSizeHTMLFileToNormalizeCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-htmlnormalize"));
+    m_ui->pwmaxSizeHTMLFileToNormalizeComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-htmlnormalize"));
+    m_ui->pwmaxSizeHTMLFileToNormalizeSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-htmlnormalize"));
 
-    m_ui->pwmaxSizeHTMLFileToNormalizeCheckBox->setVisible(false);
-    m_ui->pwmaxSizeHTMLFileToNormalizeComboBox->setVisible(false);
-    m_ui->pwmaxSizeHTMLFileToNormalizeSpinBox->setVisible(false);
+    m_ui->pwmaxSizeOfNormalizedHTMLFileCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-htmlnotags"));
+    m_ui->pwmaxSizeOfNormalizedHTMLFileComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-htmlnotags"));
+    m_ui->pwmaxSizeOfNormalizedHTMLFileSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-htmlnotags"));
 
-    m_ui->pwmaxSizeOfNormalizedHTMLFileCheckBox->setVisible(false);
-    m_ui->pwmaxSizeOfNormalizedHTMLFileComboBox->setVisible(false);
-    m_ui->pwmaxSizeOfNormalizedHTMLFileSpinBox->setVisible(false);
+    m_ui->pwmaxSizeOfScriptFileToNormalizeCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-scriptnormalize"));
+    m_ui->pwmaxSizeOfScriptFileToNormalizeComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-scriptnormalize"));
+    m_ui->pwmaxSizeOfScriptFileToNormalizeSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-scriptnormalize"));
 
-    m_ui->pwmaxSizeOfScriptFileToNormalizeCheckBox->setVisible(false);
-    m_ui->pwmaxSizeOfScriptFileToNormalizeComboBox->setVisible(false);
-    m_ui->pwmaxSizeOfScriptFileToNormalizeSpinBox->setVisible(false);
+    m_ui->pwmaxSizeZipToTypeReanalzeCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-ziptypercg"));
+    m_ui->pwmaxSizeZipToTypeReanalzeComboBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-ziptypercg"));
+    m_ui->pwmaxSizeZipToTypeReanalzeSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--max-ziptypercg"));
 
-    m_ui->pwmaxSizeZipToTypeReanalzeCheckBox->setVisible(false);
-    m_ui->pwmaxSizeZipToTypeReanalzeComboBox->setVisible(false);
-    m_ui->pwmaxSizeZipToTypeReanalzeSpinBox->setVisible(false);
-
-    m_ui->pwnumberOfSecondsForResponseCheckBox->setVisible(false);
-    m_ui->pwnumberOfSecondsForResponseSpinBox->setVisible(false);
-    m_ui->limitFrame_13->setVisible(false);
-
-    QStringList lines = m_getClamscanProcessOutput.split("\n");
-    QString line;
-
-    for (int x = 0; x < lines.size(); x++) {
-        line = lines[x];
-        if (line.indexOf("--bytecode-timeout") != -1) {
-            m_ui->pwBytecodeTimeoutCheckBox->setVisible(true);
-            m_ui->pwBytecodeTimeoutSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--statistics") != -1) {
-            m_ui->pwExecutionStatisticsCheckBox->setVisible(true);
-            m_ui->pwExecutionStatisticsComboBox->setVisible(true);
-        }
-
-        if (line.indexOf("--pcre-match-limit") != -1) {
-            m_ui->pwMaxCallsPCREMatchFunctionCheckBox->setVisible(true);
-            m_ui->pwMaxCallsPCREMatchFunctionSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--pcre-max-filesize") != -1) {
-            m_ui->pwMaxPCREFileSizeCheckBox->setVisible(true);
-            m_ui->pwMaxPCREFileSizeComboBox->setVisible(true);
-            m_ui->pwMaxPCREFileSizeSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--pcre-recmatch-limit") != -1) {
-            m_ui->pwMaxRecursionCallsPCREMatchFunctionCheckBox->setVisible(true);
-            m_ui->pwMaxRecursionCallsPCREMatchFunctionCpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-rechwp3") != -1) {
-            m_ui->pwMaxRecursionHWP3CheckBox->setVisible(true);
-            m_ui->pwMaxRecursionHWP3SpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-scantime") != -1) {
-            m_ui->pwMaxScanTimeCheckBox->setVisible(true);
-            m_ui->pwMaxScanTimeSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--structured-cc-count") != -1) {
-            m_ui->pwStructuredCCCountCheckBox->setVisible(true);
-            m_ui->pwStructuredCCCountSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--structured-cc-mode") != -1) {
-            m_ui->pwStructuredCCModeCheckBox->setVisible(true);
-            m_ui->pwStructuredCCModeComboBox->setVisible(true);
-        }
-
-        if (line.indexOf("--structured-ssn-count") != -1) {
-            m_ui->pwStructuredSSNCountCheckBox->setVisible(true);
-            m_ui->pwStructuredSSNCountSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--structured-ssn-format") != -1) {
-            m_ui->pwstructuredSSNFormatCheckBox->setVisible(true);
-            m_ui->pwStructuredSSNFormatComboBox->setVisible(true);
-        }
-
-        if (line.indexOf("--fail-if-cvd-older-than") != -1) {
-            m_ui->pwdatabaseOutdatedCheckbox->setVisible(true);
-            m_ui->pwdatabaseOutdatedSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-filesize") != -1) {
-            m_ui->pwfilesLargerThanThisCheckBox->setVisible(true);
-            m_ui->pwfilesLargerThanThisComboBox->setVisible(true);
-            m_ui->pwfilesLargerThanThisSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-scansize") != -1) {
-            m_ui->pwmaxAmountForContainerCheckBox->setVisible(true);
-            m_ui->pwmaxAmountForContainerComboBox->setVisible(true);
-            m_ui->pwmaxAmountForContainerSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-recursion") != -1) {
-            m_ui->pwmaxArchiveRecursionForContainerCheckBox->setVisible(true);
-            m_ui->pwmaxArchiveRecursionForContainerComboBox->setVisible(true);
-            m_ui->pwmaxArchiveRecursionForContainerSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-dir-recursion") != -1) {
-            m_ui->pwmaxDirRecursionLevelCheckBox->setVisible(true);
-            m_ui->pwmaxDirRecursionLevelComboBox->setVisible(true);
-            m_ui->pwmaxDirRecursionLevelSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-files") != -1) {
-            m_ui->pwmaxNumberForContainerCheckBox->setVisible(true);
-            m_ui->pwmaxNumberForContainerComboBox->setVisible(true);
-            m_ui->pwmaxNumberForContainerSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-iconspe") != -1) {
-            m_ui->pwmaxNumberOfIconsInPEFileCheckBox->setVisible(true);
-            m_ui->pwmaxNumberOfIconsInPEFileComboBox->setVisible(true);
-            m_ui->pwmaxNumberOfIconsInPEFileSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-partitions") != -1) {
-            m_ui->pwmaxNumberOfPartitionsInDiskImageCheckBox->setVisible(true);
-            m_ui->pwmaxNumberOfPartitionsInDiskImageComboBox->setVisible(true);
-            m_ui->pwmaxNumberOfPartitionsInDiskImageSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-embeddedpe") != -1) {
-            m_ui->pwmaxSizeFileForPECheckBox->setVisible(true);
-            m_ui->pwmaxSizeFileForPEComboBox->setVisible(true);
-            m_ui->pwmaxSizeFileForPESpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-htmlnormalize") != -1) {
-            m_ui->pwmaxSizeHTMLFileToNormalizeCheckBox->setVisible(true);
-            m_ui->pwmaxSizeHTMLFileToNormalizeComboBox->setVisible(true);
-            m_ui->pwmaxSizeHTMLFileToNormalizeSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-htmlnotags") != -1) {
-            m_ui->pwmaxSizeOfNormalizedHTMLFileCheckBox->setVisible(true);
-            m_ui->pwmaxSizeOfNormalizedHTMLFileComboBox->setVisible(true);
-            m_ui->pwmaxSizeOfNormalizedHTMLFileSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-scriptnormalize") != -1) {
-            m_ui->pwmaxSizeOfScriptFileToNormalizeCheckBox->setVisible(true);
-            m_ui->pwmaxSizeOfScriptFileToNormalizeComboBox->setVisible(true);
-            m_ui->pwmaxSizeOfScriptFileToNormalizeSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--max-ziptypercg") != -1) {
-            m_ui->pwmaxSizeZipToTypeReanalzeCheckBox->setVisible(true);
-            m_ui->pwmaxSizeZipToTypeReanalzeComboBox->setVisible(true);
-            m_ui->pwmaxSizeZipToTypeReanalzeSpinBox->setVisible(true);
-        }
-
-        if (line.indexOf("--stats-timeout") != -1) {
-            m_ui->pwnumberOfSecondsForResponseCheckBox->setVisible(true);
-            m_ui->pwnumberOfSecondsForResponseSpinBox->setVisible(true);
-            m_ui->limitFrame_13->setVisible(true);
-        }
-    }
+    m_ui->pwnumberOfSecondsForResponseCheckBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--stats-timeout"));
+    m_ui->pwnumberOfSecondsForResponseSpinBox->setVisible(m_setupFile->keywordExists("OtherKeywords","--stats-timeout"));
+    m_ui->limitFrame_13->setVisible(m_setupFile->keywordExists("OtherKeywords",""));
 }
 
 void ProfileWizardDialog::slot_cancleButtonClicked()
@@ -1220,343 +1063,127 @@ void ProfileWizardDialog::slot_hiddenDirsCheckBoxClicked()
 
 void ProfileWizardDialog::slot_directoryCheckBoxesClicked()
 {
-    if (m_ui->loadVirusDatabaseCheckBox->isChecked() == true) {
-        m_ui->lvdFrame->setStyleSheet(css);
-        m_ui->loadVirusDatabaseLineEdit->setEnabled(true);
-        m_ui->pwselectLVDButton->setEnabled(true);
-    }
-    else {
-        m_ui->lvdFrame->setStyleSheet("");
-        m_ui->loadVirusDatabaseLineEdit->setEnabled(false);
-        m_ui->pwselectLVDButton->setEnabled(false);
-    }
+    m_ui->loadVirusDatabaseCheckBox->isChecked()?m_ui->lvdFrame->setStyleSheet(css):m_ui->lvdFrame->setStyleSheet("");
+    m_ui->loadVirusDatabaseLineEdit->setEnabled(m_ui->loadVirusDatabaseCheckBox->isChecked());
+    m_ui->pwselectLVDButton->setEnabled(m_ui->loadVirusDatabaseCheckBox->isChecked());
 
-    if (m_ui->scanReportToFileCheckBox->isChecked() == true) {
-        m_ui->ssrtfFrame->setStyleSheet(css);
-        m_ui->scanReportToFileLineEdit->setEnabled(true);
-        m_ui->pwselectSCRFButton->setEnabled(true);
-    }
-    else {
-        m_ui->ssrtfFrame->setStyleSheet("");
-        m_ui->scanReportToFileLineEdit->setEnabled(false);
-        m_ui->pwselectSCRFButton->setEnabled(false);
-    }
+    m_ui->scanReportToFileCheckBox->isChecked() == true?m_ui->ssrtfFrame->setStyleSheet(css):m_ui->ssrtfFrame->setStyleSheet("");
+    m_ui->scanReportToFileLineEdit->setEnabled(m_ui->scanReportToFileCheckBox->isChecked() == true);
+    m_ui->pwselectSCRFButton->setEnabled(m_ui->scanReportToFileCheckBox->isChecked() == true);
 
-    if (m_ui->scanFilesFromFileCheckBox->isChecked() == true) {
-        m_ui->sfffFrame->setStyleSheet(css);
-        m_ui->scanFilesFromFileLineEdit->setEnabled(true);
-        m_ui->pwselectSFFButton->setEnabled(true);
-    }
-    else {
-        m_ui->sfffFrame->setStyleSheet("");
-        m_ui->scanFilesFromFileLineEdit->setEnabled(false);
-        m_ui->pwselectSFFButton->setEnabled(false);
-    }
+    m_ui->scanFilesFromFileCheckBox->isChecked()?m_ui->sfffFrame->setStyleSheet(css):m_ui->sfffFrame->setStyleSheet("");
+    m_ui->scanFilesFromFileLineEdit->setEnabled(m_ui->scanFilesFromFileCheckBox->isChecked());
+    m_ui->pwselectSFFButton->setEnabled(m_ui->scanFilesFromFileCheckBox->isChecked());
 
-    if (m_ui->tempFileCheckBox->isEnabled() == true) {
-        m_ui->ctfidFrame->setStyleSheet(css);
-        m_ui->tempFilesLineEdit->setEnabled(true);
-        m_ui->pwselectTFButton->setEnabled(true);
-    }
-    else {
-        m_ui->ctfidFrame->setStyleSheet("");
-        m_ui->tempFilesLineEdit->setEnabled(false);
-        m_ui->pwselectTFButton->setEnabled(false);
-    }
+    m_ui->tempFileCheckBox->isChecked()?m_ui->ctfidFrame->setStyleSheet(css):m_ui->ctfidFrame->setStyleSheet("");
+    m_ui->tempFilesLineEdit->setEnabled(m_ui->tempFileCheckBox->isChecked());
+    m_ui->pwselectTFButton->setEnabled(m_ui->tempFileCheckBox->isChecked());
 
-    if (m_ui->moveDirectoryCheckBox->isChecked() == true) {
-        m_ui->mifidFrame->setStyleSheet(css);
-        m_ui->moveDirectoryLineEdit->setEnabled(true);
-        m_ui->pwselectMDButton->setEnabled(true);
-    }
-    else {
-        m_ui->mifidFrame->setStyleSheet("");
-        m_ui->moveDirectoryLineEdit->setEnabled(false);
-        m_ui->pwselectMDButton->setEnabled(false);
-    }
+    m_ui->moveDirectoryCheckBox->isChecked()?m_ui->mifidFrame->setStyleSheet(css):m_ui->mifidFrame->setStyleSheet("");
+    m_ui->moveDirectoryLineEdit->setEnabled(m_ui->moveDirectoryCheckBox->isChecked());
+    m_ui->pwselectMDButton->setEnabled(m_ui->moveDirectoryCheckBox->isChecked());
 
-    if (m_ui->copyDirectoryCheckBox->isChecked() == true) {
-        m_ui->cifidFrame->setStyleSheet(css);
-        m_ui->copyDirectoryLineEdit->setEnabled(true);
-        m_ui->pwselectCFButton->setEnabled(true);
-    }
-    else {
-        m_ui->cifidFrame->setStyleSheet("");
-        m_ui->copyDirectoryLineEdit->setEnabled(false);
-        m_ui->pwselectCFButton->setEnabled(false);
-    }
+    m_ui->copyDirectoryCheckBox->isChecked()?m_ui->cifidFrame->setStyleSheet(css):m_ui->cifidFrame->setStyleSheet("");
+    m_ui->copyDirectoryLineEdit->setEnabled(m_ui->copyDirectoryCheckBox->isChecked());
+    m_ui->pwselectCFButton->setEnabled(m_ui->copyDirectoryCheckBox->isChecked());
 
-    if (m_ui->followDirectorySymlinksCheckBox->isChecked() == true) {
-        m_ui->fdsFrame->setStyleSheet(css);
-        m_ui->followDirectorySymlinksComboBox->setEnabled(true);
-    }
-    else {
-        m_ui->fdsFrame->setStyleSheet("");
-        m_ui->followDirectorySymlinksComboBox->setEnabled(false);
-    }
+    m_ui->followDirectorySymlinksCheckBox->isChecked()?m_ui->fdsFrame->setStyleSheet(css):m_ui->fdsFrame->setStyleSheet("");
+    m_ui->followDirectorySymlinksComboBox->setEnabled(m_ui->followDirectorySymlinksCheckBox->isChecked());
 
-    if (m_ui->followFileSymlinksCheckBox->isChecked() == true) {
-        m_ui->ffsFrame->setStyleSheet(css);
-        m_ui->followFileSymlinksComboBox->setEnabled(true);
-    }
-    else {
-        m_ui->ffsFrame->setStyleSheet("");
-        m_ui->followFileSymlinksComboBox->setEnabled(false);
-    }
+    m_ui->followFileSymlinksCheckBox->isChecked()?m_ui->ffsFrame->setStyleSheet(css):m_ui->ffsFrame->setStyleSheet("");
+    m_ui->followFileSymlinksComboBox->setEnabled(m_ui->followFileSymlinksCheckBox->isChecked());
 }
 
 void ProfileWizardDialog::slot_scanLimitsCheckBoxClicked()
 {
-    if (m_ui->pwfilesLargerThanThisCheckBox->isChecked()) {
-        m_ui->limitFrame_1->setStyleSheet(css);
-        m_ui->pwfilesLargerThanThisComboBox->setEnabled(true);
-        m_ui->pwfilesLargerThanThisSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_1->setStyleSheet("");
-        m_ui->pwfilesLargerThanThisComboBox->setEnabled(false);
-        m_ui->pwfilesLargerThanThisSpinBox->setEnabled(false);
-    }
 
-    if (m_ui->pwmaxAmountForContainerCheckBox->isChecked()) {
-        m_ui->limitFrame_2->setStyleSheet(css);
-        m_ui->pwmaxAmountForContainerComboBox->setEnabled(true);
-        m_ui->pwmaxAmountForContainerSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_2->setStyleSheet("");
-        m_ui->pwmaxAmountForContainerComboBox->setEnabled(false);
-        m_ui->pwmaxAmountForContainerSpinBox->setEnabled(false);
-    }
+    m_ui->pwfilesLargerThanThisCheckBox->isChecked()?m_ui->limitFrame_1->setStyleSheet(css):m_ui->limitFrame_1->setStyleSheet("");
+    m_ui->pwfilesLargerThanThisComboBox->setEnabled(m_ui->pwfilesLargerThanThisCheckBox->isChecked());
+    m_ui->pwfilesLargerThanThisSpinBox->setEnabled(m_ui->pwfilesLargerThanThisCheckBox->isChecked());
 
-    if (m_ui->pwmaxNumberForContainerCheckBox->isChecked()) {
-        m_ui->limitFrame_3->setStyleSheet(css);
-        m_ui->pwmaxNumberForContainerComboBox->setEnabled(true);
-        m_ui->pwmaxNumberForContainerSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_3->setStyleSheet("");
-        m_ui->pwmaxNumberForContainerComboBox->setEnabled(false);
-        m_ui->pwmaxNumberForContainerSpinBox->setEnabled(false);
-    }
+    m_ui->pwmaxAmountForContainerCheckBox->isChecked()?m_ui->limitFrame_2->setStyleSheet(css):m_ui->limitFrame_2->setStyleSheet("");
+    m_ui->pwmaxAmountForContainerComboBox->setEnabled(m_ui->pwmaxAmountForContainerCheckBox->isChecked());
+    m_ui->pwmaxAmountForContainerSpinBox->setEnabled(m_ui->pwmaxAmountForContainerCheckBox->isChecked());
 
-    if (m_ui->pwmaxArchiveRecursionForContainerCheckBox->isChecked()) {
-        m_ui->limitFrame_4->setStyleSheet(css);
-        m_ui->pwmaxArchiveRecursionForContainerComboBox->setEnabled(true);
-        m_ui->pwmaxArchiveRecursionForContainerSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_4->setStyleSheet("");
-        m_ui->pwmaxArchiveRecursionForContainerComboBox->setEnabled(false);
-        m_ui->pwmaxArchiveRecursionForContainerSpinBox->setEnabled(false);
-    }
+    m_ui->pwmaxNumberForContainerCheckBox->isChecked()?m_ui->limitFrame_3->setStyleSheet(css):m_ui->limitFrame_3->setStyleSheet("");
+    m_ui->pwmaxNumberForContainerComboBox->setEnabled(m_ui->pwmaxNumberForContainerCheckBox->isChecked());
+    m_ui->pwmaxNumberForContainerSpinBox->setEnabled(m_ui->pwmaxNumberForContainerCheckBox->isChecked());
 
-    if (m_ui->pwmaxDirRecursionLevelCheckBox->isChecked()) {
-        m_ui->limitFrame_5->setStyleSheet(css);
-        m_ui->pwmaxDirRecursionLevelComboBox->setEnabled(true);
-        m_ui->pwmaxDirRecursionLevelSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_5->setStyleSheet("");
-        m_ui->pwmaxDirRecursionLevelComboBox->setEnabled(false);
-        m_ui->pwmaxDirRecursionLevelSpinBox->setEnabled(false);
-    }
+    m_ui->pwmaxArchiveRecursionForContainerCheckBox->isChecked()?m_ui->limitFrame_4->setStyleSheet(css):m_ui->limitFrame_4->setStyleSheet("");
+    m_ui->pwmaxArchiveRecursionForContainerComboBox->setEnabled(m_ui->pwmaxArchiveRecursionForContainerCheckBox->isChecked());
+    m_ui->pwmaxArchiveRecursionForContainerSpinBox->setEnabled(m_ui->pwmaxArchiveRecursionForContainerCheckBox->isChecked());
 
-    if (m_ui->pwmaxSizeFileForPECheckBox->isChecked()) {
-        m_ui->limitFrame_6->setStyleSheet(css);
-        m_ui->pwmaxSizeFileForPEComboBox->setEnabled(true);
-        m_ui->pwmaxSizeFileForPESpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_6->setStyleSheet("");
-        m_ui->pwmaxSizeFileForPEComboBox->setEnabled(false);
-        m_ui->pwmaxSizeFileForPESpinBox->setEnabled(false);
-    }
+    m_ui->pwmaxDirRecursionLevelCheckBox->isChecked()?m_ui->limitFrame_5->setStyleSheet(css):m_ui->limitFrame_5->setStyleSheet("");
+    m_ui->pwmaxDirRecursionLevelComboBox->setEnabled(m_ui->pwmaxDirRecursionLevelCheckBox->isChecked());
+    m_ui->pwmaxDirRecursionLevelSpinBox->setEnabled(m_ui->pwmaxDirRecursionLevelCheckBox->isChecked());
 
-    if (m_ui->pwmaxSizeHTMLFileToNormalizeCheckBox->isChecked()) {
-        m_ui->limitFrame_7->setStyleSheet(css);
-        m_ui->pwmaxSizeHTMLFileToNormalizeComboBox->setEnabled(true);
-        m_ui->pwmaxSizeHTMLFileToNormalizeSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_7->setStyleSheet("");
-        m_ui->pwmaxSizeHTMLFileToNormalizeComboBox->setEnabled(false);
-        m_ui->pwmaxSizeHTMLFileToNormalizeSpinBox->setEnabled(false);
-    }
+    m_ui->pwmaxSizeFileForPECheckBox->isChecked()?m_ui->limitFrame_6->setStyleSheet(css):m_ui->limitFrame_6->setStyleSheet("");
+    m_ui->pwmaxSizeFileForPEComboBox->setEnabled(m_ui->pwmaxSizeFileForPECheckBox->isChecked());
+    m_ui->pwmaxSizeFileForPESpinBox->setEnabled(m_ui->pwmaxSizeFileForPECheckBox->isChecked());
 
-    if (m_ui->pwmaxSizeOfNormalizedHTMLFileCheckBox->isChecked()) {
-        m_ui->limitFrame_8->setStyleSheet(css);
-        m_ui->pwmaxSizeOfNormalizedHTMLFileComboBox->setEnabled(true);
-        m_ui->pwmaxSizeOfNormalizedHTMLFileSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_8->setStyleSheet("");
-        m_ui->pwmaxSizeOfNormalizedHTMLFileComboBox->setEnabled(false);
-        m_ui->pwmaxSizeOfNormalizedHTMLFileSpinBox->setEnabled(false);
-    }
+    m_ui->pwmaxSizeHTMLFileToNormalizeCheckBox->isChecked()?m_ui->limitFrame_7->setStyleSheet(css):m_ui->limitFrame_7->setStyleSheet("");
+    m_ui->pwmaxSizeHTMLFileToNormalizeComboBox->setEnabled(m_ui->pwmaxSizeHTMLFileToNormalizeCheckBox->isChecked());
+    m_ui->pwmaxSizeHTMLFileToNormalizeSpinBox->setEnabled(m_ui->pwmaxSizeHTMLFileToNormalizeCheckBox->isChecked());
 
-    if (m_ui->pwmaxSizeOfScriptFileToNormalizeCheckBox->isChecked()) {
-        m_ui->limitFrame_9->setStyleSheet(css);
-        m_ui->pwmaxSizeOfScriptFileToNormalizeComboBox->setEnabled(true);
-        m_ui->pwmaxSizeOfScriptFileToNormalizeSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_9->setStyleSheet("");
-        m_ui->pwmaxSizeOfScriptFileToNormalizeComboBox->setEnabled(false);
-        m_ui->pwmaxSizeOfScriptFileToNormalizeSpinBox->setEnabled(false);
-    }
+    m_ui->pwmaxSizeOfNormalizedHTMLFileCheckBox->isChecked()?m_ui->limitFrame_8->setStyleSheet(css):m_ui->limitFrame_8->setStyleSheet("");
+    m_ui->pwmaxSizeOfNormalizedHTMLFileComboBox->setEnabled(m_ui->pwmaxSizeOfNormalizedHTMLFileCheckBox->isChecked());
+    m_ui->pwmaxSizeOfNormalizedHTMLFileSpinBox->setEnabled(m_ui->pwmaxSizeOfNormalizedHTMLFileCheckBox->isChecked());
 
-    if (m_ui->pwmaxSizeZipToTypeReanalzeCheckBox->isChecked()) {
-        m_ui->limitFrame_10->setStyleSheet(css);
-        m_ui->pwmaxSizeZipToTypeReanalzeComboBox->setEnabled(true);
-        m_ui->pwmaxSizeZipToTypeReanalzeSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_10->setStyleSheet("");
-        m_ui->pwmaxSizeZipToTypeReanalzeComboBox->setEnabled(false);
-        m_ui->pwmaxSizeZipToTypeReanalzeSpinBox->setEnabled(false);
-    }
+    m_ui->pwmaxSizeOfScriptFileToNormalizeCheckBox->isChecked()?m_ui->limitFrame_9->setStyleSheet(css):m_ui->limitFrame_9->setStyleSheet("");
+    m_ui->pwmaxSizeOfScriptFileToNormalizeComboBox->setEnabled(m_ui->pwmaxSizeOfScriptFileToNormalizeCheckBox->isChecked());
+    m_ui->pwmaxSizeOfScriptFileToNormalizeSpinBox->setEnabled(m_ui->pwmaxSizeOfScriptFileToNormalizeCheckBox->isChecked());
 
-    if (m_ui->pwmaxNumberOfPartitionsInDiskImageCheckBox->isChecked()) {
-        m_ui->limitFrame_11->setStyleSheet(css);
-        m_ui->pwmaxNumberOfPartitionsInDiskImageComboBox->setEnabled(true);
-        m_ui->pwmaxNumberOfPartitionsInDiskImageSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_11->setStyleSheet("");
-        m_ui->pwmaxNumberOfPartitionsInDiskImageComboBox->setEnabled(false);
-        m_ui->pwmaxNumberOfPartitionsInDiskImageSpinBox->setEnabled(false);
-    }
+    m_ui->pwmaxSizeZipToTypeReanalzeCheckBox->isChecked()?m_ui->limitFrame_10->setStyleSheet(css):m_ui->limitFrame_10->setStyleSheet("");
+    m_ui->pwmaxSizeZipToTypeReanalzeComboBox->setEnabled(m_ui->pwmaxSizeZipToTypeReanalzeCheckBox->isChecked());
+    m_ui->pwmaxSizeZipToTypeReanalzeSpinBox->setEnabled(m_ui->pwmaxSizeZipToTypeReanalzeCheckBox->isChecked());
 
-    if (m_ui->pwmaxNumberOfIconsInPEFileCheckBox->isChecked()) {
-        m_ui->limitFrame_12->setStyleSheet(css);
-        m_ui->pwmaxNumberOfIconsInPEFileComboBox->setEnabled(true);
-        m_ui->pwmaxNumberOfIconsInPEFileSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_12->setStyleSheet("");
-        m_ui->pwmaxNumberOfIconsInPEFileComboBox->setEnabled(false);
-        m_ui->pwmaxNumberOfIconsInPEFileSpinBox->setEnabled(false);
-    }
+    m_ui->pwmaxNumberOfPartitionsInDiskImageCheckBox->isChecked()?m_ui->limitFrame_11->setStyleSheet(css):m_ui->limitFrame_11->setStyleSheet("");
+    m_ui->pwmaxNumberOfPartitionsInDiskImageComboBox->setEnabled(m_ui->pwmaxNumberOfPartitionsInDiskImageCheckBox->isChecked());
+    m_ui->pwmaxNumberOfPartitionsInDiskImageSpinBox->setEnabled(m_ui->pwmaxNumberOfPartitionsInDiskImageCheckBox->isChecked());
 
-    if (m_ui->pwnumberOfSecondsForResponseCheckBox->isChecked()) {
-        m_ui->limitFrame_13->setStyleSheet(css);
-        m_ui->pwnumberOfSecondsForResponseSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_13->setStyleSheet("");
-        m_ui->pwnumberOfSecondsForResponseSpinBox->setEnabled(false);
-    }
+    m_ui->pwmaxNumberOfIconsInPEFileCheckBox->isChecked()?m_ui->limitFrame_12->setStyleSheet(css):m_ui->limitFrame_12->setStyleSheet("");
+    m_ui->pwmaxNumberOfIconsInPEFileComboBox->setEnabled(m_ui->pwmaxNumberOfIconsInPEFileCheckBox->isChecked());
+    m_ui->pwmaxNumberOfIconsInPEFileSpinBox->setEnabled(m_ui->pwmaxNumberOfIconsInPEFileCheckBox->isChecked());
 
-    if (m_ui->pwBytecodeTimeoutCheckBox->isChecked()) {
-        m_ui->limitFrame_14->setStyleSheet(css);
-        m_ui->pwBytecodeTimeoutSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_14->setStyleSheet("");
-        m_ui->pwBytecodeTimeoutSpinBox->setEnabled(false);
-    }
+    m_ui->pwnumberOfSecondsForResponseCheckBox->isChecked()?m_ui->limitFrame_13->setStyleSheet(css):m_ui->limitFrame_13->setStyleSheet("");
+    m_ui->pwnumberOfSecondsForResponseSpinBox->setEnabled(m_ui->pwnumberOfSecondsForResponseCheckBox->isChecked());
 
-    if (m_ui->pwExecutionStatisticsCheckBox->isChecked()) {
-        m_ui->limitFrame_15->setStyleSheet(css);
-        m_ui->pwExecutionStatisticsComboBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_15->setStyleSheet("");
-        m_ui->pwExecutionStatisticsComboBox->setEnabled(false);
-    }
+    m_ui->pwBytecodeTimeoutCheckBox->isChecked()?m_ui->limitFrame_14->setStyleSheet(css):m_ui->limitFrame_14->setStyleSheet("");
+    m_ui->pwBytecodeTimeoutSpinBox->setEnabled(m_ui->pwBytecodeTimeoutCheckBox->isChecked());
 
-    if (m_ui->pwstructuredSSNFormatCheckBox->isChecked()) {
-        m_ui->limitFrame_16->setStyleSheet(css);
-        m_ui->pwStructuredSSNFormatComboBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_16->setStyleSheet("");
-        m_ui->pwStructuredSSNFormatComboBox->setEnabled(false);
-    }
+    m_ui->pwExecutionStatisticsCheckBox->isChecked()?m_ui->limitFrame_15->setStyleSheet(css):m_ui->limitFrame_15->setStyleSheet("");
+    m_ui->pwExecutionStatisticsComboBox->setEnabled(m_ui->pwExecutionStatisticsCheckBox->isChecked());
 
-    if (m_ui->pwStructuredSSNCountCheckBox->isChecked()) {
-        m_ui->limitFrame_17->setStyleSheet(css);
-        m_ui->pwStructuredSSNCountSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_17->setStyleSheet("");
-        m_ui->pwStructuredSSNCountSpinBox->setEnabled(false);
-    }
+    m_ui->pwstructuredSSNFormatCheckBox->isChecked()?m_ui->limitFrame_16->setStyleSheet(css):m_ui->limitFrame_16->setStyleSheet("");
+    m_ui->pwStructuredSSNFormatComboBox->setEnabled(m_ui->pwstructuredSSNFormatCheckBox->isChecked());
 
-    if (m_ui->pwStructuredCCCountCheckBox->isChecked()) {
-        m_ui->limitFrame_18->setStyleSheet(css);
-        m_ui->pwStructuredCCCountSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_18->setStyleSheet("");
-        m_ui->pwStructuredCCCountSpinBox->setEnabled(false);
-    }
+    m_ui->pwStructuredSSNCountCheckBox->isChecked()?m_ui->limitFrame_17->setStyleSheet(css):m_ui->limitFrame_17->setStyleSheet("");
+    m_ui->pwStructuredSSNCountSpinBox->setEnabled(m_ui->pwStructuredSSNCountCheckBox->isChecked());
 
-    if (m_ui->pwStructuredCCModeCheckBox->isChecked()) {
-        m_ui->limitFrame_19->setStyleSheet(css);
-        m_ui->pwStructuredCCModeComboBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_19->setStyleSheet("");
-        m_ui->pwStructuredCCModeComboBox->setEnabled(false);
-    }
+    m_ui->pwStructuredCCCountCheckBox->isChecked()?m_ui->limitFrame_18->setStyleSheet(css):m_ui->limitFrame_18->setStyleSheet("");
+    m_ui->pwStructuredCCCountSpinBox->setEnabled(m_ui->pwStructuredCCCountCheckBox->isChecked());
 
-    if (m_ui->pwMaxScanTimeCheckBox->isChecked()) {
-        m_ui->limitFrame_20->setStyleSheet(css);
-        m_ui->pwMaxScanTimeSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_20->setStyleSheet("");
-        m_ui->pwMaxScanTimeSpinBox->setEnabled(false);
-    }
+    m_ui->pwStructuredCCModeCheckBox->isChecked()?m_ui->limitFrame_19->setStyleSheet(css):m_ui->limitFrame_19->setStyleSheet("");
+    m_ui->pwStructuredCCModeComboBox->setEnabled(m_ui->pwStructuredCCModeCheckBox->isChecked());
 
-    if (m_ui->pwMaxRecursionHWP3CheckBox->isChecked()) {
-        m_ui->limitFrame_21->setStyleSheet(css);
-        m_ui->pwMaxRecursionHWP3SpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_21->setStyleSheet("");
-        m_ui->pwMaxRecursionHWP3SpinBox->setEnabled(false);
-    }
+    m_ui->pwMaxScanTimeCheckBox->isChecked()?m_ui->limitFrame_20->setStyleSheet(css):m_ui->limitFrame_20->setStyleSheet("");
+    m_ui->pwMaxScanTimeSpinBox->setEnabled(m_ui->pwMaxScanTimeCheckBox->isChecked());
 
-    if (m_ui->pwMaxCallsPCREMatchFunctionCheckBox->isChecked()) {
-        m_ui->limitFrame_22->setStyleSheet(css);
-        m_ui->pwMaxCallsPCREMatchFunctionSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_22->setStyleSheet("");
-        m_ui->pwMaxCallsPCREMatchFunctionSpinBox->setEnabled(false);
-    }
+    m_ui->pwMaxRecursionHWP3CheckBox->isChecked()?m_ui->limitFrame_21->setStyleSheet(css):m_ui->limitFrame_21->setStyleSheet("");
+    m_ui->pwMaxRecursionHWP3SpinBox->setEnabled(m_ui->pwMaxRecursionHWP3CheckBox->isChecked());
 
-    if (m_ui->pwMaxRecursionCallsPCREMatchFunctionCheckBox->isChecked()) {
-        m_ui->limitFrame_23->setStyleSheet(css);
-        m_ui->pwMaxRecursionCallsPCREMatchFunctionCpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_23->setStyleSheet("");
-        m_ui->pwMaxRecursionCallsPCREMatchFunctionCpinBox->setEnabled(false);
-    }
+    m_ui->pwMaxCallsPCREMatchFunctionCheckBox->isChecked()?m_ui->limitFrame_22->setStyleSheet(css):m_ui->limitFrame_22->setStyleSheet("");
+    m_ui->pwMaxCallsPCREMatchFunctionSpinBox->setEnabled(m_ui->pwMaxCallsPCREMatchFunctionCheckBox->isChecked());
 
-    if (m_ui->pwMaxPCREFileSizeCheckBox->isChecked()) {
-        m_ui->limitFrame_24->setStyleSheet(css);
-        m_ui->pwMaxPCREFileSizeComboBox->setEnabled(true);
-        m_ui->pwMaxPCREFileSizeSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_24->setStyleSheet("");
-        m_ui->pwMaxPCREFileSizeComboBox->setEnabled(false);
-        m_ui->pwMaxPCREFileSizeSpinBox->setEnabled(false);
-    }
+    m_ui->pwMaxRecursionCallsPCREMatchFunctionCheckBox->isChecked()?m_ui->limitFrame_23->setStyleSheet(css):m_ui->limitFrame_23->setStyleSheet("");
+    m_ui->pwMaxRecursionCallsPCREMatchFunctionCpinBox->setEnabled(m_ui->pwMaxRecursionCallsPCREMatchFunctionCheckBox->isChecked());
 
-    if (m_ui->pwdatabaseOutdatedCheckbox->isChecked()) {
-        m_ui->limitFrame_25->setStyleSheet(css);
-        m_ui->pwdatabaseOutdatedSpinBox->setEnabled(true);
-    }
-    else {
-        m_ui->limitFrame_25->setStyleSheet("");
-        m_ui->pwdatabaseOutdatedSpinBox->setEnabled(false);
-    }
+    m_ui->pwMaxPCREFileSizeCheckBox->isChecked()?m_ui->limitFrame_24->setStyleSheet(css):m_ui->limitFrame_24->setStyleSheet("");
+    m_ui->pwMaxPCREFileSizeComboBox->setEnabled(m_ui->pwMaxPCREFileSizeCheckBox->isChecked());
+    m_ui->pwMaxPCREFileSizeSpinBox->setEnabled(m_ui->pwMaxPCREFileSizeCheckBox->isChecked());
+
+    m_ui->pwdatabaseOutdatedCheckbox->isChecked()?m_ui->limitFrame_25->setStyleSheet(css):m_ui->limitFrame_25->setStyleSheet("");
+    m_ui->pwdatabaseOutdatedSpinBox->setEnabled(m_ui->pwdatabaseOutdatedCheckbox->isChecked());
 }
 
 void ProfileWizardDialog::slot_highlightSettings()

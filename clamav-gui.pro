@@ -12,9 +12,11 @@ TEMPLATE = app
 
 
 SOURCES += src/main.cpp\
+    src/clamdconfmultioption.cpp \
     src/clamdconfcomboboxoption.cpp \
     src/clamdconfspinboxoption.cpp \
     src/clamdconfstringoption.cpp \
+    src/firstrunwindow.cpp \
     src/myframe.cpp \
     src/scanoption.cpp \
     src/scanoptionyn.cpp \
@@ -42,12 +44,13 @@ SOURCES += src/main.cpp\
     src/profilewizarddialog.cpp \
     src/profilemanager.cpp \
     src/translator.cpp
-    src/translator.cpp
 
 HEADERS  += src/clamav_gui.h \
+    src/clamdconfmultioption.h \
     src/clamdconfcomboboxoption.h \
     src/clamdconfspinboxoption.h \
     src/clamdconfstringoption.h \
+    src/firstrunwindow.h \
     src/myframe.h \
     src/scanoption.h \
     src/scanoptionyn.h \
@@ -74,9 +77,10 @@ HEADERS  += src/clamav_gui.h \
     src/profilewizarddialog.h \
     src/profilemanager.h \
     src/translator.h
-    src/translator.h
 
 FORMS    += ui/clamav_gui.ui \
+    ui/clamdconfmultioption.ui \
+    ui/firstrunwindow.ui \
     ui/myframe.ui \
     ui/clamdconfcomboboxoption.ui \
     ui/clamdconfspinboxoption.ui \

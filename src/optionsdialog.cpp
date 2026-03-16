@@ -5,7 +5,7 @@ optionsDialog::optionsDialog(QWidget* parent, setupFileHandler* setupFile) : QWi
 {
     m_ui.setupUi(this);
     //m_setupFile = new setupFileHandler(QDir::homePath() + "/.clamav-gui/settings.ini", this); --> uses the setupFileHandler provided by the clamav_gui class
-    updateDirectories();
+    //updateDirectories();
     m_ui.tabWidget->setTabText(0, tr("Options"));
     m_ui.tabWidget->setTabText(1, tr("Directories"));
     m_scanLimits = new scanLimitsTab(this, m_setupFile);
@@ -223,7 +223,7 @@ void optionsDialog::slot_getClamscanProcessFinished()
         if (language == "") language = "[en_GB]";
         if (m_setupFile->keywordExists("SelectedOptions", label.replace("=", "<equal>")) == true) {
             if (label.indexOf("<equal>") == -1) {
-                option = new scanoption(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", true, label, comments[x], language);
+                option = new scanoption(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", true, label, comments[x]);
                 connect(option, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
                 if (flipflop == false) {
                     m_ui.optionLayout->addWidget(option);
@@ -235,7 +235,7 @@ void optionsDialog::slot_getClamscanProcessFinished()
                 }
             }
             else {
-                optionyn = new scanoptionyn(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", true, label, comments[x], language);
+                optionyn = new scanoptionyn(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", true, label, comments[x]);
                 connect(optionyn, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
                 if (flipflop == false) {
                     m_ui.optionLayout->addWidget(optionyn);
@@ -249,7 +249,7 @@ void optionsDialog::slot_getClamscanProcessFinished()
         }
         else {
             if (label.indexOf("<equal>") == -1) {
-                option = new scanoption(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", false, label, comments[x], language);
+                option = new scanoption(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", false, label, comments[x]);
                 connect(option, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
                 if (flipflop == false) {
                     m_ui.optionLayout->addWidget(option);
@@ -261,7 +261,7 @@ void optionsDialog::slot_getClamscanProcessFinished()
                 }
             }
             else {
-                optionyn = new scanoptionyn(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", false, label, comments[x], language);
+                optionyn = new scanoptionyn(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", false, label, comments[x]);
                 connect(optionyn, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
                 if (flipflop == false) {
                     m_ui.optionLayout->addWidget(optionyn);
@@ -304,14 +304,14 @@ void optionsDialog::slot_selectLVDButtonClicked()
     if (file.exists()) {
         return;
     }
-    if (QMessageBox::warning(this, tr("Virus definitions missing!"),
+    /*if (QMessageBox::warning(this, tr("Virus definitions missing!"),
                                 tr("No virus definitions found in the database folder. Should the virus definitions be downloaded?"),
                                 QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes) {
         m_setupFile->setSectionValue("Directories","LoadSupportedDBFiles","checked|" + QDir::homePath() + "/.clamav-gui/signatures");
         m_ui.loadVirusDatabaseCheckBox->setChecked(true);
         m_ui.loadVirusDatabaseLineEdit->setText(QDir::homePath() + "/.clamav-gui/signatures");
         emit updateDatabase();
-    }
+    }*/
 }
 
 void optionsDialog::slot_selectCDButtonClicked()
@@ -544,7 +544,8 @@ void optionsDialog::writeDirectories()
         if (m_ui.loadVirusDatabaseLineEdit->text() != "") {
             emit databasePathChanged(m_ui.loadVirusDatabaseLineEdit->text());
             QFile file(m_ui.loadVirusDatabaseLineEdit->text() + "/main.cvd");
-            if (file.exists() == false) {
+            qDebug() << "I'm here!";
+            if ((file.exists() == false) && (m_setupFile->getSectionBoolValue("Setup","FirstRun") == false)) {
                 if (QMessageBox::warning(this, tr("Database files missing!"),
                                          tr("The virus definition files are missing in the database directory. Start download of the missing files?"),
                                          QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes) {

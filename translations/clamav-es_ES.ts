@@ -687,7 +687,7 @@
         <source>Be verbose</source>
         <translation>Sea verboso.</translation>
     </message>
-     <message>
+    <message>
         <source>Only print infected files</source>
         <translation>Imprima únicamente archivos infectados.</translation>
     </message>
@@ -854,6 +854,38 @@
     <message>
         <source>Alert on raw DMG image files containing partition intersections</source>
         <translation>Alerta sobre archivos de imágenes DMG sin procesar que contienen intersecciones de particiones.</translation>
+    </message>
+    <message>
+        <source>Sets the group ownership on the unix socket. Default: the primary group of the user running clamd</source>
+        <translation>Establece la propiedad del grupo en el socket Unix. Predeterminado: el grupo principal del usuario que ejecuta clamd.</translation>
+    </message>
+    <message>
+        <source>Enables the SHUTDOWN command. Setting this to no prevents a client to stop clamd via the protocol. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>Habilita el comando SHUTDOWN. Si se desactiva, impide que un cliente detenga clamd mediante el protocolo. Al desactivarlo, clamd responde a este comando con &quot;COMANDO NO DISPONIBLE&quot;. Valor predeterminado: sí.</translation>
+    </message>
+    <message>
+        <source>Enables the RELOAD command. Setting this to no prevents a client to reload the database. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>Habilita el comando RECARGAR. Si se desactiva, impide que el cliente recargue la base de datos. Al desactivarlo, clamd responde a este comando con COMANDO NO DISPONIBLE. Valor predeterminado: sí.</translation>
+    </message>
+    <message>
+        <source>Enables the VERSION command. Setting this to no prevents a client from querying version information. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>Habilita el comando VERSIÓN. Si se configura como &quot;no&quot;, se impide que el cliente consulte la información de la versión. Al deshabilitarlo, clamd responde a este comando con &quot;COMANDO NO DISPONIBLE&quot;. Valor predeterminado: sí.</translation>
+    </message>
+    <message>
+        <source>Enables the STATS command. Setting this to no prevents a client from querying statistics. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>Habilita el comando STATS. Si se establece en &quot;no&quot;, se impide que el cliente consulte las estadísticas. Al deshabilitarlo, clamd responde a este comando con &quot;COMANDO NO DISPONIBLE&quot;. Valor predeterminado: sí.</translation>
+    </message>
+    <message>
+        <source>Exclude a specific PUA category. This directive can be used mul‐ tiple times. See https://docs.clamav.net/faq/faq-pua.html for the complete list of PUA categories. Default: disabled</source>
+        <translation>Excluir una categoría específica de PUA. Esta directiva puede utilizarse varias veces. Consulte https://docs.clamav.net/faq/faq-pua.html para ver la lista completa de categorías de PUA. Valor predeterminado: deshabilitado.</translation>
+    </message>
+    <message>
+        <source>With this option you can exclude specific UIDs. Processes with these UIDs will be able to access all files without triggering scans or permission denied events. This option can be used multiple times (one per line). Note: using a value of 0 on any line will disable this option en‐ tirely. To exclude the root UID (0) please enable the OnAccessEx‐ cludeRootUID option. Also note that if clamd cannot check the uid of the process that generated an on-access scan event (e.g., because OnAccessPreven‐ tion was not enabled, and the process already exited), clamd will perform a scan. Thus, setting OnAccessExcludeUID is not guaran‐ teed to prevent every access by the specified uid from triggering a scan (unless OnAccessPrevention is enabled). Default: disabled</source>
+        <translation>Con esta opción puede excluir UID específicos. Los procesos con estos UID podrán acceder a todos los archivos sin activar análisis ni eventos de permiso denegado. Esta opción se puede usar varias veces (una por línea). Nota: si se usa un valor de 0 en cualquier línea, esta opción se deshabilitará por completo. Para excluir el UID raíz (0), habilite la opción OnAccessExcludeRootUID. Tenga en cuenta también que si clamd no puede comprobar el UID del proceso que generó un evento de análisis en acceso (por ejemplo, porque OnAccessPrevention no estaba habilitado y el proceso ya había finalizado), clamd realizará un análisis. Por lo tanto, no se garantiza que la opción OnAccessExcludeUID impida que cada acceso del UID especificado active un análisis (a menos que OnAccessPrevention esté habilitado). Valor predeterminado: deshabilitado.</translation>
+    </message>
+    <message>
+        <source>This option allows exclusions via user names when using the on- access scanning client. It can be used multiple times, and has the same potential race condition limitations of the OnAccessEx‐ cludeUID option. Default: disabled</source>
+        <translation>Esta opción permite exclusiones mediante nombres de usuario al usar el cliente de escaneo en tiempo real. Puede usarse varias veces y tiene las mismas limitaciones potenciales de condición de carrera que la opción OnAccessExcludeUID. Valor predeterminado: deshabilitado.</translation>
     </message>
 </context>
 </TS>

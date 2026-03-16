@@ -54,12 +54,10 @@ private:
     Ui::freshclamsetter m_ui;
     setupFileHandler    * m_setupFile;
     setupFileHandler    * m_freshclamConf;
-    QProcess            * m_getDBUserProcess;
-    QProcess            * m_freshclamLocationProcess;
-    QProcess            * m_clamscanLocationProcess;
     QProcess            * m_updater;
     QProcess            * m_startDeamonProcess;
     QProcess            * m_ps_process;
+    QProcess            * m_getDBUserProcess;
     QTimer              * m_startDelayTimer;
     QTimer              * m_processWatcher;
     progressDialog      * m_busyLabel;
@@ -80,7 +78,6 @@ private:
     void setForm(bool);
     void setUpdaterInfo();
     void checkDaemonRunning();
-    void initFreshclamSettings();
     QString extractPureNumber(QString value);
     QString selectColor(QString color);
 
@@ -103,10 +100,6 @@ private slots:
     void slot_dbPathChanged(QString dbPath);
     void slot_getDBUserProcessFinished();
     void slot_pidFileSelectButtonClicked();
-    void slot_freshclamLocationProcessFinished();
-    void slot_freshclamLocationProcessHasOutput();
-    void slot_clamscanLocationProcessFinished();
-    void slot_clamscanLocationProcessHasOutput();
     void slot_setFreshclamsettingsFrameState(bool state);
     void slot_autoStartDaemon();
     void slot_onUpdateExecuteButtonClicked();
@@ -114,6 +107,7 @@ private slots:
     void slot_onOutdatedExecuteButtonClicked();
     void slot_processWatcherExpired();
     void slot_add_remove_highlighter(bool state);
+    void slot_initFreshclamSettings();
 
 signals:
     void setBallonMessage(int, QString,QString);

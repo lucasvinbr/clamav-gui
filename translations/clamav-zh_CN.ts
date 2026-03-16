@@ -681,123 +681,123 @@
     </message>
     <message>
         <source>Enable libclamav&apos;s debug messages</source>
-        <translation>启用 libclamav 的调试信息。</translation>
+        <translation>启用 libclamav 的调试信息</translation>
     </message>
     <message>
         <source>Be verbose</source>
-        <translation>显示详细信息。</translation>
+        <translation>显示详细信息</translation>
     </message>
-     <message>
+    <message>
         <source>Only print infected files</source>
-        <translation>仅打印被感染的文件。</translation>
+        <translation>仅打印被感染的文件</translation>
     </message>
     <message>
         <source>Sound bell on virus detection</source>
-        <translation>检测到病毒时响铃。</translation>
+        <translation>检测到病毒时响铃</translation>
     </message>
     <message>
         <source>Create temporary files for nested file scans that would otherwise be in-memory only</source>
-        <translation>为原本仅在内存中的嵌套文件扫描创建临时文件。</translation>
+        <translation>为原本仅在内存中的嵌套文件扫描创建临时文件</translation>
     </message>
     <message>
         <source>Continue scanning within file after finding a match</source>
-        <translation>在找到匹配后继续扫描文件内部。</translation>
+        <translation>在找到匹配后继续扫描文件内部</translation>
     </message>
     <message>
         <source>Show filenames inside scanned archives</source>
-        <translation>显示扫描的存档内的文件名。</translation>
+        <translation>显示扫描的存档内的文件名</translation>
     </message>
     <message>
         <source>Only output error messages</source>
-        <translation>仅输出错误信息。</translation>
+        <translation>仅输出错误信息</translation>
     </message>
     <message>
         <source>Disable summary at end of scanning</source>
-        <translation>在扫描结束时禁用摘要。</translation>
+        <translation>在扫描结束时禁用摘要</translation>
     </message>
     <message>
         <source>Skip printing OK files</source>
-        <translation>跳过打印正常的文件。</translation>
+        <translation>跳过打印正常的文件</translation>
     </message>
     <message>
         <source>Do not remove temporary files</source>
-        <translation>不要移除临时文件。</translation>
+        <translation>不要移除临时文件</translation>
     </message>
     <message>
         <source>Scan subdirectories recursively</source>
-        <translation>递归扫描子目录。</translation>
+        <translation>递归扫描子目录</translation>
     </message>
     <message>
         <source>Detect Possibly Unwanted Applications</source>
-        <translation>检测可能不需要的应用程序。</translation>
+        <translation>检测可能不需要的应用程序</translation>
     </message>
     <message>
         <source>Scan files and directories on other filesystems</source>
-        <translation>扫描其他文件系统上的文件和目录。</translation>
+        <translation>扫描其他文件系统上的文件和目录</translation>
     </message>
     <message>
         <source>Scan mail files</source>
-        <translation>扫描邮件文件。</translation>
+        <translation>扫描邮件文件</translation>
     </message>
     <message>
         <source>Detect structured data (SSN, Credit Card)</source>
-        <translation>检测结构化数据（SSN，信用卡）。</translation>
+        <translation>检测结构化数据（SSN，信用卡</translation>
     </message>
     <message>
         <source>Enable URL signature-based phishing detection</source>
-        <translation>启用基于 URL 签名的网络钓鱼检测。</translation>
+        <translation>启用基于 URL 签名的网络钓鱼检测</translation>
     </message>
     <message>
         <source>Stop scanning as soon as a heuristic match is found</source>
-        <translation>一旦找到启发式匹配就停止扫描。</translation>
+        <translation>一旦找到启发式匹配就停止扫描</translation>
     </message>
     <message>
         <source>Enable email signature-based phishing detection</source>
-        <translation>启用基于电子邮件签名的网络钓鱼检测。</translation>
+        <translation>启用基于电子邮件签名的网络钓鱼检测</translation>
     </message>
     <message>
         <source>Heuristic alerts</source>
-        <translation>启发式警报。</translation>
+        <translation>启发式警报</translation>
     </message>
     <message>
         <source>Normalize html, script, and text files. Use normalize=no for yara compatibility</source>
-        <translation>规范化 html、脚本和文本文件。使用 normalize=no 以兼容 yara。</translation>
+        <translation>规范化 html、脚本和文本文件。使用 normalize=no 以兼容 yara</translation>
     </message>
     <message>
         <source>Scan PE files</source>
-        <translation>扫描 PE 文件。</translation>
+        <translation>扫描 PE 文件</translation>
     </message>
     <message>
         <source>Scan ELF files</source>
-        <translation>扫描 ELF 文件。</translation>
+        <translation>扫描 ELF 文件</translation>
     </message>
     <message>
         <source>Scan OLE2 containers</source>
-        <translation>扫描 OLE2 容器。</translation>
+        <translation>扫描 OLE2 容器</translation>
     </message>
     <message>
         <source>Scan PDF files</source>
-        <translation>扫描 PDF 文件。</translation>
+        <translation>扫描 PDF 文件</translation>
     </message>
     <message>
         <source>Scan SWF files</source>
-        <translation>扫描 SWF 文件。</translation>
+        <translation>扫描 SWF 文件</translation>
     </message>
     <message>
         <source>Scan HTML files</source>
-        <translation>扫描 HTML 文件。</translation>
+        <translation>扫描 HTML 文件</translation>
     </message>
     <message>
         <source>Scan xml-based document files</source>
-        <translation>扫描基于 XML 的文档文件。</translation>
+        <translation>扫描基于 XML 的文档文件</translation>
     </message>
     <message>
         <source>Scan HWP3 files</source>
-        <translation>扫描 HWP3 文件。</translation>
+        <translation>扫描 HWP3 文件</translation>
     </message>
     <message>
         <source>Scan archive files (supported by libclamav)</source>
-        <translation>扫描存档文件（libclamav 支持的）。</translation>
+        <translation>扫描存档文件（通过libclamav 的支持)</translation>
     </message>
     <message>
         <source>Alert on broken executable files (PE &amp; ELF).</source>
@@ -805,19 +805,19 @@
     </message>
     <message>
         <source>Scan OneNote files</source>
-        <translation>扫描 OneNote 文件。</translation>
+        <translation>扫描 OneNote 文件</translation>
     </message>
     <message>
         <source>Scan image (graphics) files</source>
-        <translation>扫描图像文件。</translation>
+        <translation>扫描图像文件</translation>
     </message>
     <message>
         <source>Detect files by calculating image (graphics) fuzzy hashes</source>
-        <translation>通过计算图像模糊哈希来检测文件。</translation>
+        <translation>通过计算图像模糊哈希来检测文件</translation>
     </message>
     <message>
         <source>Alert on encrypted archives and documents</source>
-        <translation>对加密的存档和文档发出警报。</translation>
+        <translation>对加密的存档和文档发出警报</translation>
     </message>
     <message>
         <source>Alert on encrypted documents.</source>
@@ -825,35 +825,67 @@
     </message>
     <message>
         <source>Alert on OLE2 files containing VBA macros</source>
-        <translation>对包含 VBA 宏的 OLE2 文件发出警报。</translation>
+        <translation>对包含 VBA 宏的 OLE2 文件发出警报</translation>
     </message>
     <message>
         <source>Alert on encrypted archives</source>
-        <translation>对加密的存档和文档发出警报。</translation>
+        <translation>对加密的存档和文档发出警报</translation>
     </message>
     <message>
         <source>Alert on files that exceed max file size, max scan size, or max recursion limit</source>
-        <translation>对超出最大文件大小、最大扫描大小或最大递归限制的文件发出警报。</translation>
+        <translation>对超出最大文件大小、最大扫描大小或最大递归限制的文件发出警报</translation>
     </message>
     <message>
         <source>Alert on emails containing cloaked URLs</source>
-        <translation>对包含伪装 URL 的电子邮件发出警报。</translation>
+        <translation>对包含伪装 URL 的电子邮件发出警报</translation>
     </message>
     <message>
         <source>Disable authenticode certificate chain verification in PE files</source>
-        <translation>在 PE 文件中禁用 authenticode 证书链验证。</translation>
+        <translation>在 PE 文件中禁用 authenticode 证书链验证</translation>
     </message>
     <message>
         <source>Alert on broken graphics files (JPEG, TIFF, PNG, GIF)</source>
-        <translation>对损坏的图像文件（JPEG、TIFF、PNG、GIF）发出警报。</translation>
+        <translation>对损坏的图像文件（JPEG、TIFF、PNG、GIF）发出警报</translation>
     </message>
     <message>
         <source>Alert on emails containing SSL mismatches in URLs</source>
-        <translation>对包含 URL 中 SSL 不匹配的电子邮件发出警报。</translation>
+        <translation>对包含 URL 中 SSL 不匹配的电子邮件发出警报</translation>
     </message>
     <message>
         <source>Alert on raw DMG image files containing partition intersections</source>
-        <translation>对包含分区交集的原始 DMG 镜像文件发出警报。</translation>
+        <translation>对包含分区交集的原始 DMG 镜像文件发出警报</translation>
+    </message>
+    <message>
+        <source>Sets the group ownership on the unix socket. Default: the primary group of the user running clamd</source>
+        <translation>设置Unix套接字的组所有权。默认值：运行clamd的用户的主组</translation>
+    </message>
+    <message>
+        <source>Enables the SHUTDOWN command. Setting this to no prevents a client to stop clamd via the protocol. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>启用SHUTDOWN命令。将此选项设置为no可防止客户端通过协议停止clamd。禁用时，clamd对此命令的响应为COMMAND UNAVAILABLE。默认值：yes</translation>
+    </message>
+    <message>
+        <source>Enables the RELOAD command. Setting this to no prevents a client to reload the database. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>启用RELOAD命令。将此选项设置为no可防止客户端重新加载数据库。禁用时，clamd对此命令的响应为COMMAND UNAVAILABLE。默认值：yes</translation>
+    </message>
+    <message>
+        <source>Enables the VERSION command. Setting this to no prevents a client from querying version information. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>启用VERSION命令。将此选项设置为no可防止客户端查询版本信息。禁用时，clamd对此命令的响应为COMMAND UNAVAILABLE。默认值：yes</translation>
+    </message>
+    <message>
+        <source>Enables the STATS command. Setting this to no prevents a client from querying statistics. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>启用STATS命令。将此选项设置为no可防止客户端查询统计信息。禁用时，clamd对此命令的响应为COMMAND UNAVAILABLE。默认值：yes</translation>
+    </message>
+    <message>
+        <source>Exclude a specific PUA category. This directive can be used mul‐ tiple times. See https://docs.clamav.net/faq/faq-pua.html for the complete list of PUA categories. Default: disabled</source>
+        <translation>排除特定的PUA类别。此指令可多次使用。完整的PUA类别列表请参见 https://docs.clamav.net/faq/faq-pua.html。默认值：禁用</translation>
+    </message>
+    <message>
+        <source>With this option you can exclude specific UIDs. Processes with these UIDs will be able to access all files without triggering scans or permission denied events. This option can be used multiple times (one per line). Note: using a value of 0 on any line will disable this option en‐ tirely. To exclude the root UID (0) please enable the OnAccessEx‐ cludeRootUID option. Also note that if clamd cannot check the uid of the process that generated an on-access scan event (e.g., because OnAccessPreven‐ tion was not enabled, and the process already exited), clamd will perform a scan. Thus, setting OnAccessExcludeUID is not guaran‐ teed to prevent every access by the specified uid from triggering a scan (unless OnAccessPrevention is enabled). Default: disabled</source>
+        <translation>使用此选项可以排除特定的用户ID（UID）。拥有这些UID的进程将能够访问所有文件，而不会触发扫描或被拒绝访问。此选项可多次使用（每行一个）。注意：在任何一行上使用值0将完全禁用此选项。若要排除根用户UID（0），请启用OnAccessExcludeRootUID选项。另请注意，如果clamd无法检查触发即时扫描事件的进程的UID（例如，由于未启用OnAccessPrevention且该进程已退出），clamd将执行扫描。因此，设置OnAccessExcludeUID并不能保证完全阻止指定UID的每次访问都触发扫描（除非启用了OnAccessPrevention）。默认值：禁用</translation>
+    </message>
+    <message>
+        <source>This option allows exclusions via user names when using the on- access scanning client. It can be used multiple times, and has the same potential race condition limitations of the OnAccessEx‐ cludeUID option. Default: disabled</source>
+        <translation>使用即时扫描客户端时，此选项允许通过用户名进行排除。它可以多次使用，并且与OnAccessExcludeUID选项具有相同的潜在竞态条件限制。默认值：禁用</translation>
     </message>
 </context>
 </TS>

@@ -22,7 +22,6 @@ public:
                                     bool checked = false, 
                                     QString label = "", 
                                     QString options = "0,99,1,1",
-                                    QString language="[en_GB]",
                                     setupFileHandler * setupFile = nullptr);
     ~clamdconfspinboxoption() = default;
 

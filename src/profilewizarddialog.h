@@ -35,7 +35,6 @@ private:
     Ui::ProfileWizardDialog * m_ui;
     CFileSystemModel        * m_model;
     QProcess                * m_whoamiProcess;
-    QProcess                *m_getClamscanParametersProcess;
     QString                  m_getClamscanProcessOutput;
     QFileSystemWatcher      * m_fileSystemWatcher;
     QButtonGroup            * m_deviceGroup;
@@ -47,6 +46,7 @@ private:
     QString                  m_username;
     QStringList              m_devices;
     void readSettings();
+    void getClamscanOptions();
     void closeEvent(QCloseEvent *);
 
 private slots:
@@ -64,8 +64,6 @@ private slots:
     void slot_moveInfectedFilesButtonClicked();
     void slot_copyInfectedFilesButtonClicked();
     void slot_createButtonClicked();
-    void slot_getClamscanProcessHasOutput();
-    void slot_getClamscanProcessFinished();
     void slot_cancleButtonClicked();
     void slot_hiddenDirsCheckBoxClicked();
     void slot_directoryCheckBoxesClicked();

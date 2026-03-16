@@ -34,6 +34,7 @@
 #include "logviewerobject.h"
 #include "profilemanager.h"
 #include "clamdmanager.h"
+#include "firstrunwindow.h"
 
 #include <QSystemTrayIcon>
 #include <QTextStream>
@@ -75,7 +76,6 @@ private:
     QAction                 * m_actionShowHideMainWindow;
     setupFileHandler        * m_setupFile;
     QProcess                * m_scanProcess;
-    QProcess                * m_sudoGUIProcess;
     QString                   m_guisudoapp;
     scanTab                 * m_scannerTab;
     setupTab                * m_setUpTab;
@@ -92,6 +92,7 @@ private:
     logViewerObject         * m_logTab;
     clamav_ctrl             * m_dropZone;
     QLabel                  * m_startLogoLabel;
+    firstRunWindow          * initDialog;
     bool                     m_error;
     void createTrayIcon();
     void createDropZone();
@@ -117,7 +118,6 @@ private slots:
     void slot_errorReporter();
     void slot_updateDatabase();
     void slot_startclamd();
-    void slot_sudoGUIProcessFinished();
     void slot_switchActiveTab(int index);
     void slot_quitApplication();
     // void slot_receiveVersionInformation(QString info);
@@ -127,6 +127,7 @@ signals:
     void setScannerForm(bool);
     void scanJobFinished();
     void startDatabaseUpdate();
+    void doneit();
 };
 
 #endif // CLAMAV_GUI_H

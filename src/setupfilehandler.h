@@ -48,6 +48,7 @@ public:
     QStringList getSectionNames();
     QStringList getSectionNames(QStringList excludeList);
     QStringList getSectionNames(QString excludeString);
+    QStringList getSingleLineValues(QString keyword);
     QStringList getKeywords(QString section);
     QString getSetupFileName();
     QString getSectionValue(QString section, QString keyword);

@@ -19,17 +19,8 @@ clamdManager::clamdManager(QWidget* parent, setupFileHandler* setupFile) : QWidg
     connect(m_processWatcher, SIGNAL(timeout()), this, SLOT(slot_processWatcherExpired()));
     m_processWatcher->start(30000);
 
-    initClamdSettings();
-    m_getclamdconfparameters = new QProcess(this);
-    QFile m_getmaninfo(QDir::homePath() + "/.clamav-gui/getmaninfo.sh");
-    if (m_getmaninfo.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QTextStream stream(&m_getmaninfo);
-        stream << "#!/bin/bash\nman clamd.conf > " + QDir::homePath() + "/.clamav-gui/clamd.conf.man";
-        m_getmaninfo.close();
-        m_getmaninfo.setPermissions(QFileDevice::ExeOwner|QFileDevice::ExeGroup|QFileDevice::ExeOther|QFileDevice::ReadUser|QFileDevice::ReadGroup|QFileDevice::ReadOther);
-    }
-    connect(m_getclamdconfparameters,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slot_clamdConfElements()));
-    m_getclamdconfparameters->start(QDir::homePath() + "/.clamav-gui/getmaninfo.sh");
+    //initClamdSettings();
+
 }
 
 QString clamdManager::trimLocationOutput(QString value)
@@ -44,7 +35,7 @@ QString clamdManager::trimLocationOutput(QString value)
     return rc;
 }
 
-void clamdManager::initClamdSettings()
+void clamdManager::slot_initClamdSettings()
 {
     m_initprocessrunning = true;
     // QStringList keywords;
@@ -55,7 +46,7 @@ void clamdManager::initClamdSettings()
 
     QFile clamdConfFile(QDir::homePath() + "/.clamav-gui/clamd.conf");
 
-    if (clamdConfFile.exists() == false) {
+    /*if (clamdConfFile.exists() == false) {
         m_clamdConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/clamd.conf", this);
         QString value = m_setupFile->getSectionValue("Directories", "LoadSupportedDBFiles");
         if (value.indexOf("checked|") == 0)
@@ -80,9 +71,9 @@ void clamdManager::initClamdSettings()
         m_clamdConf->setSingleLineValue("OnAccessRetryAttempts", "0");
         m_clamdConf->setSingleLineValue("OnAccessExcludeUname", "root");
         m_clamdConf->setSingleLineValue("OnAccessExcludeUID", "0");
-    } else {
+    } else {*/
         m_clamdConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/clamd.conf", this);
-    }
+    //}
 
     QStringList parameters;
     QStringList monitorings = m_setupFile->getKeywords("Clamonacc");
@@ -134,6 +125,14 @@ void clamdManager::initClamdSettings()
     m_clamonaccLocationProcess->start("whereis", parameters);
 
     m_initprocessrunning = false;
+
+    getClamdConfElements();
+}
+
+void clamdManager::slot_dbPathChanged(QString dbPath)
+{
+    m_clamdConf->setSingleLineValue("DatabaseDirectory", dbPath);
+    slot_clamdSettingsChanged();
 }
 
 void clamdManager::slot_updateClamdConf()
@@ -806,20 +805,17 @@ QString clamdManager::selectColor(QString color)
     return rc;
 }
 
-void clamdManager::slot_clamdConfElements()
+void clamdManager::getClamdConfElements()
 {
     QString possibleValues;
     QString keyword;
     QString content;
     QStringList splitter;
     QString valuetype;
-    QString skipvalues = "|Example|OnAccessIncludePath|OnAccessExcludePath|OnAccessExcludeUID|OnAccessExcludeUname|LogFile|PidFile|LocalSocket|LocalSocketGroup|ExcludePath|"
-        "ExcludePUA|IncludePUA|LocalSocketMode|EnableShutdownCommand|EnableReloadCommand|EnableVersionCommand|EnableStatsCommand|";
+    QString skipvalues = "|Example|OnAccessIncludePath|LogFile|PidFile|LocalSocketMode|";
     int poscounter = 0;
     bool skip = false;
     QStringList clamdConfElement;
-
-    delete m_getclamdconfparameters;
 
     if (m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter") == false) {
         m_logHighlighter = new highlighter(m_ui.clamdLogPlainTextEdit->document());
@@ -957,24 +953,19 @@ void clamdManager::slot_clamdConfElements()
     QString container;
 
     bool checked = false;
-    // QTextStream stream;
     clamdConfStringOption* stringOption;
     clamdconfspinboxoption* spinboxOption;
     clamdconfcomboboxoption* comboboxOption;
+    clamdconfmultioption * comboboxmultioption;
     QString language = setupFileHandler::getSectionValue(QDir::homePath() + "/.clamav-gui/settings.ini","Setup","language");
     if (language == "") language = "[en_GB]";
-    // DEBUG ONLY
-    // QFile labeloutput("/home/wusel/labels.txt");
-    // if (labeloutput.open(QIODevice::WriteOnly|QIODevice::Text)) {
-    //     stream.setDevice(&labeloutput);
-    // }
     for (int i = 0; i < clamdConfElement.length()-1; i++) {
         element = clamdConfElement.at(i);
 
         QStringList values = element.split("|");
         keywordHelper = values.at(0);
         label = values.at(1);
-        // stream << label << "\n";
+
         optionValues = values.at(2);
 
         QStringList splitter = keywordHelper.split(" ");
@@ -987,12 +978,19 @@ void clamdManager::slot_clamdConfElements()
             optionValues = "";
         if ((group == "STRING") || (group == "CATEGORY") || (group == "COMMAND") || (group == "REGEX")) {
             if (optionValues.indexOf(",") == -1) {
-                stringOption = new clamdConfStringOption(this, keyword, checked, label, optionValues, language, m_clamdConf);
-                connect(stringOption, SIGNAL(settingChanged()), this, SLOT(slot_clamdSettingsChanged()));
-                container != "2" ? m_ui.layout1->addWidget(stringOption) : m_ui.layout2->addWidget(stringOption);
+                if ((label.indexOf("multiple times") != -1) || (label.indexOf("mul‐ tiple times") != -1)) {
+                    QStringList tempParams = m_clamdConf->getSingleLineValues(keyword);
+                    comboboxmultioption = new clamdconfmultioption(this, keyword, checked, label, tempParams, m_clamdConf,m_setupFile);
+                    connect(comboboxmultioption,SIGNAL(settingChanged()),this,SLOT(slot_clamdSettingsChanged()));
+                    container != "2" ? m_ui.layout1->addWidget(comboboxmultioption) : m_ui.layout2->addWidget(comboboxmultioption);
+                } else {
+                    stringOption = new clamdConfStringOption(this, keyword, checked, label, optionValues, m_clamdConf);
+                    connect(stringOption, SIGNAL(settingChanged()), this, SLOT(slot_clamdSettingsChanged()));
+                    container != "2" ? m_ui.layout1->addWidget(stringOption) : m_ui.layout2->addWidget(stringOption);
+                }
             }
             else {
-                comboboxOption = new clamdconfcomboboxoption(this, keyword, checked, label, optionValues, language, m_clamdConf);
+                comboboxOption = new clamdconfcomboboxoption(this, keyword, checked, label, optionValues, m_clamdConf);
                 connect(comboboxOption, SIGNAL(settingChanged()), this, SLOT(slot_clamdSettingsChanged()));
                 container != "2" ? m_ui.layout1->addWidget(comboboxOption) : m_ui.layout2->addWidget(comboboxOption);
             }
@@ -1000,16 +998,15 @@ void clamdManager::slot_clamdConfElements()
 
         if ((group == "NUMBER") || (group == "SIZE")) {
             //if (group == "SIZE") qDebug() << keyword << optionValues;
-            spinboxOption = new clamdconfspinboxoption(this, keyword, checked, label, optionValues, language, m_clamdConf);
+            spinboxOption = new clamdconfspinboxoption(this, keyword, checked, label, optionValues, m_clamdConf);
             connect(spinboxOption, SIGNAL(settingChanged()), this, SLOT(slot_clamdSettingsChanged()));
             container != "2" ? m_ui.layout1->addWidget(spinboxOption) : m_ui.layout2->addWidget(spinboxOption);
         }
 
         if (group == "BOOL") {
-            comboboxOption = new clamdconfcomboboxoption(this, keyword, checked, label, optionValues, language, m_clamdConf);
+            comboboxOption = new clamdconfcomboboxoption(this, keyword, checked, label, optionValues, m_clamdConf);
             connect(comboboxOption, SIGNAL(settingChanged()), this, SLOT(slot_clamdSettingsChanged()));
             container != "2" ? m_ui.layout1->addWidget(comboboxOption) : m_ui.layout2->addWidget(comboboxOption);
         }
     }
-    // labeloutput.close();
 }

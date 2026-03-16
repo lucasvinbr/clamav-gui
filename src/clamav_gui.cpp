@@ -1,128 +1,34 @@
 #include "clamav_gui.h"
 #include "ui_clamav_gui.h"
 
+enum baloonStatus {Information, Warning, Critical};
+
 clamav_gui::clamav_gui(QWidget* parent) : QWidget(parent)
 {
     m_ui.setupUi(this);
     this->setWindowFlags(Qt::WindowTitleHint | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);
-
+    bool firstrun = false;
     QString settingsPath = QDir::homePath() + "/.clamav-gui/settings.ini";
-    bool createDefaultSettings = false;
+
+    if ((!QFile::exists(settingsPath)) || (!QFile::exists(QDir::homePath() + "/.clamav-gui/clamd.conf.man")) ||
+        (!QFile::exists(QDir::homePath() + "/.clamav-gui/clamd.conf")) || (!QFile::exists(QDir::homePath() + "/.clamav-gui/freshclam.conf")) ||
+        (!QFile::exists(QDir::homePath() + "/.clamav-gui/clamd.conf.man"))) {
+        firstrun = true;
+        initDialog = new firstRunWindow(this);
+        connect(initDialog,SIGNAL(rejected()),qApp,SLOT(quit()));
+        initDialog->setModal(true);
+        initDialog->open();
+
+        QScreen* m_screen = QGuiApplication::primaryScreen();
+        QRect m_screenGeometry = m_screen->geometry();
+        initDialog->setGeometry((m_screenGeometry.width() - 650) / 2, (m_screenGeometry.height() - 410) / 2, 650,410);
+    }
+
     m_error = false;
     m_guisudoapp = "pkexec";
-    //*****************************************************************************
-    //creating service Menu
-    //*****************************************************************************
-    QDir dir;
-    QString serviceMenuPath;
-    if (QFileInfo::exists(QDir::homePath() + "/.local/share/kservices5/ServiceMenus")) {
-        serviceMenuPath = QDir::homePath() + "/.local/share/kservices5/ServiceMenus";
-    }
-    if (serviceMenuPath.isEmpty() && QFileInfo::exists(QDir::homePath() + "/.local/share/kio/servicemenus")) {
-        serviceMenuPath = QDir::homePath() + "/.local/share/kio/servicemenus";
-    }
-    if (serviceMenuPath.isEmpty()) {
-        serviceMenuPath = serviceMenuPath = QDir::homePath() + "/.local/share/kservices5/ServiceMenus";
-    }
-    if (!QFileInfo::exists(serviceMenuPath + "/scanWithClamAV-GUI.desktop")) {
-        if (!QFileInfo::exists(serviceMenuPath)) {
-            QDir dir(serviceMenuPath);
-            dir.mkdir(serviceMenuPath);
-        }
-        setupFileHandler* serviceFile = new setupFileHandler(serviceMenuPath + "/scanWithClamAV-GUI.desktop", this);
-        serviceFile->setSectionValue("Desktop Entry", "Type", "Service");
-        serviceFile->setSectionValue("Desktop Entry", "ServiceTypes", "KonqPopupMenu/Plugin");
-        serviceFile->setSectionValue("Desktop Entry", "MimeType", "all/all;");
-        serviceFile->setSectionValue("Desktop Entry", "Actions", "scan;");
-        serviceFile->setSectionValue("Desktop Entry", "Icon", "clamav-gui");
-        serviceFile->setSectionValue("Desktop Entry", "X-KDE-Priority", "TopLevel");
-        serviceFile->setSectionValue("Desktop Entry", "X-KDE-StartupNotify", "false");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu", "Scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[de]", "Scannen mit ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[da_DK]", "Scannen med ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[es_ES]", "Analizar con ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[us]", "Scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[gb]", "Scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[pt]", "Investigar com ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[br]", "Investigar com ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[pt_BR]", "Investigar com ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[fr]", "Scanner avec ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[it]", "Scansione con ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[uk]", "Сканування за допомогою ClamAV-GUI");
-
-        serviceFile->setSectionValue("Desktop Action scan", "Name", "scan");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[de]", "Scannen mit ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[es_ES]", "Analizar con ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[us]", "Scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[gb]", "Scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[pt]", "Investigar com ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[br]", "Investigar com ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[fr]", "Scanner avec ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[it]", "Scansione con ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[uk]", "Сканування за допомогою ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Icon", "clamav-gui");
-        serviceFile->setSectionValue("Desktop Action scan", "Exec", "clamav-gui --scan %F");
-        delete serviceFile;
-    }
-    //*****************************************************************************
-
-    //*****************************************************************************
-    // Creating default direcotry structur in HOME
-    //*****************************************************************************
-    if (!QFileInfo::exists(QDir::homePath() + "/.clamav-gui")) {
-        dir.mkdir(QDir::homePath() + "/.clamav-gui");
-        createDefaultSettings = true;
-    }
-    if (!QFileInfo::exists(QDir::homePath() + "/.clamav-gui/quarantine")) {
-        dir.mkdir(QDir::homePath() + "/.clamav-gui/quarantine");
-    }
-    if (!QFileInfo::exists(QDir::homePath() + "/.clamav-gui/signatures")) {
-        dir.mkdir(QDir::homePath() + "/.clamav-gui/signatures");
-    }
-    if (!QFileInfo::exists(QDir::homePath() + "/.clamav-gui/profiles")) {
-        dir.mkdir(QDir::homePath() + "/.clamav-gui/profiles");
-    }
-    if (!QFileInfo::exists(QDir::homePath() + "/.clamav-gui/logs")) {
-        dir.mkdir(QDir::homePath() + "/.clamav-gui/logs");
-    }
-    QFile::setPermissions(QDir::homePath() + "/.clamav-gui/signatures",
-                          QFileDevice::ReadOwner | QFileDevice::ReadUser | QFileDevice::ReadGroup | QFileDevice::ReadOther | QFileDevice::WriteOwner |
-                              QFileDevice::WriteUser | QFileDevice::WriteGroup | QFileDevice::WriteOther | QFileDevice::ExeOwner |
-                              QFileDevice::ExeUser | QFileDevice::ExeGroup | QFileDevice::ExeOther);
-    //*****************************************************************************
-
-    //_____________________________________________________________________________________________________________________________________
-    // For UALinux
-    // If the settings.ini in the home folder of the user is not present a predefined version is been copied into the folder.
-    //_____________________________________________________________________________________________________________________________________
-    if (!QFileInfo::exists(QDir::homePath() + "/.clamav-gui/settings.ini")) {
-        dir.mkdir(QDir::homePath() + "/.clamav-gui");
-        if (QFile::exists("/etc/clamav-gui/settings.ini")) {
-            QFile::copy("/etc/clamav-gui/settings.ini", QDir::homePath() + "/.clamav-gui/settings.ini");
-        }
-    }
-    //______________________________________________________________________________________________________________________________________
 
     m_setupFile = new setupFileHandler(settingsPath, this);
-    if (createDefaultSettings) {
-        if ((QFileInfo::exists("/var/lib/clamav")) && (QFile::exists("/var/lib/clamav/freshclam.dat"))) {
-            m_setupFile->setSectionValue("Directories", "LoadSupportedDBFiles", "checked|/var/lib/clamav");
-        }
-        else {
-            m_setupFile->setSectionValue("Directories", "LoadSupportedDBFiles", "checked|" + QDir::homePath() + "/.clamav-gui/signatures");
-        }
-        if (m_setupFile->keywordExists("Directories", "TmpFile") == false)
-            m_setupFile->setSectionValue("Directories", "TmpFile", "checked|/tmp");
-        if (m_setupFile->keywordExists("Directories", "ScanReportToFile") == false)
-            m_setupFile->setSectionValue("Directories", "ScanReportToFile", "checked|" + QDir::homePath() + "/.clamav-gui/logs/report-scan.log");
-        if (m_setupFile->keywordExists("Directories", "MoveInfectedFiles") == false)
-            m_setupFile->setSectionValue("Directories", "MoveInfectedFiles", "not checked|" + QDir::homePath() + "/.clamav-gui/quarantine");
-        if (m_setupFile->keywordExists("Directories", "CopyInfectedFiles") == false)
-            m_setupFile->setSectionValue("Directories", "CopyInfectedFiles", "not checked|" + QDir::homePath() + "/.clamav-gui/quarantine");
-        if (m_setupFile->keywordExists("Setup", "language") == false)
-            m_setupFile->setSectionValue("Setup", "language", 2);
-    }
-
+    if (!firstrun) m_setupFile->setSectionValue("Setup","FirstRun",false);
     m_scanProcess = new QProcess(this);
     connect(m_scanProcess, SIGNAL(readyReadStandardError()), this, SLOT(slot_scanProcessHasErrOutput()));
     connect(m_scanProcess, SIGNAL(readyReadStandardOutput()), this, SLOT(slot_scanProcessHasStdOutput()));
@@ -193,6 +99,7 @@ clamav_gui::clamav_gui(QWidget* parent) : QWidget(parent)
     connect(m_schedulerTab, SIGNAL(triggerScanJob(QString, QStringList)), this, SLOT(slot_receiveScanJob(QString, QStringList)));
     connect(m_schedulerTab, SIGNAL(logChanged()), m_logTab, SLOT(slot_profilesChanged()));
     connect(m_optionTab, SIGNAL(databasePathChanged(QString)), m_freshclamTab, SLOT(slot_dbPathChanged(QString)));
+    connect(m_optionTab, SIGNAL(databasePathChanged(QString)), m_clamdTab, SLOT(slot_dbPathChanged(QString)));
     connect(m_optionTab, SIGNAL(updateDatabase()), this, SLOT(slot_updateDatabase()));
     connect(m_optionTab, SIGNAL(updateClamdConf()), m_clamdTab, SLOT(slot_updateClamdConf()));
     connect(m_optionTab, SIGNAL(systemStatusChanged()), m_setUpTab, SLOT(slot_updateSystemInfo()));
@@ -206,6 +113,14 @@ clamav_gui::clamav_gui(QWidget* parent) : QWidget(parent)
     connect(m_setUpTab, SIGNAL(logHighlightingChanged(bool)), m_logTab, SLOT(slot_add_remove_highlighter(bool)));
     connect(m_setUpTab, SIGNAL(logHighlightingChanged(bool)), m_freshclamTab, SLOT(slot_add_remove_highlighter(bool)));
     connect(m_setUpTab, SIGNAL(logHighlightingChanged(bool)), m_profileManagerTab, SLOT(monochromeModeChanged(bool)));
+    if (firstrun) connect(initDialog,SIGNAL(doneit()),m_clamdTab,SLOT(slot_initClamdSettings())); else
+        connect(this,SIGNAL(doneit()),m_clamdTab,SLOT(slot_initClamdSettings()));
+    if (firstrun) connect(initDialog,SIGNAL(settingChanged()),m_clamdTab,SLOT(slot_clamdSettingsChanged()));
+    if (firstrun) connect(initDialog,SIGNAL(quitApplication()),this,SLOT(slot_quitApplication()));
+    if (firstrun) connect(initDialog,SIGNAL(doneit()),m_freshclamTab,SLOT(slot_initFreshclamSettings())); else
+        connect(this,SIGNAL(doneit()),m_freshclamTab,SLOT(slot_initFreshclamSettings()));
+    if (firstrun) connect(initDialog, SIGNAL(doneit()),m_optionTab,SLOT(slot_updateDirectories())); else
+        connect(this,SIGNAL(doneit()),m_optionTab,SLOT(slot_updateDirectories()));
 
     m_ui.tabWidget->setCurrentIndex(0);
 
@@ -218,11 +133,7 @@ clamav_gui::clamav_gui(QWidget* parent) : QWidget(parent)
     connect(m_showLogoTimer, SIGNAL(timeout()), this, SLOT(slot_showLogoTimerTimeout()));
     m_showLogoTimer->start(250);
 
-    m_sudoGUIProcess = new QProcess(this);
-    connect(m_sudoGUIProcess, SIGNAL(finished(int)), this, SLOT(slot_sudoGUIProcessFinished()));
-    QStringList m_parameters;
-    m_parameters << "pkexec";
-    m_sudoGUIProcess->start("whereis", m_parameters);
+    if(!firstrun) emit doneit();
 }
 
 // void clamav_gui::slot_receiveVersionInformation(QString info)
@@ -682,16 +593,16 @@ void clamav_gui::slot_receiveScanJob(QString name, QStringList m_parameters)
 
 void clamav_gui::slot_setTrayIconBalloonMessage(int status, QString title, QString message)
 {
-    //TODO: use enumerate
+
+    //TODO: use enumerate - done!
     switch (status) {
-        // 0 = Information, 1 = Warning, 2 = Critical
-        case 0:
+        case Information:
             m_trayIcon->showMessage(title, message, QSystemTrayIcon::Information, 5000);
             break;
-        case 1:
+        case Warning:
             m_trayIcon->showMessage(title, message, QSystemTrayIcon::Warning);
             break;
-        case 2:
+        case Critical:
             m_trayIcon->showMessage(title, message, QSystemTrayIcon::Critical);
             break;
     }
@@ -748,42 +659,6 @@ void clamav_gui::slot_updateDatabase()
 void clamav_gui::slot_startclamd()
 {
     m_ui.tabWidget->setCurrentIndex(6);
-}
-
-void clamav_gui::slot_sudoGUIProcessFinished()
-{
-    QStringList m_parameters;
-
-    QString m_sudoGUIOutput = m_sudoGUIProcess->readAll();
-
-    if (m_guisudoapp == "pkexec") {
-        if (m_sudoGUIOutput != "pkexec:\n") {
-            QStringList m_values = m_sudoGUIOutput.split(" ");
-            if (m_values.size() > 1) {
-                if (m_values.length() > 0)
-                    m_setupFile->setSectionValue("Settings", "SudoGUI", m_values[1]);
-            }
-            else {
-                m_guisudoapp = "kdesu";
-                m_parameters << "kdesu";
-                m_sudoGUIProcess->start("whereis", m_parameters);
-            }
-        }
-    }
-
-    if (m_guisudoapp == "kdesu") {
-        if (m_sudoGUIOutput != "kdesu:\n") {
-            QStringList m_values = m_sudoGUIOutput.split(" ");
-            if (m_values.size() > 1) {
-                if (m_values.length() > 0)
-                    m_setupFile->setSectionValue("Settings", "SudoGUI", m_values[1]);
-            }
-            else {
-                QMessageBox::warning(this, tr("WARNING"),
-                                     tr("Neither \"pkexec\" nor \"kdesu\" is installed. Please install at least one of this to apps!"));
-            }
-        }
-    }
 }
 
 void clamav_gui::slot_switchActiveTab(int index)

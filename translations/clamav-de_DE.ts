@@ -12,16 +12,16 @@
         <translation>Dateien innerhalb von Archiven anzeigen</translation>
     </message>
     <message>
-      <source>Enable libclamav's debug messages.</source>
-      <translation>Aktiviere libclamav's Debug Meldungen</translation>
+        <source>Enable libclamav&apos;s debug messages.</source>
+        <translation>Aktiviere libclamav&apos;s Debug Meldungen</translation>
     </message>
     <message>
         <source>Only output error messages.</source>
         <translation>Nur Fehlermeldungen ausgeben</translation>
     </message>
     <message>
-        <source>Write to stdout instead of stderr. Does not affect 'debug' messages.</source>
-        <translation>Schreibe nach stdout anstatt nach stderr. Betrifft nicht 'debug' Meldungen</translation>
+        <source>Write to stdout instead of stderr. Does not affect &apos;debug&apos; messages.</source>
+        <translation>Schreibe nach stdout anstatt nach stderr. Betrifft nicht &apos;debug&apos; Meldungen</translation>
     </message>
     <message>
         <source>Disable summary at end of scanning.</source>
@@ -240,8 +240,8 @@
         <translation>Verwenden Sie den Systemlogger (kann mit LogFile zusammenarbeiten). Standard: nein</translation>
     </message>
     <message>
-        <source>Type of syslog messages Please refer to 'man syslog' for facility names. Default: LOG_LOCAL6</source>
-        <translation>Art der Syslog-Meldungen. Bitte schauen Sie in 'man syslog' für die Namen der Einrichtungen nach. (LOG_LOCAL6, LOG_MAIL), Standard: LOG_LOCAL6</translation>
+        <source>Type of syslog messages Please refer to &apos;man syslog&apos; for facility names. Default: LOG_LOCAL6</source>
+        <translation>Art der Syslog-Meldungen. Bitte schauen Sie in &apos;man syslog&apos; für die Namen der Einrichtungen nach. (LOG_LOCAL6, LOG_MAIL), Standard: LOG_LOCAL6</translation>
     </message>
     <message>
         <source>Enable verbose logging. Default: no</source>
@@ -256,7 +256,7 @@
         <translation>Zusätzliche Informationen über die infizierte Datei protokollieren, z. B. ihre Größe und ihren Hash, zusammen mit dem Virusnamen. Standard: no</translation>
     </message>
     <message>
-        <source>Write the daemon's pid to the specified file. Default: disabled</source>
+        <source>Write the daemon&apos;s pid to the specified file. Default: disabled</source>
         <translation>Schreibt die PID des Daemons in die angegebene Datei. Standard: deaktiviert</translation>
     </message>
     <message>
@@ -272,11 +272,11 @@
         <translation>Pfad zu einem Verzeichnis, das ClamAV-CA-Zertifikatsdateien enthält, die zur Überprüfung signierter Datenbankarchive (z. B. CVD-Dateien) verwendet werden. Dieses Verzeichnis muss bereits vorhanden sein, einen absoluten Pfad haben und für freshclam, clamd, clamscan und sigtool lesbar sein. Standard: /etc/certs</translation>
     </message>
     <message>
-        <source>Enforce FIPS-like limits on using hash algorithms for cryptographic purposes. Will disable MD5 &amp; SHA1. FP sigs and will require '.sign' files to verify CVD authenticity.</source>
+        <source>Enforce FIPS-like limits on using hash algorithms for cryptographic purposes. Will disable MD5 &amp; SHA1. FP sigs and will require &apos;.sign&apos; files to verify CVD authenticity.</source>
         <translation>FIPS-ähnliche Beschränkungen für die Verwendung von Hash-Algorithmen für kryptografische Zwecke durchsetzen. MD5- und SHA1-FP-Signaturen werden deaktiviert und „.sign“-Dateien sind erforderlich, um die CVD-Authentizität zu überprüfen.</translation>
     </message>
     <message>
-        <source>Enforce FIPS-like limits on using hash algorithms for crypto‐ graphic purposes. Will disable MD5 &amp; SHA1 FP sigs and will re‐ quire '.sign' files to verify CVD authenticity. Default: no</source>
+        <source>Enforce FIPS-like limits on using hash algorithms for crypto‐ graphic purposes. Will disable MD5 &amp; SHA1 FP sigs and will re‐ quire &apos;.sign&apos; files to verify CVD authenticity. Default: no</source>
         <translation>FIPS-ähnliche Beschränkungen für die Verwendung von Hash-Algorithmen für kryptografische Zwecke durchsetzen. MD5- und SHA1-FP-Signaturen werden deaktiviert und „.sign“-Dateien sind erforderlich, um die CVD-Authentizität zu überprüfen. Standard: no</translation>
     </message>
     <message>
@@ -316,7 +316,7 @@
         <translation>Maximale Länge, auf die die Warteschlange der anstehenden Verbindungen anwachsen darf. Standard: 200</translation>
     </message>
     <message>
-        <source>Close the STREAM session when the data size limit is exceeded. The value should match your MTA's limit for the maximum attach‐ ment size. Default: 100M</source>
+        <source>Close the STREAM session when the data size limit is exceeded. The value should match your MTA&apos;s limit for the maximum attach‐ ment size. Default: 100M</source>
         <translation>Schließt die STREAM-Sitzung, wenn das Datengrößenlimit überschritten wird. Der Wert sollte dem Limit Ihres MTAs für die maximale Größe des Anhangs entsprechen. Standard: 100M</translation>
     </message>
     <message>
@@ -332,11 +332,11 @@
         <translation>Maximale Anzahl von Threads, die gleichzeitig laufen. Standard: 10</translation>
     </message>
     <message>
-        <source>This option specifies the time (in seconds) after which clamd should timeout if a client doesn't provide any data. Default: 120</source>
+        <source>This option specifies the time (in seconds) after which clamd should timeout if a client doesn&apos;t provide any data. Default: 120</source>
         <translation>Diese Option gibt die Zeit (in Sekunden) an, nach der clamd einen Timeout durchführen soll, wenn ein Client keine Daten liefert. Standard: 120</translation>
     </message>
     <message>
-        <source>This option specifies the time (in seconds) after which clamd should timeout if a client doesn't provide any initial command after connecting. The default is set to 30 to avoid timeouts with TCP sockets when processing large messages. If using a Unix socket, the value can be changed to 5. Note: the timeout for subsequents commands, and/or data chunks is specified by Read‐ Timeout. Default: 30</source>
+        <source>This option specifies the time (in seconds) after which clamd should timeout if a client doesn&apos;t provide any initial command after connecting. The default is set to 30 to avoid timeouts with TCP sockets when processing large messages. If using a Unix socket, the value can be changed to 5. Note: the timeout for subsequents commands, and/or data chunks is specified by Read‐ Timeout. Default: 30</source>
         <translation>Diese Option gibt die Zeit (in Sekunden) an, nach der clamd eine Zeitüberschreitung erleiden soll, wenn ein Client nach dem Herstellen der Verbindung keinen ersten Befehl übermittelt.  Der Standardwert ist auf 30 gesetzt, um Timeouts bei TCP-Sockets zu vermeiden, wenn große Nachrichten verarbeitet werden.  Wenn ein Unix-Socket verwendet wird, kann der Wert auf 5 geändert werden.  Hinweis: Der Timeout für nachfolgende Befehle und/oder Datenpakete wird durch ReadTimeout festgelegt. Standard: 30</translation>
     </message>
     <message>
@@ -344,7 +344,7 @@
         <translation>Diese Option gibt an, wie lange (in Millisekunden) gewartet werden soll, wenn der Sendepuffer voll ist.  Halten Sie diesen Wert niedrig, um ein Aufhängen von clamd zu verhindern. Standard: 500</translation>
     </message>
     <message>
-        <source>Maximum number of queued items (including those being processed by MaxThreads threads). It is recommended to have this value at least twice MaxThreads if possible. WARNING: you shouldn't increase this too much to avoid running out of file descriptors, the following condition should hold: MaxThreads*MaxRecursion + MaxQueue - MaxThreads + 6 &lt; RLIMIT_NOFILE. RLIMIT_NOFILE is the maximum number of open file descriptors (usually 1024), set by ulimit -n. Default: 100</source>
+        <source>Maximum number of queued items (including those being processed by MaxThreads threads). It is recommended to have this value at least twice MaxThreads if possible. WARNING: you shouldn&apos;t increase this too much to avoid running out of file descriptors, the following condition should hold: MaxThreads*MaxRecursion + MaxQueue - MaxThreads + 6 &lt; RLIMIT_NOFILE. RLIMIT_NOFILE is the maximum number of open file descriptors (usually 1024), set by ulimit -n. Default: 100</source>
         <translation>Maximale Anzahl von Elementen in der Warteschlange (einschließlich derjenigen, die von MaxThreads-Threads verarbeitet werden).  Es wird empfohlen, diesen Wert mindestens doppelt so hoch wie MaxThreads zu wählen, wenn möglich. WARNUNG: Sie sollten diesen Wert nicht zu sehr erhöhen, um zu vermeiden, dass Ihnen die Dateideskriptoren ausgehen; die folgende Bedingung sollte gelten: MaxThreads*MaxRecursion + MaxQueue - MaxThreads + 6 &lt; RLIMIT_NOFILE.  RLIMIT_NOFILE ist die maximale Anzahl offener Dateideskriptoren (normalerweise 1024), die durch ulimit -n festgelegt wird. Standard: 100</translation>
     </message>
     <message>
@@ -352,7 +352,7 @@
         <translation>Diese Option gibt an, wie lange (in Sekunden) der Prozess auf einen neuen Auftrag warten soll. Standard: 30</translation>
     </message>
     <message>
-        <source>Don't scan files and directories matching REGEX. This directive can be used multiple times. Default: disabled</source>
+        <source>Don&apos;t scan files and directories matching REGEX. This directive can be used multiple times. Default: disabled</source>
         <translation>Dateien und Verzeichnisse, die mit REGEX übereinstimmen, werden nicht gescannt. Diese Direktive kann mehrfach verwendet werden. Standard: deaktiviert</translation>
     </message>
     <message>
@@ -380,7 +380,7 @@
         <translation>Aktiviere nicht-blockierende (multi-threaded/concurrent) Datenbank-Nachladungen. Mit dieser Funktion wird vorübergehend eine zweite Scan-Engine geladen, während die Überprüfung mit der ersten Engine fortgesetzt wird. Sobald sie geladen ist, übernimmt die neue Engine die Arbeit.  Die alte Engine wird entfernt, sobald alle Scans mit der alten Engine abgeschlossen sind. Diese Funktion benötigt mehr Arbeitsspeicher, daher wird diese Option angeboten, falls Benutzer bereit sind, Scans während des Neuladens zu blockieren und dafür weniger Arbeitsspeicher benötigen. Standard: ja</translation>
     </message>
     <message>
-        <source>Execute a command when virus is found. Use the following envi‐ ronment variables to identify the file and virus names: - $CLAM_VIRUSEVENT_FILENAME - $CLAM_VIRUSEVENT_VIRUSNAME In the command string, '%v' will also be replaced with the virus name. Note: The '%f' filename format character has been disabled and will no longer be replaced with the file name, due to command in‐ jection security concerns. Use the 'CLAM_VIRUSEVENT_FILENAME' environment variable instead. For the same reason, you should NOT use the environment variables in the command directly, but should use it carefully from your executed script. Default: disabled</source>
+        <source>Execute a command when virus is found. Use the following envi‐ ronment variables to identify the file and virus names: - $CLAM_VIRUSEVENT_FILENAME - $CLAM_VIRUSEVENT_VIRUSNAME In the command string, &apos;%v&apos; will also be replaced with the virus name. Note: The &apos;%f&apos; filename format character has been disabled and will no longer be replaced with the file name, due to command in‐ jection security concerns. Use the &apos;CLAM_VIRUSEVENT_FILENAME&apos; environment variable instead. For the same reason, you should NOT use the environment variables in the command directly, but should use it carefully from your executed script. Default: disabled</source>
         <translation>Führen Sie einen Befehl aus, wenn ein Virus gefunden wird. Verwenden Sie die folgenden Umgebungsvariablen, um die Datei- und Virennamen zu identifizieren: - $CLAM_VIRUSEVENT_FILENAME - $CLAM_VIRUSEVENT_VIRUSNAME In der Befehlszeichenfolge wird „%v“ ebenfalls durch den Virennamen ersetzt. Hinweis: Das Dateinamenformatzeichen „%f“ wurde deaktiviert und wird aufgrund von Sicherheitsbedenken hinsichtlich der Befehlseingabe nicht mehr durch den Dateinamen ersetzt. Verwenden Sie stattdessen die Umgebungsvariable „CLAM_VIRUSEVENT_FILENAME“. Aus dem gleichen Grund sollten Sie die Umgebungsvariablen NICHT direkt im Befehl verwenden, sondern sie vorsichtig aus Ihrem ausgeführten Skript heraus verwenden. Standard: deaktiviert</translation>
     </message>
     <message>
@@ -392,7 +392,7 @@
         <translation>Erlaube die Verwendung des ALLMATCHSCAN-Befehls. Standard: yes</translation>
     </message>
     <message>
-        <source>Don't fork into background. Default: no</source>
+        <source>Don&apos;t fork into background. Default: no</source>
         <translation>Nicht in den Hintergrund verzweigen. Standard: no</translation>
     </message>
     <message>
@@ -408,11 +408,11 @@
         <translation>Aufzeichnung von Metadaten über die gescannte Datei.  Scan-Metadaten sind nützlich für die Analyse von Dateien und für die Fehlersuche im Scan-Verhalten.  Die JSON-Metadaten werden nach Abschluss des Scans gedruckt, wenn Debug aktiviert ist. Eine metadata.json-Datei wird in das temporäre Verzeichnis des Scans geschrieben, wenn LeaveTemporaryFiles aktiviert ist. Standard: no</translation>
     </message>
     <message>
-        <source>Store URIs found in html files to the json metadata. URIs will be stored in an array with the tag 'URIs'. GenerateMetadataJson is required for this feature. Default: yes (if GenerateMetadataJson is used)</source>
+        <source>Store URIs found in html files to the json metadata. URIs will be stored in an array with the tag &apos;URIs&apos;. GenerateMetadataJson is required for this feature. Default: yes (if GenerateMetadataJson is used)</source>
         <translation>Speichern Sie URIs, die in HTML-Dateien gefunden werden, in den JSON-Metadaten. URIs werden in einem Array mit dem Tag „URIs” gespeichert. Für diese Funktion ist GenerateMetadataJson erforderlich. Standard: ja (wenn GenerateMetadataJson verwendet wird)</translation>
     </message>
     <message>
-        <source>Store URIs found in pdf files to the json metadata. URIs will be stored in an array with the tag 'URIs'. GenerateMetadataJson is required for this feature. Default: yes (if GenerateMetadataJson is used)</source>
+        <source>Store URIs found in pdf files to the json metadata. URIs will be stored in an array with the tag &apos;URIs&apos;. GenerateMetadataJson is required for this feature. Default: yes (if GenerateMetadataJson is used)</source>
         <translation>Speichern Sie URIs aus PDF-Dateien in den JSON-Metadaten. URIs werden in einem Array mit dem Tag „URIs” gespeichert. Für diese Funktion ist GenerateMetadataJson erforderlich. Standard: Ja (wenn GenerateMetadataJson verwendet wird)</translation>
     </message>
     <message>
@@ -428,7 +428,7 @@
         <translation>Wenn diese Option aktiviert ist, lädt ClamAV den Bytecode aus der Datenbank. Es wird dringend empfohlen, diese Option eingeschaltet zu lassen, da Sie sonst möglicherweise viele neue Viren nicht erkennen. Standard: yes</translation>
     </message>
     <message>
-        <source>Set bytecode security level. Possible values: TrustSigned - trust bytecode loaded from signed .c[lv]d files and insert runtime safety checks for bytecode loaded from other sources, Paranoid - don't trust any bytecode, insert runtime checks for all. Recommended: TrustSigned, because bytecode in .cvd files already has these checks. Default: TrustSigned</source>
+        <source>Set bytecode security level. Possible values: TrustSigned - trust bytecode loaded from signed .c[lv]d files and insert runtime safety checks for bytecode loaded from other sources, Paranoid - don&apos;t trust any bytecode, insert runtime checks for all. Recommended: TrustSigned, because bytecode in .cvd files already has these checks. Default: TrustSigned</source>
         <translation>Sicherheitsstufe für Bytecode festlegen. Mögliche Werte: TrustSigned - vertraut Bytecode, der aus signierten .c[lv]d-Dateien geladen wurde, und fügt Laufzeit-Sicherheitsprüfungen für Bytecode ein, der aus anderen Quellen geladen wurde, Paranoid - vertraut keinem Bytecode, fügt Laufzeitprüfungen für alle ein. Empfohlen: TrustSigned, da Bytecode in .cvd-Dateien bereits über diese Prüfungen verfügt. (TrustSigned, Paranoid) Standard: TrustSigned</translation>
     </message>
     <message>
@@ -448,7 +448,7 @@
         <translation>Möglicherweise unerwünschte Anwendungen erkennen. Standard: no</translation>
     </message>
     <message>
-        <source>Allow heuristic match to take precedence. When enabled, if a heuristic scan (such as phishingScan) detects a possible virus/phishing it will stop scanning immediately. Recommended, saves CPU scan-time. When disabled, virus/phishing detected by heuristic scans will be reported only at the end of a scan. If an archive contains both a heuristically detected virus/phishing, and a real malware, the real malware will be reported. Keep this disabled if you intend to handle "*.Heuristics.*" viruses dif‐ ferently from "real" malware. If a non-heuristically-detected virus (signature-based) is found first, the scan is interrupted immediately, regardless of this config option. Default: no</source>
+        <source>Allow heuristic match to take precedence. When enabled, if a heuristic scan (such as phishingScan) detects a possible virus/phishing it will stop scanning immediately. Recommended, saves CPU scan-time. When disabled, virus/phishing detected by heuristic scans will be reported only at the end of a scan. If an archive contains both a heuristically detected virus/phishing, and a real malware, the real malware will be reported. Keep this disabled if you intend to handle &quot;*.Heuristics.*&quot; viruses dif‐ ferently from &quot;real&quot; malware. If a non-heuristically-detected virus (signature-based) is found first, the scan is interrupted immediately, regardless of this config option. Default: no</source>
         <translation>Heuristische Übereinstimmung hat Vorrang. Wenn diese Option aktiviert ist, wird der Scanvorgang sofort beendet, sobald ein heuristischer Scan (z. B. phishingScan) einen möglichen Virus/Phishing-Versuch erkennt. Empfohlen, spart CPU-Scanzeit. Wenn diese Option deaktiviert ist, werden durch heuristische Scans erkannte Viren/Phishing-Versuche erst am Ende des Scanvorgangs gemeldet. Wenn ein Archiv sowohl einen heuristisch erkannten Virus/Phishing-Versuch als auch eine echte Malware enthält, wird die echte Malware gemeldet. Lassen Sie diese Option deaktiviert, wenn Sie „*.Heuristics.*”-Viren anders behandeln möchten als „echte” Malware. Wenn zuerst ein nicht heuristisch erkannter Virus (signaturbasiert) gefunden wird, wird der Scan unabhängig von dieser Konfigurationsoption sofort unterbrochen. Standard: nein</translation>
     </message>
     <message>
@@ -464,7 +464,7 @@
         <translation>In einigen Fällen (z. B. komplexe Malware, Exploits in Grafikdateien und andere) verwendet ClamAV spezielle Algorithmen, um eine genaue Erkennung zu gewährleisten. Diese Option steuert die algorithmische Erkennung. Standard: yes</translation>
     </message>
     <message>
-        <source>PE stands for Portable Executable - it's an executable file for‐ mat used in all 32 and 64-bit versions of Windows operating sys‐ tems. This option allows ClamAV to perform a deeper analysis of executable files and it's also required for decompression of pop‐ ular executable packers such as UPX. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
+        <source>PE stands for Portable Executable - it&apos;s an executable file for‐ mat used in all 32 and 64-bit versions of Windows operating sys‐ tems. This option allows ClamAV to perform a deeper analysis of executable files and it&apos;s also required for decompression of pop‐ ular executable packers such as UPX. If you turn off this option, the original files will still be scanned, but without additional processing. Default: yes</source>
         <translation>PE steht für Portable Executable - es ist ein ausführbares Dateiformat, das in allen 32- und 64-Bit-Versionen von Windows-Betriebssystemen verwendet wird. Mit dieser Option kann ClamAV eine tiefere Analyse von ausführbaren Dateien durchführen und sie ist auch für die Dekomprimierung beliebter ausführbarer Packer wie UPX erforderlich. Wenn Sie diese Option deaktivieren, werden die Originaldateien weiterhin gescannt, jedoch ohne zusätzliche Verarbeitung. Standard: ja</translation>
     </message>
     <message>
@@ -576,7 +576,7 @@
         <translation>Alarmiert bei OLE2 Dateien die VBA Makro beinhalten (Heuristics.OLE2.ContainsMacros). Standard: no</translation>
     </message>
     <message>
-        <source>When AlertExceedsMax is set, files exceeding the MaxFileSize, MaxScanSize, or MaxRecursion limit will be flagged with the virus name starting with "Heuristics.Limits.Exceeded". Default: no</source>
+        <source>When AlertExceedsMax is set, files exceeding the MaxFileSize, MaxScanSize, or MaxRecursion limit will be flagged with the virus name starting with &quot;Heuristics.Limits.Exceeded&quot;. Default: no</source>
         <translation>Wenn AlertExceedsMax aktiviert ist, werden Dateien, die die Grenze für MaxFileSize, MaxScanSize oder MaxRecursion überschreiten, mit dem Virennamen gekennzeichnet, der mit „Heuristics.Limits.Exceeded” beginnt. Standard: nein</translation>
     </message>
     <message>
@@ -612,7 +612,7 @@
         <translation>Legt die maximale Datenmenge fest, die für jede Eingabedatei gescannt werden soll. Archive und andere Container werden rekursiv extrahiert und bis zu diesem Wert gescannt. Die Größe eines Archivs plus die Summe der Größen aller Dateien im Archiv werden zur Scangröße gezählt. Beispielsweise zählt ein 1 MB großes unkomprimiertes Archiv, das eine einzelne 1 MB große innere Datei enthält, als 2 MB zur maximalen Scangröße. Warnung: Wenn Sie diese Grenze deaktivieren oder zu hoch einstellen, kann das System schwer beschädigt werden. Standard: 400 MB</translation>
     </message>
     <message>
-        <source>Files larger than this limit won't be scanned. Affects the input file itself as well as files contained inside it (when the input file is an archive, a document or some other kind of container). Warning: disabling this limit or setting it too high may result in severe damage to the system. Technical design limitations pre‐ vent ClamAV from scanning files greater than 2 GB at this time. Default: 100M</source>
+        <source>Files larger than this limit won&apos;t be scanned. Affects the input file itself as well as files contained inside it (when the input file is an archive, a document or some other kind of container). Warning: disabling this limit or setting it too high may result in severe damage to the system. Technical design limitations pre‐ vent ClamAV from scanning files greater than 2 GB at this time. Default: 100M</source>
         <translation>Dateien, die größer als dieses Limit sind, werden nicht gescannt. Dies betrifft sowohl die Eingabedatei selbst als auch die darin enthaltenen Dateien (wenn die Eingabedatei ein Archiv, ein Dokument oder ein anderer Containertyp ist). Achtung: Wenn Sie dieses Limit deaktivieren oder zu hoch einstellen, kann dies zu schweren Systemschäden führen. Technische Designbeschränkungen verhindern derzeit, dass ClamAV Dateien scannt, die größer als 2 GB sind. Standard: 100 M</translation>
     </message>
     <message>
@@ -660,7 +660,7 @@
         <translation>Diese Option legt die maximale Anzahl von Aufrufen der PCRE-Match-Funktion während einer Instanz von Regex-Matching fest. Instanzen, die mehr als dieses Limit verwenden, werden beendet und der Benutzer wird benachrichtigt, aber der Scan wird fortgesetzt. Weitere Informationen zu match_limit finden Sie in der PCRE-Dokumentation. Negative Werte sind nicht zulässig. ACHTUNG: Wenn Sie dieses Limit zu hoch einstellen, kann dies die Leistung erheblich beeinträchtigen. Standard: 10000</translation>
     </message>
     <message>
-        <source>This option sets the maximum recursive calls to the PCRE match function during an instance of regex matching. Instances using more than this limit will be terminated and alert the user but the scan will continue. For more information on match_limit_recursion, see the PCRE docu‐ mentation. Negative values are not allowed and values > PCREMatchLimit are superfluous. WARNING: setting this limit too high may severely impact perfor‐ mance. Default: 2000</source>
+        <source>This option sets the maximum recursive calls to the PCRE match function during an instance of regex matching. Instances using more than this limit will be terminated and alert the user but the scan will continue. For more information on match_limit_recursion, see the PCRE docu‐ mentation. Negative values are not allowed and values &gt; PCREMatchLimit are superfluous. WARNING: setting this limit too high may severely impact perfor‐ mance. Default: 2000</source>
         <translation>Diese Option legt die maximale Anzahl rekursiver Aufrufe der PCRE-Match-Funktion während einer Instanz von Regex-Matching fest. Instanzen, die mehr als dieses Limit verwenden, werden beendet und der Benutzer wird benachrichtigt, aber der Scan wird fortgesetzt. Weitere Informationen zu match_limit_recursion finden Sie in der PCRE-Dokumentation. Negative Werte sind nicht zulässig und Werte &gt; PCREMatchLimit sind überflüssig. WARNUNG: Wenn Sie dieses Limit zu hoch einstellen, kann dies die Leistung erheblich beeinträchtigen. Standard: 2000</translation>
     </message>
     <message>
@@ -692,7 +692,7 @@
         <translation>Dateien, die größer als dieser Wert sind, werden beim Zugriff nicht gescannt. Standard: 5M</translation>
     </message>
     <message>
-        <source>Max number of scanning threads to allocate to the OnAccess thread pool at startup. These threads are the ones responsible for cre‐ ating a connection with the daemon and kicking off scanning after an event has been processed. To prevent clamonacc from consuming all clamd's resources keep this lower than clamd's max threads. Default: 5</source>
+        <source>Max number of scanning threads to allocate to the OnAccess thread pool at startup. These threads are the ones responsible for cre‐ ating a connection with the daemon and kicking off scanning after an event has been processed. To prevent clamonacc from consuming all clamd&apos;s resources keep this lower than clamd&apos;s max threads. Default: 5</source>
         <translation>Maximale Anzahl von Scan-Threads, die beim Start dem OnAccess-Threadpool zugewiesen werden. Diese Threads sind dafür verantwortlich, eine Verbindung mit dem Daemon herzustellen und den Scanvorgang nach der Verarbeitung eines Ereignisses zu starten. Um zu verhindern, dass clamonacc alle Ressourcen von clamd verbraucht, halten Sie diesen Wert niedriger als die maximale Anzahl von Threads von clamd. Standard: 5</translation>
     </message>
     <message>
@@ -728,11 +728,11 @@
         <translation>Deaktiviert die Überprüfung der Authenticode-Zertifikatkette in PE-Dateien. Standard: nein</translation>
     </message>
     <message>
-        <source>Store html URIs in metadata. URIs will be written to the metadata.json file in an array called 'URIs'.</source>
+        <source>Store html URIs in metadata. URIs will be written to the metadata.json file in an array called &apos;URIs&apos;.</source>
         <translation>Speichern Sie HTML-URIs in Metadaten. URIs werden in die Datei metadata.json in einem Array namens „URIs“ geschrieben</translation>
     </message>
     <message>
-        <source>Store pdf URIs in metadata. URIs will be written to the metadata.json file in an array called 'URIs'.</source>
+        <source>Store pdf URIs in metadata. URIs will be written to the metadata.json file in an array called &apos;URIs&apos;.</source>
         <translation>Speichern Sie PDF-URIs in Metadaten. URIs werden in einem Array namens „URIs“ in die Datei metadata.json geschrieben</translation>
     </message>
     <message>
@@ -749,13 +749,13 @@
     </message>
     <message>
         <source>Enable libclamav&apos;s debug messages</source>
-
+        <translation></translation>
     </message>
     <message>
         <source>Be verbose</source>
         <translation>Sei mitteilsam.</translation>
     </message>
-     <message>
+    <message>
         <source>Only print infected files</source>
         <translation>Nur infizierte Dateien ausgeben</translation>
     </message>
@@ -922,6 +922,38 @@
     <message>
         <source>Alert on raw DMG image files containing partition intersections</source>
         <translation>Deaktivieren Sie die Zwischenspeicherung und die Cache-Prüfungen für Hash-Summen von gescannten Dateien</translation>
+    </message>
+    <message>
+        <source>Sets the group ownership on the unix socket. Default: the primary group of the user running clamd</source>
+        <translation>Legt die Gruppenzugehörigkeit des Unix-Sockets fest. Standard: die primäre Gruppe des Benutzers, der clamd ausführt.</translation>
+    </message>
+    <message>
+        <source>Enables the SHUTDOWN command. Setting this to no prevents a client to stop clamd via the protocol. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>Aktiviert den SHUTDOWN-Befehl. Wenn diese Option deaktiviert ist, kann ein Client clamd nicht über das Protokoll beenden. In diesem Fall antwortet clamd auf den Befehl mit „COMMAND UN-AVAILABLE“. Standardwert: Ja</translation>
+    </message>
+    <message>
+        <source>Enables the RELOAD command. Setting this to no prevents a client to reload the database. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>Aktiviert den Befehl RELOAD. Wenn diese Option deaktiviert ist, wird verhindert, dass ein Client die Datenbank neu lädt. Ist sie deaktiviert, antwortet clamd auf diesen Befehl mit COMMAND UN‐AVAILABLE. Standardwert: Ja</translation>
+    </message>
+    <message>
+        <source>Enables the VERSION command. Setting this to no prevents a client from querying version information. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>Aktiviert den VERSION-Befehl. Wenn diese Option deaktiviert ist, kann ein Client keine Versionsinformationen abfragen. In diesem Fall antwortet clamd auf den Befehl mit „COMMAND UN-AVAILABLE“. Standardwert: Ja</translation>
+    </message>
+    <message>
+        <source>Enables the STATS command. Setting this to no prevents a client from querying statistics. When disabled, clamd responds to this command with COMMAND UN‐ AVAILABLE. Default: yes</source>
+        <translation>Aktiviert den STATS-Befehl. Wenn diese Option deaktiviert ist, kann ein Client keine Statistiken abfragen. Bei Deaktivierung antwortet clamd auf diesen Befehl mit „Befehl nicht verfügbar“. Standardwert: Ja</translation>
+    </message>
+    <message>
+        <source>Exclude a specific PUA category. This directive can be used mul‐ tiple times. See https://docs.clamav.net/faq/faq-pua.html for the complete list of PUA categories. Default: disabled</source>
+        <translation>Eine bestimmte PUA-Kategorie ausschließen. Diese Anweisung kann mehrfach verwendet werden. Die vollständige Liste der PUA-Kategorien finden Sie unter https://docs.clamav.net/faq/faq-pua.html. Standard: deaktiviert</translation>
+    </message>
+    <message>
+        <source>With this option you can exclude specific UIDs. Processes with these UIDs will be able to access all files without triggering scans or permission denied events. This option can be used multiple times (one per line). Note: using a value of 0 on any line will disable this option en‐ tirely. To exclude the root UID (0) please enable the OnAccessEx‐ cludeRootUID option. Also note that if clamd cannot check the uid of the process that generated an on-access scan event (e.g., because OnAccessPreven‐ tion was not enabled, and the process already exited), clamd will perform a scan. Thus, setting OnAccessExcludeUID is not guaran‐ teed to prevent every access by the specified uid from triggering a scan (unless OnAccessPrevention is enabled). Default: disabled</source>
+        <translation>Mit dieser Option können Sie bestimmte Benutzer-IDs (UIDs) ausschließen. Prozesse mit diesen UIDs können auf alle Dateien zugreifen, ohne Scans oder Zugriffsverweigerungsereignisse auszulösen. Diese Option kann mehrfach verwendet werden (eine pro Zeile). Hinweis: Die Verwendung des Werts 0 in einer beliebigen Zeile deaktiviert diese Option vollständig. Um die Root-UID (0) auszuschließen, aktivieren Sie bitte die Option `OnAccessExcludeRootUID`. Beachten Sie außerdem, dass `clamd` einen Scan durchführt, wenn die UID des Prozesses, der ein On-Access-Scan-Ereignis ausgelöst hat, nicht überprüft werden kann (z. B. weil `OnAccessPrevention` nicht aktiviert war und der Prozess bereits beendet wurde). Daher ist durch die Einstellung von `OnAccessExcludeUID` nicht garantiert, dass jeder Zugriff durch die angegebene UID keinen Scan auslöst (es sei denn, `OnAccessPrevention` ist aktiviert). Standard: deaktiviert</translation>
+    </message>
+    <message>
+        <source>This option allows exclusions via user names when using the on- access scanning client. It can be used multiple times, and has the same potential race condition limitations of the OnAccessEx‐ cludeUID option. Default: disabled</source>
+        <translation>Diese Option ermöglicht das Ausschließen von Benutzern über Benutzernamen beim Scannen im laufenden Betrieb. Sie kann mehrfach verwendet werden und weist dieselben potenziellen Race-Condition-Einschränkungen wie die Option „OnAccessEx-cludeUID“ auf. Standard: deaktiviert</translation>
     </message>
 </context>
 </TS>

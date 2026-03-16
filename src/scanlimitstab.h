@@ -42,6 +42,7 @@ private:
     Ui::scanLimitsTab   m_ui;
     setupFileHandler    *m_setupFile;
     setupFileHandler    *m_profiles;
+    QStringList          keywords;
     void updateLimits();
     bool update;
 

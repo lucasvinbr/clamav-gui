@@ -1,7 +1,7 @@
 #include "clamdconfspinboxoption.h"
 #define css_mono "background-color:#404040;color:white"
 
-clamdconfspinboxoption::clamdconfspinboxoption(QWidget* parent, QString keyword, bool checked, QString label, QString options, QString language,
+clamdconfspinboxoption::clamdconfspinboxoption(QWidget* parent, QString keyword, bool checked, QString label, QString options,
                                                setupFileHandler* setupFile)
     : QWidget(parent), m_optionKeyword(keyword), m_setupFile(setupFile)
 {

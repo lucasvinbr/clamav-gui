@@ -536,6 +536,27 @@ QStringList setupFileHandler::getSectionNames(QString excludeString)
 }
 
 /********************************************************************
+ * getSingleLineValues                                              *
+ * Parameter    : keyword                                           *
+ * Return Value : QStringList                                       *
+ * Description  : Returns a list of values for the given keyword    *
+ ********************************************************************/
+QStringList setupFileHandler::getSingleLineValues(QString keyword)
+{
+    readSetupFile();
+    QStringList values;
+    QStringList lines = m_setupFileContent.split("\n");
+
+    foreach (QString line, lines) {
+        if (line.indexOf(keyword + " ") == 0) {
+            line = line.replace(keyword + " ", "");
+            values << line;
+        }
+    }
+    return values;
+}
+
+/********************************************************************
  * getKeywords                                                      *
  * Parameter    : QString,                                          *
  * Return Value : QStringList                                       *
@@ -693,9 +714,11 @@ void setupFileHandler::setSingleLineValue(QString keyword, QString value)
  ********************************************************************/
 void setupFileHandler::addSingleLineValue(QString keyword, QString value)
 {
+    QStringList values = getSingleLineValues(keyword);
     readSetupFile();
-    if (m_setupFileContent.indexOf(keyword + " " + value) == -1)
+    if (values.indexOf(value) == -1)
         m_setupFileContent = m_setupFileContent + keyword + " " + value;
+
     writeSetupFile();
 }
 

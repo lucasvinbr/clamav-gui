@@ -21,8 +21,7 @@ public:
                                      QString keyword="", 
                                      bool checked=false, 
                                      QString label="", 
-                                     QString options="", 
-                                     QString language="[en_GB]", 
+                                     QString options="",
                                      setupFileHandler * setupFile = nullptr);
     ~clamdconfcomboboxoption() = default;
 

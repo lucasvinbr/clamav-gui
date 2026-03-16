@@ -4,6 +4,7 @@
 #include "clamdconfcomboboxoption.h"
 #include "clamdconfspinboxoption.h"
 #include "clamdconfstringoption.h"
+#include "clamdconfmultioption.h"
 #include "highlighter.h"
 #include "setupfilehandler.h"
 #include "translator.h"
@@ -62,9 +63,9 @@ private:
     int m_clamdStartupCounter;
 
     QString trimLocationOutput(QString);
-    void initClamdSettings();  // clamd
     void restartClamonacc();   // clamd
     bool checkClamdRunning();  // clamd
+    void getClamdConfElements();
     QString selectColor(QString color);
 
 private slots:
@@ -87,7 +88,9 @@ private slots:
     void slot_waitForFreshclamStarted();
     void slot_processWatcherExpired();
     void slot_add_remove_highlighter(bool);
-    void slot_clamdConfElements();
+    void slot_initClamdSettings();  // clamd
+    void slot_dbPathChanged(QString dbPath);
+
 signals:
     void setBallonMessage(int, QString, QString);  // clamd
     void setActiveTab();

@@ -1,14 +1,12 @@
 #include "scanoptionyn.h"
 #define css "background-color:#404040;color:white"
 
-scanoptionyn::scanoptionyn(QWidget *parent, QString setupFileName, QString section, bool checked, QString label, QString comment, QString language)
+scanoptionyn::scanoptionyn(QWidget *parent, QString setupFileName, QString section, bool checked, QString label, QString comment)
 : QWidget(parent)
 {
     m_ui.setupUi(this);
     m_setupFile = new setupFileHandler(setupFileName,this);
     m_setupFileSection = section;
-
-    translator trans(language);
 
     m_option = label.mid(0,label.indexOf("<equal>"));
 // -------------------------------------------------------------------------
@@ -29,7 +27,7 @@ scanoptionyn::scanoptionyn(QWidget *parent, QString setupFileName, QString secti
         this->setStyleSheet(css);
     }
 
-    m_ui.checkBox->setText(trans.beautifyString(m_com));
+    m_ui.checkBox->setText(translator::beautifyString(m_com));
     m_ui.checkBox->setToolTip(m_option);
 
     if (label.indexOf("<equal>yes") != -1) m_ui.comboBox->setCurrentText("yes");else m_ui.comboBox->setCurrentText("no");

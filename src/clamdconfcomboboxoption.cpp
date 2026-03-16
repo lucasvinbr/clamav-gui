@@ -1,12 +1,10 @@
 #include "clamdconfcomboboxoption.h"
 #define css_mono "background-color:#404040;color:white"
 
-clamdconfcomboboxoption::clamdconfcomboboxoption(QWidget* parent, QString keyword, bool checked, QString label, QString options, QString language,
+clamdconfcomboboxoption::clamdconfcomboboxoption(QWidget* parent, QString keyword, bool checked, QString label, QString options,
                                                  setupFileHandler* setupFile)
     : QWidget(parent), m_optionKeyword(keyword), m_setupFile(setupFile)
 {
-    translator trans(language);
-
     m_ui.setupUi(this);
     m_ui.checkBox->setChecked(checked);
     QStringList m_comboBoxValues = options.split(",");

@@ -1,13 +1,11 @@
 #include "scanoption.h"
 #define css "background-color:#404040;color:white"
 
-scanoption::scanoption(QWidget *parent, QString setupFileName, QString section, bool checked, QString label, QString comment, QString language)
+scanoption::scanoption(QWidget *parent, QString setupFileName, QString section, bool checked, QString label, QString comment)
 : QWidget(parent)
 {
     m_ui.setupUi(this);
     m_setupFile = new setupFileHandler(setupFileName,this);
-
-    translator trans(language);
 
     m_setupFileSection = section;
     m_option = label;
@@ -31,7 +29,7 @@ scanoption::scanoption(QWidget *parent, QString setupFileName, QString section, 
         m_setupFile->setSectionValue(m_setupFileSection,m_option,m_com);
     }
 
-    m_ui.checkBox->setText(trans.beautifyString(m_com));
+    m_ui.checkBox->setText(translator::beautifyString(m_com));
     m_ui.checkBox->setToolTip(m_option);
 }
 
