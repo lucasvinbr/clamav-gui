@@ -37,13 +37,10 @@ private:
     setupFileHandler* m_setupFile;  // clamd && freshclam
     setupFileHandler* m_clamdConf;  // clamd
     setupFileHandler* m_freshclamConf;
-    QProcess* m_clamdLocationProcess;      // clamd
-    QProcess* m_clamonaccLocationProcess;  // clamd
     QProcess* m_startClamdProcess;         // clamd
     QProcess* m_findclamonaccProcess;      // clamd
     QProcess* m_restartClamonaccProcess;   // clamd
     QProcess* m_killProcess;
-    QProcess* m_getclamdconfparameters;
     QString m_clamdLocation;      // clamd
     QString m_clamonaccLocation;  // clamd
     QString m_clamonaccPid;       // clamd
@@ -81,8 +78,6 @@ private slots:
     void slot_restartClamonaccProcessFinished();
     void slot_restartClamdButtonClicked();
     void slot_clamdSettingsChanged();
-    void slot_clamdLocationProcessFinished();
-    void slot_clamonaccLocationProcessFinished();
     void slot_startClamdOnStartupCheckBoxClicked();
     void slot_startDelayTimerExpired();
     void slot_waitForFreshclamStarted();

@@ -1,3 +1,9 @@
+* Mon Mar 16 2026 - Version 1.2.9
+- Added missing translation for the initial startup window.
+- Optimized the inital startup window.
+- Updated the application "About-Tab".
+- Fixed a minor bug in the primary language selection in the main.cpp file
+
 * Sun Mar 15 2026 - Version 1.2.8
 - Added a initial Startup-Dialog where the user can set various aspects for the application.
 - A lot of initial stuff is also moved from the vaious tabs to this initial Startup-Dialog.

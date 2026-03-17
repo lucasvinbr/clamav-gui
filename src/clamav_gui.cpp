@@ -28,6 +28,7 @@ clamav_gui::clamav_gui(QWidget* parent) : QWidget(parent)
     m_guisudoapp = "pkexec";
 
     m_setupFile = new setupFileHandler(settingsPath, this);
+
     if (!firstrun) m_setupFile->setSectionValue("Setup","FirstRun",false);
     m_scanProcess = new QProcess(this);
     connect(m_scanProcess, SIGNAL(readyReadStandardError()), this, SLOT(slot_scanProcessHasErrOutput()));

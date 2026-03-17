@@ -544,7 +544,6 @@ void optionsDialog::writeDirectories()
         if (m_ui.loadVirusDatabaseLineEdit->text() != "") {
             emit databasePathChanged(m_ui.loadVirusDatabaseLineEdit->text());
             QFile file(m_ui.loadVirusDatabaseLineEdit->text() + "/main.cvd");
-            qDebug() << "I'm here!";
             if ((file.exists() == false) && (m_setupFile->getSectionBoolValue("Setup","FirstRun") == false)) {
                 if (QMessageBox::warning(this, tr("Database files missing!"),
                                          tr("The virus definition files are missing in the database directory. Start download of the missing files?"),

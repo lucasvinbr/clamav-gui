@@ -19,8 +19,6 @@ clamdManager::clamdManager(QWidget* parent, setupFileHandler* setupFile) : QWidg
     connect(m_processWatcher, SIGNAL(timeout()), this, SLOT(slot_processWatcherExpired()));
     m_processWatcher->start(30000);
 
-    //initClamdSettings();
-
 }
 
 QString clamdManager::trimLocationOutput(QString value)
@@ -38,44 +36,15 @@ QString clamdManager::trimLocationOutput(QString value)
 void clamdManager::slot_initClamdSettings()
 {
     m_initprocessrunning = true;
-    // QStringList keywords;
     m_dirsUnderMonitoring = 0;
     m_logHighlighter = NULL;
 
+    m_clamdLocation = m_setupFile->getSectionValue("Clamd","ClamdLocation");
+    m_clamonaccLocation = m_setupFile->getSectionValue("Clamd","ClamonaccLocation");
     m_sudoGUI = m_setupFile->getSectionValue("Settings", "SudoGUI");
 
-    QFile clamdConfFile(QDir::homePath() + "/.clamav-gui/clamd.conf");
+    m_clamdConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/clamd.conf", this);
 
-    /*if (clamdConfFile.exists() == false) {
-        m_clamdConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/clamd.conf", this);
-        QString value = m_setupFile->getSectionValue("Directories", "LoadSupportedDBFiles");
-        if (value.indexOf("checked|") == 0)
-            m_clamdConf->addSingleLineValue("DatabaseDirectory", value.mid(value.indexOf("|") + 1));
-        m_clamdConf->setSingleLineValue("LogSyslog", "no");
-        m_clamdConf->setSingleLineValue("LogFacility", "LOG_LOCAL6");
-        m_clamdConf->setSingleLineValue("PidFile", "/tmp/clamd.pid");
-        m_clamdConf->setSingleLineValue("ExtendedDetectionInfo", "yes");
-        m_clamdConf->setSingleLineValue("LocalSocket", QDir::homePath() + "/.clamav-gui/clamd-socket");
-        m_clamdConf->setSingleLineValue("LogFile", QDir::homePath() + "/.clamav-gui/clamd.log");
-        m_clamdConf->setSingleLineValue("LocalSocketGroup", "users");
-        m_clamdConf->setSingleLineValue("TCPAddr", "127.0.0.1");
-        m_clamdConf->setSingleLineValue("TCPAddr", "::1");
-        m_clamdConf->setSingleLineValue("LogFileMaxSize", "1M");
-        m_clamdConf->setSingleLineValue("LogTime", "yes");
-        m_clamdConf->setSingleLineValue("LogRotate", "yes");
-        m_clamdConf->setSingleLineValue("OnAccessMaxFileSize", "10M");
-        m_clamdConf->setSingleLineValue("OnAccessMaxThreads", "10");
-        m_clamdConf->setSingleLineValue("OnAccessPrevention", "yes");
-        m_clamdConf->setSingleLineValue("OnAccessDenyOnError", "no");
-        m_clamdConf->setSingleLineValue("OnAccessExtraScanning", "yes");
-        m_clamdConf->setSingleLineValue("OnAccessRetryAttempts", "0");
-        m_clamdConf->setSingleLineValue("OnAccessExcludeUname", "root");
-        m_clamdConf->setSingleLineValue("OnAccessExcludeUID", "0");
-    } else {*/
-        m_clamdConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/clamd.conf", this);
-    //}
-
-    QStringList parameters;
     QStringList monitorings = m_setupFile->getKeywords("Clamonacc");
     m_dirsUnderMonitoring = monitorings.length();
 
@@ -83,12 +52,6 @@ void clamdManager::slot_initClamdSettings()
 
     m_clamdPidWatcher = new QFileSystemWatcher(this);
     connect(m_clamdPidWatcher, SIGNAL(fileChanged(QString)), this, SLOT(slot_pidWatcherTriggered()));
-
-    m_clamdLocationProcess = new QProcess(this);
-    connect(m_clamdLocationProcess, SIGNAL(finished(int)), this, SLOT(slot_clamdLocationProcessFinished()));
-
-    m_clamonaccLocationProcess = new QProcess(this);
-    connect(m_clamonaccLocationProcess, SIGNAL(finished(int)), this, SLOT(slot_clamonaccLocationProcessFinished()));
 
     m_startClamdProcess = new QProcess(this);
     connect(m_startClamdProcess, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slot_startClamdProcessFinished(int, QProcess::ExitStatus)));
@@ -116,13 +79,6 @@ void clamdManager::slot_initClamdSettings()
 
     m_ui.restartClamdPushButton->setVisible(false);
     slot_updateClamdConf();
-
-    parameters << "clamd";
-    m_clamdLocationProcess->start("whereis", parameters);
-
-    parameters.clear();
-    parameters << "clamonacc";
-    m_clamonaccLocationProcess->start("whereis", parameters);
 
     m_initprocessrunning = false;
 
@@ -546,53 +502,6 @@ void clamdManager::slot_pidWatcherTriggered()
     }
 }
 
-void clamdManager::slot_clamdLocationProcessFinished()
-{
-    QString searchstring = "clamd:";
-    QString output = m_clamdLocationProcess->readAll();
-    if (output == searchstring + "\n") {
-        m_ui.startStopClamdPushButton->setEnabled(false);
-        m_ui.monitoringAddButton->setEnabled(false);
-        m_ui.monitoringDelButton->setEnabled(false);
-
-        m_setupFile->setSectionValue("Clamd", "ClamdLocation", "n/a");
-
-        emit systemStatusChanged();
-    }
-    else {
-        m_clamdLocation = trimLocationOutput(output);
-
-        m_setupFile->setSectionValue("Clamd", "ClamdLocation", m_clamdLocation);
-
-        emit systemStatusChanged();
-    }
-}
-
-void clamdManager::slot_clamonaccLocationProcessFinished()
-{
-    QString searchstring = "clamonacc:";
-    QString output = m_clamonaccLocationProcess->readAll();
-    if (output == searchstring + "\n") {
-        m_ui.startStopClamdPushButton->setEnabled(false);
-        m_ui.monitoringAddButton->setEnabled(false);
-        m_ui.monitoringDelButton->setEnabled(false);
-
-        m_setupFile->setSectionValue("Clamd", "ClamonaccLocation", "n/a");
-
-        emit systemStatusChanged();
-    }
-    else {
-        m_clamonaccLocation = trimLocationOutput(output);
-        m_setupFile->setSectionValue("Clamd", "ClamonaccLocation", m_clamonaccLocation);
-
-        emit systemStatusChanged();
-
-        QStringList parameters;
-        parameters << "-s" << "clamonacc";
-        m_findclamonaccProcess->start("pidof", parameters);
-    }
-}
-
 void clamdManager::slot_startClamdOnStartupCheckBoxClicked()
 {
     m_setupFile->setSectionValue("Clamd", "StartClamdOnStartup", m_ui.startClamdOnStartupCheckBox->isChecked());
@@ -757,7 +666,7 @@ bool clamdManager::checkClamdRunning()
     QProcess checkPIDProcess;
     QStringList parameters;
 
-    parameters << "clamd";
+    parameters << "-q" << "-s" << "clamd";
 
     int pid = checkPIDProcess.execute("pidof", parameters);
 
@@ -978,7 +887,7 @@ void clamdManager::getClamdConfElements()
             optionValues = "";
         if ((group == "STRING") || (group == "CATEGORY") || (group == "COMMAND") || (group == "REGEX")) {
             if (optionValues.indexOf(",") == -1) {
-                if ((label.indexOf("multiple times") != -1) || (label.indexOf("mul‐ tiple times") != -1)) {
+                if ((label.indexOf("multiple times") != -1) || (label.indexOf("mul? tiple times") != -1)) {
                     QStringList tempParams = m_clamdConf->getSingleLineValues(keyword);
                     comboboxmultioption = new clamdconfmultioption(this, keyword, checked, label, tempParams, m_clamdConf,m_setupFile);
                     connect(comboboxmultioption,SIGNAL(settingChanged()),this,SLOT(slot_clamdSettingsChanged()));

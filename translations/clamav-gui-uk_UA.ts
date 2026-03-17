@@ -44,48 +44,48 @@
         <translation>Профілі:</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="181"/>
+        <location filename="../src/profilemanager.cpp" line="252"/>
         <source>WARNING</source>
         <translation>ПОПЕРЕДЖЕННЯ</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="181"/>
+        <location filename="../src/profilemanager.cpp" line="252"/>
         <source>Do you realy want to remove this (</source>
         <translation>Ви дійсно хочете видалити це (</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="181"/>
+        <location filename="../src/profilemanager.cpp" line="252"/>
         <source>) profile</source>
         <translation>) профіль</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="187"/>
-        <location filename="../src/profilemanager.cpp" line="194"/>
+        <location filename="../src/profilemanager.cpp" line="260"/>
+        <location filename="../src/profilemanager.cpp" line="269"/>
         <source>Info</source>
         <translation>Інформація</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="187"/>
+        <location filename="../src/profilemanager.cpp" line="261"/>
         <source>There is a log-file associated with this profile. Shall I remove the log-file as well?</source>
         <translation>З цим профілем пов&apos;язаний лог-файл. Чи потрібно видалити файл журналу також?</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="194"/>
+        <location filename="../src/profilemanager.cpp" line="269"/>
         <source>Profile &quot;</source>
         <translation>Профілі «</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="194"/>
+        <location filename="../src/profilemanager.cpp" line="269"/>
         <source>&quot; removed</source>
         <translation>« видалено</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="200"/>
+        <location filename="../src/profilemanager.cpp" line="277"/>
         <source>ERROR</source>
         <translation>ПОМИЛКА</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="200"/>
+        <location filename="../src/profilemanager.cpp" line="277"/>
         <source>Profile can not be removed because it is in use by the scheduler!</source>
         <translation>Профіль не може бути видалений, оскільки він використовується планувальником!</translation>
     </message>
@@ -600,37 +600,37 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="21"/>
+        <location filename="../src/profilewizarddialog.cpp" line="23"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="584"/>
+        <location filename="../src/profilewizarddialog.cpp" line="643"/>
         <source>Signature Folder</source>
         <translation>Папка для підписів</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="589"/>
+        <location filename="../src/profilewizarddialog.cpp" line="650"/>
         <source>Log-File</source>
         <translation>Лог-файл</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="594"/>
+        <location filename="../src/profilewizarddialog.cpp" line="657"/>
         <source>Scan from File</source>
         <translation>Сканування з файлу</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="599"/>
+        <location filename="../src/profilewizarddialog.cpp" line="664"/>
         <source>Folder for temporary files</source>
         <translation>Папка для тимчасових файлів</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="604"/>
+        <location filename="../src/profilewizarddialog.cpp" line="671"/>
         <source>Move Folder for infected Files</source>
         <translation>Перемістити папку для заражених файлів</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="609"/>
+        <location filename="../src/profilewizarddialog.cpp" line="678"/>
         <source>Copy Folder for infected Files</source>
         <translation>Скопіювати папку для заражених файлів</translation>
     </message>
@@ -652,143 +652,141 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../ui/clamav_gui.ui" line="43"/>
-        <location filename="../src/clamav_gui.cpp" line="124"/>
+        <location filename="../src/clamav_gui.cpp" line="58"/>
         <source>Scan</source>
         <translation>Сканування.</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="127"/>
+        <location filename="../src/clamav_gui.cpp" line="61"/>
         <source>Options</source>
         <translation>Варіанти</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="130"/>
+        <location filename="../src/clamav_gui.cpp" line="64"/>
         <source>Profile Manager</source>
         <translation>Менеджер профілів</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="140"/>
+        <location filename="../src/clamav_gui.cpp" line="74"/>
         <source>FreshClam</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="133"/>
+        <location filename="../src/clamav_gui.cpp" line="67"/>
         <source>Scheduler</source>
         <translation>Планувальник</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="136"/>
+        <location filename="../src/clamav_gui.cpp" line="70"/>
         <source>Logs</source>
         <translation>Журнали</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="143"/>
+        <location filename="../src/clamav_gui.cpp" line="77"/>
         <source>Clamd</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="146"/>
+        <location filename="../src/clamav_gui.cpp" line="80"/>
         <source>Setup</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="149"/>
+        <location filename="../src/clamav_gui.cpp" line="83"/>
         <source>About</source>
         <translation>Про</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="225"/>
+        <location filename="../src/clamav_gui.cpp" line="168"/>
         <source>Show/Hide MainWindow</source>
         <translation>Показати/приховати MainWindow</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="228"/>
+        <location filename="../src/clamav_gui.cpp" line="171"/>
         <source>Show/Hide DropZone</source>
         <translation>Показати/приховати DropZone</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="231"/>
+        <location filename="../src/clamav_gui.cpp" line="174"/>
         <source>Quit</source>
         <translation>Звільнися</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="317"/>
+        <location filename="../src/clamav_gui.cpp" line="279"/>
         <source>Scanning started .......</source>
         <translation>Сканування розпочато .......</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="329"/>
+        <location filename="../src/clamav_gui.cpp" line="296"/>
         <source>Use ClamdScan</source>
         <translation>Використовуйте ClamdScan</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="329"/>
+        <location filename="../src/clamav_gui.cpp" line="296"/>
         <source>Perform scanning using clamdscan instead of clamscan?</source>
         <translation>Виконувати сканування за допомогою clamdscan замість clamscan?</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="529"/>
+        <location filename="../src/clamav_gui.cpp" line="530"/>
         <source>Scan-Process aborted ......</source>
         <translation>Процес сканування перервано ......</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="530"/>
-        <location filename="../src/clamav_gui.cpp" line="534"/>
-        <location filename="../src/clamav_gui.cpp" line="538"/>
-        <location filename="../src/clamav_gui.cpp" line="541"/>
+        <location filename="../src/clamav_gui.cpp" line="531"/>
+        <location filename="../src/clamav_gui.cpp" line="537"/>
+        <location filename="../src/clamav_gui.cpp" line="542"/>
+        <location filename="../src/clamav_gui.cpp" line="547"/>
         <source>Scan-Status</source>
         <translation>Статус сканування</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="530"/>
+        <location filename="../src/clamav_gui.cpp" line="531"/>
         <source>Scan Process aborted .....</source>
         <translation>Процес сканування перервано .....</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="533"/>
+        <location filename="../src/clamav_gui.cpp" line="536"/>
         <source>Scan-Process finished ...... no Virus found!</source>
         <translation>Процес сканування завершено ...... Вірус не знайдено!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="534"/>
+        <location filename="../src/clamav_gui.cpp" line="537"/>
         <source>Scan Process finished ..... no virus found!</source>
         <translation>Процес сканування завершено ..... вірусу не знайдено!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="537"/>
+        <location filename="../src/clamav_gui.cpp" line="541"/>
         <source>Scan-Process finished ...... Virus found!</source>
         <translation>Процес сканування завершено ...... Вірус знайдено!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="538"/>
+        <location filename="../src/clamav_gui.cpp" line="542"/>
         <source>Scan Process finished ..... a virus was found!</source>
         <translation>Процес сканування завершено ..... знайдено вірус!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="540"/>
+        <location filename="../src/clamav_gui.cpp" line="546"/>
         <source>Scan-Process finished ...... an error occured!</source>
         <translation>Процес сканування завершено ...... сталася помилка!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="541"/>
+        <location filename="../src/clamav_gui.cpp" line="547"/>
         <source>Scan Process finished ..... an error occurred!</source>
         <translation>Процес сканування завершено ..... сталася помилка!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="555"/>
-        <location filename="../src/clamav_gui.cpp" line="556"/>
+        <location filename="../src/clamav_gui.cpp" line="566"/>
+        <location filename="../src/clamav_gui.cpp" line="567"/>
         <source>Scan-Process aborted!</source>
         <translation>Процес сканування перервано!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="664"/>
         <source>WARNING</source>
-        <translation>ПОПЕРЕДЖЕННЯ</translation>
+        <translation type="vanished">ПОПЕРЕДЖЕННЯ</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="664"/>
         <source>Neither &quot;pkexec&quot; nor &quot;kdesu&quot; is installed. Please install at least one of this to apps!</source>
-        <translation>Не встановлено ні &quot;pkexec&quot;, ні &quot;kdesu&quot;. Будь ласка, встановіть принаймні один з них до програм!</translation>
+        <translation type="vanished">Не встановлено ні &quot;pkexec&quot;, ні &quot;kdesu&quot;. Будь ласка, встановіть принаймні один з них до програм!</translation>
     </message>
 </context>
 <context>
@@ -864,66 +862,66 @@ for changes made to take effect.</source>
 щоб внесені зміни набули чинності.</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="107"/>
+        <location filename="../src/clamdmanager.cpp" line="70"/>
         <source>  Clamd running - Stop clamd</source>
         <translation>  Запуск кластера - Зупинка кластера</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="309"/>
-        <location filename="../src/clamdmanager.cpp" line="660"/>
+        <location filename="../src/clamdmanager.cpp" line="166"/>
+        <location filename="../src/clamdmanager.cpp" line="523"/>
         <source>WARNING</source>
         <translation>ПОПЕРЕДЖЕННЯ</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="363"/>
+        <location filename="../src/clamdmanager.cpp" line="225"/>
         <source>  Clamd starting. Please wait!</source>
         <translation>  Запускаю захват. Будь ласка, зачекайте!</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="392"/>
+        <location filename="../src/clamdmanager.cpp" line="265"/>
         <source>  Stopping Clamd. Please wait!</source>
         <translation>  Зупинити Кламда. Зачекайте, будь ласка!</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="424"/>
-        <location filename="../src/clamdmanager.cpp" line="482"/>
-        <location filename="../src/clamdmanager.cpp" line="588"/>
+        <location filename="../src/clamdmanager.cpp" line="304"/>
+        <location filename="../src/clamdmanager.cpp" line="367"/>
+        <location filename="../src/clamdmanager.cpp" line="489"/>
         <source>  Clamd not running - Start Clamd</source>
         <translation>  Clamd не працює - Запустити Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="455"/>
-        <location filename="../src/clamdmanager.cpp" line="494"/>
+        <location filename="../src/clamdmanager.cpp" line="338"/>
+        <location filename="../src/clamdmanager.cpp" line="381"/>
         <source>  Clamd running - Stop Clamd</source>
         <translation>  Clamd працює - зупинити Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="651"/>
+        <location filename="../src/clamdmanager.cpp" line="512"/>
         <source>Directory to monitor</source>
         <translation>Каталог для моніторингу</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="660"/>
+        <location filename="../src/clamdmanager.cpp" line="523"/>
         <source>Path already under monitoring</source>
         <translation>Шлях вже під моніторингом</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="668"/>
+        <location filename="../src/clamdmanager.cpp" line="532"/>
         <source>Remove Folder from monitoring</source>
         <translation>Видалити папку з моніторингу</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="668"/>
+        <location filename="../src/clamdmanager.cpp" line="533"/>
         <source>Path: </source>
         <translation>Шлях: </translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="668"/>
+        <location filename="../src/clamdmanager.cpp" line="533"/>
         <source>Do you want to remove the folder from the monitoring list?</source>
         <translation>Ви хочете видалити папку зі списку моніторингу?</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="701"/>
+        <location filename="../src/clamdmanager.cpp" line="572"/>
         <source>  Clamd restarting. Please wait!</source>
         <translation>  Перезапуск кластера. Будь ласка, зачекайте!</translation>
     </message>
@@ -934,6 +932,19 @@ for changes made to take effect.</source>
         <location filename="../ui/clamdconfcomboboxoption.ui" line="20"/>
         <source>Form</source>
         <translation>Форма</translation>
+    </message>
+</context>
+<context>
+    <name>clamdconfmultioption</name>
+    <message>
+        <location filename="../ui/clamdconfmultioption.ui" line="14"/>
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdconfmultioption.ui" line="29"/>
+        <source>CheckBox</source>
+        <translation>Прапорець</translation>
     </message>
 </context>
 <context>
@@ -958,6 +969,193 @@ for changes made to take effect.</source>
     </message>
 </context>
 <context>
+    <name>firstRunWindow</name>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="14"/>
+        <source>firstRunWindow</source>
+        <translation>firstRunWindow</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="61"/>
+        <source>Required Apps &amp; Basic Settings</source>
+        <translation>Необхідні програми та основні налаштування</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="76"/>
+        <source>done</source>
+        <translation>зроблено</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="92"/>
+        <source>Basic settings</source>
+        <translation>Основні налаштування</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="131"/>
+        <source>Language</source>
+        <translation>Мова</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="189"/>
+        <source>Application Startup</source>
+        <translation>Запуск програми</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="209"/>
+        <source>Show Window maximized</source>
+        <translation>Показати вікно розгорнутим</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="214"/>
+        <source>Show Tray Icon only</source>
+        <translation>Показати лише піктограму лотка</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="260"/>
+        <source>Signature Directory</source>
+        <translation>Каталог підписів</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="321"/>
+        <source>Use ClamdScan</source>
+        <translation>Використовуйте ClamdScan</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="341"/>
+        <source>Never, even if available</source>
+        <translation>Ніколи, навіть якщо доступно</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="346"/>
+        <source>Always, if available</source>
+        <translation>Завжди, якщо є можливість</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="351"/>
+        <source>For scheduled scan, if available</source>
+        <translation>Для запланованого сканування, якщо доступно</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="356"/>
+        <source>For direct scan, if available</source>
+        <translation>Для прямого сканування, якщо доступно</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="361"/>
+        <source>Ask for permission, if available</source>
+        <translation>Запитайте дозволу, якщо такий є</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="380"/>
+        <source>Switch Application to Monochrome Mode</source>
+        <translation>Перемикання програми в монохромний режим</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="390"/>
+        <source>Required Helper Applications</source>
+        <translation>Необхідні допоміжні програми</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="396"/>
+        <source>clamd : </source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="511"/>
+        <source>sudo-GUI :</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="518"/>
+        <source>freshclam :</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="669"/>
+        <source>clamscan : </source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="676"/>
+        <source>clamonacc :</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="683"/>
+        <source>clamdscan : </source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="732"/>
+        <source>Initial Setup Tasks</source>
+        <translation>Початкові завдання налаштування</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="740"/>
+        <source>Creating Dolphin Context-Menu</source>
+        <translation>Створення контекстного меню Dolphin</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="779"/>
+        <source>Creating Initial Directorey Structure</source>
+        <translation>Створення початкової структури каталогів</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="818"/>
+        <source>Create basic settings.ini  : </source>
+        <translation>Створіть базовий файл settings.ini:</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="857"/>
+        <source>Create basic clamd.conf  : </source>
+        <translation>Створіть базовий clamd.conf:</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="896"/>
+        <source>Application User  : </source>
+        <translation>Користувач застосунку:</translation>
+    </message>
+    <message>
+        <location filename="../ui/firstrunwindow.ui" line="935"/>
+        <source>Application Group  : </source>
+        <translation>Група застосувань:</translation>
+    </message>
+    <message>
+        <location filename="../src/firstrunwindow.cpp" line="111"/>
+        <location filename="../src/firstrunwindow.cpp" line="121"/>
+        <location filename="../src/firstrunwindow.cpp" line="131"/>
+        <location filename="../src/firstrunwindow.cpp" line="140"/>
+        <location filename="../src/firstrunwindow.cpp" line="168"/>
+        <source>ERROR</source>
+        <translation>ПОМИЛКА</translation>
+    </message>
+    <message>
+        <location filename="../src/firstrunwindow.cpp" line="111"/>
+        <source>Clamad is missing. Please install!</source>
+        <translation>Clamad відсутній. Будь ласка, встановіть!</translation>
+    </message>
+    <message>
+        <location filename="../src/firstrunwindow.cpp" line="121"/>
+        <source>Freshclam is missing. Please install!</source>
+        <translation>Freshclam відсутній. Будь ласка, встановіть!</translation>
+    </message>
+    <message>
+        <location filename="../src/firstrunwindow.cpp" line="131"/>
+        <source>Clamonacc is missing. Please install!</source>
+        <translation>Бракує Clamonacc. Будь ласка, встановіть!</translation>
+    </message>
+    <message>
+        <location filename="../src/firstrunwindow.cpp" line="140"/>
+        <source>Clamav is missing. Please install!</source>
+        <translation>Clamav відсутній. Будь ласка, встановіть!</translation>
+    </message>
+    <message>
+        <location filename="../src/firstrunwindow.cpp" line="168"/>
+        <source>Neither &apos;pkexe&apos; nor &apos;kdesu&apos; os installed. Please install at least one of this applications!</source>
+        <translation>Не встановлено ні ОС &apos;pkexe&apos;, ні &apos;kdesu&apos;. Будь ласка, встановіть хоча б одну з цих програм!</translation>
+    </message>
+</context>
+<context>
     <name>freshclamsetter</name>
     <message>
         <location filename="../ui/freshclamsetter.ui" line="14"/>
@@ -966,9 +1164,9 @@ for changes made to take effect.</source>
     </message>
     <message>
         <location filename="../ui/freshclamsetter.ui" line="114"/>
-        <location filename="../src/freshclamsetter.cpp" line="268"/>
-        <location filename="../src/freshclamsetter.cpp" line="375"/>
-        <location filename="../src/freshclamsetter.cpp" line="667"/>
+        <location filename="../src/freshclamsetter.cpp" line="286"/>
+        <location filename="../src/freshclamsetter.cpp" line="400"/>
+        <location filename="../src/freshclamsetter.cpp" line="726"/>
         <source>Deamon not running - start deamon</source>
         <translation>Deamon не працює - запустіть deamon</translation>
     </message>
@@ -1168,7 +1366,7 @@ Default: database.clamav.net
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="659"/>
+        <location filename="../ui/freshclamsetter.ui" line="652"/>
         <source>FreshClam Daemon</source>
         <translation>Демон FreshClam</translation>
     </message>
@@ -1188,207 +1386,207 @@ Default: database.clamav.net
         <translation>PID-файл:</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="675"/>
+        <location filename="../ui/freshclamsetter.ui" line="668"/>
         <source>Path to a directory containing database files.</source>
         <translation>Шлях до каталогу з файлами бази даних.</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="678"/>
+        <location filename="../ui/freshclamsetter.ui" line="671"/>
         <source>DatabaseDirectory</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="700"/>
+        <location filename="../ui/freshclamsetter.ui" line="693"/>
         <source>Which database to update
 Default: all</source>
         <translation>Яку базу даних оновлювати
 За замовчуванням: усі</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="704"/>
+        <location filename="../ui/freshclamsetter.ui" line="697"/>
         <source>Update Database</source>
         <translation>Оновлення бази даних</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="712"/>
+        <location filename="../ui/freshclamsetter.ui" line="705"/>
         <source>All</source>
         <translation>Усе.</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="717"/>
+        <location filename="../ui/freshclamsetter.ui" line="710"/>
         <source>main</source>
         <translation>головний</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="722"/>
+        <location filename="../ui/freshclamsetter.ui" line="715"/>
         <source>daily</source>
         <translation>щодня</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="727"/>
+        <location filename="../ui/freshclamsetter.ui" line="720"/>
         <source>bytecode</source>
         <translation>байт-код</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="735"/>
+        <location filename="../ui/freshclamsetter.ui" line="728"/>
         <source>Start daemon automatically
 at program start</source>
         <translation>Автоматично запускати демон
 на початку програми</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="750"/>
+        <location filename="../ui/freshclamsetter.ui" line="743"/>
         <source>Number of database checks per day.</source>
         <translation>Кількість перевірок бази даних на день.</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="753"/>
+        <location filename="../ui/freshclamsetter.ui" line="746"/>
         <source>Check for Updates</source>
         <translation>Перевірте наявність оновлень</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="770"/>
+        <location filename="../ui/freshclamsetter.ui" line="763"/>
         <source>times per days</source>
         <translation>разів на день</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="777"/>
+        <location filename="../ui/freshclamsetter.ui" line="770"/>
         <source>Execute Daemon and
 manual update as root</source>
         <translation>Запустіть Daemon і
 оновити вручну від імені root</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="800"/>
+        <location filename="../ui/freshclamsetter.ui" line="793"/>
         <source>HTTPProxy Port</source>
         <translation>HTTPProxy Port</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="810"/>
+        <location filename="../ui/freshclamsetter.ui" line="803"/>
         <source>HTTPProxyUsername</source>
         <translation>HTTPProxyUsername</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="820"/>
+        <location filename="../ui/freshclamsetter.ui" line="813"/>
         <source>HTTPProxyPassword</source>
         <translation>HTTPProxyPassword</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="830"/>
+        <location filename="../ui/freshclamsetter.ui" line="823"/>
         <source>OnUpdateExecute</source>
         <translation>OnUpdateExecute</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="840"/>
+        <location filename="../ui/freshclamsetter.ui" line="833"/>
         <source>OnErrorExecute</source>
         <translation>OnErrorExecute</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="850"/>
+        <location filename="../ui/freshclamsetter.ui" line="843"/>
         <source>OnOutdatedExecute</source>
         <translation>OnOutdatedExecute</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="113"/>
+        <location filename="../src/freshclamsetter.cpp" line="106"/>
         <source>Update process startet .....</source>
         <translation>Процес оновлення розпочато .....</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="238"/>
-        <location filename="../src/freshclamsetter.cpp" line="361"/>
-        <location filename="../src/freshclamsetter.cpp" line="649"/>
+        <location filename="../src/freshclamsetter.cpp" line="259"/>
+        <location filename="../src/freshclamsetter.cpp" line="389"/>
+        <location filename="../src/freshclamsetter.cpp" line="713"/>
         <source>Deamon running - stop deamon</source>
         <translation>Deamon працює - зупинити deamon</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="349"/>
+        <location filename="../src/freshclamsetter.cpp" line="375"/>
         <source>INFO</source>
         <translation>ІНФОРМАЦІЯ</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="349"/>
+        <location filename="../src/freshclamsetter.cpp" line="375"/>
         <source>Update-Process finished</source>
         <translation>Процес оновлення завершено</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="352"/>
+        <location filename="../src/freshclamsetter.cpp" line="379"/>
         <source>WARNING</source>
         <translation>ПОПЕРЕДЖЕННЯ</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="352"/>
+        <location filename="../src/freshclamsetter.cpp" line="379"/>
         <source>Update-Process failed!
 Read log-messages for possible reason.</source>
         <translation>Процес оновлення завершився невдало!
 Прочитайте лог-повідомлення, щоб дізнатися про можливу причину.</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="581"/>
+        <location filename="../src/freshclamsetter.cpp" line="615"/>
         <source>Database origin : &lt;/td&gt;&lt;td&gt;</source>
         <translation>Походження бази даних :&lt;/td&gt;&lt;td&gt;</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="584"/>
+        <location filename="../src/freshclamsetter.cpp" line="618"/>
         <source>Last Update : &lt;/td&gt;&lt;td&gt;</source>
         <translation>Останнє оновлення : &lt;/td&gt;&lt;td&gt;</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="587"/>
+        <location filename="../src/freshclamsetter.cpp" line="621"/>
         <source>Main File : &lt;/td&gt;&lt;td&gt;</source>
         <translation>Основний файл : &lt;/td&gt;&lt;td&gt;</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="590"/>
+        <location filename="../src/freshclamsetter.cpp" line="624"/>
         <source>Daily File : &lt;/td&gt;&lt;td&gt;</source>
         <translation>Щоденний файл : &lt;/td&gt;&lt;td&gt;</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="593"/>
+        <location filename="../src/freshclamsetter.cpp" line="627"/>
         <source>ByteCode File : &lt;/td&gt;&lt;td&gt;</source>
         <translation>Файл байтового коду : &lt;/td&gt;&lt;td&gt;</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="886"/>
+        <location filename="../src/freshclamsetter.cpp" line="973"/>
         <source>Select Folder for the PID-File</source>
         <translation>Виберіть папку для PID-файлу</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="904"/>
+        <location filename="../src/freshclamsetter.cpp" line="871"/>
         <source>Virus definitions missing!</source>
         <translation>Визначення вірусів відсутні!</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="904"/>
+        <location filename="../src/freshclamsetter.cpp" line="873"/>
         <source>No virus definitions found in the database folder. Should the virus definitions be downloaded?</source>
         <translation>У теці бази даних не знайдено визначень вірусів. Чи потрібно завантажувати визначення вірусів?</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="967"/>
+        <location filename="../src/freshclamsetter.cpp" line="1018"/>
         <source>On Update Execute</source>
         <translation>При виконанні оновлення</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="967"/>
+        <location filename="../src/freshclamsetter.cpp" line="1018"/>
         <source>Select a programm that will be executed when the database is updated.</source>
         <translation>Виберіть програму, яка буде виконуватися при оновленні бази даних.</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="973"/>
+        <location filename="../src/freshclamsetter.cpp" line="1026"/>
         <source>On Error Execute</source>
         <translation>При виконанні помилки</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="973"/>
+        <location filename="../src/freshclamsetter.cpp" line="1026"/>
         <source>Select a programm that will be executed when an error occured.</source>
         <translation>Виберіть програму, яка буде виконана при виникненні помилки.</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="979"/>
+        <location filename="../src/freshclamsetter.cpp" line="1035"/>
         <source>On Outdated Execute</source>
         <translation>Про застаріле виконання</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="979"/>
+        <location filename="../src/freshclamsetter.cpp" line="1035"/>
         <source>Select a programm that will be executed when the database is outdated.</source>
         <translation>Виберіть програму, яка буде виконуватися, коли база даних застаріє.</translation>
     </message>
@@ -1523,7 +1721,7 @@ li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:22px; color:#000080;&quot;&gt;ClamAV-GUI&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:15px; color:#000000;&quot;&gt;&lt;br /&gt;Version 0.7.5 (2015 - 2024), published unter GPL 3.0&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:15px;&quot;&gt;&lt;br /&gt;Version 0.7.5 (2015 - 2024), published unter GPL 3.0&lt;/span&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; align=&quot;center&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;
@@ -1610,11 +1808,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/infodialog.ui" line="133"/>
-        <source>License</source>
-        <translation>Ліцензія</translation>
-    </message>
-    <message>
         <location filename="../ui/infodialog.ui" line="142"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1623,148 +1816,153 @@ hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;h3 align=&quot;center&quot; style=&quot; margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:large; font-weight:700; color:#000000;&quot;&gt;GNU GENERAL PUBLIC LICENSE&lt;/span&gt;&lt;/h3&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Version 3, 29 June 2007&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Copyright © 2007 Free Software Foundation, Inc. &amp;lt;&lt;/span&gt;&lt;a href=&quot;https://fsf.org/&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; text-decoration: underline; text-decoration-color:#000000; color:#2980b9;&quot;&gt;https://fsf.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.&lt;/span&gt;&lt;/p&gt;
-&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;preamble&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700; color:#000000;&quot;&gt;P&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700; color:#000000;&quot;&gt;reamble&lt;/span&gt;&lt;/h4&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The GNU General Public License is a free, copyleft license for software and other kinds of works.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The licenses for most software and other practical works are designed to take away your freedom to share and change the works. By contrast, the GNU General Public License is intended to guarantee your freedom to share and change all versions of a program--to make sure it remains free software for all its users. We, the Free Software Foundation, use the GNU General Public License for most of our software; it applies also to any other work released this way by its authors. You can apply it to your programs, too.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;When we speak of free software, we are referring to freedom, not price. Our General Public Licenses are designed to make sure that you have the freedom to distribute copies of free software (and charge for them if you wish), that you receive source code or can get it if you want it, that you can change the software or use pieces of it in new free programs, and that you know you can do these things.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;To protect your rights, we need to prevent others from denying you these rights or asking you to surrender the rights. Therefore, you have certain responsibilities if you distribute copies of the software, or if you modify it: responsibilities to respect the freedom of others.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;For example, if you distribute copies of such a program, whether gratis or for a fee, you must pass on to the recipients the same freedoms that you received. You must make sure that they, too, receive or can get the source code. And you must show them these terms so they know their rights.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Developers that use the GNU GPL protect your rights with two steps: (1) assert copyright on the software, and (2) offer you this License giving you legal permission to copy, distribute and/or modify it.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;For the developers&apos; and authors&apos; protection, the GPL clearly explains that there is no warranty for this free software. For both users&apos; and authors&apos; sake, the GPL requires that modified versions be marked as changed, so that their problems will not be attributed erroneously to authors of previous versions.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Some devices are designed to deny users access to install or run modified versions of the software inside them, although the manufacturer can do so. This is fundamentally incompatible with the aim of protecting users&apos; freedom to change the software. The systematic pattern of such abuse occurs in the area of products for individuals to use, which is precisely where it is most unacceptable. Therefore, we have designed this version of the GPL to prohibit the practice for those products. If such problems arise substantially in other domains, we stand ready to extend this provision to those domains in future versions of the GPL, as needed to protect the freedom of users.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Finally, every program is threatened constantly by software patents. States should not allow patents to restrict development and use of software on general-purpose computers, but in those that do, we wish to avoid the special danger that patents applied to a free program could make it effectively proprietary. To prevent this, the GPL assures that patents cannot be used to render the program non-free.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The precise terms and conditions for copying, distribution and modification follow.&lt;/span&gt;&lt;/p&gt;
-&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;terms&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700; color:#000000;&quot;&gt;T&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700; color:#000000;&quot;&gt;ERMS AND CONDITIONS&lt;/span&gt;&lt;/h4&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section0&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;. Definitions.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;“This License” refers to version 3 of the GNU General Public License.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;“Copyright” also means copyright-like laws that apply to other kinds of works, such as semiconductor masks.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;“The Program” refers to any copyrightable work licensed under this License. Each licensee is addressed as “you”. “Licensees” and “recipients” may be individuals or organizations.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;To “modify” a work means to copy from or adapt all or part of the work in a fashion requiring copyright permission, other than the making of an exact copy. The resulting work is called a “modified version” of the earlier work or a work “based on” the earlier work.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;A “covered work” means either the unmodified Program or a work based on the Program.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;To “propagate” a work means to do anything with it that, without permission, would make you directly or secondarily liable for infringement under applicable copyright law, except executing it on a computer or modifying a private copy. Propagation includes copying, distribution (with or without modification), making available to the public, and in some countries other activities as well.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;To “convey” a work means any kind of propagation that enables other parties to make or receive copies. Mere interaction with a user through a computer network, with no transfer of a copy, is not conveying.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;An interactive user interface displays “Appropriate Legal Notices” to the extent that it includes a convenient and prominently visible feature that (1) displays an appropriate copyright notice, and (2) tells the user that there is no warranty for the work (except to the extent that warranties are provided), that licensees may convey the work under this License, and how to view a copy of this License. If the interface presents a list of user commands or options, such as a menu, a prominent item in the list meets this criterion.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section1&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;. Source Code.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The “source code” for a work means the preferred form of the work for making modifications to it. “Object code” means any non-source form of a work.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;A “Standard Interface” means an interface that either is an official standard defined by a recognized standards body, or, in the case of interfaces specified for a particular programming language, one that is widely used among developers working in that language.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The “System Libraries” of an executable work include anything, other than the work as a whole, that (a) is included in the normal form of packaging a Major Component, but which is not part of that Major Component, and (b) serves only to enable use of the work with that Major Component, or to implement a Standard Interface for which an implementation is available to the public in source code form. A “Major Component”, in this context, means a major essential component (kernel, window system, and so on) of the specific operating system (if any) on which the executable work runs, or a compiler used to produce the work, or an object code interpreter used to run it.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The “Corresponding Source” for a work in object code form means all the source code needed to generate, install, and (for an executable work) run the object code and to modify the work, including scripts to control those activities. However, it does not include the work&apos;s System Libraries, or general-purpose tools or generally available free programs which are used unmodified in performing those activities but which are not part of the work. For example, Corresponding Source includes interface definition files associated with source files for the work, and the source code for shared libraries and dynamically linked subprograms that the work is specifically designed to require, such as by intimate data communication or control flow between those subprograms and other parts of the work.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The Corresponding Source need not include anything that users can regenerate automatically from other parts of the Corresponding Source.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The Corresponding Source for a work in source code form is that same work.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section2&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;. Basic Permissions.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;All rights granted under this License are granted for the term of copyright on the Program, and are irrevocable provided the stated conditions are met. This License explicitly affirms your unlimited permission to run the unmodified Program. The output from running a covered work is covered by this License only if the output, given its content, constitutes a covered work. This License acknowledges your rights of fair use or other equivalent, as provided by copyright law.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;You may make, run and propagate covered works that you do not convey, without conditions so long as your license otherwise remains in force. You may convey covered works to others for the sole purpose of having them make modifications exclusively for you, or provide you with facilities for running those works, provided that you comply with the terms of this License in conveying all material for which you do not control copyright. Those thus making or running the covered works for you must do so exclusively on your behalf, under your direction and control, on terms that prohibit them from making any copies of your copyrighted material outside their relationship with you.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Conveying under any other circumstances is permitted solely under the conditions stated below. Sublicensing is not allowed; section 10 makes it unnecessary.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section3&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;. Protecting Users&apos; Legal Rights From Anti-Circumvention Law.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;No covered work shall be deemed part of an effective technological measure under any applicable law fulfilling obligations under article 11 of the WIPO copyright treaty adopted on 20 December 1996, or similar laws prohibiting or restricting circumvention of such measures.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;When you convey a covered work, you waive any legal power to forbid circumvention of technological measures to the extent such circumvention is effected by exercising rights under this License with respect to the covered work, and you disclaim any intention to limit operation or modification of the work as a means of enforcing, against the work&apos;s users, your or third parties&apos; legal rights to forbid circumvention of technological measures.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section4&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;4&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;. Conveying Verbatim Copies.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;You may convey verbatim copies of the Program&apos;s source code as you receive it, in any medium, provided that you conspicuously and appropriately publish on each copy an appropriate copyright notice; keep intact all notices stating that this License and any non-permissive terms added in accord with section 7 apply to the code; keep intact all notices of the absence of any warranty; and give all recipients a copy of this License along with the Program.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;You may charge any price or no price for each copy that you convey, and you may offer support or warranty protection for a fee.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section5&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;5&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;. Conveying Modified Source Versions.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;You may convey a work based on the Program, or the modifications to produce it from the Program, in the form of source code under the terms of section 4, provided that you also meet all of these conditions:&lt;/span&gt;&lt;/p&gt;
+&lt;h3 align=&quot;center&quot; style=&quot; margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:large; font-weight:700;&quot;&gt;GNU GENERAL PUBLIC LICENSE&lt;/span&gt;&lt;/h3&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Version 3, 29 June 2007&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Copyright © 2007 Free Software Foundation, Inc. &amp;lt;&lt;/span&gt;&lt;a href=&quot;https://fsf.org/&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; text-decoration: underline; text-decoration-color:#000000; color:#2980b9;&quot;&gt;https://fsf.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.&lt;/span&gt;&lt;/p&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;preamble&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700;&quot;&gt;P&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700;&quot;&gt;reamble&lt;/span&gt;&lt;/h4&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The GNU General Public License is a free, copyleft license for software and other kinds of works.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The licenses for most software and other practical works are designed to take away your freedom to share and change the works. By contrast, the GNU General Public License is intended to guarantee your freedom to share and change all versions of a program--to make sure it remains free software for all its users. We, the Free Software Foundation, use the GNU General Public License for most of our software; it applies also to any other work released this way by its authors. You can apply it to your programs, too.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;When we speak of free software, we are referring to freedom, not price. Our General Public Licenses are designed to make sure that you have the freedom to distribute copies of free software (and charge for them if you wish), that you receive source code or can get it if you want it, that you can change the software or use pieces of it in new free programs, and that you know you can do these things.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;To protect your rights, we need to prevent others from denying you these rights or asking you to surrender the rights. Therefore, you have certain responsibilities if you distribute copies of the software, or if you modify it: responsibilities to respect the freedom of others.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;For example, if you distribute copies of such a program, whether gratis or for a fee, you must pass on to the recipients the same freedoms that you received. You must make sure that they, too, receive or can get the source code. And you must show them these terms so they know their rights.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Developers that use the GNU GPL protect your rights with two steps: (1) assert copyright on the software, and (2) offer you this License giving you legal permission to copy, distribute and/or modify it.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;For the developers&apos; and authors&apos; protection, the GPL clearly explains that there is no warranty for this free software. For both users&apos; and authors&apos; sake, the GPL requires that modified versions be marked as changed, so that their problems will not be attributed erroneously to authors of previous versions.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Some devices are designed to deny users access to install or run modified versions of the software inside them, although the manufacturer can do so. This is fundamentally incompatible with the aim of protecting users&apos; freedom to change the software. The systematic pattern of such abuse occurs in the area of products for individuals to use, which is precisely where it is most unacceptable. Therefore, we have designed this version of the GPL to prohibit the practice for those products. If such problems arise substantially in other domains, we stand ready to extend this provision to those domains in future versions of the GPL, as needed to protect the freedom of users.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Finally, every program is threatened constantly by software patents. States should not allow patents to restrict development and use of software on general-purpose computers, but in those that do, we wish to avoid the special danger that patents applied to a free program could make it effectively proprietary. To prevent this, the GPL assures that patents cannot be used to render the program non-free.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The precise terms and conditions for copying, distribution and modification follow.&lt;/span&gt;&lt;/p&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;terms&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700;&quot;&gt;T&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700;&quot;&gt;ERMS AND CONDITIONS&lt;/span&gt;&lt;/h4&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section0&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;. Definitions.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;“This License” refers to version 3 of the GNU General Public License.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;“Copyright” also means copyright-like laws that apply to other kinds of works, such as semiconductor masks.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;“The Program” refers to any copyrightable work licensed under this License. Each licensee is addressed as “you”. “Licensees” and “recipients” may be individuals or organizations.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;To “modify” a work means to copy from or adapt all or part of the work in a fashion requiring copyright permission, other than the making of an exact copy. The resulting work is called a “modified version” of the earlier work or a work “based on” the earlier work.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;A “covered work” means either the unmodified Program or a work based on the Program.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;To “propagate” a work means to do anything with it that, without permission, would make you directly or secondarily liable for infringement under applicable copyright law, except executing it on a computer or modifying a private copy. Propagation includes copying, distribution (with or without modification), making available to the public, and in some countries other activities as well.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;To “convey” a work means any kind of propagation that enables other parties to make or receive copies. Mere interaction with a user through a computer network, with no transfer of a copy, is not conveying.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;An interactive user interface displays “Appropriate Legal Notices” to the extent that it includes a convenient and prominently visible feature that (1) displays an appropriate copyright notice, and (2) tells the user that there is no warranty for the work (except to the extent that warranties are provided), that licensees may convey the work under this License, and how to view a copy of this License. If the interface presents a list of user commands or options, such as a menu, a prominent item in the list meets this criterion.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section1&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;. Source Code.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The “source code” for a work means the preferred form of the work for making modifications to it. “Object code” means any non-source form of a work.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;A “Standard Interface” means an interface that either is an official standard defined by a recognized standards body, or, in the case of interfaces specified for a particular programming language, one that is widely used among developers working in that language.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The “System Libraries” of an executable work include anything, other than the work as a whole, that (a) is included in the normal form of packaging a Major Component, but which is not part of that Major Component, and (b) serves only to enable use of the work with that Major Component, or to implement a Standard Interface for which an implementation is available to the public in source code form. A “Major Component”, in this context, means a major essential component (kernel, window system, and so on) of the specific operating system (if any) on which the executable work runs, or a compiler used to produce the work, or an object code interpreter used to run it.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The “Corresponding Source” for a work in object code form means all the source code needed to generate, install, and (for an executable work) run the object code and to modify the work, including scripts to control those activities. However, it does not include the work&apos;s System Libraries, or general-purpose tools or generally available free programs which are used unmodified in performing those activities but which are not part of the work. For example, Corresponding Source includes interface definition files associated with source files for the work, and the source code for shared libraries and dynamically linked subprograms that the work is specifically designed to require, such as by intimate data communication or control flow between those subprograms and other parts of the work.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The Corresponding Source need not include anything that users can regenerate automatically from other parts of the Corresponding Source.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The Corresponding Source for a work in source code form is that same work.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section2&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;. Basic Permissions.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;All rights granted under this License are granted for the term of copyright on the Program, and are irrevocable provided the stated conditions are met. This License explicitly affirms your unlimited permission to run the unmodified Program. The output from running a covered work is covered by this License only if the output, given its content, constitutes a covered work. This License acknowledges your rights of fair use or other equivalent, as provided by copyright law.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;You may make, run and propagate covered works that you do not convey, without conditions so long as your license otherwise remains in force. You may convey covered works to others for the sole purpose of having them make modifications exclusively for you, or provide you with facilities for running those works, provided that you comply with the terms of this License in conveying all material for which you do not control copyright. Those thus making or running the covered works for you must do so exclusively on your behalf, under your direction and control, on terms that prohibit them from making any copies of your copyrighted material outside their relationship with you.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Conveying under any other circumstances is permitted solely under the conditions stated below. Sublicensing is not allowed; section 10 makes it unnecessary.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section3&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;. Protecting Users&apos; Legal Rights From Anti-Circumvention Law.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;No covered work shall be deemed part of an effective technological measure under any applicable law fulfilling obligations under article 11 of the WIPO copyright treaty adopted on 20 December 1996, or similar laws prohibiting or restricting circumvention of such measures.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;When you convey a covered work, you waive any legal power to forbid circumvention of technological measures to the extent such circumvention is effected by exercising rights under this License with respect to the covered work, and you disclaim any intention to limit operation or modification of the work as a means of enforcing, against the work&apos;s users, your or third parties&apos; legal rights to forbid circumvention of technological measures.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section4&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;4&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;. Conveying Verbatim Copies.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;You may convey verbatim copies of the Program&apos;s source code as you receive it, in any medium, provided that you conspicuously and appropriately publish on each copy an appropriate copyright notice; keep intact all notices stating that this License and any non-permissive terms added in accord with section 7 apply to the code; keep intact all notices of the absence of any warranty; and give all recipients a copy of this License along with the Program.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;You may charge any price or no price for each copy that you convey, and you may offer support or warranty protection for a fee.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section5&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;5&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;. Conveying Modified Source Versions.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;You may convey a work based on the Program, or the modifications to produce it from the Program, in the form of source code under the terms of section 4, provided that you also meet all of these conditions:&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;a) The work must carry prominent notices stating that you modified it, and giving a relevant date.&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;b) The work must carry prominent notices stating that it is released under this License and any conditions added under section 7. This requirement modifies the requirement in section 4 to “keep intact all notices”.&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;c) You must license the entire work, as a whole, under this License to anyone who comes into possession of a copy. This License will therefore apply, along with any applicable section 7 additional terms, to the whole of the work, and all its parts, regardless of how they are packaged. This License gives no permission to license the work in any other way, but it does not invalidate such permission if you have separately received it.&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;d) If the work has interactive user interfaces, each must display Appropriate Legal Notices; however, if the Program has interactive interfaces that do not display Appropriate Legal Notices, your work need not make them do so.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;A compilation of a covered work with other separate and independent works, which are not by their nature extensions of the covered work, and which are not combined with it such as to form a larger program, in or on a volume of a storage or distribution medium, is called an “aggregate” if the compilation and its resulting copyright are not used to limit the access or legal rights of the compilation&apos;s users beyond what the individual works permit. Inclusion of a covered work in an aggregate does not cause this License to apply to the other parts of the aggregate.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section6&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;6&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;. Conveying Non-Source Forms.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;You may convey a covered work in object code form under the terms of sections 4 and 5, provided that you also convey the machine-readable Corresponding Source under the terms of this License, in one of these ways:&lt;/span&gt;&lt;/p&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;a) The work must carry prominent notices stating that you modified it, and giving a relevant date.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;b) The work must carry prominent notices stating that it is released under this License and any conditions added under section 7. This requirement modifies the requirement in section 4 to “keep intact all notices”.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;c) You must license the entire work, as a whole, under this License to anyone who comes into possession of a copy. This License will therefore apply, along with any applicable section 7 additional terms, to the whole of the work, and all its parts, regardless of how they are packaged. This License gives no permission to license the work in any other way, but it does not invalidate such permission if you have separately received it.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;d) If the work has interactive user interfaces, each must display Appropriate Legal Notices; however, if the Program has interactive interfaces that do not display Appropriate Legal Notices, your work need not make them do so.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;A compilation of a covered work with other separate and independent works, which are not by their nature extensions of the covered work, and which are not combined with it such as to form a larger program, in or on a volume of a storage or distribution medium, is called an “aggregate” if the compilation and its resulting copyright are not used to limit the access or legal rights of the compilation&apos;s users beyond what the individual works permit. Inclusion of a covered work in an aggregate does not cause this License to apply to the other parts of the aggregate.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section6&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;6&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;. Conveying Non-Source Forms.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;You may convey a covered work in object code form under the terms of sections 4 and 5, provided that you also convey the machine-readable Corresponding Source under the terms of this License, in one of these ways:&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;a) Convey the object code in, or embodied in, a physical product (including a physical distribution medium), accompanied by the Corresponding Source fixed on a durable physical medium customarily used for software interchange.&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;b) Convey the object code in, or embodied in, a physical product (including a physical distribution medium), accompanied by a written offer, valid for at least three years and valid for as long as you offer spare parts or customer support for that product model, to give anyone who possesses the object code either (1) a copy of the Corresponding Source for all the software in the product that is covered by this License, on a durable physical medium customarily used for software interchange, for a price no more than your reasonable cost of physically performing this conveying of source, or (2) access to copy the Corresponding Source from a network server at no charge.&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;c) Convey individual copies of the object code with a copy of the written offer to provide the Corresponding Source. This alternative is allowed only occasionally and noncommercially, and only if you received the object code with such an offer, in accord with subsection 6b.&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;d) Convey the object code by offering access from a designated place (gratis or for a charge), and offer equivalent access to the Corresponding Source in the same way through the same place at no further charge. You need not require recipients to copy the Corresponding Source along with the object code. If the place to copy the object code is a network server, the Corresponding Source may be on a different server (operated by you or a third party) that supports equivalent copying facilities, provided you maintain clear directions next to the object code saying where to find the Corresponding Source. Regardless of what server hosts the Corresponding Source, you remain obligated to ensure that it is available for as long as needed to satisfy these requirements.&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;e) Convey the object code using peer-to-peer transmission, provided you inform other peers where the object code and Corresponding Source of the work are being offered to the general public at no charge under subsection 6d.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;A separable portion of the object code, whose source code is excluded from the Corresponding Source as a System Library, need not be included in conveying the object code work.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;A “User Product” is either (1) a “consumer product”, which means any tangible personal property which is normally used for personal, family, or household purposes, or (2) anything designed or sold for incorporation into a dwelling. In determining whether a product is a consumer product, doubtful cases shall be resolved in favor of coverage. For a particular product received by a particular user, “normally used” refers to a typical or common use of that class of product, regardless of the status of the particular user or of the way in which the particular user actually uses, or expects or is expected to use, the product. A product is a consumer product regardless of whether the product has substantial commercial, industrial or non-consumer uses, unless such uses represent the only significant mode of use of the product.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;“Installation Information” for a User Product means any methods, procedures, authorization keys, or other information required to install and execute modified versions of a covered work in that User Product from a modified version of its Corresponding Source. The information must suffice to ensure that the continued functioning of the modified object code is in no case prevented or interfered with solely because modification has been made.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;If you convey an object code work under this section in, or with, or specifically for use in, a User Product, and the conveying occurs as part of a transaction in which the right of possession and use of the User Product is transferred to the recipient in perpetuity or for a fixed term (regardless of how the transaction is characterized), the Corresponding Source conveyed under this section must be accompanied by the Installation Information. But this requirement does not apply if neither you nor any third party retains the ability to install modified object code on the User Product (for example, the work has been installed in ROM).&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The requirement to provide Installation Information does not include a requirement to continue to provide support service, warranty, or updates for a work that has been modified or installed by the recipient, or for the User Product in which it has been modified or installed. Access to a network may be denied when the modification itself materially and adversely affects the operation of the network or violates the rules and protocols for communication across the network.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Corresponding Source conveyed, and Installation Information provided, in accord with this section must be in a format that is publicly documented (and with an implementation available to the public in source code form), and must require no special password or key for unpacking, reading or copying.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section7&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;7&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;. Additional Terms.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;“Additional permissions” are terms that supplement the terms of this License by making exceptions from one or more of its conditions. Additional permissions that are applicable to the entire Program shall be treated as though they were included in this License, to the extent that they are valid under applicable law. If additional permissions apply only to part of the Program, that part may be used separately under those permissions, but the entire Program remains governed by this License without regard to the additional permissions.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;When you convey a copy of a covered work, you may at your option remove any additional permissions from that copy, or from any part of it. (Additional permissions may be written to require their own removal in certain cases when you modify the work.) You may place additional permissions on material, added by you to a covered work, for which you have or can give appropriate copyright permission.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Notwithstanding any other provision of this License, for material you add to a covered work, you may (if authorized by the copyright holders of that material) supplement the terms of this License with terms:&lt;/span&gt;&lt;/p&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;a) Convey the object code in, or embodied in, a physical product (including a physical distribution medium), accompanied by the Corresponding Source fixed on a durable physical medium customarily used for software interchange.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;b) Convey the object code in, or embodied in, a physical product (including a physical distribution medium), accompanied by a written offer, valid for at least three years and valid for as long as you offer spare parts or customer support for that product model, to give anyone who possesses the object code either (1) a copy of the Corresponding Source for all the software in the product that is covered by this License, on a durable physical medium customarily used for software interchange, for a price no more than your reasonable cost of physically performing this conveying of source, or (2) access to copy the Corresponding Source from a network server at no charge.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;c) Convey individual copies of the object code with a copy of the written offer to provide the Corresponding Source. This alternative is allowed only occasionally and noncommercially, and only if you received the object code with such an offer, in accord with subsection 6b.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;d) Convey the object code by offering access from a designated place (gratis or for a charge), and offer equivalent access to the Corresponding Source in the same way through the same place at no further charge. You need not require recipients to copy the Corresponding Source along with the object code. If the place to copy the object code is a network server, the Corresponding Source may be on a different server (operated by you or a third party) that supports equivalent copying facilities, provided you maintain clear directions next to the object code saying where to find the Corresponding Source. Regardless of what server hosts the Corresponding Source, you remain obligated to ensure that it is available for as long as needed to satisfy these requirements.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;e) Convey the object code using peer-to-peer transmission, provided you inform other peers where the object code and Corresponding Source of the work are being offered to the general public at no charge under subsection 6d.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;A separable portion of the object code, whose source code is excluded from the Corresponding Source as a System Library, need not be included in conveying the object code work.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;A “User Product” is either (1) a “consumer product”, which means any tangible personal property which is normally used for personal, family, or household purposes, or (2) anything designed or sold for incorporation into a dwelling. In determining whether a product is a consumer product, doubtful cases shall be resolved in favor of coverage. For a particular product received by a particular user, “normally used” refers to a typical or common use of that class of product, regardless of the status of the particular user or of the way in which the particular user actually uses, or expects or is expected to use, the product. A product is a consumer product regardless of whether the product has substantial commercial, industrial or non-consumer uses, unless such uses represent the only significant mode of use of the product.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;“Installation Information” for a User Product means any methods, procedures, authorization keys, or other information required to install and execute modified versions of a covered work in that User Product from a modified version of its Corresponding Source. The information must suffice to ensure that the continued functioning of the modified object code is in no case prevented or interfered with solely because modification has been made.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;If you convey an object code work under this section in, or with, or specifically for use in, a User Product, and the conveying occurs as part of a transaction in which the right of possession and use of the User Product is transferred to the recipient in perpetuity or for a fixed term (regardless of how the transaction is characterized), the Corresponding Source conveyed under this section must be accompanied by the Installation Information. But this requirement does not apply if neither you nor any third party retains the ability to install modified object code on the User Product (for example, the work has been installed in ROM).&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The requirement to provide Installation Information does not include a requirement to continue to provide support service, warranty, or updates for a work that has been modified or installed by the recipient, or for the User Product in which it has been modified or installed. Access to a network may be denied when the modification itself materially and adversely affects the operation of the network or violates the rules and protocols for communication across the network.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Corresponding Source conveyed, and Installation Information provided, in accord with this section must be in a format that is publicly documented (and with an implementation available to the public in source code form), and must require no special password or key for unpacking, reading or copying.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section7&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;7&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;. Additional Terms.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;“Additional permissions” are terms that supplement the terms of this License by making exceptions from one or more of its conditions. Additional permissions that are applicable to the entire Program shall be treated as though they were included in this License, to the extent that they are valid under applicable law. If additional permissions apply only to part of the Program, that part may be used separately under those permissions, but the entire Program remains governed by this License without regard to the additional permissions.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;When you convey a copy of a covered work, you may at your option remove any additional permissions from that copy, or from any part of it. (Additional permissions may be written to require their own removal in certain cases when you modify the work.) You may place additional permissions on material, added by you to a covered work, for which you have or can give appropriate copyright permission.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Notwithstanding any other provision of this License, for material you add to a covered work, you may (if authorized by the copyright holders of that material) supplement the terms of this License with terms:&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;a) Disclaiming warranty or limiting liability differently from the terms of sections 15 and 16 of this License; or&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;b) Requiring preservation of specified reasonable legal notices or author attributions in that material or in the Appropriate Legal Notices displayed by works containing it; or&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;c) Prohibiting misrepresentation of the origin of that material, or requiring that modified versions of such material be marked in reasonable ways as different from the original version; or&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;d) Limiting the use for publicity purposes of names of licensors or authors of the material; or&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;e) Declining to grant rights under trademark law for use of some trade names, trademarks, or service marks; or&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;f) Requiring indemnification of licensors and authors of that material by anyone who conveys the material (or modified versions of it) with contractual assumptions of liability to the recipient, for any liability that these contractual assumptions directly impose on those licensors and authors.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;All other non-permissive additional terms are considered “further restrictions” within the meaning of section 10. If the Program as you received it, or any part of it, contains a notice stating that it is governed by this License along with a term that is a further restriction, you may remove that term. If a license document contains a further restriction but permits relicensing or conveying under this License, you may add to a covered work material governed by the terms of that license document, provided that the further restriction does not survive such relicensing or conveying.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;If you add terms to a covered work in accord with this section, you must place, in the relevant source files, a statement of the additional terms that apply to those files, or a notice indicating where to find the applicable terms.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Additional terms, permissive or non-permissive, may be stated in the form of a separately written license, or stated as exceptions; the above requirements apply either way.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section8&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;8&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;. Termination.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;You may not propagate or modify a covered work except as expressly provided under this License. Any attempt otherwise to propagate or modify it is void, and will automatically terminate your rights under this License (including any patent licenses granted under the third paragraph of section 11).&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;However, if you cease all violation of this License, then your license from a particular copyright holder is reinstated (a) provisionally, unless and until the copyright holder explicitly and finally terminates your license, and (b) permanently, if the copyright holder fails to notify you of the violation by some reasonable means prior to 60 days after the cessation.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Moreover, your license from a particular copyright holder is reinstated permanently if the copyright holder notifies you of the violation by some reasonable means, this is the first time you have received notice of violation of this License (for any work) from that copyright holder, and you cure the violation prior to 30 days after your receipt of the notice.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Termination of your rights under this section does not terminate the licenses of parties who have received copies or rights from you under this License. If your rights have been terminated and not permanently reinstated, you do not qualify to receive new licenses for the same material under section 10.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section9&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;9&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;. Acceptance Not Required for Having Copies.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;You are not required to accept this License in order to receive or run a copy of the Program. Ancillary propagation of a covered work occurring solely as a consequence of using peer-to-peer transmission to receive a copy likewise does not require acceptance. However, nothing other than this License grants you permission to propagate or modify any covered work. These actions infringe copyright if you do not accept this License. Therefore, by modifying or propagating a covered work, you indicate your acceptance of this License to do so.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section10&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;0. Automatic Licensing of Downstream Recipients.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Each time you convey a covered work, the recipient automatically receives a license from the original licensors, to run, modify and propagate that work, subject to this License. You are not responsible for enforcing compliance by third parties with this License.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;An “entity transaction” is a transaction transferring control of an organization, or substantially all assets of one, or subdividing an organization, or merging organizations. If propagation of a covered work results from an entity transaction, each party to that transaction who receives a copy of the work also receives whatever licenses to the work the party&apos;s predecessor in interest had or could give under the previous paragraph, plus a right to possession of the Corresponding Source of the work from the predecessor in interest, if the predecessor has it or can get it with reasonable efforts.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;You may not impose any further restrictions on the exercise of the rights granted or affirmed under this License. For example, you may not impose a license fee, royalty, or other charge for exercise of rights granted under this License, and you may not initiate litigation (including a cross-claim or counterclaim in a lawsuit) alleging that any patent claim is infringed by making, using, selling, offering for sale, or importing the Program or any portion of it.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section11&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;1. Patents.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;A “contributor” is a copyright holder who authorizes use under this License of the Program or a work on which the Program is based. The work thus licensed is called the contributor&apos;s “contributor version”.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;A contributor&apos;s “essential patent claims” are all patent claims owned or controlled by the contributor, whether already acquired or hereafter acquired, that would be infringed by some manner, permitted by this License, of making, using, or selling its contributor version, but do not include claims that would be infringed only as a consequence of further modification of the contributor version. For purposes of this definition, “control” includes the right to grant patent sublicenses in a manner consistent with the requirements of this License.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Each contributor grants you a non-exclusive, worldwide, royalty-free patent license under the contributor&apos;s essential patent claims, to make, use, sell, offer for sale, import and otherwise run, modify and propagate the contents of its contributor version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;In the following three paragraphs, a “patent license” is any express agreement or commitment, however denominated, not to enforce a patent (such as an express permission to practice a patent or covenant not to sue for patent infringement). To “grant” such a patent license to a party means to make such an agreement or commitment not to enforce a patent against the party.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;If you convey a covered work, knowingly relying on a patent license, and the Corresponding Source of the work is not available for anyone to copy, free of charge and under the terms of this License, through a publicly available network server or other readily accessible means, then you must either (1) cause the Corresponding Source to be so available, or (2) arrange to deprive yourself of the benefit of the patent license for this particular work, or (3) arrange, in a manner consistent with the requirements of this License, to extend the patent license to downstream recipients. “Knowingly relying” means you have actual knowledge that, but for the patent license, your conveying the covered work in a country, or your recipient&apos;s use of the covered work in a country, would infringe one or more identifiable patents in that country that you have reason to believe are valid.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;If, pursuant to or in connection with a single transaction or arrangement, you convey, or propagate by procuring conveyance of, a covered work, and grant a patent license to some of the parties receiving the covered work authorizing them to use, propagate, modify or convey a specific copy of the covered work, then the patent license you grant is automatically extended to all recipients of the covered work and works based on it.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;A patent license is “discriminatory” if it does not include within the scope of its coverage, prohibits the exercise of, or is conditioned on the non-exercise of one or more of the rights that are specifically granted under this License. You may not convey a covered work if you are a party to an arrangement with a third party that is in the business of distributing software, under which you make payment to the third party based on the extent of your activity of conveying the work, and under which the third party grants, to any of the parties who would receive the covered work from you, a discriminatory patent license (a) in connection with copies of the covered work conveyed by you (or copies made from those copies), or (b) primarily for and in connection with specific products or compilations that contain the covered work, unless you entered into that arrangement, or that patent license was granted, prior to 28 March 2007.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Nothing in this License shall be construed as excluding or limiting any implied license or other defenses to infringement that may otherwise be available to you under applicable patent law.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section12&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;2. No Surrender of Others&apos; Freedom.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;If conditions are imposed on you (whether by court order, agreement or otherwise) that contradict the conditions of this License, they do not excuse you from the conditions of this License. If you cannot convey a covered work so as to satisfy simultaneously your obligations under this License and any other pertinent obligations, then as a consequence you may not convey it at all. For example, if you agree to terms that obligate you to collect a royalty for further conveying from those to whom you convey the Program, the only way you could satisfy both those terms and this License would be to refrain entirely from conveying the Program.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section13&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;3. Use with the GNU Affero General Public License.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Notwithstanding any other provision of this License, you have permission to link or combine any covered work with a work licensed under version 3 of the GNU Affero General Public License into a single combined work, and to convey the resulting work. The terms of this License will continue to apply to the part which is the covered work, but the special requirements of the GNU Affero General Public License, section 13, concerning interaction through a network will apply to the combination as such.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section14&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;4. Revised Versions of this License.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The Free Software Foundation may publish revised and/or new versions of the GNU General Public License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Each version is given a distinguishing version number. If the Program specifies that a certain numbered version of the GNU General Public License “or any later version” applies to it, you have the option of following the terms and conditions either of that numbered version or of any later version published by the Free Software Foundation. If the Program does not specify a version number of the GNU General Public License, you may choose any version ever published by the Free Software Foundation.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;If the Program specifies that a proxy can decide which future versions of the GNU General Public License can be used, that proxy&apos;s public statement of acceptance of a version permanently authorizes you to choose that version for the Program.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Later license versions may give you additional or different permissions. However, no additional obligations are imposed on any author or copyright holder as a result of your choosing to follow a later version.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section15&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;5. Disclaimer of Warranty.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section16&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;6. Limitation of Liability.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.&lt;/span&gt;&lt;/p&gt;
-&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section17&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700; color:#000000;&quot;&gt;7. Interpretation of Sections 15 and 16.&lt;/span&gt;&lt;/h5&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;If the disclaimer of warranty and limitation of liability provided above cannot be given local legal effect according to their terms, reviewing courts shall apply local law that most closely approximates an absolute waiver of all civil liability in connection with the Program, unless a warranty or assumption of liability accompanies a copy of the Program in return for a fee.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;END OF TERMS AND CONDITIONS&lt;/span&gt;&lt;/p&gt;
-&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;howto&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700; color:#000000;&quot;&gt;H&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700; color:#000000;&quot;&gt;ow to Apply These Terms to Your New Programs&lt;/span&gt;&lt;/h4&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;If you develop a new program, and you want it to be of the greatest possible use to the public, the best way to achieve this is to make it free software which everyone can redistribute and change under these terms.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;To do so, attach the following notices to the program. It is safest to attach them to the start of each source file to most effectively state the exclusion of warranty; and each file should have at least the “copyright” line and a pointer to where the full notice is found.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    &amp;lt;one line to give the program&apos;s name and a brief idea of what it does.&amp;gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    Copyright (C) &amp;lt;year&amp;gt;  &amp;lt;name of author&amp;gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    This program is free software: you can redistribute it and/or modify&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    it under the terms of the GNU General Public License as published by&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    the Free Software Foundation, either version 3 of the License, or&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    This program is distributed in the hope that it will be useful,&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    but WITHOUT ANY WARRANTY; without even the implied warranty of&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    You should have received a copy of the GNU General Public License&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    along with this program.  If not, see &amp;lt;https://www.gnu.org/licenses/&amp;gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;Also add information on how to contact you by electronic and paper mail.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;If the program does terminal interaction, make it output a short notice like this when it starts in an interactive mode:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    &amp;lt;program&amp;gt;  Copyright (C) &amp;lt;year&amp;gt;  &amp;lt;name of author&amp;gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    This program comes with ABSOLUTELY NO WARRANTY; for details type `show w&apos;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    This is free software, and you are welcome to redistribute it&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;; color:#000000;&quot;&gt;    under certain conditions; type `show c&apos; for details.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The hypothetical commands `show w&apos; and `show c&apos; should show the appropriate parts of the General Public License. Of course, your program&apos;s commands might be different; for a GUI interface, you would use an “about box”.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;You should also get your employer (if you work as a programmer) or school, if any, to sign a “copyright disclaimer” for the program, if necessary. For more information on this, and how to apply and follow the GNU GPL, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;https://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; text-decoration: underline; text-decoration-color:#000000; color:#2980b9;&quot;&gt;https://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;The GNU General Public License does not permit incorporating your program into proprietary programs. If your program is a subroutine library, you may consider it more useful to permit linking proprietary applications with the library. If this is what you want to do, use the GNU Lesser General Public License instead of this License. But first, please read &amp;lt;&lt;/span&gt;&lt;a href=&quot;https://www.gnu.org/licenses/why-not-lgpl.html&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; text-decoration: underline; text-decoration-color:#000000; color:#2980b9;&quot;&gt;https://www.gnu.org/licenses/why-not-lgpl.html&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; color:#000000;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;a) Disclaiming warranty or limiting liability differently from the terms of sections 15 and 16 of this License; or&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;b) Requiring preservation of specified reasonable legal notices or author attributions in that material or in the Appropriate Legal Notices displayed by works containing it; or&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;c) Prohibiting misrepresentation of the origin of that material, or requiring that modified versions of such material be marked in reasonable ways as different from the original version; or&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;d) Limiting the use for publicity purposes of names of licensors or authors of the material; or&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;e) Declining to grant rights under trademark law for use of some trade names, trademarks, or service marks; or&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:medium;&quot;&gt;f) Requiring indemnification of licensors and authors of that material by anyone who conveys the material (or modified versions of it) with contractual assumptions of liability to the recipient, for any liability that these contractual assumptions directly impose on those licensors and authors.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;All other non-permissive additional terms are considered “further restrictions” within the meaning of section 10. If the Program as you received it, or any part of it, contains a notice stating that it is governed by this License along with a term that is a further restriction, you may remove that term. If a license document contains a further restriction but permits relicensing or conveying under this License, you may add to a covered work material governed by the terms of that license document, provided that the further restriction does not survive such relicensing or conveying.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;If you add terms to a covered work in accord with this section, you must place, in the relevant source files, a statement of the additional terms that apply to those files, or a notice indicating where to find the applicable terms.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Additional terms, permissive or non-permissive, may be stated in the form of a separately written license, or stated as exceptions; the above requirements apply either way.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section8&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;8&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;. Termination.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;You may not propagate or modify a covered work except as expressly provided under this License. Any attempt otherwise to propagate or modify it is void, and will automatically terminate your rights under this License (including any patent licenses granted under the third paragraph of section 11).&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;However, if you cease all violation of this License, then your license from a particular copyright holder is reinstated (a) provisionally, unless and until the copyright holder explicitly and finally terminates your license, and (b) permanently, if the copyright holder fails to notify you of the violation by some reasonable means prior to 60 days after the cessation.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Moreover, your license from a particular copyright holder is reinstated permanently if the copyright holder notifies you of the violation by some reasonable means, this is the first time you have received notice of violation of this License (for any work) from that copyright holder, and you cure the violation prior to 30 days after your receipt of the notice.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Termination of your rights under this section does not terminate the licenses of parties who have received copies or rights from you under this License. If your rights have been terminated and not permanently reinstated, you do not qualify to receive new licenses for the same material under section 10.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section9&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;9&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;. Acceptance Not Required for Having Copies.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;You are not required to accept this License in order to receive or run a copy of the Program. Ancillary propagation of a covered work occurring solely as a consequence of using peer-to-peer transmission to receive a copy likewise does not require acceptance. However, nothing other than this License grants you permission to propagate or modify any covered work. These actions infringe copyright if you do not accept this License. Therefore, by modifying or propagating a covered work, you indicate your acceptance of this License to do so.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section10&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;0. Automatic Licensing of Downstream Recipients.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Each time you convey a covered work, the recipient automatically receives a license from the original licensors, to run, modify and propagate that work, subject to this License. You are not responsible for enforcing compliance by third parties with this License.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;An “entity transaction” is a transaction transferring control of an organization, or substantially all assets of one, or subdividing an organization, or merging organizations. If propagation of a covered work results from an entity transaction, each party to that transaction who receives a copy of the work also receives whatever licenses to the work the party&apos;s predecessor in interest had or could give under the previous paragraph, plus a right to possession of the Corresponding Source of the work from the predecessor in interest, if the predecessor has it or can get it with reasonable efforts.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;You may not impose any further restrictions on the exercise of the rights granted or affirmed under this License. For example, you may not impose a license fee, royalty, or other charge for exercise of rights granted under this License, and you may not initiate litigation (including a cross-claim or counterclaim in a lawsuit) alleging that any patent claim is infringed by making, using, selling, offering for sale, or importing the Program or any portion of it.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section11&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;1. Patents.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;A “contributor” is a copyright holder who authorizes use under this License of the Program or a work on which the Program is based. The work thus licensed is called the contributor&apos;s “contributor version”.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;A contributor&apos;s “essential patent claims” are all patent claims owned or controlled by the contributor, whether already acquired or hereafter acquired, that would be infringed by some manner, permitted by this License, of making, using, or selling its contributor version, but do not include claims that would be infringed only as a consequence of further modification of the contributor version. For purposes of this definition, “control” includes the right to grant patent sublicenses in a manner consistent with the requirements of this License.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Each contributor grants you a non-exclusive, worldwide, royalty-free patent license under the contributor&apos;s essential patent claims, to make, use, sell, offer for sale, import and otherwise run, modify and propagate the contents of its contributor version.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;In the following three paragraphs, a “patent license” is any express agreement or commitment, however denominated, not to enforce a patent (such as an express permission to practice a patent or covenant not to sue for patent infringement). To “grant” such a patent license to a party means to make such an agreement or commitment not to enforce a patent against the party.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;If you convey a covered work, knowingly relying on a patent license, and the Corresponding Source of the work is not available for anyone to copy, free of charge and under the terms of this License, through a publicly available network server or other readily accessible means, then you must either (1) cause the Corresponding Source to be so available, or (2) arrange to deprive yourself of the benefit of the patent license for this particular work, or (3) arrange, in a manner consistent with the requirements of this License, to extend the patent license to downstream recipients. “Knowingly relying” means you have actual knowledge that, but for the patent license, your conveying the covered work in a country, or your recipient&apos;s use of the covered work in a country, would infringe one or more identifiable patents in that country that you have reason to believe are valid.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;If, pursuant to or in connection with a single transaction or arrangement, you convey, or propagate by procuring conveyance of, a covered work, and grant a patent license to some of the parties receiving the covered work authorizing them to use, propagate, modify or convey a specific copy of the covered work, then the patent license you grant is automatically extended to all recipients of the covered work and works based on it.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;A patent license is “discriminatory” if it does not include within the scope of its coverage, prohibits the exercise of, or is conditioned on the non-exercise of one or more of the rights that are specifically granted under this License. You may not convey a covered work if you are a party to an arrangement with a third party that is in the business of distributing software, under which you make payment to the third party based on the extent of your activity of conveying the work, and under which the third party grants, to any of the parties who would receive the covered work from you, a discriminatory patent license (a) in connection with copies of the covered work conveyed by you (or copies made from those copies), or (b) primarily for and in connection with specific products or compilations that contain the covered work, unless you entered into that arrangement, or that patent license was granted, prior to 28 March 2007.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Nothing in this License shall be construed as excluding or limiting any implied license or other defenses to infringement that may otherwise be available to you under applicable patent law.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section12&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;2. No Surrender of Others&apos; Freedom.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;If conditions are imposed on you (whether by court order, agreement or otherwise) that contradict the conditions of this License, they do not excuse you from the conditions of this License. If you cannot convey a covered work so as to satisfy simultaneously your obligations under this License and any other pertinent obligations, then as a consequence you may not convey it at all. For example, if you agree to terms that obligate you to collect a royalty for further conveying from those to whom you convey the Program, the only way you could satisfy both those terms and this License would be to refrain entirely from conveying the Program.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section13&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;3. Use with the GNU Affero General Public License.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Notwithstanding any other provision of this License, you have permission to link or combine any covered work with a work licensed under version 3 of the GNU Affero General Public License into a single combined work, and to convey the resulting work. The terms of this License will continue to apply to the part which is the covered work, but the special requirements of the GNU Affero General Public License, section 13, concerning interaction through a network will apply to the combination as such.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section14&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;4. Revised Versions of this License.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The Free Software Foundation may publish revised and/or new versions of the GNU General Public License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Each version is given a distinguishing version number. If the Program specifies that a certain numbered version of the GNU General Public License “or any later version” applies to it, you have the option of following the terms and conditions either of that numbered version or of any later version published by the Free Software Foundation. If the Program does not specify a version number of the GNU General Public License, you may choose any version ever published by the Free Software Foundation.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;If the Program specifies that a proxy can decide which future versions of the GNU General Public License can be used, that proxy&apos;s public statement of acceptance of a version permanently authorizes you to choose that version for the Program.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Later license versions may give you additional or different permissions. However, no additional obligations are imposed on any author or copyright holder as a result of your choosing to follow a later version.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section15&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;5. Disclaimer of Warranty.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section16&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;6. Limitation of Liability.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.&lt;/span&gt;&lt;/p&gt;
+&lt;h5 style=&quot; margin-top:12px; margin-bottom:4px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;section17&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:small; font-weight:700;&quot;&gt;7. Interpretation of Sections 15 and 16.&lt;/span&gt;&lt;/h5&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;If the disclaimer of warranty and limitation of liability provided above cannot be given local legal effect according to their terms, reviewing courts shall apply local law that most closely approximates an absolute waiver of all civil liability in connection with the Program, unless a warranty or assumption of liability accompanies a copy of the Program in return for a fee.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;END OF TERMS AND CONDITIONS&lt;/span&gt;&lt;/p&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;howto&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700;&quot;&gt;H&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; font-weight:700;&quot;&gt;ow to Apply These Terms to Your New Programs&lt;/span&gt;&lt;/h4&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;If you develop a new program, and you want it to be of the greatest possible use to the public, the best way to achieve this is to make it free software which everyone can redistribute and change under these terms.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;To do so, attach the following notices to the program. It is safest to attach them to the start of each source file to most effectively state the exclusion of warranty; and each file should have at least the “copyright” line and a pointer to where the full notice is found.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    &amp;lt;one line to give the program&apos;s name and a brief idea of what it does.&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    Copyright (C) &amp;lt;year&amp;gt;  &amp;lt;name of author&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Hack&apos;;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    This program is free software: you can redistribute it and/or modify&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    it under the terms of the GNU General Public License as published by&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    the Free Software Foundation, either version 3 of the License, or&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Hack&apos;;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    This program is distributed in the hope that it will be useful,&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    but WITHOUT ANY WARRANTY; without even the implied warranty of&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Hack&apos;;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    You should have received a copy of the GNU General Public License&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    along with this program.  If not, see &amp;lt;https://www.gnu.org/licenses/&amp;gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;Also add information on how to contact you by electronic and paper mail.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;If the program does terminal interaction, make it output a short notice like this when it starts in an interactive mode:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    &amp;lt;program&amp;gt;  Copyright (C) &amp;lt;year&amp;gt;  &amp;lt;name of author&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    This program comes with ABSOLUTELY NO WARRANTY; for details type `show w&apos;.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    This is free software, and you are welcome to redistribute it&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Hack&apos;;&quot;&gt;    under certain conditions; type `show c&apos; for details.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The hypothetical commands `show w&apos; and `show c&apos; should show the appropriate parts of the General Public License. Of course, your program&apos;s commands might be different; for a GUI interface, you would use an “about box”.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;You should also get your employer (if you work as a programmer) or school, if any, to sign a “copyright disclaimer” for the program, if necessary. For more information on this, and how to apply and follow the GNU GPL, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;https://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; text-decoration: underline; text-decoration-color:#000000; color:#2980b9;&quot;&gt;https://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;The GNU General Public License does not permit incorporating your program into proprietary programs. If your program is a subroutine library, you may consider it more useful to permit linking proprietary applications with the library. If this is what you want to do, use the GNU Lesser General Public License instead of this License. But first, please read &amp;lt;&lt;/span&gt;&lt;a href=&quot;https://www.gnu.org/licenses/why-not-lgpl.html&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium; text-decoration: underline; text-decoration-color:#000000; color:#2980b9;&quot;&gt;https://www.gnu.org/licenses/why-not-lgpl.html&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:medium;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/infodialog.ui" line="133"/>
+        <source>License</source>
+        <translation>Ліцензія</translation>
     </message>
 </context>
 <context>
@@ -1790,22 +1988,22 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>близько</translation>
     </message>
     <message>
-        <location filename="../src/logviewobject.cpp" line="59"/>
+        <location filename="../src/logviewobject.cpp" line="65"/>
         <source>INFO</source>
         <translation>ІНФОРМАЦІЯ</translation>
     </message>
     <message>
-        <location filename="../src/logviewobject.cpp" line="59"/>
+        <location filename="../src/logviewobject.cpp" line="65"/>
         <source>Log-File was modified. Do you wanna save the changes?</source>
         <translation>Лог-файл було змінено. Ви хочете зберегти зміни?</translation>
     </message>
     <message>
-        <location filename="../src/logviewobject.cpp" line="88"/>
+        <location filename="../src/logviewobject.cpp" line="97"/>
         <source>Clear Log</source>
         <translation>Очистити журнал</translation>
     </message>
     <message>
-        <location filename="../src/logviewobject.cpp" line="88"/>
+        <location filename="../src/logviewobject.cpp" line="97"/>
         <source>Do you realy want to remove this partial log?</source>
         <translation>Ви дійсно хочете видалити цей частковий журнал?</translation>
     </message>
@@ -1833,18 +2031,18 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Очистити все.</translation>
     </message>
     <message>
-        <location filename="../src/logviewerobject.cpp" line="97"/>
-        <location filename="../src/logviewerobject.cpp" line="107"/>
+        <location filename="../src/logviewerobject.cpp" line="125"/>
+        <location filename="../src/logviewerobject.cpp" line="137"/>
         <source>Clear Log</source>
         <translation>Очистити журнал</translation>
     </message>
     <message>
-        <location filename="../src/logviewerobject.cpp" line="97"/>
+        <location filename="../src/logviewerobject.cpp" line="125"/>
         <source>Do you realy want to remove this partial log?</source>
         <translation>Ви дійсно хочете видалити цей частковий журнал?</translation>
     </message>
     <message>
-        <location filename="../src/logviewerobject.cpp" line="107"/>
+        <location filename="../src/logviewerobject.cpp" line="137"/>
         <source>Do you realy want to remove the complete log?</source>
         <translation>Ви дійсно хочете видалити весь журнал?</translation>
     </message>
@@ -1969,36 +2167,34 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Включити/виключити</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="222"/>
-        <location filename="../src/optionsdialog.cpp" line="241"/>
-        <location filename="../src/optionsdialog.cpp" line="248"/>
-        <location filename="../src/optionsdialog.cpp" line="270"/>
+        <location filename="../src/optionsdialog.cpp" line="292"/>
+        <location filename="../src/optionsdialog.cpp" line="320"/>
+        <location filename="../src/optionsdialog.cpp" line="329"/>
+        <location filename="../src/optionsdialog.cpp" line="358"/>
         <source>Select Directory</source>
         <translation>Виберіть каталог</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="231"/>
         <source>Virus definitions missing!</source>
-        <translation>Визначення вірусів відсутні!</translation>
+        <translation type="vanished">Визначення вірусів відсутні!</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="231"/>
         <source>No virus definitions found in the database folder. Should the virus definitions be downloaded?</source>
-        <translation>У теці бази даних не знайдено визначень вірусів. Чи потрібно завантажувати визначення вірусів?</translation>
+        <translation type="vanished">У теці бази даних не знайдено визначень вірусів. Чи потрібно завантажувати визначення вірусів?</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="256"/>
-        <location filename="../src/optionsdialog.cpp" line="263"/>
+        <location filename="../src/optionsdialog.cpp" line="339"/>
+        <location filename="../src/optionsdialog.cpp" line="349"/>
         <source>Select File</source>
         <translation>Виберіть Файл</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="440"/>
+        <location filename="../src/optionsdialog.cpp" line="548"/>
         <source>Database files missing!</source>
         <translation>Відсутні файли бази даних!</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="440"/>
+        <location filename="../src/optionsdialog.cpp" line="549"/>
         <source>The virus definition files are missing in the database directory. Start download of the missing files?</source>
         <translation>У каталозі бази даних відсутні файли визначення вірусів. Почати завантаження відсутніх файлів?</translation>
     </message>
@@ -2012,7 +2208,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../ui/partiallogobject.ui" line="47"/>
-        <location filename="../src/partiallogobject.cpp" line="108"/>
+        <location filename="../src/partiallogobject.cpp" line="106"/>
         <source>search</source>
         <translation>пошук</translation>
     </message>
@@ -2048,50 +2244,50 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../ui/partiallogobject.ui" line="148"/>
-        <location filename="../src/partiallogobject.cpp" line="67"/>
+        <location filename="../src/partiallogobject.cpp" line="64"/>
         <source>Infected Files: </source>
         <translation>Заражені файли: </translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="63"/>
+        <location filename="../src/partiallogobject.cpp" line="60"/>
         <source>Engine Version: </source>
         <translation>Версія двигуна:</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="64"/>
+        <location filename="../src/partiallogobject.cpp" line="61"/>
         <source>Scanned Directories: </source>
         <translation>Відскановані каталоги:</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="65"/>
+        <location filename="../src/partiallogobject.cpp" line="62"/>
         <source>Scanned Files: </source>
         <translation>Відскановані файли:</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="66"/>
+        <location filename="../src/partiallogobject.cpp" line="63"/>
         <source>Total Errors: </source>
         <translation>Тотальні помилки:</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="80"/>
-        <location filename="../src/partiallogobject.cpp" line="92"/>
+        <location filename="../src/partiallogobject.cpp" line="77"/>
+        <location filename="../src/partiallogobject.cpp" line="90"/>
         <source>continue</source>
         <translation>продовжити</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="88"/>
+        <location filename="../src/partiallogobject.cpp" line="85"/>
         <source>Searchstring not found!
 Continue from the Start of the Log?</source>
         <translation>Пошуковий рядок не знайдено!
 Продовжити з початку журналу?</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="100"/>
+        <location filename="../src/partiallogobject.cpp" line="98"/>
         <source>INFO</source>
         <translation>ІНФОРМАЦІЯ</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="100"/>
+        <location filename="../src/partiallogobject.cpp" line="98"/>
         <source>Searchstring not found!</source>
         <translation>Пошуковий рядок не знайдено!</translation>
     </message>
@@ -2309,57 +2505,57 @@ Continue from the Start of the Log?</source>
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="385"/>
+        <location filename="../ui/scantab.ui" line="397"/>
         <source>When a virus is found</source>
         <translation>Коли виявлено вірус</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="309"/>
+        <location filename="../ui/scantab.ui" line="321"/>
         <source>just report</source>
         <translation>Просто повідомте.</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="318"/>
+        <location filename="../ui/scantab.ui" line="330"/>
         <source>remove file (be careful)</source>
         <translation>видаліть файл (будьте обережні)</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="327"/>
+        <location filename="../ui/scantab.ui" line="339"/>
         <source>move file to qurantine folder</source>
         <translation>перемістити файл до теки qurantine</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="336"/>
+        <location filename="../ui/scantab.ui" line="348"/>
         <source>copy file to quarantine folder</source>
         <translation>скопіювати файл до папки карантину</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="378"/>
+        <location filename="../ui/scantab.ui" line="390"/>
         <source>scan recursive</source>
         <translation>рекурсивне сканування</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="392"/>
+        <location filename="../ui/scantab.ui" line="404"/>
         <source>show hidden folders</source>
         <translation>показати приховані папки</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="276"/>
+        <location filename="../ui/scantab.ui" line="288"/>
         <source>Status / Log-Messages</source>
         <translation>Статус / Повідомлення журналу</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="260"/>
+        <location filename="../ui/scantab.ui" line="272"/>
         <source>Info: </source>
         <translation>Інформація: </translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="348"/>
+        <location filename="../ui/scantab.ui" line="360"/>
         <source>start</source>
         <translation>початок</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="291"/>
+        <location filename="../ui/scantab.ui" line="303"/>
         <source>stop</source>
         <translation>стоп</translation>
     </message>
@@ -2374,18 +2570,18 @@ Continue from the Start of the Log?</source>
         <translation>Корінь</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="147"/>
+        <location filename="../ui/scantab.ui" line="153"/>
         <source>Pathes</source>
         <translation>Патес</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="175"/>
-        <location filename="../src/scantab.cpp" line="82"/>
+        <location filename="../ui/scantab.ui" line="187"/>
+        <location filename="../src/scantab.cpp" line="100"/>
         <source>Devices</source>
         <translation>Пристрої</translation>
     </message>
     <message>
-        <location filename="../src/scantab.cpp" line="196"/>
+        <location filename="../src/scantab.cpp" line="231"/>
         <source>Scanning aborted ......</source>
         <translation>Сканування перервано ......</translation>
     </message>
@@ -2490,7 +2686,7 @@ Continue from the Start of the Log?</source>
     </message>
     <message>
         <location filename="../src/schedulescanobject.cpp" line="22"/>
-        <location filename="../src/schedulescanobject.cpp" line="196"/>
+        <location filename="../src/schedulescanobject.cpp" line="220"/>
         <source>Scan-Job: </source>
         <translation>Скан-Джоб: </translation>
     </message>
@@ -2500,105 +2696,105 @@ Continue from the Start of the Log?</source>
         <translation>Запланована робота зі сканування</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="56"/>
+        <location filename="../src/schedulescanobject.cpp" line="63"/>
         <source>Use ClamdScan</source>
         <translation>Використовуйте ClamdScan</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="56"/>
+        <location filename="../src/schedulescanobject.cpp" line="63"/>
         <source>Perform scanning using clamdscan instead of clamscan?</source>
         <translation>Виконувати сканування за допомогою clamdscan замість clamscan?</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="96"/>
+        <location filename="../src/schedulescanobject.cpp" line="109"/>
         <source>Scanning started .......</source>
         <translation>Сканування розпочато .......</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="155"/>
-        <location filename="../src/schedulescanobject.cpp" line="174"/>
+        <location filename="../src/schedulescanobject.cpp" line="177"/>
+        <location filename="../src/schedulescanobject.cpp" line="197"/>
         <source>Scanning : </source>
         <translation>Сканування: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="194"/>
-        <location filename="../src/schedulescanobject.cpp" line="196"/>
+        <location filename="../src/schedulescanobject.cpp" line="218"/>
+        <location filename="../src/schedulescanobject.cpp" line="220"/>
         <source>Scan Process aborted .....</source>
         <translation>Процес сканування перервано .....</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="199"/>
-        <location filename="../src/schedulescanobject.cpp" line="201"/>
+        <location filename="../src/schedulescanobject.cpp" line="223"/>
+        <location filename="../src/schedulescanobject.cpp" line="225"/>
         <source>Scan-Process finished ...... no Virus found!</source>
         <translation>Процес сканування завершено ...... Вірус не знайдено!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="213"/>
+        <location filename="../src/schedulescanobject.cpp" line="237"/>
         <source>Scan-Process finished ...... a Virus was found!</source>
         <translation>Процес сканування завершено ..... знайдено вірус!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="215"/>
+        <location filename="../src/schedulescanobject.cpp" line="239"/>
         <source>Scan Process finished ..... a Virus was found!</source>
         <translation>Процес сканування завершено ..... знайдено вірус!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="217"/>
+        <location filename="../src/schedulescanobject.cpp" line="242"/>
         <source>Scan-Process finished ...... an Error occurred!</source>
         <translation>Процес сканування завершено ...... сталася помилка!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="219"/>
+        <location filename="../src/schedulescanobject.cpp" line="244"/>
         <source>Scan Process finished ..... an Error occurred!</source>
         <translation>Процес сканування завершено ..... сталася помилка!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="232"/>
+        <location filename="../src/schedulescanobject.cpp" line="256"/>
         <source>Engine Version: </source>
         <translation>Версія двигуна: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="234"/>
+        <location filename="../src/schedulescanobject.cpp" line="259"/>
         <source>Engine Version: n/a</source>
         <translation>Версія двигуна: n/a</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="240"/>
+        <location filename="../src/schedulescanobject.cpp" line="265"/>
         <source>Infected files: </source>
         <translation>Заражені файли: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="242"/>
+        <location filename="../src/schedulescanobject.cpp" line="268"/>
         <source>Infected files: n/a</source>
         <translation>Заражені файли: n/a</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="248"/>
+        <location filename="../src/schedulescanobject.cpp" line="274"/>
         <source>Scanned Directories: </source>
         <translation>Відскановані каталоги: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="250"/>
+        <location filename="../src/schedulescanobject.cpp" line="277"/>
         <source>Scanned Directories: n/a</source>
         <translation>Відскановані каталоги: н/д</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="256"/>
+        <location filename="../src/schedulescanobject.cpp" line="283"/>
         <source>Scanned Files: </source>
         <translation>Відскановані файли: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="258"/>
+        <location filename="../src/schedulescanobject.cpp" line="286"/>
         <source>Scanned Files: n/a</source>
         <translation>Відскановані файли: n/a</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="264"/>
+        <location filename="../src/schedulescanobject.cpp" line="292"/>
         <source>Total Errors: </source>
         <translation>Тотальні помилки: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="266"/>
+        <location filename="../src/schedulescanobject.cpp" line="295"/>
         <source>Total Errors: 0</source>
         <translation>Тотальні помилки: 0</translation>
     </message>
@@ -2794,47 +2990,47 @@ Continue from the Start of the Log?</source>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="10"/>
-        <location filename="../src/scheduler.cpp" line="163"/>
+        <location filename="../src/scheduler.cpp" line="173"/>
         <source>Log-File</source>
         <translation>Лог-файл</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="159"/>
+        <location filename="../src/scheduler.cpp" line="169"/>
         <source>remove task</source>
         <translation>видалити завдання</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="161"/>
+        <location filename="../src/scheduler.cpp" line="171"/>
         <source>scan now</source>
         <translation>Проскануйте зараз.</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="176"/>
+        <location filename="../src/scheduler.cpp" line="187"/>
         <source>Start Scan-Job</source>
         <translation>Почати роботу зі сканування</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="176"/>
+        <location filename="../src/scheduler.cpp" line="187"/>
         <source>Do you realy want to start this Scan-Job?</source>
         <translation>Ви справді хочете почати цю роботу зі сканування?</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="198"/>
+        <location filename="../src/scheduler.cpp" line="210"/>
         <source>Remove Entry</source>
         <translation>Видалити запис</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="198"/>
+        <location filename="../src/scheduler.cpp" line="210"/>
         <source>Do you realy want to remove this entry?</source>
         <translation>Ви дійсно хочете видалити цей запис?</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="224"/>
+        <location filename="../src/scheduler.cpp" line="238"/>
         <source>INFO</source>
         <translation>ІНФОРМАЦІЯ</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="224"/>
+        <location filename="../src/scheduler.cpp" line="238"/>
         <source>No active log-file for this profile specified!</source>
         <translation>Для цього профілю не вказано активного лог-файлу!</translation>
     </message>
@@ -2847,252 +3043,163 @@ Continue from the Start of the Log?</source>
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1226"/>
+        <location filename="../ui/setuptab.ui" line="1247"/>
         <source>Window State on Startup</source>
         <translation>Стан вікна під час запуску</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1234"/>
+        <location filename="../ui/setuptab.ui" line="1255"/>
         <source>Show Window maximized</source>
         <translation>Показати вікно розгорнутим</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1239"/>
+        <location filename="../ui/setuptab.ui" line="1260"/>
         <source>Show Tray Icon only</source>
         <translation>Показати лише піктограму лотка</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="201"/>
-        <location filename="../ui/setuptab.ui" line="336"/>
-        <location filename="../ui/setuptab.ui" line="646"/>
+        <location filename="../ui/setuptab.ui" line="234"/>
+        <location filename="../ui/setuptab.ui" line="526"/>
+        <location filename="../ui/setuptab.ui" line="936"/>
         <source>PID: </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="148"/>
-        <location filename="../ui/setuptab.ui" line="176"/>
-        <location filename="../ui/setuptab.ui" line="232"/>
-        <location filename="../ui/setuptab.ui" line="311"/>
-        <location filename="../ui/setuptab.ui" line="389"/>
-        <location filename="../ui/setuptab.ui" line="436"/>
-        <location filename="../ui/setuptab.ui" line="518"/>
-        <location filename="../ui/setuptab.ui" line="621"/>
-        <location filename="../ui/setuptab.ui" line="691"/>
-        <location filename="../ui/setuptab.ui" line="731"/>
-        <location filename="../ui/setuptab.ui" line="848"/>
-        <location filename="../ui/setuptab.ui" line="876"/>
-        <location filename="../ui/setuptab.ui" line="904"/>
-        <location filename="../ui/setuptab.ui" line="1019"/>
+        <location filename="../ui/setuptab.ui" line="167"/>
+        <location filename="../ui/setuptab.ui" line="209"/>
+        <location filename="../ui/setuptab.ui" line="259"/>
+        <location filename="../ui/setuptab.ui" line="398"/>
+        <location filename="../ui/setuptab.ui" line="501"/>
+        <location filename="../ui/setuptab.ui" line="571"/>
+        <location filename="../ui/setuptab.ui" line="611"/>
+        <location filename="../ui/setuptab.ui" line="639"/>
+        <location filename="../ui/setuptab.ui" line="667"/>
+        <location filename="../ui/setuptab.ui" line="843"/>
+        <location filename="../ui/setuptab.ui" line="899"/>
+        <location filename="../ui/setuptab.ui" line="995"/>
+        <location filename="../ui/setuptab.ui" line="1068"/>
+        <location filename="../ui/setuptab.ui" line="1096"/>
         <source>n/a</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../ui/setuptab.ui" line="117"/>
-        <location filename="../ui/setuptab.ui" line="481"/>
-        <location filename="../ui/setuptab.ui" line="571"/>
+        <location filename="../ui/setuptab.ui" line="451"/>
+        <location filename="../ui/setuptab.ui" line="964"/>
         <source>Status: </source>
         <translation>Статус : </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="267"/>
+        <location filename="../ui/setuptab.ui" line="1030"/>
         <source>  Clamonacc</source>
         <translation>  Clamonacc</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="446"/>
+        <location filename="../ui/setuptab.ui" line="177"/>
         <source>  Freshclam</source>
         <translation>  Freshclam</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="659"/>
+        <location filename="../ui/setuptab.ui" line="539"/>
         <source>  Clamd</source>
         <translation>  Clamd</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="762"/>
+        <location filename="../ui/setuptab.ui" line="785"/>
         <source>Database</source>
         <translation>База даних</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="789"/>
+        <location filename="../ui/setuptab.ui" line="812"/>
         <source>Bytecode File: </source>
         <translation>Байтовий файл: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="817"/>
+        <location filename="../ui/setuptab.ui" line="692"/>
         <source>Daily File: </source>
         <translation>Щоденна добірка: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="929"/>
+        <location filename="../ui/setuptab.ui" line="751"/>
         <source>Main File: </source>
         <translation>Головний файл: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="988"/>
+        <location filename="../ui/setuptab.ui" line="868"/>
         <source>Last updated: </source>
         <translation>Останнє оновлення: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1063"/>
+        <location filename="../ui/setuptab.ui" line="1302"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For people with color blindness. Removes all the fancy color stuff from the log files and indicators.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <extracomment>For people with color blindness</extracomment>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Для людей з дальтонізмом. Видаляє всі зайві кольори з файлів журналів та індикаторів.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1352"/>
         <source>ClamAV System Status</source>
         <translation>ClamAV System Status</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1137"/>
+        <location filename="../ui/setuptab.ui" line="323"/>
         <source>ClamdScan</source>
         <translation>ClamdScan</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1148"/>
+        <location filename="../ui/setuptab.ui" line="343"/>
         <source>Never, even if available.</source>
         <translation>Ніколи, навіть якщо вони доступні.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1153"/>
+        <location filename="../ui/setuptab.ui" line="348"/>
         <source>Always, if available.</source>
         <translation>Завжди, якщо є можливість.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1158"/>
+        <location filename="../ui/setuptab.ui" line="353"/>
         <source>For scheduled scan, if available.</source>
         <translation>Для планового сканування, якщо воно доступне.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1163"/>
+        <location filename="../ui/setuptab.ui" line="358"/>
         <source>For direct scan, if available.</source>
         <translation>Для прямого сканування, якщо доступно.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1168"/>
+        <location filename="../ui/setuptab.ui" line="363"/>
         <source>Ask for permission, if available.</source>
         <translation>Попросіть дозволу, якщо він є.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1176"/>
+        <location filename="../ui/setuptab.ui" line="335"/>
         <source>use ClamdScan with multithreading ...</source>
         <translation>використовувати ClamdScan з багатопотоковістю ...</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1300"/>
-        <source>[da_DK] Denmark</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1309"/>
-        <source>[de_DE] Germany</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1318"/>
-        <source>[en_GB] Great Britain</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1327"/>
-        <source>[en_IE] Ireland</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1336"/>
-        <source>[en_US] United States</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1345"/>
-        <source>[en_AU] Australia</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1354"/>
-        <source>[en_NZ] New Zealand</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1363"/>
-        <source>[es_ES] Spain</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1372"/>
-        <source>[fr_FR] France</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1381"/>
-        <source>[it_IT] Italy</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1390"/>
-        <source>[pt_AO] Angola</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1399"/>
-        <source>[pt_BR] Brasil</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1408"/>
-        <source>[pt_CV] Cabo Verde</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1417"/>
-        <source>[pt_MZ] Mozambique</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1426"/>
-        <source>[pt_MO] Macau</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1435"/>
-        <source>[pt_PT] Portugal</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1444"/>
-        <source>[pt_ST] São Tomé</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1453"/>
-        <source>[pt_TL] Timor Leste</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1462"/>
-        <source>[uk_UA] Ukraine</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/setuptab.ui" line="1497"/>
+        <location filename="../ui/setuptab.ui" line="1305"/>
         <source>Switch the application to monochrome mode.</source>
         <translation>Переключіть програму в монохромний режим.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1267"/>
+        <location filename="../ui/setuptab.ui" line="1163"/>
         <source>Language</source>
         <translation>Мова</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="188"/>
+        <location filename="../src/setuptab.cpp" line="227"/>
         <source>Warning</source>
         <translation>ПОПЕРЕДЖЕННЯ</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="188"/>
+        <location filename="../src/setuptab.cpp" line="227"/>
         <source>You have to restart the application for changes to take effect!</source>
         <translation>Вам необхідно перезапустити програму, щоб зміни набули чинності!</translation>
     </message>
     <message>
         <location filename="../ui/setuptab.ui" line="89"/>
-        <location filename="../ui/setuptab.ui" line="364"/>
-        <location filename="../ui/setuptab.ui" line="543"/>
-        <location filename="../ui/setuptab.ui" line="960"/>
+        <location filename="../ui/setuptab.ui" line="423"/>
+        <location filename="../ui/setuptab.ui" line="723"/>
+        <location filename="../ui/setuptab.ui" line="1121"/>
         <source>Path: </source>
         <translation>Шлях: </translation>
     </message>

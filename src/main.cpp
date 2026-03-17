@@ -39,8 +39,6 @@ int main(int argc, char *argv[])
         } else {
             lang = "en_GB";
         }
-    } else {
-        lang = "en_GB";
     }
 
     if (rc == "--setlang") {

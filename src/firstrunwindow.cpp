@@ -69,7 +69,7 @@ void firstRunWindow::findTranslation()
     int index = -1;
     QString m_country = "";
     QString translation_path = QCoreApplication::applicationDirPath() + "/../share/clamav-gui/";
-    //QString translation_path = "/usr/share/clamav-gui/"; for testing ...
+    //QString translation_path = "/usr/share/clamav-gui/"; //for testing ...
     QDir directory(translation_path);
     QStringList m_filelist = directory.entryList(QDir::Files);
     foreach(QString m_file, m_filelist) {
@@ -99,123 +99,116 @@ void firstRunWindow::slot_initProcessFinished()
     QString rc = m_initProcess->readAll().trimmed();
     QStringList elements = rc.split(" ");
 
-    switch (m_initIndex) {
-        case 0 :
-            if (elements.count() == 3) {
-                m_ui->clamdSourceLabel->setText(elements.at(1));
-                m_ui->clamdStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
-                m_setupFile->setSectionValue("Clamd","ClamdLocation",elements.at(1));
-                m_setupFile->setSectionValue("Clamd","StartClamdOnStartup",false);
-            }
-            break;
-        case 1 :
-            if (elements.count() == 3) {
-                m_ui->freshclamSourceLabel->setText(elements.at(1));
-                m_ui->freshclamStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
-                m_setupFile->setSectionValue("FreshclamSettings","FreshclamLocation",elements.at(1));
-            }
-            break;
-        case 2 :
-            if (elements.count() == 3) {
-                m_ui->clamonaccSourceLabel->setText(elements.at(1));
-                m_ui->clamonaccStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
-                m_setupFile->setSectionValue("Clamd","ClamonaccLocation",elements.at(1));
-            }
-            break;
-        case 3 :
-            if (elements.count() == 3) {
-                m_ui->clamscanSourceLabel->setText(elements.at(1));
-                m_ui->clamscanStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
-            }
-            break;
-        case 4 :
-            if (elements.count() == 3) {
-                m_ui->clamdscanSourceLabel->setText(elements.at(1));
-                m_ui->clamdscanStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
-            }
-            break;
-        case 5 :
-            if (elements.count() == 3) {
-                m_ui->sudoGUISourceLabel->setText(elements.at(1));
-                m_ui->sudoGUIStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
-                m_initIndex = 6;
-            }
-            break;
-        case 6 :
-            if (elements.count() == 3) {
-                m_ui->sudoGUISourceLabel->setText(elements.at(1));
-                m_ui->sudoGUIStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
-            }
-            break;
-        case 7 :
-            if (rc != "") {
-                m_ui->applicationUserLabel->setText("Application User : " + elements.at(0));
-                m_ui->applicationUserStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
-            }
-            break;
-        case 8 :
-            if (elements.count() > 0) {
-                m_ui->applicationGroupLabel->setText("Application Group : " + elements.at(0));
-                m_ui->applicationGroupStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
-            }
-            break;
-        case 9 :
-            QFile file(QDir::homePath() + "/.clamav-gui/clamd.conf.man");
-            if (file.open(QIODevice::WriteOnly|QIODevice::Text)) {
-                QTextStream stream(&file);
-                stream << rc;
-                Qt::endl(stream);
-                file.close();
-            }
-            break;
-    }
-
-    if (m_initIndex < m_initCommands.size()-1) {
+    if (m_initIndex < m_initCommands.size()) {
         switch (m_initIndex) {
             case 0:
-                m_setupFile->setSectionValue("FreshclamSettings", "FreshclamLocation", elements.at(1));
+                if (elements.count() >= 2) {
+                    m_ui->clamdSourceLabel->setText(elements.at(1));
+                    m_ui->clamdStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
+                    m_setupFile->setSectionValue("Clamd","ClamdLocation",elements.at(1));
+                    m_setupFile->setSectionValue("Clamd","StartClamdOnStartup",false);
+                } else {
+                    QMessageBox::warning(this, tr("ERROR"), tr("Clamad is missing. Please install!"), QMessageBox::Ok);
+                    emit quitApplication();
+                }
                 break;
             case 1:
+                if (elements.count() >= 2) {
+                    m_ui->freshclamSourceLabel->setText(elements.at(1));
+                    m_ui->freshclamStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
+                    m_setupFile->setSectionValue("FreshclamSettings", "FreshclamLocation", elements.at(1));
+                } else {
+                    QMessageBox::warning(this, tr("ERROR"), tr("Freshclam is missing. Please install!"), QMessageBox::Ok);
+                    emit quitApplication();
+                }
+                break;
             case 2:
+                if (elements.count() >= 2) {
+                    m_ui->clamonaccSourceLabel->setText(elements.at(1));
+                    m_ui->clamonaccStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
+                    m_setupFile->setSectionValue("Clamd","ClamonaccLocation",elements.at(1));
+                } else {
+                    QMessageBox::warning(this, tr("ERROR"), tr("Clamonacc is missing. Please install!"), QMessageBox::Ok);
+                    emit quitApplication();
+                }
                 break;
             case 3:
-                if (rc == "") {
-                    QMessageBox::warning(this, "ERROR", "Clamav is missing. Please install!", QMessageBox::Ok);
+                if (elements.count() >=2) {
+                    m_ui->clamscanSourceLabel->setText(elements.at(1));
+                    m_ui->clamscanStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
+                } else {
+                    QMessageBox::warning(this, tr("ERROR"), tr("Clamav is missing. Please install!"), QMessageBox::Ok);
                     emit quitApplication();
                 }
                 break;
             case 4:
+                if (elements.count() >= 2) {
+                    m_ui->clamdscanSourceLabel->setText(elements.at(1));
+                    m_ui->clamdscanStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
+                }
                 break;
             case 5:
+                if (elements.count() >= 2) {
+                    m_ui->sudoGUISourceLabel->setText(elements.at(1));
+                    m_ui->sudoGUIStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
+                    m_setupFile->setSectionValue("RequiredApplications",m_initParameters.at(m_initIndex),elements.at(1));
+                    m_setupFile->setSectionValue("Settings","SudoGUI",elements.at(1));
+                    m_initIndex = 6;
+                }
+                break;
             case 6:
-                if (elements.count() == 3) {
+                if (elements.count() >= 2) {
+                    m_ui->sudoGUISourceLabel->setText(elements.at(1));
+                    m_ui->sudoGUIStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
                     m_setupFile->setSectionValue("RequiredApplications",m_initParameters.at(m_initIndex),elements.at(1));
                     m_setupFile->setSectionValue("Settings","SudoGUI",elements.at(1));
                 } else {
                     m_setupFile->setSectionValue("RequiredApplications",m_initParameters.at(m_initIndex),"n/a");
                     m_setupFile->setSectionValue("Settings","SudoGUI","n/a");
+                    QMessageBox::warning(this, tr("ERROR"), tr("Neither 'pkexe' nor 'kdesu' os installed. Please install at least one of this applications!"), QMessageBox::Ok);
+                    emit quitApplication();
                 }
                 break;
             case 7:
+                if (rc != "") {
+                    m_ui->applicationUserLabel->setText("Database Owner : " + elements.at(0));
+                    m_ui->applicationUserStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
+                    m_freshclamConf = new setupFileHandler(QDir::homePath()+ "/.clamav-gui/freshclam.conf");
+                    m_freshclamConf->setSingleLineValue("DatabaseOwner",elements.at(0));
+                    delete m_freshclamConf;
+                    m_setupFile->setSectionValue("RequiredApplications","User",m_ui->applicationUserLabel->text().replace("Database Owner : ",""));
+                }
+                break;
             case 8:
-                m_setupFile->setSectionValue("RequiredApplications","Group",m_ui->applicationGroupLabel->text());
+                if (elements.count() > 0) {
+                    m_ui->applicationGroupLabel->setText("Application Group : " + elements.at(0));
+                    m_ui->applicationGroupStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
+                    m_setupFile->setSectionValue("RequiredApplications","Group",m_ui->applicationGroupLabel->text().replace("Database Owner : ",""));
+                }
                 break;
             case 9:
-                m_setupFile->setSectionValue("RequiredApplication","User",m_ui->applicationUserLabel->text());
+                QFile file(QDir::homePath() + "/.clamav-gui/clamd.conf.man");
+                if (file.open(QIODevice::WriteOnly|QIODevice::Text)) {
+                    QTextStream stream(&file);
+                    stream << rc;
+                    Qt::endl(stream);
+                    file.close();
+                }
                 break;
         }
 
         m_initIndex++;
-        m_processParameters.clear();
-        if (m_initParameters.at(m_initIndex) != "") {
-            m_processParameters << m_initParameters.at(m_initIndex);
-            m_initProcess->start(m_initCommands.at(m_initIndex),m_processParameters);
-        } else {
-            m_processParameters << m_initParameters.at(m_initIndex);
-            m_initProcess->start(m_initCommands.at(m_initIndex),QStringList());
-        }
-    } else {
 
+        if (m_initIndex < m_initCommands.size()) {
+            m_processParameters.clear();
+            if (m_initParameters.at(m_initIndex) != "") {
+                m_processParameters << m_initParameters.at(m_initIndex);
+                m_initProcess->start(m_initCommands.at(m_initIndex),m_processParameters);
+            } else {
+                m_processParameters << m_initParameters.at(m_initIndex);
+                m_initProcess->start(m_initCommands.at(m_initIndex),QStringList());
+            }
+        }
     }
 }
 

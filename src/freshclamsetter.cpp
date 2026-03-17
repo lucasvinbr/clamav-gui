@@ -26,9 +26,6 @@ freshclamsetter::freshclamsetter(QWidget* parent, setupFileHandler* setupFile) :
 
     m_sudoGUI = m_setupFile->getSectionValue("Settings", "SudoGUI");
 
-    //QFile freshclamConfFile(QDir::homePath() + "/.clamav-gui/freshclam.conf");
-    //freshclamConfFile.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner);
-
     m_freshclamConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/freshclam.conf", this);
 
     m_updater = new QProcess(this);
@@ -738,7 +735,6 @@ void freshclamsetter::slot_startDeamonProcessFinished(int exitCode, QProcess::Ex
 
 void freshclamsetter::slot_initFreshclamSettings()
 {
-    QStringList parameters;
     QFile tempFile;
 
     m_lockFreshclamConf = true;
@@ -756,9 +752,6 @@ void freshclamsetter::slot_initFreshclamSettings()
         m_setupFile->setSectionValue("Freshclam", "StartDaemon", false);
         m_ui.autoStartDaemonCheckBox->setChecked(false);
     }
-
-    m_getDBUserProcess = new QProcess(this);
-    connect(m_getDBUserProcess, SIGNAL(finished(int)), this, SLOT(slot_getDBUserProcessFinished()));
 
     // m_freshclamConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/freshclam.conf", this); Already instantiated in the constructor.
 
@@ -861,11 +854,12 @@ void freshclamsetter::slot_initFreshclamSettings()
     if (m_freshclamConf->singleLineExists("OnOutdatedExecute") == true)
         m_ui.onOutdatedExecuteLineEdit->setText(m_freshclamConf->getSingleLineValue("OnOutdatedExecute"));
 
-    parameters << "-ld" << m_ui.databaseDirectoryPathLabel->text();
     QDir dbDir;
 
     if (dbDir.exists(m_ui.databaseDirectoryPathLabel->text()) == true) {
-        m_getDBUserProcess->start("ls", parameters);
+        QFileInfo dbDirectoryPath(m_ui.databaseDirectoryPathLabel->text());
+        m_freshclamConf->setSingleLineValue("DatabaseOwner", dbDirectoryPath.owner());
+        m_ui.databaseOwnerLineEdit->setText(dbDirectoryPath.owner());
     }
 
     m_lockFreshclamConf = false;
@@ -967,21 +961,10 @@ void freshclamsetter::slot_dbPathChanged(QString dbPath)
         parameters << "-ld" << m_ui.databaseDirectoryPathLabel->text();
         QDir dbDir;
         if (dbDir.exists(m_ui.databaseDirectoryPathLabel->text()) == true) {
-            m_getDBUserProcess->start("ls", parameters);
+            QFileInfo dbDirectoryPath(m_ui.databaseDirectoryPathLabel->text());
+            m_freshclamConf->setSingleLineValue("DatabaseOwner", dbDirectoryPath.owner());
+            m_ui.databaseOwnerLineEdit->setText(dbDirectoryPath.owner());
         }
-        else {
-            m_freshclamConf->setSingleLineValue("DatabaseOwner", "clamav");
-        }
-    }
-}
-
-void freshclamsetter::slot_getDBUserProcessFinished()
-{
-    QString output = m_getDBUserProcess->readAll();
-    QStringList values = output.split(" ");
-    if (values.size() > 1) {
-        m_freshclamConf->setSingleLineValue("DatabaseOwner", values[2]);
-        m_ui.databaseOwnerLineEdit->setText(values[2]);
     }
 }
 

@@ -26,16 +26,17 @@
 #include "highlighter.h"
 #include "progressdialog.h"
 
-#include <QWidget>
-#include <QMovie>
+#include <QFileSystemWatcher>
 #include <QFileDialog>
 #include <QMessageBox>
-#include <QFileSystemWatcher>
-#include <QProcess>
-#include <QTimer>
-#include <QDir>
-#include <QFile>
 #include <QTextStream>
+#include <QFileInfo>
+#include <QProcess>
+#include <QWidget>
+#include <QMovie>
+#include <QTimer>
+#include <QFile>
+#include <QDir>
 
 
 namespace Ui {
@@ -98,7 +99,6 @@ private slots:
     void slot_runasrootCheckBoxChanged();
     void slot_writeFreshclamSettings();
     void slot_dbPathChanged(QString dbPath);
-    void slot_getDBUserProcessFinished();
     void slot_pidFileSelectButtonClicked();
     void slot_setFreshclamsettingsFrameState(bool state);
     void slot_autoStartDaemon();
