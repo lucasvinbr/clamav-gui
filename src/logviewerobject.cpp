@@ -84,8 +84,8 @@ void logViewerObject::loadLogFile(QString profile)
                 partialLogObject* log = new partialLogObject(this, logs[i], css);
                 connect(this, SIGNAL(logHighlightingChanged(bool)), log, SLOT(slot_add_remove_highlighter(bool)));
                 tabHeader = logs[i].mid(1, logs[i].indexOf("\n") - 1);
+                while (tabHeader.right(1) == "-") tabHeader = tabHeader.mid(0,tabHeader.length()-1);
                 m_ui->logTab->insertTab(0, log, QIcon(":/icons/icons/information.png"), tabHeader);
-                //ui->logTab->addTab(log,QIcon(":/icons/icons/information.png"),tabHeader);
             }
             m_ui->logTab->setCurrentIndex(0);
             file.close();

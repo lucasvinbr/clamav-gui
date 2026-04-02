@@ -1,3 +1,16 @@
+* Mon Mar 23 2026 - Version 1.3.1
+- Added missing translation for the clamav version part.
+
+* Sun Mar 22 2026 - Version 1.3.1
+- Redesign of the Clamd/ClamonACC tab/setup. Insert e filter function for filtering the available clamd.conf options.
+
+* Wed Mar 18 2026 - Version 1.3.0
+- Updated the translation files
+- fixed a bug in the clamd.conf manpage parser. (Determine available Options)
+- fixed an issue in the clamdmanager class (Default value error)
+- Fixed the restart script for clamd and clamonacc. (The script differs when clamd/clamonacc is running and settings are changed)
+- made the dynamical clamd-options accessible after creation (required by change of the value for DatabaseDirectory)
+
 * Mon Mar 16 2026 - Version 1.2.9
 - Added missing translation for the initial startup window.
 - Optimized the inital startup window.

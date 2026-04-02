@@ -1,13 +1,17 @@
 #ifndef SETUPTAB_H
 #define SETUPTAB_H
 
+#include <QNetworkAccessManager>
 #include <QFileSystemWatcher>
+#include <QNetworkRequest>
+#include <QNetworkReply>
 #include <QTranslator>
 #include <QFileDialog>
 #include <QProcess>
 #include <QPixmap>
 #include <QWidget>
 #include <QMovie>
+#include <QUrl>
 #include <QDir>
 
 #include "ui_setuptab.h"
@@ -28,9 +32,10 @@ public:
 
 private:
     Ui::setupTab m_ui;
-    setupFileHandler    * m_setupFile; // clamd && freshclam
-    bool                  m_supressMessage;
-    bool                  m_monochrome;
+    setupFileHandler        * m_setupFile; // clamd && freshclam
+    bool                      m_supressMessage;
+    bool                      m_monochrome;
+    QNetworkAccessManager   * manager;
     QString checkmonochrome(QString color);
     void findTranslation();
 
@@ -43,6 +48,7 @@ private slots:
     void slot_freshclamButtonClicked();
     void slot_clamdscanComboBoxClicked();
     void slot_logHightlighterCheckBoxClicked();
+    void slot_requestFinished(QNetworkReply *reply);
     
 signals:
     void switchActiveTab(int);

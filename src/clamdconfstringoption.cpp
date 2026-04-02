@@ -3,7 +3,7 @@
 
 clamdConfStringOption::clamdConfStringOption(QWidget* parent, QString keyword, bool checked, QString label, QString options,
                                              setupFileHandler* setupFile)
-    : QWidget(parent), m_optionKeyword(keyword), m_optionValue(options), m_setupFile(setupFile)
+    : ClamdConfOptionBaseClass(parent), m_optionKeyword(keyword), m_optionValue(options), m_setupFile(setupFile)
 {
     m_startup = true;
 
@@ -35,6 +35,36 @@ clamdConfStringOption::clamdConfStringOption(QWidget* parent, QString keyword, b
     m_ui.checkBox->setToolTip(keyword);
     m_startup = false;
     slot_checkBoxClicked();
+}
+
+QString clamdConfStringOption::getKeyword()
+{
+    return m_optionKeyword;
+}
+
+QString clamdConfStringOption::getLabel()
+{
+    return m_ui.checkBox->text();
+}
+
+void clamdConfStringOption::setValue(QString value)
+{
+    m_ui.lineEdit->setText(value);
+}
+
+QString clamdConfStringOption::getValue()
+{
+    return m_ui.lineEdit->text();
+}
+
+void clamdConfStringOption::setChecked(bool checked)
+{
+    m_ui.checkBox->setChecked(checked);
+}
+
+bool clamdConfStringOption::isChecked()
+{
+    return m_ui.checkBox->isChecked();
 }
 
 void clamdConfStringOption::slot_checkBoxClicked()

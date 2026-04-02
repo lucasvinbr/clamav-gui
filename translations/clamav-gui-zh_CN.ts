@@ -807,27 +807,30 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation></translation>
     </message>
     <message>
+        <location filename="../ui/clamdmanager.ui" line="446"/>
+        <source>Filter: </source>
+        <translation>筛选：</translation>
+    </message>
+    <message>
         <location filename="../ui/clamdmanager.ui" line="92"/>
         <source>Clamd &amp; Scan on Access</source>
         <translation>Clamd &amp; Scan on Access</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="367"/>
+        <location filename="../ui/clamdmanager.ui" line="285"/>
         <source>Start Clamd on Startup</source>
         <translation>启动时启动Clamd</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="309"/>
         <source>Clamd Settings</source>
-        <translation>Clamd设置</translation>
+        <translation type="vanished">Clamd设置</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="418"/>
         <source>ClamonAcc Settings</source>
-        <translation>ClamonAcc设置</translation>
+        <translation type="vanished">ClamonAcc设置</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="483"/>
+        <location filename="../ui/clamdmanager.ui" line="376"/>
         <source>Folder under monitoring</source>
         <translation>监控中的文件夹</translation>
     </message>
@@ -837,80 +840,92 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="203"/>
+        <location filename="../ui/clamdmanager.ui" line="214"/>
         <source>Clamd &amp; Scan on Access Settings</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="225"/>
+        <location filename="../ui/clamdmanager.ui" line="236"/>
         <source>Clamd has to be restarted
 for changes made to take effect.</source>
         <translation>必须重启Clamd
 才能使更改生效。</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="70"/>
+        <location filename="../src/clamdmanager.cpp" line="72"/>
         <source>  Clamd running - Stop clamd</source>
         <translation>Clamd正在运行 - 停止clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="166"/>
-        <location filename="../src/clamdmanager.cpp" line="523"/>
+        <location filename="../src/clamdmanager.cpp" line="221"/>
+        <location filename="../src/clamdmanager.cpp" line="574"/>
         <source>WARNING</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="225"/>
+        <location filename="../src/clamdmanager.cpp" line="280"/>
         <source>  Clamd starting. Please wait!</source>
         <translation>Clamd正在启动。请稍候！</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="265"/>
+        <location filename="../src/clamdmanager.cpp" line="320"/>
         <source>  Stopping Clamd. Please wait!</source>
         <translation>正在停止Clamd。请稍候！</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="304"/>
-        <location filename="../src/clamdmanager.cpp" line="367"/>
-        <location filename="../src/clamdmanager.cpp" line="489"/>
+        <location filename="../src/clamdmanager.cpp" line="359"/>
+        <location filename="../src/clamdmanager.cpp" line="422"/>
+        <location filename="../src/clamdmanager.cpp" line="540"/>
         <source>  Clamd not running - Start Clamd</source>
         <translation>Clamd未运行 - 启动Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="338"/>
-        <location filename="../src/clamdmanager.cpp" line="381"/>
+        <location filename="../src/clamdmanager.cpp" line="393"/>
+        <location filename="../src/clamdmanager.cpp" line="436"/>
         <source>  Clamd running - Stop Clamd</source>
         <translation>Clamd正在运行 - 停止Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="512"/>
+        <location filename="../src/clamdmanager.cpp" line="563"/>
         <source>Directory to monitor</source>
         <translation>要监控的目录</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="523"/>
+        <location filename="../src/clamdmanager.cpp" line="574"/>
         <source>Path already under monitoring</source>
         <translation>路径已在监控中</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="532"/>
+        <location filename="../src/clamdmanager.cpp" line="583"/>
         <source>Remove Folder from monitoring</source>
         <translation>从监控中移除文件夹</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="533"/>
+        <location filename="../src/clamdmanager.cpp" line="584"/>
         <source>Path: </source>
         <translation>路径：</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="533"/>
+        <location filename="../src/clamdmanager.cpp" line="584"/>
         <source>Do you want to remove the folder from the monitoring list?</source>
         <translation>您是否要从监控列表中移除该文件夹？</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="572"/>
+        <location filename="../src/clamdmanager.cpp" line="647"/>
         <source>  Clamd restarting. Please wait!</source>
         <translation>Clamd正在重启。请稍候！</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="308"/>
+        <source>Update list of available 
+clamd.conf parameters.</source>
+        <translation>更新 clamd.conf 文件中
+可用的参数列表。</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="305"/>
+        <source>determin the current available parameters for clamd.conf. Useful after an update of clamav.</source>
+        <translation>确定 clamd.conf 当前可用的参数。在更新 clamav 之后会很有用。</translation>
     </message>
 </context>
 <context>
@@ -3058,6 +3073,10 @@ Continue from the Start of the Log?</source>
         <location filename="../ui/setuptab.ui" line="995"/>
         <location filename="../ui/setuptab.ui" line="1068"/>
         <location filename="../ui/setuptab.ui" line="1096"/>
+        <location filename="../ui/setuptab.ui" line="1354"/>
+        <location filename="../ui/setuptab.ui" line="1381"/>
+        <location filename="../ui/setuptab.ui" line="1411"/>
+        <location filename="../ui/setuptab.ui" line="1438"/>
         <source>n/a</source>
         <translation>未知</translation>
     </message>
@@ -3104,13 +3123,43 @@ Continue from the Start of the Log?</source>
         <translation>上次更新:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1302"/>
+        <location filename="../ui/setuptab.ui" line="1327"/>
+        <source>ClamAV Versions</source>
+        <translation>ClamAV 版本</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1347"/>
+        <source>Installed :</source>
+        <translation>已安装：</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1374"/>
+        <source>Latest :</source>
+        <translation>最新的 ：</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1404"/>
+        <source>LTS Version(s) :</source>
+        <translation>LTS 版本：</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1431"/>
+        <source>Status :</source>
+        <translation>状态 :</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1472"/>
+        <source>Grayson-Switch</source>
+        <translation>格雷森·斯威奇</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1487"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For people with color blindness. Removes all the fancy color stuff from the log files and indicators.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <extracomment>For people with color blindness</extracomment>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;专为色盲人士设计。可从日志文件和指标中移除所有花哨的颜色信息。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1352"/>
+        <location filename="../ui/setuptab.ui" line="1540"/>
         <source>ClamAV System Status</source>
         <translation>ClamAV系统状态</translation>
     </message>
@@ -3154,7 +3203,7 @@ Continue from the Start of the Log?</source>
         <translation type="vanished">[uk_UA] 乌克兰</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1305"/>
+        <location filename="../ui/setuptab.ui" line="1493"/>
         <source>Switch the application to monochrome mode.</source>
         <translation>将应用程序切换到单色模式。</translation>
     </message>
@@ -3179,12 +3228,17 @@ Continue from the Start of the Log?</source>
         <translation>在任务栏显示图标</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="227"/>
+        <location filename="../src/setuptab.cpp" line="219"/>
+        <source>OK</source>
+        <translation>好的</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="273"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="227"/>
+        <location filename="../src/setuptab.cpp" line="273"/>
         <source>You have to restart the application for changes to take effect!</source>
         <translation>你必须重启程序才能使改变生效！</translation>
     </message>

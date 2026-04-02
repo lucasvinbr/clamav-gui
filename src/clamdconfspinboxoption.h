@@ -5,6 +5,7 @@
 
 #include "translator.h"
 #include "setupfilehandler.h"
+#include "clamdconfoptionbaseclass.h"
 
 #include <QWidget>
 
@@ -12,7 +13,7 @@ namespace Ui {
 class clamdconfspinboxoption;
 }
 
-class clamdconfspinboxoption : public QWidget
+class clamdconfspinboxoption : public ClamdConfOptionBaseClass
 {
     Q_OBJECT
 
@@ -25,6 +26,12 @@ public:
                                     setupFileHandler * setupFile = nullptr);
     ~clamdconfspinboxoption() = default;
 
+    QString getKeyword();
+    QString getLabel();
+    void setValue(QString value = 0);
+    QString getValue();
+    void setChecked(bool checked = true);
+    bool isChecked();
 
 private:
     Ui::clamdconfspinboxoption m_ui;

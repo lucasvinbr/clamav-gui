@@ -807,12 +807,17 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>clamd no se ejecuta - iniciar clamd</translation>
     </message>
     <message>
+        <location filename="../ui/clamdmanager.ui" line="446"/>
+        <source>Filter: </source>
+        <translation>Filtrar:</translation>
+    </message>
+    <message>
         <location filename="../ui/clamdmanager.ui" line="92"/>
         <source>Clamd &amp; Scan on Access</source>
         <translation>Clamd &amp; Scan on Access</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="483"/>
+        <location filename="../ui/clamdmanager.ui" line="376"/>
         <source>Folder under monitoring</source>
         <translation>Carpeta bajo control</translation>
     </message>
@@ -822,95 +827,105 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Clamd &amp;&amp; Scan on Configuración de acceso</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="203"/>
+        <location filename="../ui/clamdmanager.ui" line="214"/>
         <source>Clamd &amp; Scan on Access Settings</source>
         <translation>Clamd &amp;&amp; Scan on Configuración de acceso</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="225"/>
+        <location filename="../ui/clamdmanager.ui" line="236"/>
         <source>Clamd has to be restarted
 for changes made to take effect.</source>
         <translation>Clamd tiene que ser reiniciado
 para que los cambios realizados surtan efecto.</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="70"/>
+        <location filename="../src/clamdmanager.cpp" line="72"/>
         <source>  Clamd running - Stop clamd</source>
         <translation>  Clamd en ejecución - Detener clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="166"/>
-        <location filename="../src/clamdmanager.cpp" line="523"/>
+        <location filename="../src/clamdmanager.cpp" line="221"/>
+        <location filename="../src/clamdmanager.cpp" line="574"/>
         <source>WARNING</source>
         <translation>ADVERTENCIA</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="225"/>
+        <location filename="../src/clamdmanager.cpp" line="280"/>
         <source>  Clamd starting. Please wait!</source>
         <translation>  Clamd comenzando. Por favor, espere.</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="265"/>
+        <location filename="../src/clamdmanager.cpp" line="320"/>
         <source>  Stopping Clamd. Please wait!</source>
         <translation>  Deteniendo Clamd. Por favor, espere.</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="304"/>
-        <location filename="../src/clamdmanager.cpp" line="367"/>
-        <location filename="../src/clamdmanager.cpp" line="489"/>
+        <location filename="../src/clamdmanager.cpp" line="359"/>
+        <location filename="../src/clamdmanager.cpp" line="422"/>
+        <location filename="../src/clamdmanager.cpp" line="540"/>
         <source>  Clamd not running - Start Clamd</source>
         <translation>  Clamd no se ejecuta - Iniciar Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="338"/>
-        <location filename="../src/clamdmanager.cpp" line="381"/>
+        <location filename="../src/clamdmanager.cpp" line="393"/>
+        <location filename="../src/clamdmanager.cpp" line="436"/>
         <source>  Clamd running - Stop Clamd</source>
         <translation>  Clamd en funcionamiento - Detener Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="512"/>
+        <location filename="../src/clamdmanager.cpp" line="563"/>
         <source>Directory to monitor</source>
         <translation>Directorio a supervisar</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="523"/>
+        <location filename="../src/clamdmanager.cpp" line="574"/>
         <source>Path already under monitoring</source>
         <translation>Senda ya vigilada</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="532"/>
+        <location filename="../src/clamdmanager.cpp" line="583"/>
         <source>Remove Folder from monitoring</source>
         <translation>Eliminar carpeta de la supervisión</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="533"/>
+        <location filename="../src/clamdmanager.cpp" line="584"/>
         <source>Path: </source>
         <translation>Senda: </translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="533"/>
+        <location filename="../src/clamdmanager.cpp" line="584"/>
         <source>Do you want to remove the folder from the monitoring list?</source>
         <translation>¿Desea eliminar la carpeta de la lista de control?</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="572"/>
+        <location filename="../src/clamdmanager.cpp" line="647"/>
         <source>  Clamd restarting. Please wait!</source>
         <translation>  Clamd se reinicia. Por favor, espere.</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="367"/>
+        <location filename="../ui/clamdmanager.ui" line="285"/>
         <source>Start Clamd on Startup</source>
         <translation>Iniciar Clamd al arrancar</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="309"/>
         <source>Clamd Settings</source>
-        <translation>Configuración de Clamd</translation>
+        <translation type="vanished">Configuración de Clamd</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="418"/>
         <source>ClamonAcc Settings</source>
-        <translation>Configuración de ClamonAcc</translation>
+        <translation type="vanished">Configuración de ClamonAcc</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="308"/>
+        <source>Update list of available 
+clamd.conf parameters.</source>
+        <translation>Actualizar la lista de parámetros 
+disponibles en clamd.conf.</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="305"/>
+        <source>determin the current available parameters for clamd.conf. Useful after an update of clamav.</source>
+        <translation>Determina los parámetros disponibles actualmente para clamd.conf. Resulta útil tras una actualización de ClamAV.</translation>
     </message>
 </context>
 <context>
@@ -3051,12 +3066,17 @@ Continue from the Start of the Log?</source>
         <translation>Mostrar sólo icono de bandeja</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="227"/>
+        <location filename="../src/setuptab.cpp" line="219"/>
+        <source>OK</source>
+        <translation>bueno</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="273"/>
         <source>Warning</source>
         <translation>Advertencia</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="227"/>
+        <location filename="../src/setuptab.cpp" line="273"/>
         <source>You have to restart the application for changes to take effect!</source>
         <translation>Tienes que reiniciar la aplicación para que los cambios surtan efecto!</translation>
     </message>
@@ -3090,6 +3110,10 @@ Continue from the Start of the Log?</source>
         <location filename="../ui/setuptab.ui" line="995"/>
         <location filename="../ui/setuptab.ui" line="1068"/>
         <location filename="../ui/setuptab.ui" line="1096"/>
+        <location filename="../ui/setuptab.ui" line="1354"/>
+        <location filename="../ui/setuptab.ui" line="1381"/>
+        <location filename="../ui/setuptab.ui" line="1411"/>
+        <location filename="../ui/setuptab.ui" line="1438"/>
         <source>n/a</source>
         <translation></translation>
     </message>
@@ -3141,13 +3165,43 @@ Continue from the Start of the Log?</source>
         <translation>  Clamd</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1302"/>
+        <location filename="../ui/setuptab.ui" line="1327"/>
+        <source>ClamAV Versions</source>
+        <translation>Versiones de ClamAV</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1347"/>
+        <source>Installed :</source>
+        <translation>Instalado:</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1374"/>
+        <source>Latest :</source>
+        <translation>El último :</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1404"/>
+        <source>LTS Version(s) :</source>
+        <translation>Versión(es) LTS:</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1431"/>
+        <source>Status :</source>
+        <translation>Estado :</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1472"/>
+        <source>Grayson-Switch</source>
+        <translation>Grayson-Switch</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1487"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For people with color blindness. Removes all the fancy color stuff from the log files and indicators.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <extracomment>For people with color blindness</extracomment>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Para personas con daltonismo. Elimina todos los efectos de color de los archivos de registro e indicadores.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1352"/>
+        <location filename="../ui/setuptab.ui" line="1540"/>
         <source>ClamAV System Status</source>
         <translation>ClamAV System Status</translation>
     </message>
@@ -3187,7 +3241,7 @@ Continue from the Start of the Log?</source>
         <translation>usar ClamdScan con multithreading ...</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1305"/>
+        <location filename="../ui/setuptab.ui" line="1493"/>
         <source>Switch the application to monochrome mode.</source>
         <translation>Cambia la aplicación al modo monocromo.</translation>
     </message>

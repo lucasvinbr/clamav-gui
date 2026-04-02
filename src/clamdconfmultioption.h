@@ -5,6 +5,7 @@
 #include <QInputDialog>
 #include <QFileDialog>
 #include "setupfilehandler.h"
+#include "clamdconfoptionbaseclass.h"
 #include "translator.h"
 
 namespace Ui
@@ -12,7 +13,7 @@ namespace Ui
 class clamdconfmultioption;
 }
 
-class clamdconfmultioption : public QWidget
+class clamdconfmultioption : public ClamdConfOptionBaseClass
 {
     Q_OBJECT
 
@@ -25,6 +26,13 @@ class clamdconfmultioption : public QWidget
                                   setupFileHandler* = nullptr,
                                   setupFileHandler* = nullptr);
     ~clamdconfmultioption();
+
+    QString getKeyword();
+    QString getLabel();
+    void setValue(QString value = 0);
+    QString getValue();
+    void setChecked(bool checked = true);
+    bool isChecked();
 
    private:
     Ui::clamdconfmultioption* m_ui;

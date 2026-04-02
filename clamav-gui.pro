@@ -12,6 +12,7 @@ TEMPLATE = app
 
 
 SOURCES += src/main.cpp\
+    src/clamdconfoptionbaseclass.cpp \
     src/clamdconfmultioption.cpp \
     src/clamdconfcomboboxoption.cpp \
     src/clamdconfspinboxoption.cpp \
@@ -46,6 +47,7 @@ SOURCES += src/main.cpp\
     src/translator.cpp
 
 HEADERS  += src/clamav_gui.h \
+    src/clamdconfoptionbaseclass.h \
     src/clamdconfmultioption.h \
     src/clamdconfcomboboxoption.h \
     src/clamdconfspinboxoption.h \

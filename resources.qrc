@@ -73,6 +73,7 @@
         <file>icons/pt_ST.png</file>
         <file>icons/pt_TL.png</file>
         <file>icons/uk_UA.png</file>
+        <file>icons/biohazard.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

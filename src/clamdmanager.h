@@ -5,19 +5,21 @@
 #include "clamdconfspinboxoption.h"
 #include "clamdconfstringoption.h"
 #include "clamdconfmultioption.h"
-#include "highlighter.h"
+#include "clamdconfoptionbaseclass.h"
 #include "setupfilehandler.h"
-#include "translator.h"
 #include "ui_clamdmanager.h"
+#include "highlighter.h"
+#include "translator.h"
 
-#include <QFileDialog>
 #include <QFileSystemWatcher>
-#include <QFile>
+#include <QFileDialog>
 #include <QTextStream>
-#include <QMovie>
 #include <QProcess>
-#include <QTimer>
 #include <QWidget>
+#include <QMovie>
+#include <QList>
+#include <QFile>
+#include <QTimer>
 
 namespace Ui
 {
@@ -41,6 +43,7 @@ private:
     QProcess* m_findclamonaccProcess;      // clamd
     QProcess* m_restartClamonaccProcess;   // clamd
     QProcess* m_killProcess;
+    QProcess* m_getClamdConfParametersProcess;
     QString m_clamdLocation;      // clamd
     QString m_clamonaccLocation;  // clamd
     QString m_clamonaccPid;       // clamd
@@ -49,6 +52,7 @@ private:
     QTimer* m_startDelayTimer;
     QTimer* m_processWatcher;
     highlighter* m_logHighlighter;          // clamd
+    QList <ClamdConfOptionBaseClass*> m_clamdConfParameters;   // clamd
     QFileSystemWatcher* m_clamdLogWatcher;  // clamd
     QFileSystemWatcher* m_clamdPidWatcher;  // clamd
     int m_dirsUnderMonitoring;
@@ -85,6 +89,10 @@ private slots:
     void slot_add_remove_highlighter(bool);
     void slot_initClamdSettings();  // clamd
     void slot_dbPathChanged(QString dbPath);
+    void slot_updateClamdConfParameters();
+    void slot_getClamdConfParameterProcessFinished();
+    void slot_filterChanged(QString);
+
 
 signals:
     void setBallonMessage(int, QString, QString);  // clamd

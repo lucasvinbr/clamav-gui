@@ -2,7 +2,7 @@
 
 infoDialog::infoDialog(QWidget* parent) : QWidget(parent)
 {
-    QString version = "1.2.9 (QT5/QT6)";
+    QString version = "1.3.1 (QT5/QT6)";
 
     QString infoText = "<html>";
     infoText += "  <head/>";
@@ -212,8 +212,8 @@ infoDialog::infoDialog(QWidget* parent) : QWidget(parent)
     infoText += "          </td>";
     infoText += "          <td>";
     infoText += "            <p>";
-    infoText += "              &nbsp;";
-    infoText += "              <span style=' font-size:14px;'>&nbsp;</span>";
+    infoText += "              <img src='/usr/share/clamav-gui/languageicons/uk_UA.png'/>";
+    infoText += "              <span style=' font-size:14px;'>Ukrainian:</span>";
     infoText += "            </p>";
     infoText += "          </td>";
     infoText += "          <td>";
@@ -223,7 +223,7 @@ infoDialog::infoDialog(QWidget* parent) : QWidget(parent)
     infoText += "          </td>";
     infoText += "          <td>";
     infoText += "            <p>";
-    infoText += "              <span style=' font-size:14px;'>&nbsp;</span>";
+    infoText += "              <span style=' font-size:14px;'>translated by DeepL</span>";
     infoText += "            </p>";
     infoText += "          </td>";
     infoText += "        </tr>";

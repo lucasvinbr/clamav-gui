@@ -35,6 +35,11 @@ setupTab::setupTab(QWidget* parent, setupFileHandler* setupFile) : QWidget(paren
     else {
         m_setupFile->setSectionValue("Setup", "DisableLogHighlighter", false);
     }
+
+    manager = new QNetworkAccessManager(this);
+    connect(manager,SIGNAL(finished(QNetworkReply*)),SLOT(slot_requestFinished(QNetworkReply*)));
+    manager->get(QNetworkRequest(QUrl("https://www.clamav.net/download")));
+
     findTranslation();
     slot_updateSystemInfo();
     m_supressMessage = false;
@@ -174,6 +179,47 @@ void setupTab::slot_logHightlighterCheckBoxClicked()
     emit logHighlightingChanged(m_ui.logHighlighterCheckBox->isChecked());
     m_monochrome = m_ui.logHighlighterCheckBox->isChecked();
     slot_updateSystemInfo();
+}
+
+void setupTab::slot_requestFinished(QNetworkReply * reply)
+{
+    int pos, len, ltsCount = 0;
+    QString ltsVersions = "n/a";
+    m_ui.clamavInstalled->setText(m_setupFile->getSectionValue("Updater","Version").trimmed().replace("Scanner ",""));
+
+    if(reply->error())
+    {
+        qDebug() << "ERROR!";
+        qDebug() << reply->errorString();
+    }
+    else
+    {
+        QString replyString = reply->readAll();
+        QStringList lines = replyString.split("\n");
+        foreach(QString line, lines) {
+            if (line.indexOf("<h3>") != -1) {
+                pos = line.indexOf("<strong>") + 8;
+                len = line.indexOf("</strong>") - pos;
+                line = line.mid(pos,len);
+                m_ui.clamavLatest->setText(line);
+            }
+            if ((line.indexOf("<h4>") != -1) && (line.indexOf("LTS") != -1)) {
+                pos = line.indexOf("<h4>") + 4;
+                len = line.indexOf("<span") - pos;
+                line = line.mid(pos,len);
+                if (ltsCount == 0) {
+                    ltsVersions = "(" + line + ")";
+                    ltsCount++;
+                } else {
+                    ltsVersions = ltsVersions + " ,(" + line + ")";
+                }
+            }
+        }
+        m_ui.clamavLTS1->setText(ltsVersions);
+        if (m_ui.clamavInstalled->text() == m_ui.clamavLatest->text()) m_ui.clamavStatus->setText(tr("OK")); else m_ui.clamavStatus->setText("Update available: " + m_ui.clamavLatest->text());
+    }
+
+    reply->deleteLater();
 }
 
 void setupTab::findTranslation()

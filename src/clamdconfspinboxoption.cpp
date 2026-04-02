@@ -3,7 +3,7 @@
 
 clamdconfspinboxoption::clamdconfspinboxoption(QWidget* parent, QString keyword, bool checked, QString label, QString options,
                                                setupFileHandler* setupFile)
-    : QWidget(parent), m_optionKeyword(keyword), m_setupFile(setupFile)
+    : ClamdConfOptionBaseClass(parent), m_optionKeyword(keyword), m_setupFile(setupFile)
 {
     m_ui.setupUi(this);
     m_ui.checkBox->setChecked(checked);
@@ -58,6 +58,36 @@ clamdconfspinboxoption::clamdconfspinboxoption(QWidget* parent, QString keyword,
     m_startup = false;
 
     slot_checkboxClicked();
+}
+
+QString clamdconfspinboxoption::getKeyword()
+{
+    return m_optionKeyword;
+}
+
+QString clamdconfspinboxoption::getLabel()
+{
+    return  m_ui.checkBox->text();
+}
+
+void clamdconfspinboxoption::setValue(QString value)
+{
+    m_ui.spinBox->setValue(value.toInt());
+}
+
+QString clamdconfspinboxoption::getValue()
+{
+    return QString::number(m_ui.spinBox->value());
+}
+
+void clamdconfspinboxoption::setChecked(bool checked)
+{
+    m_ui.checkBox->setChecked(checked);
+}
+
+bool clamdconfspinboxoption::isChecked()
+{
+    return m_ui.checkBox->isChecked();
 }
 
 void clamdconfspinboxoption::slot_checkboxClicked()

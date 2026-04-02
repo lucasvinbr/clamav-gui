@@ -11,7 +11,7 @@ firstRunWindow::firstRunWindow(QWidget *parent)
     m_processInit = true;
 
     createServiceMenu();
-    createBaseDirStructur();
+    createBaseDirStructure();
 
     m_setupFile = new setupFileHandler(QDir::homePath() + "/.clamav-gui/settings.ini");
     m_setupFile->setSectionValue("Setup","FirstRun",true);
@@ -245,10 +245,10 @@ void firstRunWindow::slot_done()
     QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
 }
 
-void firstRunWindow::createBaseDirStructur()
+void firstRunWindow::createBaseDirStructure()
 {
     //*****************************************************************************
-    //creating service Menu
+    //creating basic Directory-Structur
     //*****************************************************************************
     QDir dir(QDir::homePath());
     dir.mkpath(QDir::homePath() + "/.clamav-gui");

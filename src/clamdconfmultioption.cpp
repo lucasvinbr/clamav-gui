@@ -3,7 +3,7 @@
 #define css_mono "background-color:#404040;color:white"
 
 clamdconfmultioption::clamdconfmultioption(QWidget* parent, QString keyword, bool checked, QString label, QStringList values, setupFileHandler * setupFile, setupFileHandler * baseSetupFile)
-    : QWidget(parent), m_ui(new Ui::clamdconfmultioption), m_keyword(keyword), m_checked(checked), m_label(label), m_values(values), m_setupFile(setupFile), m_baseSetupFile(baseSetupFile)
+    : ClamdConfOptionBaseClass(parent), m_ui(new Ui::clamdconfmultioption), m_keyword(keyword), m_checked(checked), m_label(label), m_values(values), m_setupFile(setupFile), m_baseSetupFile(baseSetupFile)
 {
     m_ui->setupUi(this);
     if ((m_label.indexOf("directories") != -1) && (m_label.indexOf("REGEX") == -1)) m_fileselector = true; else m_fileselector = false;
@@ -26,6 +26,37 @@ clamdconfmultioption::clamdconfmultioption(QWidget* parent, QString keyword, boo
 clamdconfmultioption::~clamdconfmultioption()
 {
     delete m_ui;
+}
+
+QString clamdconfmultioption::getKeyword()
+{
+    return m_keyword;
+}
+
+QString clamdconfmultioption::getLabel()
+{
+    return m_ui->checkBox->text();
+}
+
+void clamdconfmultioption::setValue(QString value)
+{
+    int idx = m_ui->comboBox->findText(value);
+    if (idx != -1) m_ui->comboBox->setCurrentIndex(idx);
+}
+
+QString clamdconfmultioption::getValue()
+{
+    return m_ui->comboBox->currentText();
+}
+
+void clamdconfmultioption::setChecked(bool checked)
+{
+    m_ui->checkBox->setChecked(checked);
+}
+
+bool clamdconfmultioption::isChecked()
+{
+    return m_ui->checkBox->isChecked();
 }
 
 void clamdconfmultioption::slot_checkBoxClicked()

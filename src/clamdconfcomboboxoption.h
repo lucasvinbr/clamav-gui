@@ -2,6 +2,7 @@
 #define CLAMDCONFCOMBOBOXOPTION_H
 
 #include "ui_clamdconfcomboboxoption.h"
+#include "clamdconfoptionbaseclass.h"
 #include "setupfilehandler.h"
 #include "translator.h"
 
@@ -12,7 +13,7 @@ namespace Ui {
 class clamdconfcomboboxoption;
 }
 
-class clamdconfcomboboxoption : public QWidget
+class clamdconfcomboboxoption : public ClamdConfOptionBaseClass
 {
     Q_OBJECT
 
@@ -24,6 +25,13 @@ public:
                                      QString options="",
                                      setupFileHandler * setupFile = nullptr);
     ~clamdconfcomboboxoption() = default;
+
+    QString getKeyword();
+    QString getLabel();
+    void setValue(QString value = 0);
+    QString getValue();
+    void setChecked(bool checked = true);
+    bool isChecked();
 
 private:
     Ui::clamdconfcomboboxoption m_ui;

@@ -33,7 +33,7 @@ private:
     setupFileHandler    * m_setupFile;
     setupFileHandler    * m_clamdConf;
     setupFileHandler    * m_freshclamConf;
-    void createBaseDirStructur();
+    void createBaseDirStructure();
     void createServiceMenu();
     void createInitialSettings();
     void createClamdConfFile();

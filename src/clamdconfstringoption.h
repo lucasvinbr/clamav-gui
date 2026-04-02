@@ -2,6 +2,7 @@
 #define CLAMDCONFSTRINGOPTION_H
 
 #include "setupfilehandler.h"
+#include "clamdconfoptionbaseclass.h"
 #include "translator.h"
 #include "ui_clamdconfstringoption.h"
 
@@ -11,17 +12,24 @@ namespace Ui {
 class clamdConfStringOption;
 }
 
-class clamdConfStringOption : public QWidget {
+class clamdConfStringOption : public ClamdConfOptionBaseClass {
     Q_OBJECT
 
    public:
-    explicit clamdConfStringOption(QWidget* parent = nullptr, 
+    explicit clamdConfStringOption(QWidget* parent = nullptr,
                                    QString keyword = "", 
                                    bool checked = false, 
                                    QString label = "", 
                                    QString options = "",
                                    setupFileHandler * setupFile = nullptr);
     ~clamdConfStringOption() = default;
+
+    QString getKeyword();
+    QString getLabel();
+    void setValue(QString value = 0);
+    QString getValue();
+    void setChecked(bool checked = true);
+    bool isChecked();
 
    private:
     Ui::clamdConfStringOption m_ui;
