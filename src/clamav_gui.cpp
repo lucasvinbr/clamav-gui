@@ -142,10 +142,10 @@ clamav_gui::clamav_gui(QWidget* parent) : QWidget(parent)
 }
 
 
-void clamav_gui::slot_receiveVersionInformation(QString info)
-{
-    m_ui.frame->setVersionLabel(info);
-}
+// void clamav_gui::slot_receiveVersionInformation(QString info)
+// {
+//     m_ui.frame->setVersionLabel(info);
+// }
 
 void clamav_gui::closeEvent(QCloseEvent* event)
 {
