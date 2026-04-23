@@ -10,7 +10,7 @@ clamdManager::clamdManager(QWidget* parent, setupFileHandler* setupFile) : QWidg
     m_monochrome = false;
     m_waitForFreshclam = true;
     m_clamdStartupCounter = 0;
-
+    m_clamdManagerLocked = false;
     m_startDelayTimer = new QTimer(this);
     m_startDelayTimer->setSingleShot(true);
     connect(m_startDelayTimer, SIGNAL(timeout()), this, SLOT(slot_startDelayTimerExpired()));
@@ -21,6 +21,24 @@ clamdManager::clamdManager(QWidget* parent, setupFileHandler* setupFile) : QWidg
 
     m_getClamdConfParametersProcess = new QProcess(this);
     connect(m_getClamdConfParametersProcess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slot_getClamdConfParameterProcessFinished()));
+
+    m_findClamdProcess = new QProcess(this);
+    connect(m_findClamdProcess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slot_findClamdProcessFinished()));
+
+    m_clamdLogWatcher = new QFileSystemWatcher(this);
+    connect(m_clamdLogWatcher,SIGNAL(fileChanged(QString)),this,SLOT(slot_logFileContentChanged()));
+
+    if (QProcess::execute("pidof", QStringList() << "-q" << "-s" << "clamd") == 0)
+        m_findClamdProcess->start("bash",QStringList() << "-c" << "ps -ax | grep `pidof clamd` | grep clamd");
+    else {
+        m_setupFile->setSectionValue("Clamd","ClamdPid","n/a");
+        m_setupFile->setSectionValue("Clamd","ClamonaccPid","n/a");
+        m_setupFile->setSectionValue("Clamd","Status","not running");
+        m_setupFile->setSectionValue("Clamd","Status2","not running");
+        m_setupFile->setSectionValue("Clamd","ClamdPidFile","/tmp/clamd.pid");
+        m_setupFile->setSectionValue("Clamd","ClamdConfPath",QDir::homePath() + "/.clamav-gui/clamd.conf");
+        m_setupFile->setSectionValue("Clamd","ClamdLogFile",QDir::homePath() + "/.clamav-gui/clamd.log");
+    }
 }
 
 QString clamdManager::trimLocationOutput(QString value)
@@ -45,7 +63,7 @@ void clamdManager::slot_initClamdSettings()
     m_clamonaccLocation = m_setupFile->getSectionValue("Clamd","ClamonaccLocation");
     m_sudoGUI = m_setupFile->getSectionValue("Settings", "SudoGUI");
 
-    m_clamdConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/clamd.conf", this);
+    m_clamdConf = new setupFileHandler(m_setupFile->getSectionValue("Clamd","ClamdConfPath"), this);
 
     QStringList monitorings = m_setupFile->getKeywords("Clamonacc");
     m_dirsUnderMonitoring = monitorings.length();
@@ -67,11 +85,15 @@ void clamdManager::slot_initClamdSettings()
     m_restartClamonaccProcess = new QProcess(this);
     connect(m_restartClamonaccProcess, SIGNAL(finished(int)), this, SLOT(slot_restartClamonaccProcessFinished()));
 
-    if (checkClamdRunning() == true) {
+    if (checkClamdRunning() == true)
+    {
         m_ui.startStopClamdPushButton->setStyleSheet(selectColor("green"));
         m_ui.startStopClamdPushButton->setText(tr("  Clamd running - Stop clamd"));
         m_ui.startStopClamdPushButton->setIcon(QIcon(":/icons/icons/stopclamd.png"));
-        m_clamdPidWatcher->addPath("/tmp/clamd.pid");
+        if (QFileInfo::exists(m_setupFile->getSectionValue("Clamd","ClamdPidFile")) == true)
+            m_clamdPidWatcher->addPath(m_setupFile->getSectionValue("Clamd","ClamdPidFile"));
+        else
+            qDebug() << m_setupFile->getSectionValue("Clamd","ClamdPidFile") << " file not found!";
     }
     else {
         m_ui.startStopClamdPushButton->setStyleSheet(selectColor("red"));
@@ -82,23 +104,31 @@ void clamdManager::slot_initClamdSettings()
     m_ui.restartClamdPushButton->setVisible(false);
     slot_updateClamdConf();
 
-    m_initprocessrunning = false;
-
     getClamdConfElements();
+
+    m_initprocessrunning = false;
 }
 
 void clamdManager::slot_dbPathChanged(QString dbPath)
 {
-    foreach(ClamdConfOptionBaseClass* item,m_clamdConfParameters) {
-        if (item->getKeyword() == "DatabaseDirectory") item->setValue(dbPath);
+    if (m_clamdManagerLocked == false)
+    {
+        if ((m_clamdConf->getSingleLineValue("DatabaseDirectory") != dbPath) && (m_clamdConf->getSingleLineValue("DatabaseDirectory") != ""))
+        {
+            foreach(ClamdConfOptionBaseClass* item,m_clamdConfParameters)
+            {
+                if (item->getKeyword() == "DatabaseDirectory") item->setValue(dbPath);
+            }
+            m_clamdConf->setSingleLineValue("DatabaseDirectory", dbPath);
+            slot_clamdSettingsChanged();
+        }
     }
-    m_clamdConf->setSingleLineValue("DatabaseDirectory", dbPath);
-    slot_clamdSettingsChanged();
 }
 
 void clamdManager::slot_updateClamdConfParameters()
 {
-    foreach(ClamdConfOptionBaseClass* item,m_clamdConfParameters) {
+    foreach(ClamdConfOptionBaseClass* item,m_clamdConfParameters)
+    {
         m_ui.layout1->removeWidget(item);
         delete item;
     }
@@ -112,8 +142,9 @@ void clamdManager::slot_updateClamdConfParameters()
 void clamdManager::slot_getClamdConfParameterProcessFinished()
 {
     QString rc = m_getClamdConfParametersProcess->readAll();
-    QFile file(QDir::homePath() + "/.clamav-gui/clamd.conf.man");
-    if (file.open(QIODevice::WriteOnly|QIODevice::Text)) {
+    QFile file(m_setupFile->getSectionValue("Clamd","ClamdConfPath"));
+    if (file.open(QIODevice::WriteOnly|QIODevice::Text))
+    {
         QTextStream stream(&file);
         stream << rc;
         Qt::endl(stream);
@@ -127,126 +158,250 @@ void clamdManager::slot_filterChanged(QString searchString)
     QString keyword;
     QString label;
 
-    if (searchString != "") {
-        searchString = searchString.toUpper();
-
-        foreach(ClamdConfOptionBaseClass* item,m_clamdConfParameters) {
-            keyword = item->getKeyword().toUpper();
-            label = item->getLabel().toUpper();
-            if ((keyword.indexOf(searchString) != -1) || (label.indexOf(searchString) != -1)) {
-                item->setVisible(true);
-            } else {
-                item->setVisible(false);
+    if ((m_ui.showSelectedCheckBox->isChecked()) || (m_ui.showUnselectedCheckBox->isChecked()))
+    {
+        if (m_ui.showSelectedCheckBox->isChecked())
+        {
+            foreach (ClamdConfOptionBaseClass* item, m_clamdConfParameters)
+            {
+                item->setVisible(item->isChecked());
             }
         }
-    } else {
-        foreach(ClamdConfOptionBaseClass* item,m_clamdConfParameters) {
-            item->setVisible(true);
+        else {
+            foreach (ClamdConfOptionBaseClass* item, m_clamdConfParameters)
+            {
+                item->setVisible(!item->isChecked());
+            }
+        }
+    }
+    else {
+        if (searchString != "")
+        {
+            searchString = searchString.toUpper();
+
+            foreach(ClamdConfOptionBaseClass* item,m_clamdConfParameters)
+            {
+                keyword = item->getKeyword().toUpper();
+                label = item->getLabel().toUpper();
+                ((keyword.indexOf(searchString) != -1) || (label.indexOf(searchString) != -1))?item->setVisible(true):item->setVisible(false);
+            }
+        }
+        else {
+            foreach (ClamdConfOptionBaseClass* item, m_clamdConfParameters)
+            {
+                item->setVisible(true);
+            }
         }
     }
 }
 
+void clamdManager::slot_showSelectedChecked()
+{
+    if (m_ui.showSelectedCheckBox->isChecked())
+        m_ui.showUnselectedCheckBox->setChecked(false);
+
+    slot_filterChanged(m_ui.lineEdit->text());
+}
+
+void clamdManager::slot_showUnselectedChecked()
+{
+    if (m_ui.showUnselectedCheckBox->isChecked())
+        m_ui.showSelectedCheckBox->setChecked(false);
+
+    slot_filterChanged(m_ui.lineEdit->text());
+}
+
+void clamdManager::slot_findClamdProcessFinished()
+{
+    bool clamdConfPathFlag = false;
+
+    QString clamdConfPath = "";
+
+    QString rc = m_findClamdProcess->readAll();
+
+    while (rc.indexOf("  ") != -1)
+        rc.replace("  "," ");
+
+    QStringList fields = rc.split(" ");
+
+    int idx = 0;
+    foreach (QString field, fields)
+    {
+        field = field.trimmed();
+
+        if (idx == 1)
+        {
+            m_setupFile->setSectionValue("Clamd","ClamdPid",field);
+            m_setupFile->setSectionValue("Clamd","Status","is running");
+        }
+
+        if (clamdConfPathFlag)
+        {
+            clamdConfPath = field;
+            m_setupFile->setSectionValue("Clamd","ClamdConfPath",clamdConfPath);
+            QFileInfo info(clamdConfPath);
+            if (info.isWritable() == false)
+            {
+                m_ui.tabWidget->setDisabled(true);
+                m_clamdManagerLocked = true;
+            }
+            else
+                m_ui.tabWidget->setDisabled(false);
+
+            setupFileHandler m_confSetupFile(field);
+
+            if (m_confSetupFile.singleLineExists("ClamdPidFile"))
+                m_setupFile->setSectionValue("Clamd","ClamdPidFile",m_confSetupFile.getSingleLineValue("ClamdPidFile"));
+            else
+                m_setupFile->setSectionValue("Clamd","ClamdPidFile","/tmp/clamd.pid");
+
+            if (m_confSetupFile.singleLineExists("LogFile"))
+                m_setupFile->setSectionValue("Clamd","ClamdLogFile",m_confSetupFile.singleLineExists("LogFile"));
+            else {
+                m_setupFile->setSectionValue("Clamd","ClamdLogFile","");
+                m_ui.clamdLogPlainTextEdit->clear();
+            }
+
+            clamdConfPathFlag = false;
+        }
+
+        if (field == "-c")
+            clamdConfPathFlag = true;
+
+        idx++;
+    }
+
+    if (QFileInfo::exists(clamdConfPath))
+    {
+        setupFileHandler clamdConfHandler(clamdConfPath);
+        if (clamdConfHandler.singleLineExists("LogFile"))
+            m_setupFile->setSectionValue("Clamd","ClamdLogFile",clamdConfHandler.getSingleLineValue("LogFile"));
+    }
+
+    emit slot_restartClamonaccProcessFinished();
+}
+
 void clamdManager::slot_updateClamdConf()
 {
-    QStringList path;
-    QString logPath = QDir::homePath() + "/.clamav-gui/clamd.log";
-    QFile checkFile(logPath);
+    QString logPath = m_setupFile->getSectionValue("Clamd","ClamdLogFile");
+    if (logPath != "")
+    {
+        QFile checkFile(logPath);
 
-    if (checkFile.exists() == false) {
-        if (checkFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
-            checkFile.close();
+        if (checkFile.exists() == false)
+        {
+            if (checkFile.open(QIODevice::WriteOnly | QIODevice::Text))
+            {
+                QTextStream stream(&checkFile);
+                stream << "\n";
+                checkFile.close();
+            }
         }
+        else {
+            slot_logFileContentChanged();
+        }
+
+        if (m_clamdLogWatcher->directories().size() > 0)
+            m_clamdLogWatcher->removePaths(m_clamdLogWatcher->directories());
+        m_clamdLogWatcher->addPath(logPath);
     }
-    else {
-        slot_logFileContentChanged();
-    }
+    if (m_clamdManagerLocked == false)
+    {
 
-    path << logPath;
+        m_freshclamConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/freshclam.conf", this);
 
-    m_clamdLogWatcher = new QFileSystemWatcher(path, this);
-    connect(m_clamdLogWatcher, SIGNAL(fileChanged(QString)), this, SLOT(slot_logFileContentChanged()));
+        QStringList watchList = m_setupFile->getKeywords("Clamonacc");
+        foreach (QString entry, watchList)
+        {
+            m_clamdConf->addSingleLineValue("OnAccessIncludePath", entry);
+        }
 
-    m_freshclamConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/freshclam.conf", this);
+        if ((m_setupFile->sectionExists("REGEXP_and_IncludeExclude")) &&
+            (m_setupFile->getSectionValue("REGEXP_and_IncludeExclude", "DontScanDirectoriesMatchingRegExp").indexOf("checked|") == 0))
+            m_clamdConf->addSingleLineValue("ExcludePath",
+                                            m_setupFile->getSectionValue("REGEXP_and_IncludeExclude", "DontScanDirectoriesMatchingRegExp").mid(8));
 
-    QStringList watchList = m_setupFile->getKeywords("Clamonacc");
-    foreach (QString entry, watchList) {
-        m_clamdConf->addSingleLineValue("OnAccessIncludePath", entry);
-    }
+        if ((m_setupFile->sectionExists("REGEXP_and_IncludeExclude")) &&
+            (m_setupFile->getSectionValue("REGEXP_and_IncludeExclude", "DontScanFileNamesMatchingRegExp").indexOf("checked|") == 0))
+            m_clamdConf->addSingleLineValue("ExcludePath",
+                                            m_setupFile->getSectionValue("REGEXP_and_IncludeExclude", "DontScanFileNamesMatchingRegExp").mid(8));
 
-    if ((m_setupFile->sectionExists("REGEXP_and_IncludeExclude")) &&
-        (m_setupFile->getSectionValue("REGEXP_and_IncludeExclude", "DontScanDiretoriesMatchingRegExp").indexOf("checked|") == 0))
-        m_clamdConf->addSingleLineValue("ExcludePath",
-                                        m_setupFile->getSectionValue("REGEXP_and_IncludeExclude", "DontScanDiretoriesMatchingRegExp").mid(8));
-    if ((m_setupFile->sectionExists("REGEXP_and_IncludeExclude")) &&
-        (m_setupFile->getSectionValue("REGEXP_and_IncludeExclude", "DontScanFileNamesMatchingRegExp").indexOf("checked|") == 0))
-        m_clamdConf->addSingleLineValue("ExcludePath",
-                                        m_setupFile->getSectionValue("REGEXP_and_IncludeExclude", "DontScanDiretoriesMatchingRegExp").mid(8));
-    if (m_setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude", "EnablePUAOptions") == true) {
-        QStringList PUAKeywords;
-        PUAKeywords << "LoadPUAPacked" << "LoadPUAPWTool" << "LoadPUANetTool" << "LoadPUAP2P" << "LoadPUAIRC" << "LoadPUARAT" << "LoadPUANetToolSpy"
-                    << "LoadPUAServer";
-        PUAKeywords << "LoadPUAScript" << "LoadPUAAndr" << "LoadPUAJava" << "LoadPUAOsx" << "LoadPUATool" << "LoadPUAUnix" << "LoadPUAWin";
+        if (m_setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude", "EnablePUAOptions") == true)
+        {
+            QStringList PUAKeywords;
+            PUAKeywords << "LoadPUAPacked" << "LoadPUAPWTool" << "LoadPUANetTool" << "LoadPUAP2P" << "LoadPUAIRC" << "LoadPUARAT" << "LoadPUANetToolSpy"
+                        << "LoadPUAServer";
+            PUAKeywords << "LoadPUAScript" << "LoadPUAAndr" << "LoadPUAJava" << "LoadPUAOsx" << "LoadPUATool" << "LoadPUAUnix" << "LoadPUAWin";
 
-        QStringList PUASwitches;
-        PUASwitches << "Packed" << "PWTool" << "NetTool" << "P2P" << "IRC" << "RAT" << "NetToolSpy" << "Server" << "Script" << "Andr" << "Java"
-                    << "Osx" << "Tool" << "Unix" << "Win";
+            QStringList PUASwitches;
+            PUASwitches << "Packed" << "PWTool" << "NetTool" << "P2P" << "IRC" << "RAT" << "NetToolSpy" << "Server" << "Script" << "Andr" << "Java"
+                        << "Osx" << "Tool" << "Unix" << "Win";
 
-        for (int i = 0; i < PUAKeywords.length(); i++) {
-            if (m_setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude", PUAKeywords.at(i)) == true)
-                m_clamdConf->addSingleLineValue("IncludePUA", PUASwitches.at(i));
+            for (int i = 0; i < PUAKeywords.length(); i++)
+            {
+                if (m_setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude", PUAKeywords.at(i)) == true)
+                    m_clamdConf->addSingleLineValue("IncludePUA", PUASwitches.at(i));
+            }
         }
     }
 }
 
 void clamdManager::slot_logFileContentChanged()
 {
-    QFile file(QDir::homePath() + "/.clamav-gui/clamd.log");
-    QString content;
-    QString checkString;
+    if (m_setupFile->getSectionValue("Clamd","ClamdLogFile") != "")
+    {
+        QFile file(m_setupFile->getSectionValue("Clamd","ClamdLogFile"));
+        QString content;
+        QString checkString;
 
-    if (file.open(QIODevice::ReadOnly)) {
-        QTextStream stream(&file);
-        content = stream.readAll();
-        file.close();
+        if (file.open(QIODevice::ReadOnly))
+        {
+            QTextStream stream(&file);
+            content = stream.readAll();
+            file.close();
+        }
+
+        QStringList lines = content.split("\n");
+        foreach (QString line, lines)
+        {
+            if ((line.indexOf("/") == 0) && (line.indexOf("FOUND") == line.length() - 5))
+                checkString = line;
+        }
+
+        if ((checkString != m_lastFound) && (checkString != ""))
+        {
+            m_lastFound = checkString;
+            emit setBallonMessage(2, tr("WARNING"), m_lastFound);
+        }
+
+        m_ui.clamdLogPlainTextEdit->clear();
+        m_ui.clamdLogPlainTextEdit->insertPlainText(content);
+        m_ui.clamdLogPlainTextEdit->ensureCursorVisible();
     }
-
-    QStringList lines = content.split("\n");
-    foreach (QString line, lines) {
-        if ((line.indexOf("/") == 0) && (line.indexOf("FOUND") == line.length() - 5))
-            checkString = line;
-    }
-
-    if ((checkString != m_lastFound) && (checkString != "")) {
-        m_lastFound = checkString;
-        emit setBallonMessage(2, tr("WARNING"), m_lastFound);
-    }
-
-    m_ui.clamdLogPlainTextEdit->clear();
-    m_ui.clamdLogPlainTextEdit->insertPlainText(content);
-    m_ui.clamdLogPlainTextEdit->ensureCursorVisible();
 }
 
 void clamdManager::slot_clamdStartStopButtonClicked()
 {
     QStringList monitorings = m_setupFile->getKeywords("Clamonacc");
-
     QStringList parameters;
-    QFile pidFile("/tmp/clamd.pid");
     QString clamonaccOptions;
 
-    if (m_setupFile->getSectionValue("Directories", "MoveInfectedFiles").indexOf("checked") == 0) {
+    if (m_setupFile->getSectionValue("Directories", "MoveInfectedFiles").indexOf("checked") == 0)
+    {
         QString path = m_setupFile->getSectionValue("Directories", "MoveInfectedFiles");
         path = path.mid(path.indexOf("|") + 1);
         clamonaccOptions = " --move=" + path;
     }
 
-    if (m_setupFile->getSectionValue("Directories", "CopyInfectedFiles").indexOf("checked") == 0) {
+    if (m_setupFile->getSectionValue("Directories", "CopyInfectedFiles").indexOf("checked") == 0)
+    {
         QString path = m_setupFile->getSectionValue("Directories", "CopyInfectedFiles");
         path = path.mid(path.indexOf("|") + 1);
         clamonaccOptions = clamonaccOptions + " --copy=" + path;
     }
 
-    if (m_setupFile->getSectionValue("Directories", "ScanReportToFile").indexOf("checked") == 0) {
+    if (m_setupFile->getSectionValue("Directories", "ScanReportToFile").indexOf("checked") == 0)
+    {
         QString path = m_setupFile->getSectionValue("Directories", "ScanReportToFile");
         path = path.mid(path.indexOf("|") + 1);
         clamonaccOptions = clamonaccOptions + " --log=" + path;
@@ -259,40 +414,55 @@ void clamdManager::slot_clamdStartStopButtonClicked()
     if (m_setupFile->keywordExists("SelectedOptions", "--allmatch<equal>yes") == true)
         clamonaccOptions += "--allmatch";
 
-    if (checkClamdRunning() == false) {
+    if (checkClamdRunning() == false)
+    {
+        if (QFileInfo::exists(m_setupFile->getSectionValue("Clamd","ClamdPidFile")))
+        {
+            QFile pidFile(m_setupFile->getSectionValue("Clamd","ClamdPidFile"));
+            pidFile.remove();
+        }
         slot_updateClamdConf();
 
         m_ui.clamdIconLabel->setMovie(new QMovie(":/icons/icons/gifs/spinning_segments_small.gif"));
         m_ui.clamdIconLabel->movie()->start();
 
-        m_clamdLogWatcher->removePath(QDir::homePath() + "/.clamav-gui/clamd.log");
-        QFile logFile(QDir::homePath() + "/.clamav-gui/clamd.log");
-        if (logFile.exists() == true)
-            logFile.remove();
-        if (logFile.open(QIODevice::ReadWrite)) {
-            QTextStream stream(&logFile);
-            stream << "";
-            logFile.close();
-        }
-        m_clamdLogWatcher->addPath(QDir::homePath() + "/.clamav-gui/clamd.log");
+        if (m_setupFile->getSectionValue("Clamd","ClamdLogFile") != "")
+        {
+            if (m_clamdLogWatcher->directories().size() > 0)
+                m_clamdLogWatcher->removePaths(m_clamdLogWatcher->directories());
 
+            QString logPath = m_setupFile->getSectionValue("Clamd","ClamdLogFile");
+            QFile logFile(logPath);
+            /*if (logFile.exists() == true)
+                logFile.remove();*/
+            if (logFile.open(QIODevice::ReadWrite))
+            {
+                QTextStream stream(&logFile);
+                stream << "\n";
+                logFile.close();
+            }
+
+            m_clamdLogWatcher->addPath(logPath);
+        }
         m_ui.clamdLogPlainTextEdit->clear();
         m_ui.startStopClamdPushButton->setText(tr("  Clamd starting. Please wait!"));
 
         QFile startclamdFile(QDir::homePath() + "/.clamav-gui/startclamd.sh");
         if (startclamdFile.exists() == true)
             startclamdFile.remove();
-        if (startclamdFile.open(QIODevice::Text | QIODevice::ReadWrite)) {
-            QString logFile = m_clamdConf->getSingleLineValue("LogFile");
+        if (startclamdFile.open(QIODevice::Text | QIODevice::ReadWrite))
+        {
+            // QString logFile = m_clamdConf->getSingleLineValue("LogFile");
             QTextStream stream(&startclamdFile);
-            if (monitorings.length() > 0) {
+            if (monitorings.length() > 0)
+            {
                 stream << "#!/bin/bash\n"
-                       << m_clamdLocation + " 2> " + logFile + " -c " + QDir::homePath() + "/.clamav-gui/clamd.conf && " + m_clamonaccLocation +
-                              " -c " + QDir::homePath() + "/.clamav-gui/clamd.conf -l " + QDir::homePath() + "/.clamav-gui/clamd.log" +
-                              clamonaccOptions;
+                       << m_clamdLocation + " 2> " + m_setupFile->getSectionValue("Clamd","ClamdLogFile") + " -c " + m_setupFile->getSectionValue("Clamd","ClamdConfPath") +
+                              " && " + m_clamonaccLocation + " -c " + m_setupFile->getSectionValue("Clamd","ClamdConfPath") + " -l " +
+                              m_setupFile->getSectionValue("Clamd","ClamdLogFile") + clamonaccOptions;
             }
             else {
-                stream << "#!/bin/bash\n" << m_clamdLocation + " 2> " + logFile + " -c " + QDir::homePath() + "/.clamav-gui/clamd.conf";
+                stream << "#!/bin/bash\n" << m_clamdLocation + " 2> " + m_setupFile->getSectionValue("Clamd","ClamdLogFile") + " -c " + m_setupFile->getSectionValue("Clamd","ClamdConfPath");
                 m_setupFile->setSectionValue("Clamd", "Status2", "n/a");
             }
             startclamdFile.close();
@@ -311,23 +481,19 @@ void clamdManager::slot_clamdStartStopButtonClicked()
     else {
         m_setupFile->setSectionValue("Clamd", "Status", "shutting down ...");
         emit systemStatusChanged();
-        QString pid = "";
-        if (pidFile.open(QIODevice::ReadOnly)) {
-            QTextStream stream(&pidFile);
-            pid = stream.readLine();
-            pidFile.close();
-        }
         m_ui.startStopClamdPushButton->setText(tr("  Stopping Clamd. Please wait!"));
         QFile stopclamdFile(QDir::homePath() + "/.clamav-gui/stopclamd.sh");
         if (stopclamdFile.exists() == true)
             stopclamdFile.remove();
-        if (stopclamdFile.open(QIODevice::Text | QIODevice::ReadWrite)) {
+        if (stopclamdFile.open(QIODevice::Text | QIODevice::ReadWrite))
+        {
             QTextStream stream(&stopclamdFile);
-            if (m_clamonaccPid != "n/a") {
-                stream << "#!/bin/bash\n/bin/kill -s SIGTERM " + pid + " && kill -9 " + m_clamonaccPid;
+            if (m_setupFile->getSectionValue("Clamd","ClamonaccPid") != "n/a")
+            {
+                stream << "#!/bin/bash\n/bin/kill -9 " + m_setupFile->getSectionValue("Clamd","ClamdPid") + " && kill -9 " + m_setupFile->getSectionValue("Clamd","ClamonaccPid");
             }
             else {
-                stream << "#!/bin/bash\n/bin/kill -s SIGTERM " + pid;
+                stream << "#!/bin/bash\n/bin/kill -9 " + m_setupFile->getSectionValue("Clamd","ClamdPid");
             }
             stopclamdFile.close();
             stopclamdFile.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner | QFileDevice::ReadGroup |
@@ -353,8 +519,10 @@ void clamdManager::slot_startClamdProcessFinished(int exitCode, QProcess::ExitSt
     ;
     m_ui.clamdIconLabel_2->setPixmap(QPixmap(":/icons/icons/options.png"));
 
-    if (checkClamdRunning() == false) {
-        m_clamdPidWatcher->removePath("/tmp/clamd.pid");
+    if (checkClamdRunning() == false)
+    {
+        if (m_clamdPidWatcher->directories().size() > 0)
+            m_clamdPidWatcher->removePaths(m_clamdPidWatcher->directories());
         m_ui.startStopClamdPushButton->setStyleSheet(selectColor("red"));
         m_ui.startStopClamdPushButton->setText(tr("  Clamd not running - Start Clamd"));
         m_ui.startStopClamdPushButton->setIcon(QIcon(":/icons/icons/startclamd.png"));
@@ -365,7 +533,8 @@ void clamdManager::slot_startClamdProcessFinished(int exitCode, QProcess::ExitSt
 
         emit systemStatusChanged();
 
-        if (m_clamdStartupCounter > 0) {
+        if (m_clamdStartupCounter > 0)
+        {
             if (m_waitForFreshclam == false)
                 m_clamdStartupCounter--;
             m_startDelayTimer->start(2500);
@@ -374,19 +543,11 @@ void clamdManager::slot_startClamdProcessFinished(int exitCode, QProcess::ExitSt
     else {
         m_clamdStartupCounter = 0;
 
-        m_clamdPidWatcher->addPath("/tmp/clamd.pid");
+        if (m_clamdPidWatcher->directories().size() > 0)
+            m_clamdPidWatcher->removePaths(m_clamdPidWatcher->directories());
+        m_clamdPidWatcher->addPath(m_setupFile->getSectionValue("Clamd","ClamdPidFile"));
 
-        QFile pidFile("/tmp/clamd.pid");
-        if (pidFile.open(QIODevice::ReadOnly)) {
-            QTextStream stream(&pidFile);
-            QString pid = stream.readLine();
-            pid = pid.replace("\n", "");
-
-            m_setupFile->setSectionValue("Clamd", "ClamdPid", pid);
-            m_setupFile->setSectionValue("Clamd", "Status", "is running");
-
-            pidFile.close();
-        }
+        m_findClamdProcess->start("bash",QStringList() << "-c" << "ps -ax | grep `pidof clamd` | grep clamd");
 
         emit systemStatusChanged();
         m_ui.startStopClamdPushButton->setStyleSheet(selectColor("green"));
@@ -416,8 +577,10 @@ void clamdManager::slot_killClamdProcessFinished()
     ;
     m_ui.clamdIconLabel_2->setPixmap(QPixmap(":/icons/icons/options.png"));
 
-    if (checkClamdRunning() == false) {
-        m_clamdPidWatcher->removePath("/tmp/clamd.pid");
+    if (checkClamdRunning() == false)
+    {
+        if (m_clamdPidWatcher->directories().size() > 0)
+            m_clamdPidWatcher->removePaths(m_clamdPidWatcher->directories());
         m_ui.startStopClamdPushButton->setStyleSheet(selectColor("red"));
         m_ui.startStopClamdPushButton->setText(tr("  Clamd not running - Start Clamd"));
         m_ui.startStopClamdPushButton->setIcon(QIcon(":/icons/icons/startclamd.png"));
@@ -427,14 +590,22 @@ void clamdManager::slot_killClamdProcessFinished()
         m_setupFile->setSectionValue("Clamd", "Status", "shut down");
         if (m_dirsUnderMonitoring > 0)
             m_setupFile->setSectionValue("Clamd", "Status2", "shut down");
-
+        // reset to standard application values
+        m_setupFile->setSectionValue("Clamd","ClamdConfPath",QDir::homePath() + "/.clamav-gui/clamd.conf");
+        m_setupFile->setSectionValue("Clamd","ClamdLogFile",QDir::homePath() + "/.clamav-gui/clamd.log");
+        m_setupFile->setSectionValue("Clamd","ClamdPidFile","/tmp/clamd.pid");
         emit systemStatusChanged();
     }
     else {
-        m_clamdPidWatcher->addPath("/tmp/clamd.pid");
-        m_ui.startStopClamdPushButton->setStyleSheet(selectColor("green"));
-        m_ui.startStopClamdPushButton->setText(tr("  Clamd running - Stop Clamd"));
-        m_ui.startStopClamdPushButton->setIcon(QIcon(":/icons/icons/stopclamd.png"));
+        if (QFileInfo::exists(m_setupFile->getSectionValue("Clamd","ClamdPidFile")) == true)
+        {
+            if (m_clamdPidWatcher->directories().size() > 0)
+                m_clamdPidWatcher->removePaths(m_clamdPidWatcher->directories());
+            m_clamdPidWatcher->addPath(m_setupFile->getSectionValue("Clamd","ClamdPidFile"));
+            m_ui.startStopClamdPushButton->setStyleSheet(selectColor("green"));
+            m_ui.startStopClamdPushButton->setText(tr("  Clamd running - Stop Clamd"));
+            m_ui.startStopClamdPushButton->setIcon(QIcon(":/icons/icons/stopclamd.png"));
+        }
     }
 
     m_ui.startStopClamdPushButton->setEnabled(true);
@@ -444,7 +615,8 @@ void clamdManager::slot_killClamdProcessFinished()
 
 void clamdManager::slot_findclamonaccProcessFinished(int rc)
 {
-    if (rc == 0) {
+    if (rc == 0)
+    {
         m_clamonaccPid = m_findclamonaccProcess->readAllStandardOutput();
         m_clamonaccPid = m_clamonaccPid.replace("\n", "");
         m_setupFile->setSectionValue("Clamd", "ClamonaccPid", m_clamonaccPid);
@@ -453,18 +625,21 @@ void clamdManager::slot_findclamonaccProcessFinished(int rc)
     else {
         m_clamonaccPid = "";
         m_setupFile->setSectionValue("Clamd", "ClamonaccPid", "n/a");
+        m_setupFile->setSectionValue("Clamd","Status2","not running");
         emit systemStatusChanged();
     }
 
     if ((m_setupFile->keywordExists("Clamd", "StartClamdOnStartup") == true) &&
-        (m_setupFile->getSectionBoolValue("Clamd", "StartClamdOnStartup") == true)) {
+        (m_setupFile->getSectionBoolValue("Clamd", "StartClamdOnStartup") == true))
+    {
         m_ui.startClamdOnStartupCheckBox->setChecked(m_setupFile->getSectionBoolValue("Clamd", "StartClamdOnStartup"));
     }
 }
 
 void clamdManager::slot_startDelayTimerExpired()
 {
-    if (checkClamdRunning() == false) {
+    if (checkClamdRunning() == false)
+    {
         emit setActiveTab();
         slot_clamdStartStopButtonClicked();
     }
@@ -475,7 +650,8 @@ void clamdManager::slot_waitForFreshclamStarted()
     m_waitForFreshclam = false;
 
     if ((m_startup == true) && (m_setupFile->keywordExists("Clamd", "StartClamdOnStartup") == true) &&
-        (m_setupFile->getSectionBoolValue("Clamd", "StartClamdOnStartup") == true)) {
+        (m_setupFile->getSectionBoolValue("Clamd", "StartClamdOnStartup") == true))
+    {
         m_ui.startClamdOnStartupCheckBox->setChecked(m_setupFile->getSectionBoolValue("Clamd", "StartClamdOnStartup"));
 
         m_clamdStartupCounter = 5;
@@ -491,8 +667,10 @@ void clamdManager::slot_processWatcherExpired()
     QString clamonaccPid = m_setupFile->getSectionValue("Clamd", "ClamonaccPid");
 
     QDir checkDir;
-    if (clamdPid != "n/a") {
-        if (checkDir.exists("/proc/" + clamdPid) == false) {
+    if (clamdPid != "n/a")
+    {
+        if (checkDir.exists("/proc/" + clamdPid) == false)
+        {
             m_setupFile->setSectionValue("Clamd", "ClamdPid", "n/a");
 
             emit systemStatusChanged();
@@ -501,8 +679,10 @@ void clamdManager::slot_processWatcherExpired()
         }
     }
 
-    if (clamonaccPid != "n/a") {
-        if (checkDir.exists("/proc/" + clamonaccPid) == false) {
+    if (clamonaccPid != "n/a")
+    {
+        if (checkDir.exists("/proc/" + clamonaccPid) == false)
+        {
             m_setupFile->setSectionValue("Clamd", "ClamonaccPid", "n/a");
             emit systemStatusChanged();
         }
@@ -511,15 +691,18 @@ void clamdManager::slot_processWatcherExpired()
 
 void clamdManager::slot_add_remove_highlighter(bool state)
 {
-    if (state == true) {
-        if (m_logHighlighter != NULL) {
+    if (state == true)
+    {
+        if (m_logHighlighter != NULL)
+        {
             delete m_logHighlighter;
             m_logHighlighter = NULL;
         }
         m_monochrome = true;
     }
     else {
-        if (m_logHighlighter == NULL) {
+        if (m_logHighlighter == NULL)
+        {
             m_logHighlighter = new highlighter(m_ui.clamdLogPlainTextEdit->document());
         }
         else {
@@ -533,9 +716,11 @@ void clamdManager::slot_add_remove_highlighter(bool state)
 
 void clamdManager::slot_pidWatcherTriggered()
 {
-    QFile pidFile("/tmp/clamd.pid");
-    if ((pidFile.exists() == false) && (m_clamdRestartInProgress == false)) {
-        m_clamdPidWatcher->removePath("/tmp/clamd.pid");
+    QFile pidFile(m_setupFile->getSectionValue("Clamd","ClamdPidFile"));
+    if ((pidFile.exists() == false) && (m_clamdRestartInProgress == false))
+    {
+        if (m_clamdPidWatcher->directories().size() > 0)
+            m_clamdPidWatcher->removePaths(m_clamdPidWatcher->directories());
         m_ui.startStopClamdPushButton->setStyleSheet(selectColor("red"));
         m_ui.startStopClamdPushButton->setText(tr("  Clamd not running - Start Clamd"));
         m_ui.startStopClamdPushButton->setIcon(QIcon(":/icons/icons/startclamd.png"));
@@ -561,11 +746,13 @@ void clamdManager::slot_startClamdOnStartupCheckBoxClicked()
 void clamdManager::slot_monitoringAddButtonClicked()
 {
     QString path = QFileDialog::getExistingDirectory(this, tr("Directory to monitor"), QDir::homePath());
-    if (path != "") {
-        if (m_ui.monitoringComboBox->findText(path) == -1) {
+    if (path != "")
+    {
+        if (m_ui.monitoringComboBox->findText(path) == -1)
+        {
             m_ui.monitoringComboBox->addItem(path);
             m_setupFile->setSectionValue("Clamonacc", path, "under monitoring");
-            m_clamdConf->addSingleLineValue("OnAccessIncludePath", path);
+            m_clamdConf->addSingleLineValue("OnAccessIncludePath", path, "This option specifies a directory (including all files and directories inside it), which should be scanned on access. This option can be used multiple times. Default: disabled");
             m_dirsUnderMonitoring++;
             if (checkClamdRunning() == true)
                 restartClamonacc();
@@ -579,13 +766,15 @@ void clamdManager::slot_monitoringAddButtonClicked()
 void clamdManager::slot_monitoringDelButtonClicked()
 {
     QString entry = m_ui.monitoringComboBox->currentText();
-    if (entry != "") {
+    if (entry != "")
+    {
         if (QMessageBox::information(this, tr("Remove Folder from monitoring"),
                                      tr("Path: ") + entry + "\n" + tr("Do you want to remove the folder from the monitoring list?"), QMessageBox::Yes,
-                                     QMessageBox::No) == QMessageBox::Yes) {
+                                     QMessageBox::No) == QMessageBox::Yes)
+        {
             m_setupFile->removeKeyword("Clamonacc", entry);
             m_ui.monitoringComboBox->removeItem(m_ui.monitoringComboBox->currentIndex());
-            m_clamdConf->removeSingleLine("OnAccessIncludePath", entry);
+            m_clamdConf->removeSingleLine("OnAccessIncludePath", entry, "This option specifies a directory (including all files and directories inside it), which should be scanned on access. This option can be used multiple times. Default: disabled");
             m_dirsUnderMonitoring--;
             if (checkClamdRunning() == true)
                 restartClamonacc();
@@ -602,30 +791,23 @@ void clamdManager::slot_restartClamonaccProcessFinished()
 
 void clamdManager::slot_restartClamdButtonClicked()
 {
-    QString pid = "";
-    QFile pidFile("/tmp/clamd.pid");
-    if (pidFile.open(QIODevice::ReadOnly)) {
-        QTextStream stream(&pidFile);
-        pid = stream.readLine();
-        pidFile.close();
-    }
-
-    m_setupFile->setSectionValue("Clamd", "ClamdPid", pid);
-
     QString clamonaccOptions;
-    if (m_setupFile->getSectionValue("Directories", "MoveInfectedFiles").indexOf("checked") == 0) {
+    if (m_setupFile->getSectionValue("Directories", "MoveInfectedFiles").indexOf("checked") == 0)
+    {
         QString path = m_setupFile->getSectionValue("Directories", "MoveInfectedFiles");
         path = path.mid(path.indexOf("|") + 1);
         clamonaccOptions = " --move=" + path;
     }
 
-    if (m_setupFile->getSectionValue("Directories", "CopyInfectedFiles").indexOf("checked") == 0) {
+    if (m_setupFile->getSectionValue("Directories", "CopyInfectedFiles").indexOf("checked") == 0)
+    {
         QString path = m_setupFile->getSectionValue("Directories", "CopyInfectedFiles");
         path = path.mid(path.indexOf("|") + 1);
         clamonaccOptions = clamonaccOptions + " --copy=" + path;
     }
 
-    if (m_setupFile->getSectionValue("Directories", "ScanReportToFile").indexOf("checked") == 0) {
+    if (m_setupFile->getSectionValue("Directories", "ScanReportToFile").indexOf("checked") == 0)
+    {
         QString path = m_setupFile->getSectionValue("Directories", "ScanReportToFile");
         path = path.mid(path.indexOf("|") + 1);
         clamonaccOptions = clamonaccOptions + " --log=" + path;
@@ -652,17 +834,18 @@ void clamdManager::slot_restartClamdButtonClicked()
 
     QFile startclamdFile(QDir::homePath() + "/.clamav-gui/startclamd.sh");
     startclamdFile.remove();
-    if (startclamdFile.open(QIODevice::Text | QIODevice::ReadWrite)) {
+    if (startclamdFile.open(QIODevice::Text | QIODevice::ReadWrite))
+    {
         QTextStream stream(&startclamdFile);
-        if (m_dirsUnderMonitoring > 0) {
+        if ((m_setupFile->getSectionValue("Clamd","ClamonaccPid") != "n/a") && (m_setupFile->getSectionValue("Clamd","ClamonaccPid") != ""))
+        {
             stream << "#!/bin/bash\n"
-                   << "kill -s SIGTERM " + pid + " && kill -9 " + m_clamonaccPid + " && sleep 20 && " + m_clamdLocation + " -c " + QDir::homePath() +
-                          "/.clamav-gui/clamd.conf && " + m_clamonaccLocation + " -c " + QDir::homePath() + "/.clamav-gui/clamd.conf -l " +
-                          QDir::homePath() + "/.clamav-gui/clamd.log " + clamonaccOptions;
+                   << "kill -9 " + m_setupFile->getSectionValue("Clamd","ClamdPid") + " && kill -9 " + m_setupFile->getSectionValue("Clamd","ClamonaccPid") + " && sleep 20 && " + m_clamdLocation + " -c " + m_setupFile->getSectionValue("Clamd","ClamdConfPath") +
+                          " && " + m_clamonaccLocation + " -c " + m_setupFile->getSectionValue("Clamd","ClamdConfPath") + " -l " + m_setupFile->getSectionValue("Clamd","ClamdLogFile")  + " " + clamonaccOptions;
         }
         else {
             stream << "#!/bin/bash\n"
-                   << "kill -s SIGTERM " + pid + " && sleep 20 && " + m_clamdLocation + " -c " + QDir::homePath() + "/.clamav-gui/clamd.conf";
+                   << "kill -9 " + m_setupFile->getSectionValue("Clamd","ClamdPid") + " && sleep 20 && " + m_clamdLocation + " -c " + m_setupFile->getSectionValue("Clamd","ClamdConfPath");
         }
         startclamdFile.close();
         startclamdFile.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner | QFileDevice::ReadGroup |
@@ -686,8 +869,10 @@ void clamdManager::slot_restartClamdButtonClicked()
 
 void clamdManager::slot_clamdSettingsChanged()
 {
-    if (m_initprocessrunning == false) {
-        if (checkClamdRunning() == true) {
+    if (m_initprocessrunning == false)
+    {
+        if (checkClamdRunning() == true)
+        {
             m_ui.restartClamdPushButton->setVisible(true);
             m_ui.restartClamdPushButton->setStyleSheet(selectColor("green"));
         }
@@ -701,21 +886,25 @@ void clamdManager::restartClamonacc()
     QFile restartclamdFile(QDir::homePath() + "/.clamav-gui/restartclamd.sh");
     restartclamdFile.remove();
 
-    if (restartclamdFile.open(QIODevice::Text | QIODevice::ReadWrite)) {
+    if (restartclamdFile.open(QIODevice::Text | QIODevice::ReadWrite))
+    {
         QTextStream stream(&restartclamdFile);
-        if (m_clamonaccPid != "") {
-            if (m_dirsUnderMonitoring > 0) {
-                stream << "#!/bin/bash\n/bin/kill -9 " + m_clamonaccPid + " && " + m_clamonaccLocation + " -c " + QDir::homePath() +
-                              "/.clamav-gui/clamd.conf -l " + QDir::homePath() + "/.clamav-gui/clamd.log";
+        if (m_clamonaccPid != "")
+        {
+            if (m_dirsUnderMonitoring > 0)
+            {
+                stream << "#!/bin/bash\n/bin/kill -9 " + m_setupFile->getSectionValue("Clamd","ClamdPid") + " && " + m_clamonaccLocation + " -c " + m_setupFile->getSectionValue("Clamd","ClamdConfPath") +
+                              " -l " + m_setupFile->getSectionValue("Clamd","ClamdLogFile");
             }
             else {
-                stream << "#!/bin/bash\n/bin/kill -9 " + m_clamonaccPid;
+                stream << "#!/bin/bash\n/bin/kill -9 " + m_setupFile->getSectionValue("Clamd","ClamonaccPid");
             }
         }
         else {
-            if (m_dirsUnderMonitoring > 0) {
-                stream << "#!/bin/bash\n" + m_clamonaccLocation + " -c " + QDir::homePath() + "/.clamav-gui/clamd.conf -l " + QDir::homePath() +
-                              "/.clamav-gui/clamd.log";
+            if (m_dirsUnderMonitoring > 0)
+            {
+                stream << "#!/bin/bash\n" + m_clamonaccLocation + " -c " + m_setupFile->getSectionValue("Clamd","ClamdConfPath") + " -l " +
+                              m_setupFile->getSectionValue("Clamd","ClamdLogFile");
             }
         }
         restartclamdFile.close();
@@ -745,19 +934,9 @@ bool clamdManager::checkClamdRunning()
 
     int pid = checkPIDProcess.execute("pidof", parameters);
 
-    if (pid == 0) {
+    if (pid == 0)
+    {
         rc = true;
-        QFile pidFile("/tmp/clamd.pid");
-        if (pidFile.open(QIODevice::ReadOnly)) {
-            QTextStream stream(&pidFile);
-            QString pidString = stream.readLine();
-            pidString = pidString.replace("\n", "");
-            m_setupFile->setSectionValue("Clamd", "ClamdPid", pidString);
-            m_setupFile->setSectionValue("Clamd", "Status", "is running");
-            m_ui.startStopClamdPushButton->setStyleSheet(selectColor("green"));
-            pidFile.close();
-        }
-
         emit systemStatusChanged();
     }
     else {
@@ -774,7 +953,8 @@ QString clamdManager::selectColor(QString color)
 {
     QString rc = "";
 
-    if (m_monochrome == true) {
+    if (m_monochrome == true)
+    {
         rc = css_mono;
     }
     else {
@@ -801,10 +981,12 @@ void clamdManager::getClamdConfElements()
     bool skip = false;
     QStringList clamdConfElement;
 
-    if (m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter") == false) {
+    if (m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter") == false)
+    {
         m_logHighlighter = new highlighter(m_ui.clamdLogPlainTextEdit->document());
         m_monochrome = false;
-        if (checkClamdRunning() == true) {
+        if (checkClamdRunning() == true)
+        {
             m_ui.startStopClamdPushButton->setStyleSheet(selectColor("green"));
         }
         else {
@@ -817,7 +999,8 @@ void clamdManager::getClamdConfElements()
     }
 
     QFile file(QDir::homePath() + "/.clamav-gui/clamd.conf.man");
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
         QTextStream stream(&file);
         content = stream.readAll();
         file.close();
@@ -828,9 +1011,12 @@ void clamdManager::getClamdConfElements()
         QStringList lines = content.split("\n");
         content = "";
 
-        foreach(QString line, lines){
-            if (line != "") {
-                if (line.mid(0,14) != "              ") {
+        foreach(QString line, lines)
+        {
+            if (line != "")
+            {
+                if (line.mid(0,14) != "              ")
+                {
                     skip = false;
                     line = line.trimmed();
                     poscounter = 0;
@@ -839,71 +1025,96 @@ void clamdManager::getClamdConfElements()
                     if (splitter.length() == 2) valuetype = splitter[1]; else valuetype = "VALUETYPE";
                     if (skipvalues.indexOf("|" + keyword + "|") != -1) skip = true; else content = content + "\n";
                 }
-                if (skip == false) {
-                    if (poscounter == 0) {
+                if (skip == false)
+                {
+                    if (poscounter == 0)
+                    {
                         line = line.trimmed();
-                        if (valuetype == "VALUETYPE") {
+                        if (valuetype == "VALUETYPE")
+                        {
                             content = content + line + " VALUETYPE|";
-                        } else {
+                        }
+                        else {
                             content = content + line + "|";
                         }
-                    } else {
-                        if (line.left(18) == "                  ") {
+                    }
+                    else {
+                        if (line.left(18) == "                  ")
+                        {
                             QString helperstring = line.mid(18);
-                            if (helperstring.indexOf(" - ") != -1) {
+                            if (helperstring.indexOf(" - ") != -1)
+                            {
                                 QString newValue = helperstring.left(helperstring.indexOf(" - "));
                                 possibleValues == ""?possibleValues = possibleValues + newValue:possibleValues = possibleValues + "," + newValue;
                             }
                         }
                         line = line.trimmed();
                         content.right(1) == "|"?content = content + line:content = content + " " + line;
-                        if (line.indexOf("Default:") != -1) {
+                        if (line.indexOf("Default:") != -1)
+                        {
                             QString defaultvalue = line.mid(line.indexOf("Default:") + 9);
-                            if (defaultvalue.indexOf(" ") != -1) defaultvalue = defaultvalue.mid(0,defaultvalue.indexOf(" "));
-                            if (valuetype == "VALUETYPE") {
-                                if ((defaultvalue.indexOf("yes") != -1) || (defaultvalue.indexOf("no") != -1)) {
+                            if (defaultvalue.indexOf(" ") != -1)
+                                defaultvalue = defaultvalue.mid(0,defaultvalue.indexOf(" "));
+
+                            if (valuetype == "VALUETYPE")
+                            {
+                                if ((defaultvalue.indexOf("yes") != -1) || (defaultvalue.indexOf("no") != -1))
+                                {
                                     valuetype = "BOOL";
-                                } else {
+                                }
+                                else {
                                     valuetype = "NUMBER";
                                 }
                                 content = content.replace("VALUETYPE",valuetype);
                             }
-                            if (valuetype == "BOOL") {
+                            if (valuetype == "BOOL")
+                            {
                                 defaultvalue = defaultvalue.left(3);
                                 defaultvalue = defaultvalue.trimmed();
                                 content = content + "|yes,no," + defaultvalue;
                             }
-                            if ((valuetype == "STRING") || (valuetype == "CATEGORY") || (valuetype == "COMMAND") || (valuetype == "REGEX")) {
-                                if (defaultvalue == "LOG_LOCAL6") possibleValues = "LOG_LOCAL6,LOG_MAIL";
+                            if ((valuetype == "STRING") || (valuetype == "CATEGORY") || (valuetype == "COMMAND") || (valuetype == "REGEX"))
+                            {
+                                if (defaultvalue == "LOG_LOCAL6")
+                                    possibleValues = "LOG_LOCAL6,LOG_MAIL";
                                 possibleValues != ""?content = content + "|" + possibleValues + "," + defaultvalue:content = content + "|" + defaultvalue;
                             }
-                            if (valuetype == "NUMBER") {
-                                if ((defaultvalue == "disabled") && (keyword.indexOf("Socket") != -1)) {
+                            if (valuetype == "NUMBER")
+                            {
+                                if ((defaultvalue == "disabled") && (keyword.indexOf("Socket") != -1))
+                                {
                                     content = content + "|0,4096,0";
-                                } else {
-                                    if (keyword.indexOf("Port") != -1) {
+                                }
+                                else {
+                                    if (keyword.indexOf("Port") != -1)
+                                    {
                                         content = content + "|0,65536," + defaultvalue;
-                                    } else {
+                                    }
+                                    else {
                                         int defaultIntValue = defaultvalue.toInt();
                                         if (defaultIntValue < 0) content = content + "|-1,30,-1";
+                                        if (defaultIntValue == 0) content = content + "|0,10,0";
                                         if ((defaultIntValue >= 0) && (defaultIntValue < 1000)) content = content + "|0," + QString::number(defaultIntValue * 3) + "," + defaultvalue;
                                         if ((defaultIntValue >= 1000) && (defaultIntValue < 10000)) content = content + "|0," + QString::number(defaultIntValue * 2) + "," + defaultvalue;
                                         if (defaultIntValue >= 10000) content = content + "|0," + QString::number(defaultIntValue * 10) + "," + defaultvalue;
                                     }
-
                                 }
                             }
-                            if (valuetype == "SIZE") {
+                            if (valuetype == "SIZE")
+                            {
                                 int maxIntValue = 0;
                                 bool mega = false;
-                                if (defaultvalue.indexOf("M") != -1) {
+                                if (defaultvalue.indexOf("M") != -1)
+                                {
                                     defaultvalue = defaultvalue.replace("M","");
                                     mega = true;
                                 }
                                 maxIntValue = defaultvalue.toInt() * 2;
-                                if (mega == true) {
+                                if (mega == true)
+                                {
                                     content = content + "|0," + QString::number(maxIntValue) + "M," + defaultvalue + "M";
-                                } else {
+                                }
+                                else {
                                     content = content + "|0," + QString::number(maxIntValue) + "," + defaultvalue;
                                 }
                             }
@@ -936,8 +1147,11 @@ void clamdManager::getClamdConfElements()
     clamdconfcomboboxoption* comboboxOption;
     clamdconfmultioption * comboboxmultioption;
     QString language = setupFileHandler::getSectionValue(QDir::homePath() + "/.clamav-gui/settings.ini","Setup","language");
-    if (language == "") language = "[en_GB]";
-    for (int i = 0; i < clamdConfElement.length()-1; i++) {
+    if (language == "")
+        language = "[en_GB]";
+
+    for (int i = 0; i < clamdConfElement.length()-1; i++)
+    {
         element = clamdConfElement.at(i);
 
         QStringList values = element.split("|");
@@ -950,15 +1164,20 @@ void clamdManager::getClamdConfElements()
 
         if (optionValues == "disabled")
             optionValues = "";
-        if ((group == "STRING") || (group == "CATEGORY") || (group == "COMMAND") || (group == "REGEX")) {
-            if (optionValues.indexOf(",") == -1) {
-                if ((label.indexOf("multiple times") != -1) || (label.indexOf("mul? tiple times") != -1)) {
+
+        if ((group == "STRING") || (group == "CATEGORY") || (group == "COMMAND") || (group == "REGEX"))
+        {
+            if (optionValues.indexOf(",") == -1)
+            {
+                if ((label.indexOf("multiple times") != -1) || (label.indexOf("mul? tiple times") != -1))
+                {
                     QStringList tempParams = m_clamdConf->getSingleLineValues(keyword);
                     comboboxmultioption = new clamdconfmultioption(this, keyword, checked, label, tempParams, m_clamdConf,m_setupFile);
                     connect(comboboxmultioption,SIGNAL(settingChanged()),this,SLOT(slot_clamdSettingsChanged()));
                     m_ui.layout1->addWidget(comboboxmultioption);
                     m_clamdConfParameters << comboboxmultioption;
-                } else {
+                }
+                else {
                     stringOption = new clamdConfStringOption(this, keyword, checked, label, optionValues, m_clamdConf);
                     connect(stringOption, SIGNAL(settingChanged()), this, SLOT(slot_clamdSettingsChanged()));
                     m_ui.layout1->addWidget(stringOption);
@@ -973,14 +1192,17 @@ void clamdManager::getClamdConfElements()
             }
         }
 
-        if ((group == "NUMBER") || (group == "SIZE")) {
-            if ((label.indexOf("multiple times") != -1) || (label.indexOf("mul‐ tiple times") != -1)) {
+        if ((group == "NUMBER") || (group == "SIZE"))
+        {
+            if ((label.indexOf("multiple times") != -1) || (label.indexOf("mul? tiple times") != -1))
+            {
                 QStringList tempParams = m_clamdConf->getSingleLineValues(keyword);
                 comboboxmultioption = new clamdconfmultioption(this, keyword, checked, label, tempParams, m_clamdConf,m_setupFile);
                 connect(comboboxmultioption,SIGNAL(settingChanged()),this,SLOT(slot_clamdSettingsChanged()));
                 m_ui.layout1->addWidget(comboboxmultioption);
                 m_clamdConfParameters << comboboxmultioption;
-            } else {
+            }
+            else {
                 spinboxOption = new clamdconfspinboxoption(this, keyword, checked, label, optionValues, m_clamdConf);
                 connect(spinboxOption, SIGNAL(settingChanged()), this, SLOT(slot_clamdSettingsChanged()));
                 m_ui.layout1->addWidget(spinboxOption);
@@ -988,7 +1210,8 @@ void clamdManager::getClamdConfElements()
             }
         }
 
-        if (group == "BOOL") {
+        if (group == "BOOL")
+        {
             comboboxOption = new clamdconfcomboboxoption(this, keyword, checked, label, optionValues, m_clamdConf);
             connect(comboboxOption, SIGNAL(settingChanged()), this, SLOT(slot_clamdSettingsChanged()));
             m_ui.layout1->addWidget(comboboxOption);

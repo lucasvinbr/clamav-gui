@@ -2,7 +2,7 @@
 #define css "background-color:#404040;color:white"
 
 scanoptionyn::scanoptionyn(QWidget *parent, QString setupFileName, QString section, bool checked, QString label, QString comment)
-: QWidget(parent)
+: scanOptionBaseClass(parent)
 {
     m_ui.setupUi(this);
     m_setupFile = new setupFileHandler(setupFileName,this);
@@ -12,7 +12,8 @@ scanoptionyn::scanoptionyn(QWidget *parent, QString setupFileName, QString secti
 // -------------------------------------------------------------------------
 // For DEBUG reasons only.
 /*    QFile file(QDir::homePath() + "/clamav-xx_XX.ts");
-    if (file.open(QIODevice::WriteOnly|QIODevice::Text|QIODevice::Append)) {
+    if (file.open(QIODevice::WriteOnly|QIODevice::Text|QIODevice::Append))
+    {
         QTextStream stream(&file);
         stream << "    <message>\n        <source>" << comment << "</source>\n        <translation>TRANS</translation>\n    </message>\n";
         file.close();
@@ -23,9 +24,8 @@ scanoptionyn::scanoptionyn(QWidget *parent, QString setupFileName, QString secti
     m_ui.checkBox->setChecked(checked);
     m_ui.comboBox->setEnabled(checked);
 
-    if (checked) {
+    if (checked)
         this->setStyleSheet(css);
-    }
 
     m_ui.checkBox->setText(translator::beautifyString(m_com));
     m_ui.checkBox->setToolTip(m_option);
@@ -33,12 +33,29 @@ scanoptionyn::scanoptionyn(QWidget *parent, QString setupFileName, QString secti
     if (label.indexOf("<equal>yes") != -1) m_ui.comboBox->setCurrentText("yes");else m_ui.comboBox->setCurrentText("no");
 }
 
+QString scanoptionyn::getOption()
+{
+    return m_option;
+}
+
+QString scanoptionyn::getComment()
+{
+    return m_com;
+}
+
+bool scanoptionyn::isChecked()
+{
+    return m_ui.checkBox->isChecked();
+}
+
 void scanoptionyn::slot_checkboxClicked(){
-    if (m_ui.checkBox->isChecked() == false) {
+    if (m_ui.checkBox->isChecked() == false)
+    {
         m_setupFile->removeKeyword(m_setupFileSection,m_option + "<equal>" + m_ui.comboBox->currentText());
         m_ui.comboBox->setEnabled(false);
         this->setStyleSheet("");
-    } else {
+    }
+    else {
         m_setupFile->setSectionValue(m_setupFileSection,m_option + "<equal>" + m_ui.comboBox->currentText(), m_com);
         m_ui.comboBox->setEnabled(true);
         this->setStyleSheet(css);
@@ -48,7 +65,8 @@ void scanoptionyn::slot_checkboxClicked(){
 }
 
 void scanoptionyn::slot_comboboxChanged(QString value){
-    if (m_ui.checkBox->isChecked() == true) {
+    if (m_ui.checkBox->isChecked() == true)
+    {
         m_setupFile->removeKeyword(m_setupFileSection,m_option + "<equal>yes");
         m_setupFile->removeKeyword(m_setupFileSection,m_option + "<equal>no");
         m_setupFile->setSectionValue(m_setupFileSection,m_option + "<equal>" + value ,m_com);

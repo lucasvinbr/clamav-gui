@@ -22,6 +22,7 @@
 #ifndef SETUPFILEHANDLER_H
 #define SETUPFILEHANDLER_H
 
+#include <QRegularExpression>
 #include <QMessageBox>
 #include <QFileDevice>
 #include <QTextStream>
@@ -63,14 +64,17 @@ public:
     bool keywordExists(QString section, QString keyword);
     bool freeFloaterExists(QString keyword);
     QString getSingleLineValue(QString keyword);
-    void setSingleLineValue(QString keyword, QString value);
-    void addSingleLineValue(QString keyword, QString value);
-    void removeSingleLine(QString keyword, QString value);
+    void setSingleLineValue(QString keyword, QString value, QString comment = "");
+    void addSingleLineValue(QString keyword, QString value, QString comment = "");
+    QString formatCommentString(QString value);
+    void removeSingleLine(QString keyword, QString value, QString comment = "");
     bool singleLineExists(QString keyword);
 
 private:
     QString m_setupFileName;
     QString m_setupFileContent;
+    QString beautifyString(QString value, int length = 70);
+    void removeStrayComments();
     
     QString getSection(QString sectionID);
     void readSetupFile();

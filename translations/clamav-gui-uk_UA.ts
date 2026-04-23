@@ -820,9 +820,19 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>  clamd не працює - запустити clamd</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="446"/>
+        <location filename="../ui/clamdmanager.ui" line="455"/>
         <source>Filter: </source>
         <translation>Фільтр:</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="482"/>
+        <source>show selected</source>
+        <translation>показати вибране</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="489"/>
+        <source>show unselected</source>
+        <translation>показати невибране</translation>
     </message>
     <message>
         <location filename="../ui/clamdmanager.ui" line="92"/>
@@ -870,61 +880,61 @@ for changes made to take effect.</source>
         <translation>  Запуск кластера - Зупинка кластера</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="221"/>
-        <location filename="../src/clamdmanager.cpp" line="574"/>
+        <location filename="../src/clamdmanager.cpp" line="248"/>
+        <location filename="../src/clamdmanager.cpp" line="601"/>
         <source>WARNING</source>
         <translation>ПОПЕРЕДЖЕННЯ</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="280"/>
+        <location filename="../src/clamdmanager.cpp" line="307"/>
         <source>  Clamd starting. Please wait!</source>
         <translation>  Запускаю захват. Будь ласка, зачекайте!</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="320"/>
+        <location filename="../src/clamdmanager.cpp" line="347"/>
         <source>  Stopping Clamd. Please wait!</source>
         <translation>  Зупинити Кламда. Зачекайте, будь ласка!</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="359"/>
-        <location filename="../src/clamdmanager.cpp" line="422"/>
-        <location filename="../src/clamdmanager.cpp" line="540"/>
+        <location filename="../src/clamdmanager.cpp" line="386"/>
+        <location filename="../src/clamdmanager.cpp" line="449"/>
+        <location filename="../src/clamdmanager.cpp" line="567"/>
         <source>  Clamd not running - Start Clamd</source>
         <translation>  Clamd не працює - Запустити Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="393"/>
-        <location filename="../src/clamdmanager.cpp" line="436"/>
+        <location filename="../src/clamdmanager.cpp" line="420"/>
+        <location filename="../src/clamdmanager.cpp" line="463"/>
         <source>  Clamd running - Stop Clamd</source>
         <translation>  Clamd працює - зупинити Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="563"/>
+        <location filename="../src/clamdmanager.cpp" line="590"/>
         <source>Directory to monitor</source>
         <translation>Каталог для моніторингу</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="574"/>
+        <location filename="../src/clamdmanager.cpp" line="601"/>
         <source>Path already under monitoring</source>
         <translation>Шлях вже під моніторингом</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="583"/>
+        <location filename="../src/clamdmanager.cpp" line="610"/>
         <source>Remove Folder from monitoring</source>
         <translation>Видалити папку з моніторингу</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="584"/>
+        <location filename="../src/clamdmanager.cpp" line="611"/>
         <source>Path: </source>
         <translation>Шлях: </translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="584"/>
+        <location filename="../src/clamdmanager.cpp" line="611"/>
         <source>Do you want to remove the folder from the monitoring list?</source>
         <translation>Ви хочете видалити папку зі списку моніторингу?</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="647"/>
+        <location filename="../src/clamdmanager.cpp" line="674"/>
         <source>  Clamd restarting. Please wait!</source>
         <translation>  Перезапуск кластера. Будь ласка, зачекайте!</translation>
     </message>
@@ -2078,7 +2088,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="537"/>
+        <location filename="../ui/optionsdialog.ui" line="641"/>
         <source>ClamAV Version : </source>
         <translation>Версія ClamAV : </translation>
     </message>
@@ -2094,75 +2104,90 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Доступні опції</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="95"/>
+        <location filename="../ui/optionsdialog.ui" line="59"/>
+        <source>Filter: </source>
+        <translation>Фільтр:</translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="86"/>
+        <source>show selected</source>
+        <translation>показати вибране</translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="93"/>
+        <source>show unselected</source>
+        <translation>показати невибране</translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="199"/>
         <source>Tab 1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="286"/>
+        <location filename="../ui/optionsdialog.ui" line="390"/>
         <source>Move infected files into DIRECTORY</source>
         <translation>Перемістіть заражені файли в ДИРЕКТОР</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="481"/>
+        <location filename="../ui/optionsdialog.ui" line="585"/>
         <source>Follow directory symlinks</source>
         <translation>Переходьте за посиланнями на каталоги</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="154"/>
-        <location filename="../ui/optionsdialog.ui" line="199"/>
-        <location filename="../ui/optionsdialog.ui" line="261"/>
-        <location filename="../ui/optionsdialog.ui" line="306"/>
-        <location filename="../ui/optionsdialog.ui" line="354"/>
-        <location filename="../ui/optionsdialog.ui" line="399"/>
+        <location filename="../ui/optionsdialog.ui" line="258"/>
+        <location filename="../ui/optionsdialog.ui" line="303"/>
+        <location filename="../ui/optionsdialog.ui" line="365"/>
+        <location filename="../ui/optionsdialog.ui" line="410"/>
+        <location filename="../ui/optionsdialog.ui" line="458"/>
+        <location filename="../ui/optionsdialog.ui" line="503"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="379"/>
+        <location filename="../ui/optionsdialog.ui" line="483"/>
         <source>Create temporary files in DIRECTORY</source>
         <translation>Створіть тимчасові файли в ДИРЕКТОРІЇ</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="445"/>
-        <location filename="../ui/optionsdialog.ui" line="508"/>
+        <location filename="../ui/optionsdialog.ui" line="549"/>
+        <location filename="../ui/optionsdialog.ui" line="612"/>
         <source>never</source>
         <translation>Ніколи.</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="450"/>
-        <location filename="../ui/optionsdialog.ui" line="513"/>
+        <location filename="../ui/optionsdialog.ui" line="554"/>
+        <location filename="../ui/optionsdialog.ui" line="617"/>
         <source>direct</source>
         <translation>прямий</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="455"/>
-        <location filename="../ui/optionsdialog.ui" line="518"/>
+        <location filename="../ui/optionsdialog.ui" line="559"/>
+        <location filename="../ui/optionsdialog.ui" line="622"/>
         <source>always</source>
         <translation>завжди</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="224"/>
+        <location filename="../ui/optionsdialog.ui" line="328"/>
         <source>Save scan report to FILE</source>
         <translation>Зберегти звіт про сканування у ФАЙЛІ</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="424"/>
+        <location filename="../ui/optionsdialog.ui" line="528"/>
         <source>Follow file symlinks</source>
         <translation>Переходьте за посиланнями на файли</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="179"/>
+        <location filename="../ui/optionsdialog.ui" line="283"/>
         <source>Copy infected files into DIRECTORY</source>
         <translation>Скопіюйте заражені файли в ДІРЕКТОР</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="331"/>
+        <location filename="../ui/optionsdialog.ui" line="435"/>
         <source>Use the antivirus database from DIR</source>
         <translation>Використовуйте антивірусну базу від DIR</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="144"/>
+        <location filename="../ui/optionsdialog.ui" line="248"/>
         <source>Scan files from file</source>
         <translation>Сканувати файли з файлу</translation>
     </message>
@@ -2182,10 +2207,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Включити/виключити</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="292"/>
-        <location filename="../src/optionsdialog.cpp" line="320"/>
-        <location filename="../src/optionsdialog.cpp" line="329"/>
-        <location filename="../src/optionsdialog.cpp" line="358"/>
+        <location filename="../src/optionsdialog.cpp" line="365"/>
+        <location filename="../src/optionsdialog.cpp" line="393"/>
+        <location filename="../src/optionsdialog.cpp" line="402"/>
+        <location filename="../src/optionsdialog.cpp" line="431"/>
         <source>Select Directory</source>
         <translation>Виберіть каталог</translation>
     </message>
@@ -2198,18 +2223,18 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation type="vanished">У теці бази даних не знайдено визначень вірусів. Чи потрібно завантажувати визначення вірусів?</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="339"/>
-        <location filename="../src/optionsdialog.cpp" line="349"/>
+        <location filename="../src/optionsdialog.cpp" line="412"/>
+        <location filename="../src/optionsdialog.cpp" line="422"/>
         <source>Select File</source>
         <translation>Виберіть Файл</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="548"/>
+        <location filename="../src/optionsdialog.cpp" line="621"/>
         <source>Database files missing!</source>
         <translation>Відсутні файли бази даних!</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="549"/>
+        <location filename="../src/optionsdialog.cpp" line="622"/>
         <source>The virus definition files are missing in the database directory. Start download of the missing files?</source>
         <translation>У каталозі бази даних відсутні файли визначення вірусів. Почати завантаження відсутніх файлів?</translation>
     </message>
@@ -2510,6 +2535,14 @@ Continue from the Start of the Log?</source>
         <location filename="../ui/scanlimitstab.ui" line="1429"/>
         <source>Fail if virus database is older than days</source>
         <translation>Не вдасться, якщо вірусна база даних старіша за кілька днів</translation>
+    </message>
+</context>
+<context>
+    <name>scanOptionBaseClass</name>
+    <message>
+        <location filename="../ui/scanoptionbaseclass.ui" line="14"/>
+        <source>Form</source>
+        <translation>Форма</translation>
     </message>
 </context>
 <context>

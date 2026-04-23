@@ -34,6 +34,7 @@ class clamdConfStringOption : public ClamdConfOptionBaseClass {
    private:
     Ui::clamdConfStringOption m_ui;
     QString m_optionKeyword;
+    QString m_comment;
     QString m_optionValue;
     bool m_startup;
     setupFileHandler* m_setupFile;

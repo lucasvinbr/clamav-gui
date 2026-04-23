@@ -11,11 +11,14 @@ QString translator::beautifyString(QString value, int length) {
     int counter = 0;
 
     // Word-Wrap of lines that are longer than [length] characters ...
-    for (int i = 0; i < helper.length(); i++) {
-        if ((counter > length) && (helper.mid(i,1) == ' ')) {
+    for (int i = 0; i < helper.length(); i++)
+    {
+        if ((counter > length) && (helper.mid(i,1) == ' '))
+        {
             rc = rc + "\n";
             counter = 0;
-        } else {
+        }
+        else {
             rc = rc + helper.mid(i,1);
         }
         counter++;

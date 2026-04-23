@@ -1,10 +1,10 @@
 #include "optionsdialog.h"
+#include "sharedvars.cpp"
 #define css "background-color:#404040;color:white"
 
 optionsDialog::optionsDialog(QWidget* parent, setupFileHandler* setupFile) : QWidget(parent), m_setupFile(setupFile)
 {
     m_ui.setupUi(this);
-    //m_setupFile = new setupFileHandler(QDir::homePath() + "/.clamav-gui/settings.ini", this); --> uses the setupFileHandler provided by the clamav_gui class
     //updateDirectories();
     m_ui.tabWidget->setTabText(0, tr("Options"));
     m_ui.tabWidget->setTabText(1, tr("Directories"));
@@ -29,9 +29,176 @@ optionsDialog::optionsDialog(QWidget* parent, setupFileHandler* setupFile) : QWi
     m_getClamscanParametersProcess->start("clamscan", parameters);
 }
 
+void optionsDialog::createScanOptionElements()
+{
+    QStringList comments;
+    QStringList parameters;
+
+    QFile clamscanHelpFile(QDir::homePath() + "/.clamav-gui/clamscan.help.info");
+    if (clamscanHelpFile.open(QIODevice::ReadOnly|QIODevice::Text))
+    {
+        QTextStream stream(&clamscanHelpFile);
+        QString buffer = stream.readAll();
+        clamscanHelpFile.close();
+        QStringList listHelper = buffer.split("<!>");
+        parameters = listHelper.at(0).trimmed().split("\n");
+        comments = listHelper.at(1).trimmed().split("|");
+    }
+
+    scanoption* option;
+    scanoptionyn* optionyn;
+    QString label;
+    QString yes_no;
+    QString language;
+    bool flipflop = false;
+
+    for (int x = 0; x < parameters.length(); x++)
+    {
+        label = parameters[x];
+        if ((label.indexOf("yes(*)/no") != -1) || (label.indexOf("yes/no(*)") != -1))
+        {
+            label.indexOf("yes/no(*)") == -1 ? yes_no = "yes" : yes_no = "no";
+            label = label.left(label.indexOf("="));
+            if (m_setupFile->keywordExists("SelectedOptions", label + "<equal>no") == true)
+            {
+                label = label + "<equal>no";
+            }
+            else {
+                if (m_setupFile->keywordExists("SelectedOptions", label + "<equal>yes") == true)
+                {
+                    label = label + "<equal>yes";
+                }
+                else {
+                    if (yes_no == "yes")
+                    {
+                        label = label + "<equal>yes";
+                    }
+                    else {
+                        label = label + "<equal>no";
+                    }
+                }
+            }
+        }
+
+        language = setupFileHandler::getSectionValue(QDir::homePath() + "/.clamav-gui/settings.ini","Setup","language");
+        if (language == "") language = "[en_GB]";
+        if (m_setupFile->keywordExists("SelectedOptions", label.replace("=", "<equal>")) == true)
+        {
+            if (label.indexOf("<equal>") == -1)
+            {
+                option = new scanoption(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", true, label, comments[x]);
+                connect(option, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
+                if (flipflop == false)
+                {
+                    m_ui.optionLayout->addWidget(option);
+                    scanOptions << option;
+                    flipflop = true;
+
+                }
+                else {
+                    m_ui.optionLayout_2->addWidget(option);
+                    scanOptions << option;
+                    flipflop = false;
+                }
+            }
+            else {
+                optionyn = new scanoptionyn(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", true, label, comments[x]);
+                connect(optionyn, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
+                if (flipflop == false)
+                {
+                    m_ui.optionLayout->addWidget(optionyn);
+                    scanOptions << optionyn;
+                    flipflop = true;
+                }
+                else {
+                    m_ui.optionLayout_2->addWidget(optionyn);
+                    scanOptions << optionyn;
+                    flipflop = false;
+                }
+            }
+        }
+        else {
+            if (label.indexOf("<equal>") == -1)
+            {
+                option = new scanoption(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", false, label, comments[x]);
+                connect(option, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
+                if (flipflop == false)
+                {
+                    m_ui.optionLayout->addWidget(option);
+                    scanOptions << option;
+                    flipflop = true;
+                }
+                else {
+                    m_ui.optionLayout_2->addWidget(option);
+                    scanOptions << option;
+                    flipflop = false;
+                }
+            }
+            else {
+                optionyn = new scanoptionyn(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", false, label, comments[x]);
+                connect(optionyn, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
+                if (flipflop == false)
+                {
+                    m_ui.optionLayout->addWidget(optionyn);
+                    scanOptions << optionyn;
+                    flipflop = true;
+                }
+                else {
+                    m_ui.optionLayout_2->addWidget(optionyn);
+                    scanOptions << optionyn;
+                    flipflop = false;
+                }
+            }
+        }
+    }
+}
+
 void optionsDialog::slot_updateClamdConf()
 {
     emit updateClamdConf();
+}
+
+void optionsDialog::slot_scanOptionFilterChanged()
+{
+    if ((m_ui.unselectedCheckBox->isChecked()) || (m_ui.selectedCheckBox->isChecked()))
+    {
+        if (m_ui.selectedCheckBox->isChecked())
+        {
+            foreach (scanOptionBaseClass *item, scanOptions)
+            {
+                item->setVisible(item->isChecked());
+            }
+        }
+        else {
+            foreach (scanOptionBaseClass *item, scanOptions)
+            {
+                item->setVisible(!item->isChecked());
+            }
+        }
+    }
+    else {
+        foreach (scanOptionBaseClass *item, scanOptions)
+        {
+            ((item->getComment().indexOf(m_ui.filterLineEdit->text()) == -1) &&
+             (item->getOption().indexOf(m_ui.filterLineEdit->text()) == -1))?item->setVisible(false):item->setVisible(true);
+        }
+    }
+}
+
+void optionsDialog::slot_showSelectedOnlyChecked()
+{
+    if (m_ui.selectedCheckBox->isChecked())
+        m_ui.unselectedCheckBox->setChecked(false);
+
+    slot_scanOptionFilterChanged();
+}
+
+void optionsDialog::slot_showUnselectedOnlyChecked()
+{
+    if (m_ui.unselectedCheckBox->isChecked())
+        m_ui.selectedCheckBox->setChecked(false);
+
+    slot_scanOptionFilterChanged();
 }
 
 void optionsDialog::slot_getClamscanProcessHasOutput()
@@ -70,18 +237,24 @@ void optionsDialog::slot_getClamscanProcessFinished()
 
     QString line2 = "";
     bool skip = false;
-    for (int x = 0; x < linehelper.size(); x++) {
-        if (linehelper[x] == "Environment Variables:") {
+    for (int x = 0; x < linehelper.size(); x++)
+    {
+        if (linehelper[x] == "Environment Variables:")
+        {
             skip = true;
         }
-        if (skip == false) {
-            if (linehelper[x].trimmed().indexOf("--") == 0) {
-                if (line2 != "") {
+        if (skip == false)
+        {
+            if (linehelper[x].trimmed().indexOf("--") == 0)
+            {
+                if (line2 != "")
+                {
                     lines << line2;
                     line2 = "";
                 }
                 line2 = linehelper[x];
-            } else {
+            }
+            else {
                 line2 = line2 + " " + linehelper[x];
             }
         }
@@ -92,15 +265,18 @@ void optionsDialog::slot_getClamscanProcessFinished()
     m_setupFile->removeSection("OtherKeywords");
 
     QString commentSum = "";
-    for (int x = 0; x < lines.size(); x++) {
+    for (int x = 0; x < lines.size(); x++)
+    {
         line = lines[x];
         line = line.trimmed();
-        if (line.indexOf("Clam AntiVirus:") != -1) {
+        if (line.indexOf("Clam AntiVirus:") != -1)
+        {
             QString version = line.mid(line.indexOf("Clam AntiVirus:") + 15);
             int endpos = 9;
             while (version.mid(endpos,1) != " ") endpos++;
             version = version.mid(0,endpos);
-            if ((version.indexOf("Scanner 1.4.1") != -1) || (version.indexOf("Scanner 1.0.7") != -1)) {
+            if ((version.indexOf("Scanner 1.4.1") != -1) || (version.indexOf("Scanner 1.0.7") != -1))
+            {
                 QFile ca_certFile("/etc/pki/tls/certs/ca-bundle.crt");
                 QString message =
                     "WARNING\nThe file \"/etc/pki/tls/certs/ca-bundle.crt\" is missing!\nVersion 1.0.7 and 1.4.1 are known to require this file in "
@@ -126,11 +302,13 @@ void optionsDialog::slot_getClamscanProcessFinished()
             m_setupFile->setSectionValue("Updater", "Version", version);
         }
 
-        if (line.indexOf("--") == 0) {
+        if (line.indexOf("--") == 0)
+        {
             commentStart = line.indexOf(" ");
             keyword = line.left(commentStart);
             parameter = "";
-            if (keyword.indexOf("[=") != -1) {
+            if (keyword.indexOf("[=") != -1)
+            {
                 keyword = keyword.left(keyword.indexOf("["));
                 int start = line.indexOf("[") + 2;
                 int length = line.indexOf("]") - start;
@@ -139,26 +317,31 @@ void optionsDialog::slot_getClamscanProcessFinished()
             else {
                 keyword = keyword.left(keyword.indexOf("="));
             }
-            if (excludeList.indexOf(keyword) == -1) {
+            if (excludeList.indexOf(keyword) == -1)
+            {
                 if (value == "")
                     value = keyword;
                 else
                     value = value + "\n" + keyword;
-                if (parameter != "") {
+                if (parameter != "")
+                {
                     value = value + "=" + parameter;
                 }
                 comment = line.mid(commentStart);
                 comment = comment.trimmed();
                 while (comment.indexOf("  ") != -1)
                     comment = comment.replace("  ", " ");
-                if (comment.left(1) == "-") {
+                if (comment.left(1) == "-")
+                {
                     comment = comment.mid(comment.indexOf(" ") + 1);
                 }
                 comment = tr(comment.toLocal8Bit());
                 comments.append(comment);
                 commentSum == "" ? commentSum = comment : commentSum = commentSum + "|" + comment;
-                if ((parameter == "yes/no(*)") || (parameter == "yes(*)/no")) {
-                    if (parameter == "yes/no(*)") {
+                if ((parameter == "yes/no(*)") || (parameter == "yes(*)/no"))
+                {
+                    if (parameter == "yes/no(*)")
+                    {
                         m_setupFile->setSectionValue("AvailableOptions", keyword + "<equal>no", comment);
                         m_setupFile->setSectionValue("AvailableOptions", keyword + "<equal>yes", comment);
                     }
@@ -178,102 +361,26 @@ void optionsDialog::slot_getClamscanProcessFinished()
     }
 
     /*For Debugin-Reasons only*/
-    QFile tempfile("/home/wusel/parameters.txt");
+    /*QFile tempfile("/home/wusel/parameters.txt");
     QStringList commentList = commentSum.split("|");
     if (tempfile.open(QIODevice::WriteOnly|QIODevice::Text)){
         QTextStream stream(&tempfile);
-        for (int i = 0; i < commentList.length(); i++) {
+        for (int i = 0; i < commentList.length(); i++)
+        {
             stream << "base = base + \"" << commentList.at(i) << "|\";" << "\n";
         }
     }
-    tempfile.close();
+    tempfile.close();*/
 
-    QStringList parameters = value.split("\n");
-    scanoption* option;
-    scanoptionyn* optionyn;
-    QString label;
-    QString yes_no;
-    QString language;
-    bool flipflop = false;
-
-    for (int x = 0; x < parameters.length(); x++) {
-        label = parameters[x];
-        if ((label.indexOf("yes(*)/no") != -1) || (label.indexOf("yes/no(*)") != -1)) {
-            label.indexOf("yes/no(*)") == -1 ? yes_no = "yes" : yes_no = "no";
-            label = label.left(label.indexOf("="));
-            if (m_setupFile->keywordExists("SelectedOptions", label + "<equal>no") == true) {
-                label = label + "<equal>no";
-            }
-            else {
-                if (m_setupFile->keywordExists("SelectedOptions", label + "<equal>yes") == true) {
-                    label = label + "<equal>yes";
-                }
-                else {
-                    if (yes_no == "yes") {
-                        label = label + "<equal>yes";
-                    }
-                    else {
-                        label = label + "<equal>no";
-                    }
-                }
-            }
-        }
-
-        language = setupFileHandler::getSectionValue(QDir::homePath() + "/.clamav-gui/settings.ini","Setup","language");
-        if (language == "") language = "[en_GB]";
-        if (m_setupFile->keywordExists("SelectedOptions", label.replace("=", "<equal>")) == true) {
-            if (label.indexOf("<equal>") == -1) {
-                option = new scanoption(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", true, label, comments[x]);
-                connect(option, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
-                if (flipflop == false) {
-                    m_ui.optionLayout->addWidget(option);
-                    flipflop = true;
-                }
-                else {
-                    m_ui.optionLayout_2->addWidget(option);
-                    flipflop = false;
-                }
-            }
-            else {
-                optionyn = new scanoptionyn(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", true, label, comments[x]);
-                connect(optionyn, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
-                if (flipflop == false) {
-                    m_ui.optionLayout->addWidget(optionyn);
-                    flipflop = true;
-                }
-                else {
-                    m_ui.optionLayout_2->addWidget(optionyn);
-                    flipflop = false;
-                }
-            }
-        }
-        else {
-            if (label.indexOf("<equal>") == -1) {
-                option = new scanoption(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", false, label, comments[x]);
-                connect(option, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
-                if (flipflop == false) {
-                    m_ui.optionLayout->addWidget(option);
-                    flipflop = true;
-                }
-                else {
-                    m_ui.optionLayout_2->addWidget(option);
-                    flipflop = false;
-                }
-            }
-            else {
-                optionyn = new scanoptionyn(this, QDir::homePath() + "/.clamav-gui/settings.ini", "SelectedOptions", false, label, comments[x]);
-                connect(optionyn, SIGNAL(valuechanged()), this, SLOT(slot_updateClamdConf()));
-                if (flipflop == false) {
-                    m_ui.optionLayout->addWidget(optionyn);
-                    flipflop = true;
-                }
-                else {
-                    m_ui.optionLayout_2->addWidget(optionyn);
-                    flipflop = false;
-                }
-            }
-        }
+    QFile clamscanHelpFile(QDir::homePath() + "/.clamav-gui/clamscan.help.info");
+    if (clamscanHelpFile.open(QIODevice::WriteOnly|QIODevice::Text))
+    {
+        QTextStream stream(&clamscanHelpFile);
+        stream << value << "\n<!>\n" << commentSum;
+        clamscanHelpFile.close();
     }
+
+    createScanOptionElements();
 }
 
 QString optionsDialog::getCopyDirectory()
@@ -290,23 +397,24 @@ void optionsDialog::slot_selectLVDButtonClicked()
 {
     QString rc;
     rc = QFileDialog::getExistingDirectory(this, tr("Select Directory"), QDir::homePath() + "/.clamav-gui/signatures", QFileDialog::ShowDirsOnly);
-    if (rc.isEmpty()) {
+    if (rc.isEmpty())
         return;
-    }
+
     m_ui.loadVirusDatabaseLineEdit->setText(rc);
     writeDirectories();
     emit systemStatusChanged();
-    if (!m_ui.loadVirusDatabaseCheckBox->isChecked()) {
+    if (!m_ui.loadVirusDatabaseCheckBox->isChecked())
         return;
-    }
+
     emit databasePathChanged(rc);
     QFile file(rc + "/freshclam.dat");
-    if (file.exists()) {
+    if (file.exists())
         return;
-    }
+
     /*if (QMessageBox::warning(this, tr("Virus definitions missing!"),
                                 tr("No virus definitions found in the database folder. Should the virus definitions be downloaded?"),
-                                QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes) {
+                                QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
+      {
         m_setupFile->setSectionValue("Directories","LoadSupportedDBFiles","checked|" + QDir::homePath() + "/.clamav-gui/signatures");
         m_ui.loadVirusDatabaseCheckBox->setChecked(true);
         m_ui.loadVirusDatabaseLineEdit->setText(QDir::homePath() + "/.clamav-gui/signatures");
@@ -365,18 +473,17 @@ void optionsDialog::updateDirectories()
 {
     QString value;
     QString checked;
-    QStringList keywords;
 
-    keywords << "LoadSupportedDBFiles" << "ScanReportToFile" << "ScanFilesFromFile" << "TmpFile" << "MoveInfectedFiles";
-    keywords << "CopyInfectedFiles" << "FollowDirectorySymLinks" << "FollowFileSymLinks";
-
-    for (int i = 0; i < keywords.length(); i++) {
-        value = m_setupFile->getSectionValue("Directories", keywords.at(i));
+    for (int i = 0; i < directoryOptionKeywords.length(); i++)
+    {
+        value = m_setupFile->getSectionValue("Directories", directoryOptionKeywords.at(i));
         checked = value.left(value.indexOf("|"));
         value = value.mid(value.indexOf("|") + 1);
 
-        if (checked == "checked") {
-            switch (i) {
+        if (checked == "checked")
+        {
+            switch (i)
+            {
                 case 0:
                     m_ui.loadVirusDatabaseCheckBox->setChecked(true);
                     m_ui.databaseFrame->setStyleSheet(css);
@@ -434,7 +541,8 @@ void optionsDialog::updateDirectories()
             }
         }
         else {
-            switch (i) {
+            switch (i)
+            {
                 case 0:
                     m_ui.loadVirusDatabaseCheckBox->setChecked(false);
                     m_ui.databaseFrame->setStyleSheet("");
@@ -496,58 +604,62 @@ void optionsDialog::updateDirectories()
 
 void optionsDialog::writeDirectories()
 {
-    QString keyword;
     QString value;
     QString checked;
 
-    keyword = "LoadSupportedDBFiles";
-    value = m_ui.loadVirusDatabaseLineEdit->text();
-    m_ui.loadVirusDatabaseCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
-    m_setupFile->setSectionValue("Directories", keyword, checked + "|" + value);
+    for (int idx = 0; idx < directoryOptionKeywords.size(); idx++)
+    {
+        switch (idx)
+        {
+            case 0 :
+                value = m_ui.loadVirusDatabaseLineEdit->text();
+                m_ui.loadVirusDatabaseCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
+                break;
+            case 1 :
+                value = m_ui.scanReportToFileLineEdit->text();
+                m_ui.scanReportToFileCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
+                break;
+            case 2 :
+                value = m_ui.scanFilesFromFileLineEdit->text();
+                m_ui.scanFilesFromFileCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
+                break;
+            case 3 :
+                value = m_ui.tempFilesLineEdit->text();
+                m_ui.tempFileCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
+                break;
+            case 4 :
+                value = m_ui.moveDirectoryLineEdit->text();
+                m_ui.moveDirectoryCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
+                break;
+            case 5 :
+                value = m_ui.copyDirectoryLineEdit->text();
+                m_ui.copyDirectoryCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
+                break;
+            case 6 :
+                value = QString::number(m_ui.followDirectorySymlinksComboBox->currentIndex());
+                m_ui.followDirectorySymlinksCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
+                break;
+            case 7 :
+                value = QString::number(m_ui.followFileSymlinksComboBox->currentIndex());
+                m_ui.followFileSymlinksCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
+                break;
 
-    keyword = "ScanReportToFile";
-    value = m_ui.scanReportToFileLineEdit->text();
-    m_ui.scanReportToFileCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
-    m_setupFile->setSectionValue("Directories", keyword, checked + "|" + value);
+        }
+        m_setupFile->setSectionValue("Directories", directoryOptionKeywords.at(idx), checked + "|" + value);
+    }
 
-    keyword = "ScanFilesFromFile";
-    value = m_ui.scanFilesFromFileLineEdit->text();
-    m_ui.scanFilesFromFileCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
-    m_setupFile->setSectionValue("Directories", keyword, checked + "|" + value);
-
-    keyword = "TmpFile";
-    value = m_ui.tempFilesLineEdit->text();
-    m_ui.tempFileCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
-    m_setupFile->setSectionValue("Directories", keyword, checked + "|" + value);
-
-    keyword = "MoveInfectedFiles";
-    value = m_ui.moveDirectoryLineEdit->text();
-    m_ui.moveDirectoryCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
-    m_setupFile->setSectionValue("Directories", keyword, checked + "|" + value);
-
-    keyword = "CopyInfectedFiles";
-    value = m_ui.copyDirectoryLineEdit->text();
-    m_ui.copyDirectoryCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
-    m_setupFile->setSectionValue("Directories", keyword, checked + "|" + value);
-
-    keyword = "FollowDirectorySymLinks";
-    value = QString::number(m_ui.followDirectorySymlinksComboBox->currentIndex());
-    m_ui.followDirectorySymlinksCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
-    m_setupFile->setSectionValue("Directories", keyword, checked + "|" + value);
-
-    keyword = "FollowFileSymLinks";
-    value = QString::number(m_ui.followFileSymlinksComboBox->currentIndex());
-    m_ui.followFileSymlinksCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
-    m_setupFile->setSectionValue("Directories", keyword, checked + "|" + value);
-
-    if (m_ui.loadVirusDatabaseCheckBox->isChecked() == true) {
-        if (m_ui.loadVirusDatabaseLineEdit->text() != "") {
+    if (m_ui.loadVirusDatabaseCheckBox->isChecked() == true)
+    {
+        if (m_ui.loadVirusDatabaseLineEdit->text() != "")
+        {
             emit databasePathChanged(m_ui.loadVirusDatabaseLineEdit->text());
             QFile file(m_ui.loadVirusDatabaseLineEdit->text() + "/main.cvd");
-            if ((file.exists() == false) && (m_setupFile->getSectionBoolValue("Setup","FirstRun") == false)) {
+            if ((file.exists() == false) && (m_setupFile->getSectionBoolValue("Setup","FirstRun") == false))
+            {
                 if (QMessageBox::warning(this, tr("Database files missing!"),
                                          tr("The virus definition files are missing in the database directory. Start download of the missing files?"),
-                                         QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes) {
+                                         QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
+                {
                     emit updateDatabase();
                 }
             }
@@ -573,9 +685,11 @@ void optionsDialog::slot_logViewerButtonClicked()
 {
     QFile file;
 
-    if ((m_ui.scanReportToFileCheckBox->isChecked() == true) && (m_ui.scanReportToFileLineEdit->text() != "")) {
+    if ((m_ui.scanReportToFileCheckBox->isChecked() == true) & (m_ui.scanReportToFileLineEdit->text() != ""))
+    {
         file.setFileName(m_ui.scanReportToFileLineEdit->text());
-        if (file.exists()) {
+        if (file.exists())
+        {
             logViewObject* logView = new logViewObject(this, m_ui.scanReportToFileLineEdit->text());
             logView->setModal(true);
             logView->showMaximized();

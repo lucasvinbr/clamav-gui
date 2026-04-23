@@ -15,7 +15,8 @@ clamdconfspinboxoption::clamdconfspinboxoption(QWidget* parent, QString keyword,
     int spinvalue;
     int spinmin;
     int spinmax;
-    if (StringSpinMax.indexOf("M") != -1) {
+    if (StringSpinMax.indexOf("M") != -1)
+    {
         m_ui.label->setText("MB");
         StringSpinValue = StringSpinValue.replace("M","");
         StringSpinMax = StringSpinMax.replace("M","");
@@ -29,10 +30,12 @@ clamdconfspinboxoption::clamdconfspinboxoption(QWidget* parent, QString keyword,
     m_ui.spinBox->setMaximum(spinmax);
     connect(m_ui.checkBox, SIGNAL(clicked(bool)), this, SLOT(slot_checkboxClicked()));
 
-    if (m_setupFile->singleLineExists(m_optionKeyword) == true) {
+    if (m_setupFile->singleLineExists(m_optionKeyword) == true)
+    {
         m_ui.checkBox->setChecked(true);
         QString valueHelper = m_setupFile->getSingleLineValue(m_optionKeyword);
-        if (valueHelper.indexOf("M") != -1) {
+        if (valueHelper.indexOf("M") != -1)
+        {
             m_ui.label->setText("MB");
             valueHelper = valueHelper.replace("M", "");
         }
@@ -52,6 +55,7 @@ clamdconfspinboxoption::clamdconfspinboxoption(QWidget* parent, QString keyword,
     }*/
 // -------------------------------------------------------------------------
 
+    m_comment = label;
     label = QCoreApplication::translate("ClamAV", label.toUtf8().constData());
     m_ui.checkBox->setText(translator::beautifyString(label, 120));
     m_ui.checkBox->setToolTip(keyword);
@@ -92,22 +96,25 @@ bool clamdconfspinboxoption::isChecked()
 
 void clamdconfspinboxoption::slot_checkboxClicked()
 {
-    if (m_startup == false) {
+    if (m_startup == false)
+    {
         bool state = m_ui.checkBox->isChecked();
         m_ui.spinBox->setEnabled(state);
         m_ui.label->setEnabled(state);
         (state == true) ? m_ui.frame->setStyleSheet(css_mono) : m_ui.frame->setStyleSheet("");
-        if (state == true) {
-            if (m_ui.label->text() == "MB") {
-                m_setupFile->setSingleLineValue(m_optionKeyword, QString::number(m_ui.spinBox->value()) + "M");
+        if (state == true)
+        {
+            if (m_ui.label->text() == "MB")
+            {
+                m_setupFile->setSingleLineValue(m_optionKeyword, QString::number(m_ui.spinBox->value()) + "M", m_comment);
             }
             else {
-                m_setupFile->setSingleLineValue(m_optionKeyword, QString::number(m_ui.spinBox->value()));
+                m_setupFile->setSingleLineValue(m_optionKeyword, QString::number(m_ui.spinBox->value()), m_comment);
             }
         }
         else {
             QString value = m_setupFile->getSingleLineValue(m_optionKeyword);
-            m_setupFile->removeSingleLine(m_optionKeyword, value);
+            m_setupFile->removeSingleLine(m_optionKeyword, value, m_comment);
         }
         emit settingChanged();
     }
@@ -115,16 +122,19 @@ void clamdconfspinboxoption::slot_checkboxClicked()
 
 void clamdconfspinboxoption::slot_spinboxChanged()
 {
-    if (m_startup == false) {
+    if (m_startup == false)
+    {
         bool state = m_ui.checkBox->isChecked();
-        if (state == true) {
+        if (state == true)
+        {
             QString value = m_setupFile->getSingleLineValue(m_optionKeyword);
-            m_setupFile->removeSingleLine(m_optionKeyword, value);
-            if (m_ui.label->text() == "MB") {
-                m_setupFile->setSingleLineValue(m_optionKeyword, QString::number(m_ui.spinBox->value()) + "M");
+            m_setupFile->removeSingleLine(m_optionKeyword, value, m_comment);
+            if (m_ui.label->text() == "MB")
+            {
+                m_setupFile->setSingleLineValue(m_optionKeyword, QString::number(m_ui.spinBox->value()) + "M", m_comment);
             }
             else {
-                m_setupFile->setSingleLineValue(m_optionKeyword, QString::number(m_ui.spinBox->value()));
+                m_setupFile->setSingleLineValue(m_optionKeyword, QString::number(m_ui.spinBox->value()), m_comment);
             }
             emit settingChanged();
         }

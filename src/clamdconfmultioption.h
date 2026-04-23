@@ -41,6 +41,7 @@ class clamdconfmultioption : public ClamdConfOptionBaseClass
     bool                      m_startup;
     bool                      m_fileselector;
     QString                   m_label;
+    QString                   m_comment;
     QStringList               m_values;
     setupFileHandler        * m_setupFile;
     setupFileHandler        * m_baseSetupFile;

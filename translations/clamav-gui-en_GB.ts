@@ -807,9 +807,19 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="446"/>
+        <location filename="../ui/clamdmanager.ui" line="455"/>
         <source>Filter: </source>
         <translation>Filter: </translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="482"/>
+        <source>show selected</source>
+        <translation>show selected</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="489"/>
+        <source>show unselected</source>
+        <translation>show unselected</translation>
     </message>
     <message>
         <location filename="../ui/clamdmanager.ui" line="92"/>
@@ -856,61 +866,61 @@ for changes made to take effect.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="221"/>
-        <location filename="../src/clamdmanager.cpp" line="574"/>
+        <location filename="../src/clamdmanager.cpp" line="248"/>
+        <location filename="../src/clamdmanager.cpp" line="601"/>
         <source>WARNING</source>
         <translation>WARNING</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="280"/>
+        <location filename="../src/clamdmanager.cpp" line="307"/>
         <source>  Clamd starting. Please wait!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="320"/>
+        <location filename="../src/clamdmanager.cpp" line="347"/>
         <source>  Stopping Clamd. Please wait!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="359"/>
-        <location filename="../src/clamdmanager.cpp" line="422"/>
-        <location filename="../src/clamdmanager.cpp" line="540"/>
+        <location filename="../src/clamdmanager.cpp" line="386"/>
+        <location filename="../src/clamdmanager.cpp" line="449"/>
+        <location filename="../src/clamdmanager.cpp" line="567"/>
         <source>  Clamd not running - Start Clamd</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="393"/>
-        <location filename="../src/clamdmanager.cpp" line="436"/>
+        <location filename="../src/clamdmanager.cpp" line="420"/>
+        <location filename="../src/clamdmanager.cpp" line="463"/>
         <source>  Clamd running - Stop Clamd</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="563"/>
+        <location filename="../src/clamdmanager.cpp" line="590"/>
         <source>Directory to monitor</source>
         <translation>Directory to monitor</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="574"/>
+        <location filename="../src/clamdmanager.cpp" line="601"/>
         <source>Path already under monitoring</source>
         <translation>Path already under monitoring</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="583"/>
+        <location filename="../src/clamdmanager.cpp" line="610"/>
         <source>Remove Folder from monitoring</source>
         <translation>Remove Folder from monitoring</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="584"/>
+        <location filename="../src/clamdmanager.cpp" line="611"/>
         <source>Path: </source>
         <translation>Path: </translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="584"/>
+        <location filename="../src/clamdmanager.cpp" line="611"/>
         <source>Do you want to remove the folder from the monitoring list?</source>
         <translation>Do you want to remove the folder from the monitoring list?</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="647"/>
+        <location filename="../src/clamdmanager.cpp" line="674"/>
         <source>  Clamd restarting. Please wait!</source>
         <translation></translation>
     </message>
@@ -2065,80 +2075,95 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Options</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="95"/>
+        <location filename="../ui/optionsdialog.ui" line="199"/>
         <source>Tab 1</source>
         <translation>Tab 1</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="179"/>
+        <location filename="../ui/optionsdialog.ui" line="283"/>
         <source>Copy infected files into DIRECTORY</source>
         <translation>Copy infected files into DIRECTORY</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="154"/>
-        <location filename="../ui/optionsdialog.ui" line="199"/>
-        <location filename="../ui/optionsdialog.ui" line="261"/>
-        <location filename="../ui/optionsdialog.ui" line="306"/>
-        <location filename="../ui/optionsdialog.ui" line="354"/>
-        <location filename="../ui/optionsdialog.ui" line="399"/>
+        <location filename="../ui/optionsdialog.ui" line="258"/>
+        <location filename="../ui/optionsdialog.ui" line="303"/>
+        <location filename="../ui/optionsdialog.ui" line="365"/>
+        <location filename="../ui/optionsdialog.ui" line="410"/>
+        <location filename="../ui/optionsdialog.ui" line="458"/>
+        <location filename="../ui/optionsdialog.ui" line="503"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="286"/>
+        <location filename="../ui/optionsdialog.ui" line="59"/>
+        <source>Filter: </source>
+        <translation>Filter: </translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="86"/>
+        <source>show selected</source>
+        <translation>show selected</translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="93"/>
+        <source>show unselected</source>
+        <translation>show unselected</translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="390"/>
         <source>Move infected files into DIRECTORY</source>
         <translation>Move infected files into DIRECTORY</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="445"/>
-        <location filename="../ui/optionsdialog.ui" line="508"/>
+        <location filename="../ui/optionsdialog.ui" line="549"/>
+        <location filename="../ui/optionsdialog.ui" line="612"/>
         <source>never</source>
         <translation>never</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="450"/>
-        <location filename="../ui/optionsdialog.ui" line="513"/>
+        <location filename="../ui/optionsdialog.ui" line="554"/>
+        <location filename="../ui/optionsdialog.ui" line="617"/>
         <source>direct</source>
         <translation>dircet</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="455"/>
-        <location filename="../ui/optionsdialog.ui" line="518"/>
+        <location filename="../ui/optionsdialog.ui" line="559"/>
+        <location filename="../ui/optionsdialog.ui" line="622"/>
         <source>always</source>
         <translation>always</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="331"/>
+        <location filename="../ui/optionsdialog.ui" line="435"/>
         <source>Use the antivirus database from DIR</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="144"/>
+        <location filename="../ui/optionsdialog.ui" line="248"/>
         <source>Scan files from file</source>
         <translation>Scan files from file</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="481"/>
+        <location filename="../ui/optionsdialog.ui" line="585"/>
         <source>Follow directory symlinks</source>
         <translation>Follow directory symlinks</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="224"/>
+        <location filename="../ui/optionsdialog.ui" line="328"/>
         <source>Save scan report to FILE</source>
         <translation>Save scan report to FILE</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="379"/>
+        <location filename="../ui/optionsdialog.ui" line="483"/>
         <source>Create temporary files in DIRECTORY</source>
         <translation>Create temporary files in DIRECTORY</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="424"/>
+        <location filename="../ui/optionsdialog.ui" line="528"/>
         <source>Follow file symlinks</source>
         <translation>Follow file symlinks</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="537"/>
+        <location filename="../ui/optionsdialog.ui" line="641"/>
         <source>ClamAV Version : </source>
         <translation>ClamAV Version : </translation>
     </message>
@@ -2163,26 +2188,26 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Include/Exclude</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="292"/>
-        <location filename="../src/optionsdialog.cpp" line="320"/>
-        <location filename="../src/optionsdialog.cpp" line="329"/>
-        <location filename="../src/optionsdialog.cpp" line="358"/>
+        <location filename="../src/optionsdialog.cpp" line="365"/>
+        <location filename="../src/optionsdialog.cpp" line="393"/>
+        <location filename="../src/optionsdialog.cpp" line="402"/>
+        <location filename="../src/optionsdialog.cpp" line="431"/>
         <source>Select Directory</source>
         <translation>Select Directory</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="339"/>
-        <location filename="../src/optionsdialog.cpp" line="349"/>
+        <location filename="../src/optionsdialog.cpp" line="412"/>
+        <location filename="../src/optionsdialog.cpp" line="422"/>
         <source>Select File</source>
         <translation>Select File</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="548"/>
+        <location filename="../src/optionsdialog.cpp" line="621"/>
         <source>Database files missing!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="549"/>
+        <location filename="../src/optionsdialog.cpp" line="622"/>
         <source>The virus definition files are missing in the database directory. Start download of the missing files?</source>
         <translation></translation>
     </message>
@@ -2483,6 +2508,14 @@ Continue from the Start of the Log?</translation>
         <location filename="../ui/scanlimitstab.ui" line="1477"/>
         <source>Number of seconds to wait for waiting a response back from the stats server</source>
         <translation>Number of seconds to wait for waiting a response back from the stats server</translation>
+    </message>
+</context>
+<context>
+    <name>scanOptionBaseClass</name>
+    <message>
+        <location filename="../ui/scanoptionbaseclass.ui" line="14"/>
+        <source>Form</source>
+        <translation>Form</translation>
     </message>
 </context>
 <context>
@@ -3214,7 +3247,7 @@ Continue from the Start of the Log?</translation>
     <message>
         <location filename="../src/setuptab.cpp" line="219"/>
         <source>OK</source>
-        <translation type="unfinished">OK
+        <translation>OK
 </translation>
     </message>
     <message>

@@ -820,9 +820,19 @@ récursivement et ce qu&apos;il faut faire si un virus a été trouvé.&lt;/span
         <translation>  clamd ne fonctionne pas - démarrer clamd</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="446"/>
+        <location filename="../ui/clamdmanager.ui" line="455"/>
         <source>Filter: </source>
         <translation>Filtre: </translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="482"/>
+        <source>show selected</source>
+        <translation>afficher la sélection</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="489"/>
+        <source>show unselected</source>
+        <translation>afficher les éléments non sélectionnés</translation>
     </message>
     <message>
         <location filename="../ui/clamdmanager.ui" line="92"/>
@@ -870,61 +880,61 @@ pour que les modifications apportées prennent effet.</translation>
         <translation>  Clamd en cours d&apos;exécution - Arrêter clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="221"/>
-        <location filename="../src/clamdmanager.cpp" line="574"/>
+        <location filename="../src/clamdmanager.cpp" line="248"/>
+        <location filename="../src/clamdmanager.cpp" line="601"/>
         <source>WARNING</source>
         <translation>ATTENTION</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="280"/>
+        <location filename="../src/clamdmanager.cpp" line="307"/>
         <source>  Clamd starting. Please wait!</source>
         <translation>  Démarrage de Clamd. Veuillez patienter !</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="320"/>
+        <location filename="../src/clamdmanager.cpp" line="347"/>
         <source>  Stopping Clamd. Please wait!</source>
         <translation>  Arrêt de Clamd. Veuillez patienter !</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="359"/>
-        <location filename="../src/clamdmanager.cpp" line="422"/>
-        <location filename="../src/clamdmanager.cpp" line="540"/>
+        <location filename="../src/clamdmanager.cpp" line="386"/>
+        <location filename="../src/clamdmanager.cpp" line="449"/>
+        <location filename="../src/clamdmanager.cpp" line="567"/>
         <source>  Clamd not running - Start Clamd</source>
         <translation>  Clamd ne fonctionne pas - Démarrer Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="393"/>
-        <location filename="../src/clamdmanager.cpp" line="436"/>
+        <location filename="../src/clamdmanager.cpp" line="420"/>
+        <location filename="../src/clamdmanager.cpp" line="463"/>
         <source>  Clamd running - Stop Clamd</source>
         <translation>  Clamd en cours d&apos;exécution - Arrêter Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="563"/>
+        <location filename="../src/clamdmanager.cpp" line="590"/>
         <source>Directory to monitor</source>
         <translation>Répertoire à surveiller</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="574"/>
+        <location filename="../src/clamdmanager.cpp" line="601"/>
         <source>Path already under monitoring</source>
         <translation>Chemin déjà sous surveillance</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="583"/>
+        <location filename="../src/clamdmanager.cpp" line="610"/>
         <source>Remove Folder from monitoring</source>
         <translation>Supprimer le dossier de la surveillance</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="584"/>
+        <location filename="../src/clamdmanager.cpp" line="611"/>
         <source>Path: </source>
         <translation>Trajectoire : </translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="584"/>
+        <location filename="../src/clamdmanager.cpp" line="611"/>
         <source>Do you want to remove the folder from the monitoring list?</source>
         <translation>Voulez-vous supprimer le dossier de la liste de surveillance ?</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="647"/>
+        <location filename="../src/clamdmanager.cpp" line="674"/>
         <source>  Clamd restarting. Please wait!</source>
         <translation>  Clamd redémarre. Veuillez patienter !</translation>
     </message>
@@ -2086,80 +2096,95 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Options</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="95"/>
+        <location filename="../ui/optionsdialog.ui" line="199"/>
         <source>Tab 1</source>
         <translation>Tab 1</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="179"/>
+        <location filename="../ui/optionsdialog.ui" line="283"/>
         <source>Copy infected files into DIRECTORY</source>
         <translation>Copier les fichiers infectés dans le dossier</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="154"/>
-        <location filename="../ui/optionsdialog.ui" line="199"/>
-        <location filename="../ui/optionsdialog.ui" line="261"/>
-        <location filename="../ui/optionsdialog.ui" line="306"/>
-        <location filename="../ui/optionsdialog.ui" line="354"/>
-        <location filename="../ui/optionsdialog.ui" line="399"/>
+        <location filename="../ui/optionsdialog.ui" line="258"/>
+        <location filename="../ui/optionsdialog.ui" line="303"/>
+        <location filename="../ui/optionsdialog.ui" line="365"/>
+        <location filename="../ui/optionsdialog.ui" line="410"/>
+        <location filename="../ui/optionsdialog.ui" line="458"/>
+        <location filename="../ui/optionsdialog.ui" line="503"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="286"/>
+        <location filename="../ui/optionsdialog.ui" line="390"/>
         <source>Move infected files into DIRECTORY</source>
         <translation>Déplacer les fichiers infecté vers le dossier</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="481"/>
+        <location filename="../ui/optionsdialog.ui" line="585"/>
         <source>Follow directory symlinks</source>
         <translation>Suivre les liens de dossiers</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="445"/>
-        <location filename="../ui/optionsdialog.ui" line="508"/>
+        <location filename="../ui/optionsdialog.ui" line="549"/>
+        <location filename="../ui/optionsdialog.ui" line="612"/>
         <source>never</source>
         <translation>jammais</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="450"/>
-        <location filename="../ui/optionsdialog.ui" line="513"/>
+        <location filename="../ui/optionsdialog.ui" line="554"/>
+        <location filename="../ui/optionsdialog.ui" line="617"/>
         <source>direct</source>
         <translation>directe</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="455"/>
-        <location filename="../ui/optionsdialog.ui" line="518"/>
+        <location filename="../ui/optionsdialog.ui" line="559"/>
+        <location filename="../ui/optionsdialog.ui" line="622"/>
         <source>always</source>
         <translation>Toujours</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="331"/>
+        <location filename="../ui/optionsdialog.ui" line="435"/>
         <source>Use the antivirus database from DIR</source>
         <translation>Utiliser la base de données antivirus du DIR</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="144"/>
+        <location filename="../ui/optionsdialog.ui" line="59"/>
+        <source>Filter: </source>
+        <translation>Filtre: </translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="86"/>
+        <source>show selected</source>
+        <translation>afficher la sélection</translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="93"/>
+        <source>show unselected</source>
+        <translation>afficher les éléments non sélectionnés</translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="248"/>
         <source>Scan files from file</source>
         <translation>Scanner fichiers depuis fichier</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="224"/>
+        <location filename="../ui/optionsdialog.ui" line="328"/>
         <source>Save scan report to FILE</source>
         <translation>Sauver rapport vers le fichier</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="379"/>
+        <location filename="../ui/optionsdialog.ui" line="483"/>
         <source>Create temporary files in DIRECTORY</source>
         <translation>Créer fichier temporaire dans le dossier</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="424"/>
+        <location filename="../ui/optionsdialog.ui" line="528"/>
         <source>Follow file symlinks</source>
         <translation>Suivre les liens de fichier</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="537"/>
+        <location filename="../ui/optionsdialog.ui" line="641"/>
         <source>ClamAV Version : </source>
         <translation>ClamAV Version : </translation>
     </message>
@@ -2184,10 +2209,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Inclure/Exclure</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="292"/>
-        <location filename="../src/optionsdialog.cpp" line="320"/>
-        <location filename="../src/optionsdialog.cpp" line="329"/>
-        <location filename="../src/optionsdialog.cpp" line="358"/>
+        <location filename="../src/optionsdialog.cpp" line="365"/>
+        <location filename="../src/optionsdialog.cpp" line="393"/>
+        <location filename="../src/optionsdialog.cpp" line="402"/>
+        <location filename="../src/optionsdialog.cpp" line="431"/>
         <source>Select Directory</source>
         <translation>Selection du dossier</translation>
     </message>
@@ -2200,18 +2225,18 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation type="vanished">Aucune définition de virus n&apos;a été trouvée dans le dossier de la base de données. Les définitions de virus doivent-elles être téléchargées ?</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="339"/>
-        <location filename="../src/optionsdialog.cpp" line="349"/>
+        <location filename="../src/optionsdialog.cpp" line="412"/>
+        <location filename="../src/optionsdialog.cpp" line="422"/>
         <source>Select File</source>
         <translation>Selection du fichiers</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="548"/>
+        <location filename="../src/optionsdialog.cpp" line="621"/>
         <source>Database files missing!</source>
         <translation>Fichiers de base de données manquants !</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="549"/>
+        <location filename="../src/optionsdialog.cpp" line="622"/>
         <source>The virus definition files are missing in the database directory. Start download of the missing files?</source>
         <translation>Aucune définition de virus n&apos;a été trouvée dans le dossier de la base de données. Les définitions de virus doivent-elles être téléchargées ?</translation>
     </message>
@@ -2512,6 +2537,14 @@ Continuer à partir depuis le debut du journal?</translation>
         <location filename="../ui/scanlimitstab.ui" line="1477"/>
         <source>Number of seconds to wait for waiting a response back from the stats server</source>
         <translation>Nombre de secondes à attendre pour attendre une réponse du serveur de statistiques</translation>
+    </message>
+</context>
+<context>
+    <name>scanOptionBaseClass</name>
+    <message>
+        <location filename="../ui/scanoptionbaseclass.ui" line="14"/>
+        <source>Form</source>
+        <translation>Form</translation>
     </message>
 </context>
 <context>

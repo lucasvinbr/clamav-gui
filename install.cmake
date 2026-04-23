@@ -38,7 +38,7 @@ install(FILES CHANGES README
     DESTINATION usr/share/doc/clamav-gui/
 )
 
-install(FILES extra/ClamAV-GUI-ServiceMenu.desktop extra/ClamAV-GUI.desktop 
+install(FILES extra/ClamAV-GUI.desktop
     DESTINATION usr/share/applications/
 )
 

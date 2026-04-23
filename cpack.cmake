@@ -5,7 +5,7 @@
 # The package will be created in the build directory and can be used to distribute the application.
 set(CPACK_PACKAGE_CONTACT "Jörg Macedo da Costa Zopes")
 set(CPACK_PACKAGE_NAME "ClamAV-GUI")
-set(CPACK_PACKAGE_VERSION "1.2.3")
+set(CPACK_PACKAGE_VERSION "1.3.7")
 set(CPACK_PACKAGE_FILE_NAME "ClamAV-GUI-${CPACK_PACKAGE_VERSION}-${CMAKE_SYSTEM_PROCESSOR}")
 
 set(CPACK_PACKAGING_INSTALL_PREFIX "/")
@@ -21,7 +21,7 @@ set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "ClamAV GUI for Linux")
 set(CPACK_RPM_COMPONENT_INSTALL ON)
 set(CPACK_RPM_PACKAGE_LICENSE "GPL-3.0-or-later")
 set(CPACK_RPM_PACKAGE_GROUP "Applications/Utilities")
-set(CPACK_RPM_PACKAGE_REQUIRES "clamav, clamav-daemon, clamav-freshclam")
+set(CPACK_RPM_PACKAGE_REQUIRES "clamav >= 0.103.11")
 set(CPACK_RPM_PACKAGE_RELEASE 1)
 set(CPACK_RPM_PACKAGE_DESCRIPTION "ClamAV GUI for Linux")
 

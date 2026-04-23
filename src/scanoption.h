@@ -2,6 +2,7 @@
 #define SCANOPTION_H
 
 #include "ui_scanoption.h"
+#include "scanoptionbaseclass.h"
 #include "setupfilehandler.h"
 #include "translator.h"
 #include <QWidget>
@@ -10,13 +11,16 @@ namespace Ui {
 class scanoption;
 }
 
-class scanoption : public QWidget
+class scanoption : public scanOptionBaseClass
 {
     Q_OBJECT
 
 public:
     explicit scanoption(QWidget *parent = nullptr, QString setupFileName = "", QString section = "", bool checked = false, QString label = "", QString comment = "");
     ~scanoption() = default;
+    QString getOption();
+    QString getComment();
+    bool isChecked();
 
 private:
     Ui::scanoption m_ui;

@@ -72,8 +72,10 @@ void firstRunWindow::findTranslation()
     //QString translation_path = "/usr/share/clamav-gui/"; //for testing ...
     QDir directory(translation_path);
     QStringList m_filelist = directory.entryList(QDir::Files);
-    foreach(QString m_file, m_filelist) {
-        if (m_file.indexOf(".qm") != -1 && m_file.contains("gui")) {
+    foreach(QString m_file, m_filelist)
+    {
+        if (m_file.indexOf(".qm") != -1 && m_file.contains("gui"))
+        {
             QString m_lang = m_file.mid(11,5);
             QLocale locale(m_lang);
 
@@ -99,56 +101,68 @@ void firstRunWindow::slot_initProcessFinished()
     QString rc = m_initProcess->readAll().trimmed();
     QStringList elements = rc.split(" ");
 
-    if (m_initIndex < m_initCommands.size()) {
-        switch (m_initIndex) {
+    if (m_initIndex < m_initCommands.size())
+    {
+        switch (m_initIndex)
+        {
             case 0:
-                if (elements.count() >= 2) {
+                if (elements.count() >= 2)
+                {
                     m_ui->clamdSourceLabel->setText(elements.at(1));
                     m_ui->clamdStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
                     m_setupFile->setSectionValue("Clamd","ClamdLocation",elements.at(1));
                     m_setupFile->setSectionValue("Clamd","StartClamdOnStartup",false);
-                } else {
+                }
+                else {
                     QMessageBox::warning(this, tr("ERROR"), tr("Clamad is missing. Please install!"), QMessageBox::Ok);
                     emit quitApplication();
                 }
                 break;
             case 1:
-                if (elements.count() >= 2) {
+                if (elements.count() >= 2)
+                {
                     m_ui->freshclamSourceLabel->setText(elements.at(1));
                     m_ui->freshclamStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
                     m_setupFile->setSectionValue("FreshclamSettings", "FreshclamLocation", elements.at(1));
-                } else {
+                }
+                else {
                     QMessageBox::warning(this, tr("ERROR"), tr("Freshclam is missing. Please install!"), QMessageBox::Ok);
                     emit quitApplication();
                 }
                 break;
             case 2:
-                if (elements.count() >= 2) {
+                if (elements.count() >= 2)
+                {
                     m_ui->clamonaccSourceLabel->setText(elements.at(1));
                     m_ui->clamonaccStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
                     m_setupFile->setSectionValue("Clamd","ClamonaccLocation",elements.at(1));
-                } else {
+                }
+                else {
                     QMessageBox::warning(this, tr("ERROR"), tr("Clamonacc is missing. Please install!"), QMessageBox::Ok);
                     emit quitApplication();
                 }
                 break;
             case 3:
-                if (elements.count() >=2) {
+                if (elements.count() >=2)
+                {
                     m_ui->clamscanSourceLabel->setText(elements.at(1));
                     m_ui->clamscanStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
-                } else {
+                }
+                else {
                     QMessageBox::warning(this, tr("ERROR"), tr("Clamav is missing. Please install!"), QMessageBox::Ok);
                     emit quitApplication();
                 }
                 break;
             case 4:
-                if (elements.count() >= 2) {
+                if (elements.count() >= 2)
+                {
                     m_ui->clamdscanSourceLabel->setText(elements.at(1));
                     m_ui->clamdscanStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
                 }
                 break;
             case 5:
-                if (elements.count() >= 2) {
+                if (elements.count() >= 2)
+                {
                     m_ui->sudoGUISourceLabel->setText(elements.at(1));
                     m_ui->sudoGUIStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
                     m_setupFile->setSectionValue("RequiredApplications",m_initParameters.at(m_initIndex),elements.at(1));
@@ -157,12 +171,14 @@ void firstRunWindow::slot_initProcessFinished()
                 }
                 break;
             case 6:
-                if (elements.count() >= 2) {
+                if (elements.count() >= 2)
+                {
                     m_ui->sudoGUISourceLabel->setText(elements.at(1));
                     m_ui->sudoGUIStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
                     m_setupFile->setSectionValue("RequiredApplications",m_initParameters.at(m_initIndex),elements.at(1));
                     m_setupFile->setSectionValue("Settings","SudoGUI",elements.at(1));
-                } else {
+                }
+                else {
                     m_setupFile->setSectionValue("RequiredApplications",m_initParameters.at(m_initIndex),"n/a");
                     m_setupFile->setSectionValue("Settings","SudoGUI","n/a");
                     QMessageBox::warning(this, tr("ERROR"), tr("Neither 'pkexe' nor 'kdesu' os installed. Please install at least one of this applications!"), QMessageBox::Ok);
@@ -170,25 +186,28 @@ void firstRunWindow::slot_initProcessFinished()
                 }
                 break;
             case 7:
-                if (rc != "") {
+                if (rc != "")
+                {
                     m_ui->applicationUserLabel->setText("Database Owner : " + elements.at(0));
                     m_ui->applicationUserStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
                     m_freshclamConf = new setupFileHandler(QDir::homePath()+ "/.clamav-gui/freshclam.conf");
-                    m_freshclamConf->setSingleLineValue("DatabaseOwner",elements.at(0));
+                    m_freshclamConf->setSingleLineValue("DatabaseOwner",elements.at(0), "When started by root, drop privileges to a specified user. Default: vscan");
                     delete m_freshclamConf;
                     m_setupFile->setSectionValue("RequiredApplications","User",m_ui->applicationUserLabel->text().replace("Database Owner : ",""));
                 }
                 break;
             case 8:
-                if (elements.count() > 0) {
+                if (elements.count() > 0)
+                {
                     m_ui->applicationGroupLabel->setText("Application Group : " + elements.at(0));
                     m_ui->applicationGroupStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
-                    m_setupFile->setSectionValue("RequiredApplications","Group",m_ui->applicationGroupLabel->text().replace("Database Owner : ",""));
+                    m_setupFile->setSectionValue("RequiredApplications","Group",m_ui->applicationGroupLabel->text().replace("Application Group : ",""));
                 }
                 break;
             case 9:
                 QFile file(QDir::homePath() + "/.clamav-gui/clamd.conf.man");
-                if (file.open(QIODevice::WriteOnly|QIODevice::Text)) {
+                if (file.open(QIODevice::WriteOnly|QIODevice::Text))
+                {
                     QTextStream stream(&file);
                     stream << rc;
                     Qt::endl(stream);
@@ -199,12 +218,15 @@ void firstRunWindow::slot_initProcessFinished()
 
         m_initIndex++;
 
-        if (m_initIndex < m_initCommands.size()) {
+        if (m_initIndex < m_initCommands.size())
+        {
             m_processParameters.clear();
-            if (m_initParameters.at(m_initIndex) != "") {
+            if (m_initParameters.at(m_initIndex) != "")
+            {
                 m_processParameters << m_initParameters.at(m_initIndex);
                 m_initProcess->start(m_initCommands.at(m_initIndex),m_processParameters);
-            } else {
+            }
+            else {
                 m_processParameters << m_initParameters.at(m_initIndex);
                 m_initProcess->start(m_initCommands.at(m_initIndex),QStringList());
             }
@@ -214,19 +236,22 @@ void firstRunWindow::slot_initProcessFinished()
 
 void firstRunWindow::slot_sddComboBoxChanged()
 {
-    if (m_processInit == false) {
+    if (m_processInit == false)
+    {
         setupFileHandler * m_clamdConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/clamd.conf");
         setupFileHandler * m_freshclamConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/freshclam.conf");
-        if (m_ui->signatureDatabaseDirectoryComboBox->currentText() == QDir::homePath() + "/.clamav-gui/signatures") {
+        if (m_ui->signatureDatabaseDirectoryComboBox->currentText() == QDir::homePath() + "/.clamav-gui/signatures")
+        {
             m_setupFile->setSectionValue("Directories", "LoadSupportedDBFiles", "checked|" + QDir::homePath() + "/.clamav-gui/signatures");
             m_setupFile->setSectionValue("FreshClam","runasroot",false);
             m_clamdConf->setSingleLineValue("DatabaseDirectory",QDir::homePath() + "/.clamav-gui/signatures");
-            m_freshclamConf->setSingleLineValue("DatabaseDirectory", QDir::homePath() + "/.clamav-gui/signatures");
-        } else  {
+            m_freshclamConf->setSingleLineValue("DatabaseDirectory", QDir::homePath() + "/.clamav-gui/signatures", "Path to a directory containing database files.  This directory must already exist, be an absolute path, be writeable by freshclam and readable by clamd/clamscan. Default: /var/lib/clamav");
+        }
+        else  {
             m_setupFile->setSectionValue("Directories", "LoadSupportedDBFiles", "checked|" + m_ui->signatureDatabaseDirectoryComboBox->currentText());
             m_setupFile->setSectionValue("FreshClam","runasroot",true);
             m_clamdConf->setSingleLineValue("DatabaseDirectory",m_ui->signatureDatabaseDirectoryComboBox->currentText());
-            m_freshclamConf->setSingleLineValue("DatabaseDirectory",m_ui->signatureDatabaseDirectoryComboBox->currentText());
+            m_freshclamConf->setSingleLineValue("DatabaseDirectory",m_ui->signatureDatabaseDirectoryComboBox->currentText(),"Path to a directory containing database files.  This directory must already exist, be an absolute path, be writeable by freshclam and readable by clamd/clamscan. Default: /var/lib/clamav");
         }
         emit settingChanged();
         delete m_clamdConf;
@@ -264,7 +289,8 @@ void firstRunWindow::createBaseDirStructure()
     // For UALinux
     // If the settings.ini in the home folder of the user is not present a predefined version is been copied into the folder.
     //_____________________________________________________________________________________________________________________________________
-    if ((!QFileInfo::exists(QDir::homePath() + "/.clamav-gui/settings.ini")) && (!QFile::exists(QDir::homePath() + "/.clamav-gui/settings.ini"))) {
+    if ((!QFileInfo::exists(QDir::homePath() + "/.clamav-gui/settings.ini")) && (!QFile::exists(QDir::homePath() + "/.clamav-gui/settings.ini")))
+    {
         dir.mkdir(QDir::homePath() + "/.clamav-gui");
 
         if (QFile::exists("/etc/clamav-gui/settings.ini"))
@@ -288,10 +314,12 @@ void firstRunWindow::createServiceMenu()
         serviceMenuPath = QDir::homePath() + "/.local/share/kio/servicemenus";
 
     if (serviceMenuPath.isEmpty())
-        serviceMenuPath = serviceMenuPath = QDir::homePath() + "/.local/share/kservices5/ServiceMenus";
+        serviceMenuPath = serviceMenuPath = QDir::homePath() + "/.local/share/kio/servicemenus";
 
-    if (!QFileInfo::exists(serviceMenuPath + "/scanWithClamAV-GUI.desktop")) {
-        if (!QFileInfo::exists(serviceMenuPath)) {
+    if (!QFileInfo::exists(serviceMenuPath + "/scanWithClamAV-GUI.desktop"))
+    {
+        if (!QFileInfo::exists(serviceMenuPath))
+        {
             QDir dir(serviceMenuPath);
             dir.mkpath(serviceMenuPath);
         }
@@ -330,6 +358,8 @@ void firstRunWindow::createServiceMenu()
         serviceFile->setSectionValue("Desktop Action scan", "Exec", "clamav-gui --scan %F");
         delete serviceFile;
     }
+    QFile file(serviceMenuPath + "/scanWithClamAV-GUI.desktop");
+    file.setPermissions(QFileDevice::ReadOwner|QFileDevice::WriteOwner|QFileDevice::ExeOwner|QFileDevice::ReadGroup|QFile::WriteGroup|QFileDevice::ExeGroup|QFileDevice::ReadOther|QFileDevice::WriteOther|QFileDevice::ExeOther);
     //*****************************************************************************
 
     m_ui->dolphinContestMenuStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
@@ -337,24 +367,24 @@ void firstRunWindow::createServiceMenu()
 
 void firstRunWindow::createInitialSettings()
 {
-    if ((QFileInfo::exists("/var/lib/clamav")) && (QFile::exists("/var/lib/clamav/freshclam.dat"))) {
+    if (QFileInfo::exists("/var/lib/clamav")) m_ui->signatureDatabaseDirectoryComboBox->addItem("/var/lib/clamav");
+    if (QFileInfo::exists("/usr/local/share/clamav")) m_ui->signatureDatabaseDirectoryComboBox->addItem("/usr/local/share/clamav");
+    m_ui->signatureDatabaseDirectoryComboBox->addItem(QDir::homePath() + "/.clamav-gui/signatures");
+
+    if (QFileInfo::exists("/var/lib/clamav") && (QFile::exists("/var/lib/clamav/freshclam.dat")))
+    {
         if (m_setupFile->keywordExists("Directories","LoadSupportedDBFiles") == false)
             m_setupFile->setSectionValue("Directories", "LoadSupportedDBFiles", "checked|/var/lib/clamav");
 
         if (m_setupFile->keywordExists("FreshClam","runasroot") == false)
             m_setupFile->setSectionValue("FreshClam","runasroot",true);
-
-        m_ui->signatureDatabaseDirectoryComboBox->addItem("/var/lib/clamav");
-        m_ui->signatureDatabaseDirectoryComboBox->addItem(QDir::homePath() + "/.clamav-gui/signatures");
     }
     else {
         if (m_setupFile->keywordExists("Directories","LoadSupportedDBFiles") == false)
             m_setupFile->setSectionValue("Directories", "LoadSupportedDBFiles", "checked|" + QDir::homePath() + "/.clamav-gui/signatures");
 
         m_setupFile->setSectionValue("FreshClam","runasroot",false);
-        if (m_setupFile->keywordExists("FreshClam","runasroot") == false)
-
-            m_ui->signatureDatabaseDirectoryComboBox->addItem("/.clamav-gui/signatures");
+        m_ui->signatureDatabaseDirectoryComboBox->setCurrentText(QDir::homePath() + "/.clamav-gui/signatures");
     }
     if (m_setupFile->keywordExists("Directories", "TmpFile") == false)
         m_setupFile->setSectionValue("Directories", "TmpFile", "checked|/tmp");
@@ -393,22 +423,25 @@ void firstRunWindow::createClamdConfFile()
 {
     QFile clamdConfFile(QDir::homePath() + "/.clamav-gui/clamd.conf");
 
-    if (clamdConfFile.exists() == false) {
+    if (clamdConfFile.exists() == false)
+    {
         m_clamdConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/clamd.conf", this);
         QString value = m_setupFile->getSectionValue("Directories", "LoadSupportedDBFiles");
+
         if (value.indexOf("checked|") == 0)
             m_clamdConf->addSingleLineValue("DatabaseDirectory", value.mid(value.indexOf("|") + 1));
+
         m_clamdConf->setSingleLineValue("LogSyslog", "no");
         m_clamdConf->setSingleLineValue("LogFacility", "LOG_LOCAL6");
-        m_clamdConf->setSingleLineValue("PidFile", "/tmp/clamd.pid");
+        m_clamdConf->setSingleLineValue("PidFile", "/tmp/clamd.pid","By default clamd binds to INADDR_ANY. This option allows you to restrict the TCP address and provide some degree of protection from the outside world. This option can be specified multiple times in order to listen on multiple IPs. IPv6 is now supported. Default: disabled");
         m_clamdConf->setSingleLineValue("ExtendedDetectionInfo", "yes");
         m_clamdConf->setSingleLineValue("LocalSocket", QDir::homePath() + "/.clamav-gui/clamd-socket");
-        m_clamdConf->setSingleLineValue("LogFile", QDir::homePath() + "/.clamav-gui/clamd.log");
+        m_clamdConf->setSingleLineValue("LogFile", QDir::homePath() + "/.clamav-gui/clamd.log","Save all reports to a log file. Default: disabled");
         m_clamdConf->setSingleLineValue("LocalSocketGroup", "users");
-        m_clamdConf->setSingleLineValue("TCPAddr", "127.0.0.1");
-        m_clamdConf->addSingleLineValue("TCPAddr", "::1");
+        m_clamdConf->setSingleLineValue("TCPAddr", "127.0.0.1","By default clamd binds to INADDR_ANY. This option allows you to restrict the TCP address and provide some degree of protection from the outside world. This option can be specified multiple times in order to listen on multiple IPs. IPv6 is now supported. Default: disabled");
+        m_clamdConf->addSingleLineValue("TCPAddr", "::1","By default clamd binds to INADDR_ANY. This option allows you to restrict the TCP address and provide some degree of protection from the outside world. This option can be specified multiple times in order to listen on multiple IPs. IPv6 is now supported. Default: disabled");
         m_clamdConf->setSingleLineValue("LogFileMaxSize", "1M");
-        m_clamdConf->setSingleLineValue("LogTime", "yes");
+        m_clamdConf->setSingleLineValue("LogTime", "no");
         m_clamdConf->setSingleLineValue("LogRotate", "yes");
         m_clamdConf->setSingleLineValue("OnAccessMaxFileSize", "10M");
         m_clamdConf->setSingleLineValue("OnAccessMaxThreads", "10");
@@ -416,8 +449,8 @@ void firstRunWindow::createClamdConfFile()
         m_clamdConf->setSingleLineValue("OnAccessDenyOnError", "no");
         m_clamdConf->setSingleLineValue("OnAccessExtraScanning", "yes");
         m_clamdConf->setSingleLineValue("OnAccessRetryAttempts", "0");
-        m_clamdConf->setSingleLineValue("OnAccessExcludeUname", "root");
-        m_clamdConf->setSingleLineValue("OnAccessExcludeUID", "0");
+        m_clamdConf->setSingleLineValue("OnAccessExcludeUname", "root","This option allows exclusions via user names when using the on- access scanning client. It can be used multiple times, and has the same potential race condition limitations of the OnAccessEx‐ cludeUID option. Default: disabled");
+        m_clamdConf->setSingleLineValue("OnAccessExcludeUID", "0","With this option you can exclude specific UIDs. Processes with these UIDs will be able to access all files without triggering scans or permission denied events. This option can be used multiple times (one per line). Note: using a value of 0 on any line will disable this option en‐ tirely. To exclude the root UID (0) please enable the OnAccessEx‐ cludeRootUID option. Also note that if clamd cannot check the uid of the process that generated an on-access scan event (e.g., because OnAccessPreven‐ tion was not enabled, and the process already exited), clamd will perform a scan. Thus, setting OnAccessExcludeUID is not guaran‐ teed to prevent every access by the specified uid from triggering a scan (unless OnAccessPrevention is enabled). Default: disabled");
     }
 
     m_ui->clamdConfStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
@@ -425,24 +458,25 @@ void firstRunWindow::createClamdConfFile()
 
 void firstRunWindow::createFreshclamConfFile()
 {
-    if (QFile::exists(QDir::homePath() + "/.clamav-gui/freshclam.conf") == false) {
+    if (QFile::exists(QDir::homePath() + "/.clamav-gui/freshclam.conf") == false)
+    {
         QFile freshclamConfFile(QDir::homePath() + "/.clamav-gui/freshclam.conf");
         freshclamConfFile.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner);
 
         m_freshclamConf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/freshclam.conf", this);
         QString value = m_setupFile->getSectionValue("Directories", "LoadSupportedDBFiles");
         if (value.indexOf("checked|") == 0)
-            m_freshclamConf->setSingleLineValue("DatabaseDirectory", value.mid(value.indexOf("|") + 1));
+            m_freshclamConf->setSingleLineValue("DatabaseDirectory", value.mid(value.indexOf("|") + 1),"Path to a directory containing database files.  This directory must already exist, be an absolute path, be writeable by freshclam and readable by clamd/clamscan. Default: /var/lib/clamav");
 
-        m_freshclamConf->setSingleLineValue("LogSyslog", "no");
-        m_freshclamConf->setSingleLineValue("LogFacility", "LOG_LOCAL6");
-        m_freshclamConf->setSingleLineValue("LogTime", "no");
-        m_freshclamConf->setSingleLineValue("LogRotate", "no");
-        m_freshclamConf->setSingleLineValue("PidFile", "/tmp/freshclam.pid");
-        m_freshclamConf->setSingleLineValue("DatabaseOwner", "clamav");
-        m_freshclamConf->setSingleLineValue("DatabaseMirror", "database.clamav.net");
-        m_freshclamConf->setSingleLineValue("LogVerbose", "no");
-        m_freshclamConf->setSingleLineValue("Checks", "12");
+        m_freshclamConf->setSingleLineValue("LogSyslog", "no", "Enable logging to Syslog. May be used in combination with UpdateLogFile. Default: disabled.");
+        m_freshclamConf->setSingleLineValue("LogFacility", "LOG_LOCAL6", "Specify the type of syslog messages - please refer to 'man syslog' for facility names. Default: LOG_LOCAL6");
+        m_freshclamConf->setSingleLineValue("LogTime", "no", "Log time with each message. Default: no");
+        m_freshclamConf->setSingleLineValue("LogRotate", "no", "Rotate log file. Requires LogFileMaxSize option set prior to this option. Default: no");
+        m_freshclamConf->setSingleLineValue("PidFile", "/tmp/freshclam.pid", "Write the daemon's pid to the specified file. Default: disabled");
+        m_freshclamConf->setSingleLineValue("DatabaseOwner", "clamav", "When started by root, drop privileges to a specified user. Default: vscan");
+        m_freshclamConf->setSingleLineValue("DatabaseMirror", "database.clamav.net", "DatabaseMirror  specifies  to  which  mirror(s) freshclam should connect. You should have at least one entries: database.clamav.net.  Now that CloudFlare is being used as our Content Delivery Network (CDN), this one domain name works world-wide to direct freshclam to the closest geographic endpoint. Default: database.clamav.net");
+        m_freshclamConf->setSingleLineValue("LogVerbose", "no", "Enable verbose logging. Default: disabled");
+        m_freshclamConf->setSingleLineValue("Checks", "12", "Number of database checks per day. Default: 12");
     }
 }
 

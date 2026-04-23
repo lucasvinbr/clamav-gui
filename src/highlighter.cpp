@@ -111,11 +111,13 @@ highlighter::highlighter(QTextDocument* parent) : QSyntaxHighlighter(parent)
 void highlighter::highlightBlock(const QString& text)
 {
 #ifdef QT_VERSION_6
-    foreach (const HighlightingRule &rule, m_highlightingRules) {
+    foreach (const HighlightingRule &rule, m_highlightingRules)
+    {
         QRegularExpression expression(rule.pattern);
         QRegularExpressionMatchIterator iterator = expression.globalMatch(text);
 
-        while (iterator.hasNext()) {
+        while (iterator.hasNext())
+        {
             QRegularExpressionMatch match = iterator.next();
             int length = match.capturedLength();
             int index = match.capturedStart();
@@ -123,10 +125,12 @@ void highlighter::highlightBlock(const QString& text)
         }
     }
 #else
-    foreach (const HighlightingRule& rule, m_highlightingRules) {
+    foreach (const HighlightingRule& rule, m_highlightingRules)
+    {
         QRegExp expression(rule.pattern);
         int index = expression.indexIn(text);
-        while (index >= 0) {
+        while (index >= 0)
+        {
             int length = expression.matchedLength();
             setFormat(index, length, rule.format);
             index = expression.indexIn(text, index + length);
@@ -139,10 +143,12 @@ void highlighter::highlightBlock(const QString& text)
     if (previousBlockState() != 1)
         startIndex = m_commentStartExpression.indexIn(text);
 
-    while (startIndex >= 0) {
+    while (startIndex >= 0)
+    {
         int endIndex = m_commentEndExpression.indexIn(text, startIndex);
         int commentLength;
-        if (endIndex == -1) {
+        if (endIndex == -1)
+        {
             setCurrentBlockState(1);
             commentLength = text.length() - startIndex;
         }

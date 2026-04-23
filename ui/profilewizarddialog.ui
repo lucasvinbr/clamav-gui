@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>828</width>
-    <height>630</height>
+    <height>706</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -198,6 +198,19 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </widget>
      <widget class="QWidget" name="wizardPage_2">
       <layout class="QGridLayout" name="gridLayout_3">
+       <item row="2" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>192</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
        <item row="1" column="0">
         <widget class="QLabel" name="profileNameLabel">
          <property name="maximumSize">
@@ -216,22 +229,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
          </property>
         </widget>
        </item>
-       <item row="1" column="1" colspan="2">
-        <widget class="QLineEdit" name="profileNameLineEdit"/>
-       </item>
-       <item row="2" column="1">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>90</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
        <item row="0" column="0" colspan="3">
         <widget class="QLabel" name="descriptionsLabel">
          <property name="font">
@@ -245,6 +242,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
           <string>First of all please enter a unique name for the profile.</string>
          </property>
         </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QLineEdit" name="profileNameLineEdit"/>
        </item>
       </layout>
      </widget>
@@ -517,8 +517,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>784</width>
-            <height>394</height>
+            <width>60</width>
+            <height>20</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -1012,8 +1012,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>559</width>
-            <height>929</height>
+            <width>541</width>
+            <height>905</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout">
@@ -3332,8 +3332,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_checkNavigationButtons()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>129</y>
+     <x>223</x>
+     <y>176</y>
     </hint>
     <hint type="destinationlabel">
      <x>631</x>
@@ -3348,8 +3348,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_enablePUACheckBoxActivated()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>117</x>
-     <y>353</y>
+     <x>89</x>
+     <y>149</y>
     </hint>
     <hint type="destinationlabel">
      <x>6</x>
@@ -3364,8 +3364,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_rootButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>144</y>
+     <x>162</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
      <x>7</x>
@@ -3380,8 +3380,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_homeButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>144</y>
+     <x>162</x>
+     <y>149</y>
     </hint>
     <hint type="destinationlabel">
      <x>5</x>
@@ -3396,8 +3396,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_listChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>144</y>
+     <x>89</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>695</x>
@@ -3412,8 +3412,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_loadAllSupportedDBButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>144</y>
+     <x>90</x>
+     <y>128</y>
     </hint>
     <hint type="destinationlabel">
      <x>696</x>
@@ -3428,8 +3428,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_saveScanReportToFileButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>144</y>
+     <x>90</x>
+     <y>131</y>
     </hint>
     <hint type="destinationlabel">
      <x>693</x>
@@ -3444,8 +3444,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanFromFileButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>144</y>
+     <x>90</x>
+     <y>134</y>
     </hint>
     <hint type="destinationlabel">
      <x>696</x>
@@ -3460,8 +3460,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_createTempFilesButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>144</y>
+     <x>90</x>
+     <y>137</y>
     </hint>
     <hint type="destinationlabel">
      <x>694</x>
@@ -3476,8 +3476,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_moveInfectedFilesButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>144</y>
+     <x>84</x>
+     <y>139</y>
     </hint>
     <hint type="destinationlabel">
      <x>697</x>
@@ -3492,8 +3492,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_copyInfectedFilesButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>144</y>
+     <x>84</x>
+     <y>142</y>
     </hint>
     <hint type="destinationlabel">
      <x>697</x>
@@ -3524,8 +3524,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_hiddenDirsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>144</y>
+     <x>82</x>
+     <y>138</y>
     </hint>
     <hint type="destinationlabel">
      <x>822</x>
@@ -3540,8 +3540,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_directoryCheckBoxesClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>42</x>
-     <y>144</y>
+     <x>44</x>
+     <y>128</y>
     </hint>
     <hint type="destinationlabel">
      <x>5</x>
@@ -3556,8 +3556,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_directoryCheckBoxesClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>56</x>
-     <y>144</y>
+     <x>44</x>
+     <y>131</y>
     </hint>
     <hint type="destinationlabel">
      <x>-6</x>
@@ -3572,8 +3572,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_directoryCheckBoxesClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>70</x>
-     <y>144</y>
+     <x>44</x>
+     <y>134</y>
     </hint>
     <hint type="destinationlabel">
      <x>6</x>
@@ -3588,8 +3588,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_directoryCheckBoxesClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>63</x>
-     <y>144</y>
+     <x>44</x>
+     <y>137</y>
     </hint>
     <hint type="destinationlabel">
      <x>7</x>
@@ -3604,8 +3604,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_directoryCheckBoxesClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>59</x>
-     <y>144</y>
+     <x>42</x>
+     <y>139</y>
     </hint>
     <hint type="destinationlabel">
      <x>6</x>
@@ -3620,8 +3620,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_directoryCheckBoxesClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>95</x>
-     <y>144</y>
+     <x>55</x>
+     <y>138</y>
     </hint>
     <hint type="destinationlabel">
      <x>5</x>
@@ -3636,8 +3636,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_directoryCheckBoxesClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>78</x>
-     <y>144</y>
+     <x>55</x>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
      <x>5</x>
@@ -3652,8 +3652,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_directoryCheckBoxesClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>46</x>
-     <y>144</y>
+     <x>42</x>
+     <y>142</y>
     </hint>
     <hint type="destinationlabel">
      <x>3</x>
@@ -3668,8 +3668,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>51</x>
-     <y>125</y>
+     <x>78</x>
+     <y>167</y>
     </hint>
     <hint type="destinationlabel">
      <x>6</x>
@@ -3684,8 +3684,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>74</x>
-     <y>162</y>
+     <x>101</x>
+     <y>202</y>
     </hint>
     <hint type="destinationlabel">
      <x>3</x>
@@ -3700,8 +3700,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>110</x>
-     <y>199</y>
+     <x>137</x>
+     <y>237</y>
     </hint>
     <hint type="destinationlabel">
      <x>4</x>
@@ -3716,8 +3716,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>64</x>
-     <y>236</y>
+     <x>91</x>
+     <y>272</y>
     </hint>
     <hint type="destinationlabel">
      <x>13</x>
@@ -3732,8 +3732,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>77</x>
-     <y>273</y>
+     <x>104</x>
+     <y>307</y>
     </hint>
     <hint type="destinationlabel">
      <x>33</x>
@@ -3748,8 +3748,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>95</x>
-     <y>310</y>
+     <x>122</x>
+     <y>342</y>
     </hint>
     <hint type="destinationlabel">
      <x>75</x>
@@ -3764,8 +3764,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>118</x>
-     <y>347</y>
+     <x>145</x>
+     <y>377</y>
     </hint>
     <hint type="destinationlabel">
      <x>94</x>
@@ -3780,8 +3780,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>118</x>
-     <y>384</y>
+     <x>145</x>
+     <y>412</y>
     </hint>
     <hint type="destinationlabel">
      <x>114</x>
@@ -3796,8 +3796,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>118</x>
-     <y>421</y>
+     <x>145</x>
+     <y>447</y>
     </hint>
     <hint type="destinationlabel">
      <x>133</x>
@@ -3812,8 +3812,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>118</x>
-     <y>458</y>
+     <x>145</x>
+     <y>482</y>
     </hint>
     <hint type="destinationlabel">
      <x>254</x>
@@ -3828,8 +3828,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>118</x>
-     <y>495</y>
+     <x>145</x>
+     <y>517</y>
     </hint>
     <hint type="destinationlabel">
      <x>276</x>
@@ -3860,8 +3860,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>118</x>
-     <y>569</y>
+     <x>145</x>
+     <y>597</y>
     </hint>
     <hint type="destinationlabel">
      <x>475</x>
@@ -4036,8 +4036,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>74</x>
-     <y>992</y>
+     <x>101</x>
+     <y>990</y>
     </hint>
     <hint type="destinationlabel">
      <x>822</x>
@@ -4052,8 +4052,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_scanLimitsCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>101</x>
-     <y>1029</y>
+     <x>128</x>
+     <y>1025</y>
     </hint>
     <hint type="destinationlabel">
      <x>824</x>
@@ -4068,8 +4068,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>82</x>
-     <y>142</y>
+     <x>55</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>4</x>
@@ -4084,8 +4084,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>50</x>
-     <y>193</y>
+     <x>55</x>
+     <y>129</y>
     </hint>
     <hint type="destinationlabel">
      <x>3</x>
@@ -4100,8 +4100,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>242</y>
+     <x>55</x>
+     <y>133</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -4116,8 +4116,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>83</x>
-     <y>291</y>
+     <x>55</x>
+     <y>137</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -4132,8 +4132,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>58</x>
-     <y>380</y>
+     <x>55</x>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
      <x>27</x>
@@ -4148,8 +4148,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>80</x>
-     <y>410</y>
+     <x>55</x>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
      <x>822</x>
@@ -4164,8 +4164,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>161</x>
-     <y>441</y>
+     <x>55</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
      <x>823</x>
@@ -4180,8 +4180,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>67</x>
-     <y>474</y>
+     <x>55</x>
+     <y>155</y>
     </hint>
     <hint type="destinationlabel">
      <x>822</x>
@@ -4196,8 +4196,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>131</x>
-     <y>503</y>
+     <x>55</x>
+     <y>154</y>
     </hint>
     <hint type="destinationlabel">
      <x>824</x>
@@ -4212,8 +4212,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>73</x>
-     <y>531</y>
+     <x>55</x>
+     <y>153</y>
     </hint>
     <hint type="destinationlabel">
      <x>821</x>
@@ -4228,8 +4228,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>124</x>
-     <y>564</y>
+     <x>55</x>
+     <y>153</y>
     </hint>
     <hint type="destinationlabel">
      <x>819</x>
@@ -4244,8 +4244,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>172</x>
-     <y>593</y>
+     <x>55</x>
+     <y>152</y>
     </hint>
     <hint type="destinationlabel">
      <x>821</x>
@@ -4260,8 +4260,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>253</x>
-     <y>622</y>
+     <x>55</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
      <x>821</x>
@@ -4276,8 +4276,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>511</x>
-     <y>383</y>
+     <x>79</x>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
      <x>823</x>
@@ -4292,8 +4292,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>602</x>
-     <y>411</y>
+     <x>79</x>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
      <x>821</x>
@@ -4308,8 +4308,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>476</x>
-     <y>443</y>
+     <x>79</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
      <x>822</x>
@@ -4324,8 +4324,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>529</x>
-     <y>469</y>
+     <x>79</x>
+     <y>155</y>
     </hint>
     <hint type="destinationlabel">
      <x>822</x>
@@ -4340,8 +4340,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>570</x>
-     <y>504</y>
+     <x>79</x>
+     <y>154</y>
     </hint>
     <hint type="destinationlabel">
      <x>821</x>
@@ -4356,12 +4356,28 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <slot>slot_highlightSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>458</x>
-     <y>534</y>
+     <x>79</x>
+     <y>153</y>
     </hint>
     <hint type="destinationlabel">
      <x>821</x>
      <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>profileNameLineEdit</sender>
+   <signal>editingFinished()</signal>
+   <receiver>ProfileWizardDialog</receiver>
+   <slot>slot_nextButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>170</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>517</x>
+     <y>109</y>
     </hint>
    </hints>
   </connection>

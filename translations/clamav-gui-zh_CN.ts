@@ -807,9 +807,19 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="446"/>
+        <location filename="../ui/clamdmanager.ui" line="455"/>
         <source>Filter: </source>
         <translation>筛选：</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="482"/>
+        <source>show selected</source>
+        <translation>显示所选内容</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="489"/>
+        <source>show unselected</source>
+        <translation>显示未选中项</translation>
     </message>
     <message>
         <location filename="../ui/clamdmanager.ui" line="92"/>
@@ -857,61 +867,61 @@ for changes made to take effect.</source>
         <translation>Clamd正在运行 - 停止clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="221"/>
-        <location filename="../src/clamdmanager.cpp" line="574"/>
+        <location filename="../src/clamdmanager.cpp" line="248"/>
+        <location filename="../src/clamdmanager.cpp" line="601"/>
         <source>WARNING</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="280"/>
+        <location filename="../src/clamdmanager.cpp" line="307"/>
         <source>  Clamd starting. Please wait!</source>
         <translation>Clamd正在启动。请稍候！</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="320"/>
+        <location filename="../src/clamdmanager.cpp" line="347"/>
         <source>  Stopping Clamd. Please wait!</source>
         <translation>正在停止Clamd。请稍候！</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="359"/>
-        <location filename="../src/clamdmanager.cpp" line="422"/>
-        <location filename="../src/clamdmanager.cpp" line="540"/>
+        <location filename="../src/clamdmanager.cpp" line="386"/>
+        <location filename="../src/clamdmanager.cpp" line="449"/>
+        <location filename="../src/clamdmanager.cpp" line="567"/>
         <source>  Clamd not running - Start Clamd</source>
         <translation>Clamd未运行 - 启动Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="393"/>
-        <location filename="../src/clamdmanager.cpp" line="436"/>
+        <location filename="../src/clamdmanager.cpp" line="420"/>
+        <location filename="../src/clamdmanager.cpp" line="463"/>
         <source>  Clamd running - Stop Clamd</source>
         <translation>Clamd正在运行 - 停止Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="563"/>
+        <location filename="../src/clamdmanager.cpp" line="590"/>
         <source>Directory to monitor</source>
         <translation>要监控的目录</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="574"/>
+        <location filename="../src/clamdmanager.cpp" line="601"/>
         <source>Path already under monitoring</source>
         <translation>路径已在监控中</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="583"/>
+        <location filename="../src/clamdmanager.cpp" line="610"/>
         <source>Remove Folder from monitoring</source>
         <translation>从监控中移除文件夹</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="584"/>
+        <location filename="../src/clamdmanager.cpp" line="611"/>
         <source>Path: </source>
         <translation>路径：</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="584"/>
+        <location filename="../src/clamdmanager.cpp" line="611"/>
         <source>Do you want to remove the folder from the monitoring list?</source>
         <translation>您是否要从监控列表中移除该文件夹？</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="647"/>
+        <location filename="../src/clamdmanager.cpp" line="674"/>
         <source>  Clamd restarting. Please wait!</source>
         <translation>Clamd正在重启。请稍候！</translation>
     </message>
@@ -2073,80 +2083,95 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>选项</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="95"/>
+        <location filename="../ui/optionsdialog.ui" line="199"/>
         <source>Tab 1</source>
         <translation>标签页 1</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="179"/>
+        <location filename="../ui/optionsdialog.ui" line="283"/>
         <source>Copy infected files into DIRECTORY</source>
         <translation>复制感染文件到目录</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="154"/>
-        <location filename="../ui/optionsdialog.ui" line="199"/>
-        <location filename="../ui/optionsdialog.ui" line="261"/>
-        <location filename="../ui/optionsdialog.ui" line="306"/>
-        <location filename="../ui/optionsdialog.ui" line="354"/>
-        <location filename="../ui/optionsdialog.ui" line="399"/>
+        <location filename="../ui/optionsdialog.ui" line="258"/>
+        <location filename="../ui/optionsdialog.ui" line="303"/>
+        <location filename="../ui/optionsdialog.ui" line="365"/>
+        <location filename="../ui/optionsdialog.ui" line="410"/>
+        <location filename="../ui/optionsdialog.ui" line="458"/>
+        <location filename="../ui/optionsdialog.ui" line="503"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="286"/>
+        <location filename="../ui/optionsdialog.ui" line="59"/>
+        <source>Filter: </source>
+        <translation>筛选：</translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="86"/>
+        <source>show selected</source>
+        <translation>显示所选内容</translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="93"/>
+        <source>show unselected</source>
+        <translation>显示未选中项</translation>
+    </message>
+    <message>
+        <location filename="../ui/optionsdialog.ui" line="390"/>
         <source>Move infected files into DIRECTORY</source>
         <translation>移动感染文件到目录</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="445"/>
-        <location filename="../ui/optionsdialog.ui" line="508"/>
+        <location filename="../ui/optionsdialog.ui" line="549"/>
+        <location filename="../ui/optionsdialog.ui" line="612"/>
         <source>never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="450"/>
-        <location filename="../ui/optionsdialog.ui" line="513"/>
+        <location filename="../ui/optionsdialog.ui" line="554"/>
+        <location filename="../ui/optionsdialog.ui" line="617"/>
         <source>direct</source>
         <translation>直接</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="455"/>
-        <location filename="../ui/optionsdialog.ui" line="518"/>
+        <location filename="../ui/optionsdialog.ui" line="559"/>
+        <location filename="../ui/optionsdialog.ui" line="622"/>
         <source>always</source>
         <translation>始终</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="331"/>
+        <location filename="../ui/optionsdialog.ui" line="435"/>
         <source>Use the antivirus database from DIR</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="144"/>
+        <location filename="../ui/optionsdialog.ui" line="248"/>
         <source>Scan files from file</source>
         <translation>从文件扫描文件列表</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="481"/>
+        <location filename="../ui/optionsdialog.ui" line="585"/>
         <source>Follow directory symlinks</source>
         <translation>跟随目录符号链接</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="224"/>
+        <location filename="../ui/optionsdialog.ui" line="328"/>
         <source>Save scan report to FILE</source>
         <translation>保存扫描报告到文件</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="379"/>
+        <location filename="../ui/optionsdialog.ui" line="483"/>
         <source>Create temporary files in DIRECTORY</source>
         <translation>在目录中创建临时文件</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="424"/>
+        <location filename="../ui/optionsdialog.ui" line="528"/>
         <source>Follow file symlinks</source>
         <translation>跟随文件符号链接</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="537"/>
+        <location filename="../ui/optionsdialog.ui" line="641"/>
         <source>ClamAV Version : </source>
         <translation>ClamAV版本：</translation>
     </message>
@@ -2171,10 +2196,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>包含/排除</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="292"/>
-        <location filename="../src/optionsdialog.cpp" line="320"/>
-        <location filename="../src/optionsdialog.cpp" line="329"/>
-        <location filename="../src/optionsdialog.cpp" line="358"/>
+        <location filename="../src/optionsdialog.cpp" line="365"/>
+        <location filename="../src/optionsdialog.cpp" line="393"/>
+        <location filename="../src/optionsdialog.cpp" line="402"/>
+        <location filename="../src/optionsdialog.cpp" line="431"/>
         <source>Select Directory</source>
         <translation>选择目录</translation>
     </message>
@@ -2187,18 +2212,18 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation type="vanished">在数据库文件夹中未找到病毒定义。是否下载病毒定义？</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="339"/>
-        <location filename="../src/optionsdialog.cpp" line="349"/>
+        <location filename="../src/optionsdialog.cpp" line="412"/>
+        <location filename="../src/optionsdialog.cpp" line="422"/>
         <source>Select File</source>
         <translation>选择文件</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="548"/>
+        <location filename="../src/optionsdialog.cpp" line="621"/>
         <source>Database files missing!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="549"/>
+        <location filename="../src/optionsdialog.cpp" line="622"/>
         <source>The virus definition files are missing in the database directory. Start download of the missing files?</source>
         <translation></translation>
     </message>
@@ -2499,6 +2524,14 @@ Continue from the Start of the Log?</source>
         <location filename="../ui/scanlimitstab.ui" line="1477"/>
         <source>Number of seconds to wait for waiting a response back from the stats server</source>
         <translation>等待统计服务器响应的秒数</translation>
+    </message>
+</context>
+<context>
+    <name>scanOptionBaseClass</name>
+    <message>
+        <location filename="../ui/scanoptionbaseclass.ui" line="14"/>
+        <source>Form</source>
+        <translation>表单</translation>
     </message>
 </context>
 <context>

@@ -44,6 +44,7 @@ private:
     QProcess* m_restartClamonaccProcess;   // clamd
     QProcess* m_killProcess;
     QProcess* m_getClamdConfParametersProcess;
+    QProcess* m_findClamdProcess;
     QString m_clamdLocation;      // clamd
     QString m_clamonaccLocation;  // clamd
     QString m_clamonaccPid;       // clamd
@@ -61,6 +62,7 @@ private:
     bool m_startup;
     bool m_waitForFreshclam;
     bool m_initprocessrunning;
+    bool m_clamdManagerLocked;
     int m_clamdStartupCounter;
 
     QString trimLocationOutput(QString);
@@ -92,6 +94,9 @@ private slots:
     void slot_updateClamdConfParameters();
     void slot_getClamdConfParameterProcessFinished();
     void slot_filterChanged(QString);
+    void slot_showSelectedChecked();
+    void slot_showUnselectedChecked();
+    void slot_findClamdProcessFinished();
 
 
 signals:

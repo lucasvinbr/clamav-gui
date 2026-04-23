@@ -20,9 +20,7 @@ Installation:
  - Alternatively, you can build from source
 
 Build Instructions:
- - Requires qt5 base development files, qtchooser, g++, and make
-   *For Ubuntu <= 20.04: $ sudo apt install qtchooser qt5-default g++ make
-   *For Ubuntu >= 22.04: $ sudo apt install qtchooser qtbase5-dev g++ make
+ It should build equaly in an QT5 and a QT6 environment. No changes to the code are required. (Ex. Ubuntu 20.04 - see below)
 
  - Extract ClamAV-GUI-*.tar.gz
    Example: $ tar -xf ClamAV-GUI-*.tar.gz
@@ -30,8 +28,15 @@ Build Instructions:
    Example: $ cd ClamAV-GUI-x.x.x
    *For Ubuntu <= 20.04
     also change ( Qt::endl; --> endl; ) in file "setupfilehandler.cpp"
- - Build the package as root with 'qmake', 'make', and finally 'make install'
+ - QMake: Build the package as root with 'qmake', 'make', and finally 'make install'
    Example: $ qmake && make && sudo make install
+   (qmake could also be: qmake6 or qmake-qt5.)
+ - CMake: Build the package with 'cmake'and make'
+   Example: $ cmake . && make
+ - For a RPM based system do: cpack -G RPM
+ - For a DEB based system do: cpack -G DEB
+ - Find the respective RPM or DEB package in the build folder and install it with your package manager.
+
 
 Questions / Suggestions:
  - Report any problems or suggestions to

@@ -94,6 +94,7 @@ private:
     QLabel                  * m_startLogoLabel;
     firstRunWindow          * initDialog;
     bool                     m_error;
+    bool                     firstrun;
     void createTrayIcon();
     void createDropZone();
 

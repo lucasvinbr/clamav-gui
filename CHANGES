@@ -1,3 +1,30 @@
+* Tue Apr 21 2026 - Version 1.3.7
+- Made code changes due to issue #28 on regarding typo in the configuration strings used in various classes.
+- Made a central source for this configuration strings and modified the code of the classes to use them.
+- Revision of the source code and normalize the sources to have a consistent style.
+
+* Sun Apr 12 2026 - Version 1.3.6
+- Revision of the clamd tab. Clamd and Clamonacc now work more reliable.
+- if an alien version of clamd/clamonacc is running, the application disable their own clamd tab.
+
+* Thu Apr 9 2026 - Version 1.3.5
+- Further changes to the Options tab, Freshclam tab and Clamd tab due to discrepancies
+- between the display in the development environment and the actual production environment
+
+* Wed Apr 8 2026 - Version 1.3.4
+- modified the layout of the scan-tab, provilemanager-tab, freshclam-tab and clamd-tab.
+- fixed an issue with usb devices (detection and drop zone)
+
+* Mon Apr 6 2026 - Version 1.3.3
+- added a filter function to the scan option tab (equal to the clamd tab) and extended it with
+- "show selected" and "show unselected" options.
+- fixed a minor issue with the log viewer.
+
+* Fri Apr 3 2026 - Version 1.3.2
+- Changed a view thinks in the setupfilehandler module. Now the values in the clamd.conf file and the freshclam.conf file
+- are written with comments from the man pages, describing the parameter. This way the clamd.conf file is documented and
+- not only a list of pairs of keywords and values.
+
 * Mon Mar 23 2026 - Version 1.3.1
 - Added missing translation for the clamav version part.
 

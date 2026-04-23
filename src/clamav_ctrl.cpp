@@ -30,17 +30,15 @@ void clamav_ctrl::dropEvent(QDropEvent* event)
 {
     QStringList list;
     QList<QUrl> tempList;
-    QString tempString;
 
     if (event && event->mimeData()) {
         const QMimeData* mimeData;
         mimeData = event->mimeData();
         if (mimeData->hasUrls()) {
             tempList = mimeData->urls();
-            for (int i = 0; i < tempList.count(); i++) {
-                tempString = tempList.at(i).toString();
-                if (tempString.indexOf("file://") == 0) {
-                    list << tempString.mid(7);
+            foreach (QUrl tempString, tempList) {
+                if (tempString.toString().indexOf("file://") == 0) {
+                    list << tempString.toString().mid(7);
                 }
             }
             if (list.count() > 0)

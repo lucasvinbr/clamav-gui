@@ -23,18 +23,20 @@
 
 #include "ui_optionsdialog.h"
 
-#include <QFileDialog>
 #include <QListWidgetItem>
+#include <QFileDialog>
 #include <QMessageBox>
 #include <QProcess>
-#include <QUrl>
 #include <QWidget>
+#include <QList>
+#include <QUrl>
 #include "includeexcludeoptions.h"
+#include "scanoptionbaseclass.h"
+#include "setupfilehandler.h"
 #include "logviewobject.h"
 #include "scanlimitstab.h"
-#include "scanoption.h"
 #include "scanoptionyn.h"
-#include "setupfilehandler.h"
+#include "scanoption.h"
 
 namespace Ui {
 class optionsDialog;
@@ -51,10 +53,12 @@ class optionsDialog : public QWidget {
     Ui::optionsDialog m_ui;
     setupFileHandler* m_setupFile;
     //setupFileHandler    * m_profiles;   --> obsolete, not used!
+    QList <scanOptionBaseClass*> scanOptions;
     scanLimitsTab* m_scanLimits;
     includeExcludeOptions* m_incExcOptTab;
     QProcess* m_getClamscanParametersProcess;
     QString m_getClamscanProcessOutput;
+    void createScanOptionElements();
 
     void updateDirectories();
 
@@ -72,6 +76,9 @@ class optionsDialog : public QWidget {
     void slot_getClamscanProcessHasOutput();
     void slot_getClamscanProcessFinished();
     void slot_updateClamdConf();
+    void slot_scanOptionFilterChanged();
+    void slot_showSelectedOnlyChecked();
+    void slot_showUnselectedOnlyChecked();
 
    signals:
     void databasePathChanged(QString path);

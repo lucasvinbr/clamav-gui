@@ -36,6 +36,7 @@ public:
 private:
     Ui::clamdconfcomboboxoption m_ui;
     QString m_optionKeyword;
+    QString m_comment;
     bool m_startup{ true};
     setupFileHandler    * m_setupFile;
 

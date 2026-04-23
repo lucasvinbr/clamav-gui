@@ -59,7 +59,7 @@ private:
     CFileSystemModel    * m_model;
     QButtonGroup        * m_deviceGroup;
     QProcess            * m_whoamiProcess;
-    QFileSystemWatcher  * m_fileSystemWatcher;
+    QFileSystemWatcher  * m_fileSystemWatcher = nullptr;
     QFileSystemWatcher  * m_fileSystemWatcherUbuntu;
     setupFileHandler    * m_setupFile;
     //setupFileHandler    * m_profiles;   --> obsolete, not used!
@@ -91,6 +91,7 @@ private slots:
     void slot_disableScanButton();
     void slot_hiddenFoldersCheckBoxClicked();
     void slot_add_remove_highlighter(bool state);
+    void slot_uncheckAllButtonClicked();
 
 signals:
     void triggerScanRequest(QStringList);

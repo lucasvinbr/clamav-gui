@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>701</width>
-    <height>350</height>
+    <height>524</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,19 +23,6 @@
       <size>
        <width>20</width>
        <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="8" column="3" colspan="5">
-    <spacer name="horizontalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
       </size>
      </property>
     </spacer>
@@ -69,7 +56,7 @@
            <x>0</x>
            <y>0</y>
            <width>575</width>
-           <height>68</height>
+           <height>136</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
@@ -116,7 +103,7 @@
         <property name="maximumSize">
          <size>
           <width>100</width>
-          <height>30</height>
+          <height>16777215</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -191,7 +178,7 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>30</height>
+          <height>16777215</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -258,6 +245,73 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="minimumSize">
+         <size>
+          <width>160</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin-right:20px</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="editProfileButton">
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>140</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>edit Profile</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../resources.qrc">
+          <normaloff>:/icons/icons/edit_profile.png</normaloff>:/icons/icons/edit_profile.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="addProfileButton">
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>140</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>add Profile</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../resources.qrc">
+          <normaloff>:/icons/icons/add_profile.png</normaloff>:/icons/icons/add_profile.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
        </widget>
       </item>
       <item>
@@ -308,7 +362,7 @@
         <property name="maximumSize">
          <size>
           <width>100</width>
-          <height>30</height>
+          <height>16777215</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -336,7 +390,7 @@
            <x>0</x>
            <y>0</y>
            <width>575</width>
-           <height>68</height>
+           <height>76</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -382,68 +436,22 @@
      </layout>
     </widget>
    </item>
-   <item row="8" column="2">
-    <widget class="QPushButton" name="editProfileButton">
-     <property name="minimumSize">
+   <item row="8" column="1" colspan="7">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
       <size>
-       <width>140</width>
-       <height>0</height>
+       <width>40</width>
+       <height>20</height>
       </size>
      </property>
-     <property name="maximumSize">
-      <size>
-       <width>140</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>edit Profile</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../resources.qrc">
-       <normaloff>:/icons/icons/edit_profile.png</normaloff>:/icons/icons/edit_profile.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>24</width>
-       <height>24</height>
-      </size>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="1">
-    <widget class="QPushButton" name="addProfileButton">
-     <property name="minimumSize">
-      <size>
-       <width>140</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>140</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>add Profile</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../resources.qrc">
-       <normaloff>:/icons/icons/add_profile.png</normaloff>:/icons/icons/add_profile.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>24</width>
-       <height>24</height>
-      </size>
-     </property>
-    </widget>
+    </spacer>
    </item>
   </layout>
  </widget>
  <resources>
-  <include location="../resources.qrc"/>
   <include location="../resources.qrc"/>
  </resources>
  <connections>

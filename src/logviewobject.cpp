@@ -31,21 +31,23 @@ void logViewObject::loadLogFile(QString filename)
     //setupFileHandler* sf = new setupFileHandler(QDir::homePath() + "/.clamav-gm_ui/settings.ini", this);
     bool css = setupFileHandler::getSectionBoolValue(QDir::homePath() + "/.clamav-gm_ui/settings.ini","Setup", "DisableLogHighlighter");
 
-    while (m_ui.logTab->count() > 0) {
+    while (m_ui.logTab->count() > 0)
+    {
         QWidget * tempwidget = m_ui.logTab->widget(0);
         m_ui.logTab->removeTab(0);
 
-        if (tempwidget != nullptr) {
+        if (tempwidget != nullptr)
             delete tempwidget;
-        }
     }
 
-    if (file.open(QIODevice::ReadOnly)) {
+    if (file.open(QIODevice::ReadOnly))
+    {
         QTextStream stream(&file);
         buffer = stream.readAll();
         logs = buffer.split("<Scanning startet>");
 
-        for (int i = 1; i < logs.count(); i++) {
+        for (int i = 1; i < logs.count(); i++)
+        {
             partialLogObject* log = new partialLogObject(this, logs[i], css);
             connect(this, SIGNAL(logHighlighterChanged(bool)), log, SLOT(slot_add_remove_highlighter(bool)));
             tabHeader = logs[i].mid(1, logs[i].indexOf("\n") - 1);
@@ -61,15 +63,20 @@ void logViewObject::slot_closeButtonClicked()
     QString logText;
     partialLogObject* log;
 
-    if (m_contentChanged) {
+    if (m_contentChanged)
+    {
         if (QMessageBox::information(this, tr("INFO"), tr("Log-File was modified. Do you wanna save the changes?"), QMessageBox::Yes,
-                                     QMessageBox::No) == QMessageBox::Yes) {
-            if (m_ui.logTab->count() > 0) {
-                for (int i = 0; i < m_ui.logTab->count(); i++) {
+                                     QMessageBox::No) == QMessageBox::Yes)
+        {
+            if (m_ui.logTab->count() > 0)
+            {
+                for (int i = 0; i < m_ui.logTab->count(); i++)
+                {
                     log = (partialLogObject*)m_ui.logTab->widget(i);
                     logText = logText + log->getLogText();
                     QFile logFile(m_logFileName);
-                    if (logFile.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+                    if (logFile.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text))
+                    {
                         QTextStream stream(&logFile);
                         stream << logText;
                         logFile.close();
@@ -78,7 +85,8 @@ void logViewObject::slot_closeButtonClicked()
             }
             else {
                 QFile logFile(m_logFileName);
-                if (logFile.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+                if (logFile.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text))
+                {
                     QTextStream stream(&logFile);
                     stream << "";
                     logFile.close();
@@ -93,9 +101,11 @@ void logViewObject::slot_clearLogButtonClicked()
 {
     int currentTab = m_ui.logTab->currentIndex();
 
-    if (currentTab > -1) {
+    if (currentTab > -1)
+    {
         if (QMessageBox::question(this, tr("Clear Log"), tr("Do you realy want to remove this partial log?"), QMessageBox::Yes, QMessageBox::No) ==
-            QMessageBox::Yes) {
+            QMessageBox::Yes)
+        {
             m_ui.logTab->removeTab(currentTab);
             m_contentChanged = true;
             emit logChanged();
