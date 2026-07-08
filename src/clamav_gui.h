@@ -76,6 +76,7 @@ private:
     QAction                 * m_actionShowHideMainWindow;
     setupFileHandler        * m_setupFile;
     QProcess                * m_scanProcess;
+    QProcess                * m_getVersionProcess;
     QString                   m_guisudoapp;
     scanTab                 * m_scannerTab;
     setupTab                * m_setUpTab;
@@ -122,7 +123,8 @@ private slots:
     void slot_startclamd();
     void slot_switchActiveTab(int index);
     void slot_quitApplication();
-    // void slot_receiveVersionInformation(QString info);
+    void slot_receiveVersionInformation(QString info);
+    void slot_getVersionProcessFinished(int, QProcess::ExitStatus);
 
 signals:
     void showHideDropZoneTriggered();
