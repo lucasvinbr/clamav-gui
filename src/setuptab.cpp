@@ -7,7 +7,6 @@
 setupTab::setupTab(QWidget* parent, setupFileHandler* setupFile) : QWidget(parent), m_setupFile(setupFile)
 {
     m_ui.setupUi(this);
-
     m_supressMessage = true;  // verhindert, dass bei der Initialisierung der Sprachauswahl die Warnmeldung kommt.
 
     //m_setupFile = new setupFileHandler(QDir::homePath() + "/.clamav-gui/settings.ini", this); --> uses the setupFileHandler provided by the clamav_gui class
@@ -248,7 +247,13 @@ void setupTab::findTranslation()
     int index = -1;
     QString langhelper;
     QString m_country = "";
-    QString translation_path = QCoreApplication::applicationDirPath() + "/../share/clamav-gui/";
+    QString translation_path;
+
+    translation_path = QCoreApplication::applicationDirPath() + "/../share/clamav-gui/";
+    if (isRunninginFlatPak())
+        translation_path = "/app/usr/share/clamav-gui/";
+    if (isRunninginAppImage())
+        translation_path = "/usr/share/clamav-gui/";
     QDir directory(translation_path);
     QStringList m_filelist = directory.entryList(QDir::Files);
     foreach(QString m_file, m_filelist)

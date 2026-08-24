@@ -45,7 +45,8 @@ void firstRunWindow::slot_findRequiredApplications()
 
     m_processParameters.clear();
     m_processParameters << m_initParameters.at(m_initIndex);
-    m_initProcess->start(m_initCommands.at(m_initIndex),m_processParameters);
+    //m_initProcess->start(m_initCommands.at(m_initIndex),m_processParameters);
+    startProcess(m_initProcess,m_initCommands.at(m_initIndex),m_processParameters);
 }
 
 void firstRunWindow::slot_monochromeModeChanged()
@@ -171,6 +172,7 @@ void firstRunWindow::slot_initProcessFinished()
                 if (elements.count() >=2)
                 {
                     m_ui->clamscanSourceLabel->setText(elements.at(1));
+                    m_setupFile->setSectionValue("RequiredApplications","clamscan",elements.at(1));
                     m_ui->clamscanStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
                 }
                 else {
@@ -249,11 +251,13 @@ void firstRunWindow::slot_initProcessFinished()
             if (m_initParameters.at(m_initIndex) != "")
             {
                 m_processParameters << m_initParameters.at(m_initIndex);
-                m_initProcess->start(m_initCommands.at(m_initIndex),m_processParameters);
+                //m_initProcess->start(m_initCommands.at(m_initIndex),m_processParameters);
+                startProcess(m_initProcess,m_initCommands.at(m_initIndex),m_processParameters);
             }
             else {
                 m_processParameters << m_initParameters.at(m_initIndex);
-                m_initProcess->start(m_initCommands.at(m_initIndex),QStringList());
+                //m_initProcess->start(m_initCommands.at(m_initIndex),QStringList());
+                startProcess(m_initProcess,m_initCommands.at(m_initIndex),QStringList());
             }
         }
     }
@@ -319,11 +323,11 @@ void firstRunWindow::createBaseDirStructure()
     // For UALinux
     // If the settings.ini in the home folder of the user is not present a predefined version is been copied into the folder.
     //_____________________________________________________________________________________________________________________________________
-    if ((!QFileInfo::exists(QDir::homePath() + "/.clamav-gui/settings.ini")) && (!QFile::exists(QDir::homePath() + "/.clamav-gui/settings.ini")))
+    if ((!QFileInfo::exists(QDir::homePath() + "/.clamav-gui/settings.ini")) && (!checkFileExists(QDir::homePath() + "/.clamav-gui/settings.ini")))
     {
         dir.mkdir(QDir::homePath() + "/.clamav-gui");
 
-        if (QFile::exists("/etc/clamav-gui/settings.ini"))
+        if (checkFileExists("/etc/clamav-gui/settings.ini"))
             QFile::copy("/etc/clamav-gui/settings.ini", QDir::homePath() + "/.clamav-gui/settings.ini");
     }
     //______________________________________________________________________________________________________________________________________
@@ -333,84 +337,7 @@ void firstRunWindow::createBaseDirStructure()
 
 void firstRunWindow::createServiceMenu()
 {
-    bool created = false;
-    //*****************************************************************************
-    //creating service Menu for Dolphin
-    //*****************************************************************************
-    QString serviceMenuPath;
-    if (QFileInfo::exists(QDir::homePath() + "/.local/share/kservices5/ServiceMenus"))
-        serviceMenuPath = QDir::homePath() + "/.local/share/kservices5/ServiceMenus";
-
-    if (serviceMenuPath.isEmpty() && QFileInfo::exists(QDir::homePath() + "/.local/share/kio/servicemenus"))
-        serviceMenuPath = QDir::homePath() + "/.local/share/kio/servicemenus";
-
-    if ((serviceMenuPath.isEmpty()) && (QFileInfo::exists(QCoreApplication::applicationDirPath() + "/../share/" + "kio/servicemenues")))
-        serviceMenuPath = QDir::homePath() + "/.local/share/kio/servicemenus";
-
-    if ((serviceMenuPath.isEmpty()) && (QFileInfo::exists(QCoreApplication::applicationDirPath() + "/../share/" + "kservices5/ServiceMenus")))
-        serviceMenuPath = QDir::homePath() + "/.local/share/kservices5/ServiceMenus";
-
-    if (serviceMenuPath != "")
-    {
-        if (!QFileInfo::exists(serviceMenuPath))
-        {
-            QDir dir(serviceMenuPath);
-            dir.mkpath(serviceMenuPath);
-        }
-        setupFileHandler* serviceFile = new setupFileHandler(serviceMenuPath + "/scanWithClamAV-GUI.desktop", this);
-        serviceFile->setSectionValue("Desktop Entry", "Type", "Service");
-        serviceFile->setSectionValue("Desktop Entry", "ServiceTypes", "KonqPopupMenu/Plugin");
-        serviceFile->setSectionValue("Desktop Entry", "MimeType", "all/all;");
-        serviceFile->setSectionValue("Desktop Entry", "Actions", "scan;");
-        serviceFile->setSectionValue("Desktop Entry", "Icon", "clamav-gui");
-        serviceFile->setSectionValue("Desktop Entry", "X-KDE-Priority", "TopLevel");
-        serviceFile->setSectionValue("Desktop Entry", "X-KDE-StartupNotify", "false");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu", "Scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[de]", "Scannen mit ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[da_DK]", "Scannen med ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[es_ES]", "Analizar con ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[us]", "Scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[gb]", "Scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[pt]", "Investigar com ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[br]", "Investigar com ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[pt_BR]", "Investigar com ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[fr]", "Scanner avec ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[it]", "Scansione con ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Entry", "NO-X-KDE-Submenu[uk]", "Сканування за допомогою ClamAV-GUI");
-
-        serviceFile->setSectionValue("Desktop Action scan", "Name", "scan");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[de]", "Scannen mit ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[es_ES]", "Analizar con ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[us]", "Scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[gb]", "Scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[pt]", "Investigar com ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[br]", "Investigar com ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[fr]", "Scanner avec ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[it]", "Scansione con ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Name[uk]", "Сканування за допомогою ClamAV-GUI");
-        serviceFile->setSectionValue("Desktop Action scan", "Icon", "clamav-gui");
-        serviceFile->setSectionValue("Desktop Action scan", "Exec", "clamav-gui --scan %F");
-        delete serviceFile;
-
-        QFile file(serviceMenuPath + "/scanWithClamAV-GUI.desktop");
-        file.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner | QFileDevice::ReadGroup |
-                            QFileDevice::WriteGroup | QFileDevice::ExeGroup);
-        created = true;
-    }
-// Service Menu for NEMO
-    if (QFileInfo::exists(QDir::homePath() + "/.local/share/nemo/actions"))
-    {
-        setupFileHandler* serviceFile = new setupFileHandler(QDir::homePath() + "/.local/share/nemo/actions/scan.nemo_action", this);
-        serviceFile->setSectionValue("Nemo Action", "Name", "scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Nemo Action", "Comment", "scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Nemo Action", "Exec", "clamav-gui --scan &F");
-        serviceFile->setSectionValue("Nemo Action", "Icon-Name", "clamav-gui");
-        serviceFile->setSectionValue("Nemo Action", "Selection", "notnone");
-        serviceFile->setSectionValue("Nemo Action", "Extensions", "any");
-        serviceFile->setSectionValue("Nemo Action", "Separator", ",");
-        serviceFile->setSectionValue("Nemo Action", "Dependencies", "clamav-gui");
-        delete serviceFile;
-    }
+    bool created = createServiceMenus();
 
 // ServiceMenu for GNOME-Commander
     QStringList gnomecommanderParams;
@@ -418,7 +345,8 @@ void firstRunWindow::createServiceMenu()
     m_gsettingsProcess = new QProcess(this);
     gnomecommanderParams << "get"  << "org.gnome.gnome-commander.preferences.general" << "favorite-apps";
     connect(m_gsettingsProcess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slot_gsettingsProcessFinished(int,QProcess::ExitStatus)));
-    m_gsettingsProcess->start("gsettings",gnomecommanderParams);
+    //m_gsettingsProcess->start("gsettings",gnomecommanderParams);
+    startProcess(m_gsettingsProcess,"gsettings",gnomecommanderParams);
 
     if (created == true)
     {
@@ -428,7 +356,6 @@ void firstRunWindow::createServiceMenu()
         m_ui->dolphinContestMenuStatusLabel->setPixmap(QPixmap(":/icons/icons/cancel.png"));
     }
     //*****************************************************************************
-
 }
 
 void firstRunWindow::createInitialSettings()
@@ -439,11 +366,11 @@ void firstRunWindow::createInitialSettings()
     if (QFileInfo::exists("/usr/local/share/clamav")) m_ui->signatureDatabaseDirectoryComboBox->addItem("/usr/local/share/clamav");
     m_ui->signatureDatabaseDirectoryComboBox->addItem(QDir::homePath() + "/.clamav-gui/signatures");
 
-    if (QFileInfo::exists("/var/lib/clamav") && (QFile::exists("/var/lib/clamav/freshclam.dat")))
+    if (QFileInfo::exists("/var/lib/clamav") && (checkFileExists("/var/lib/clamav/freshclam.dat")))
     {
         virusDatabasePath = "/var/lib/clamav";
     }
-    if ((QFileInfo::exists("/usr/local/share/clamav") && (QFile::exists("/usr/local/share/clamav/freshclam.dat"))))
+    if ((QFileInfo::exists("/usr/local/share/clamav") && (checkFileExists("/usr/local/share/clamav/freshclam.dat"))))
     {
         virusDatabasePath = "/usr/local/share/clamav";
     }
@@ -526,8 +453,9 @@ void firstRunWindow::createClamdConfFile()
         m_clamdConf->setSingleLineValue("OnAccessDenyOnError", "no");
         m_clamdConf->setSingleLineValue("OnAccessExtraScanning", "yes");
         m_clamdConf->setSingleLineValue("OnAccessRetryAttempts", "0");
-        m_clamdConf->setSingleLineValue("OnAccessExcludeUname", "root","This option allows exclusions via user names when using the on- access scanning client. It can be used multiple times, and has the same potential race condition limitations of the OnAccessEx‐ cludeUID option. Default: disabled");
-        m_clamdConf->setSingleLineValue("OnAccessExcludeUID", "0","With this option you can exclude specific UIDs. Processes with these UIDs will be able to access all files without triggering scans or permission denied events. This option can be used multiple times (one per line). Note: using a value of 0 on any line will disable this option en‐ tirely. To exclude the root UID (0) please enable the OnAccessEx‐ cludeRootUID option. Also note that if clamd cannot check the uid of the process that generated an on-access scan event (e.g., because OnAccessPreven‐ tion was not enabled, and the process already exited), clamd will perform a scan. Thus, setting OnAccessExcludeUID is not guaran‐ teed to prevent every access by the specified uid from triggering a scan (unless OnAccessPrevention is enabled). Default: disabled");
+        m_clamdConf->setSingleLineValue("OnAccessExcludeUname", "root","This option allows exclusions via user names when using the on- access scanning client. It can be used multiple times, and has the same potential race condition limitations of the OnAccessEx? cludeUID option. Default: disabled");
+        m_clamdConf->setSingleLineValue("OnAccessExcludeUID", "0","With this option you can exclude specific UIDs. Processes with these UIDs will be able to access all files without triggering scans or permission denied events. This option can be used multiple times (one per line). Note: using a value of 0 on any line will disable this option en? tirely. To exclude the root UID (0) please enable the OnAccessEx? cludeRootUID option. Also note that if clamd cannot check the uid of the process that generated an on-access scan event (e.g., because OnAccessPreven? tion was not enabled, and the process already exited), clamd will perform a scan. Thus, setting OnAccessExcludeUID is not guaran? teed to prevent every access by the specified uid from triggering a scan (unless OnAccessPrevention is enabled). Default: disabled");
+        delete m_clamdConf;
     }
 
     m_ui->clamdConfStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));
@@ -535,7 +463,7 @@ void firstRunWindow::createClamdConfFile()
 
 void firstRunWindow::createFreshclamConfFile()
 {
-    if (QFile::exists(QDir::homePath() + "/.clamav-gui/freshclam.conf") == false)
+    if (checkFileExists(QDir::homePath() + "/.clamav-gui/freshclam.conf") == false)
     {
         QFile freshclamConfFile(QDir::homePath() + "/.clamav-gui/freshclam.conf");
         freshclamConfFile.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner);

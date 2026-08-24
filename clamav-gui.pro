@@ -46,6 +46,7 @@ SOURCES += src/main.cpp\
     src/profilewizarddialog.cpp \
     src/profilemanager.cpp \
     src/sharedvars.cpp \
+    src/toolbox.cpp \
     src/translator.cpp
 
 HEADERS  += src/clamav_gui.h \
@@ -81,6 +82,7 @@ HEADERS  += src/clamav_gui.h \
     src/progressdialog.h \
     src/profilewizarddialog.h \
     src/profilemanager.h \
+    src/toolbox.h \
     src/translator.h
 
 FORMS    += ui/clamav_gui.ui \
@@ -182,7 +184,7 @@ icon256.path = /$(DESTDIR)/usr/share/icons/hicolor/256x256/apps
 icon256.files = extra/icon256/clamav-gui.png
 
 desktopfile.path = /$(DESTDIR)/usr/share/applications
-desktopfile.files = extra/org.opendesktop.clamav_gui.desktop
+desktopfile.files = data/io.github.wusel1007.clamav-gui.desktop
 
 metadata.path = /$(DESTDIR)/usr/share/metainfo
 metadata.files = extra/org.opendesktop.clamav_gui.appdata.xml
@@ -219,5 +221,14 @@ manpages_pt.files = man/pt/clamav-gui.1.gz
 
 documents.path = /$(DESTDIR)/usr/share/doc/ClamAV-GUI
 documents.files = README CHANGES
+
+DISTFILES += \
+    data/icons/hicolor/128x128/apps/io.github.wusel1007.clamav-gui.png \
+    data/icons/hicolor/64x64/apps/io.github.wusel1007.clamav-gui.png \
+    data/icons/hicolor/scalable/apps/io.github.wusel1007.clamav-gui.svg \
+    data/io.github.wusel1007.clamav-gui.desktop \
+    extra/io.github.wusel1007.clamav-gui.appdata.xml \
+    extra/io.github.wusel1007.clamav-gui.metainfo.xml \
+    extra/io.github.wusel1007.clamav-gui.yml
 
 

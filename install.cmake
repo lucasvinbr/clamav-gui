@@ -1,5 +1,11 @@
-install(TARGETS clamav-gui    
-    RUNTIME DESTINATION usr/bin/
+#install(TARGETS clamav-gui
+#    RUNTIME DESTINATION bin/
+#)
+
+include(GNUInstallDirs)
+
+install(TARGETS clamav-gui
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
 install(FILES extra/icon16/clamav-gui.png
@@ -26,11 +32,33 @@ install(FILES extra/icon128/clamav-gui.png
     DESTINATION usr/share/icons/hicolor/128x128/apps/
 )
 
-set(CPACK_PACKAGE_ICON extra/icon256/clamav-gui.png)
-
-install(FILES extra/icon256/clamav-gui.png
-    DESTINATION usr/share/icons/hicolor/256x256/apps/
+install(
+    FILES extra/io.github.wusel1007.clamav-gui.desktop
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/applications/
 )
+
+install(
+    FILES extra/io.github.wusel1007.clamav-gui.desktop
+    DESTINATION usr/share/applications/
+)
+
+install(
+    FILES extra/icon64/io.github.wusel1007.clamav-gui.png
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/64x64/apps
+)
+
+install(
+    FILES extra/icon128/io.github.wusel1007.clamav-gui.png
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/128x128/apps
+)
+
+set(CPACK_PACKAGE_ICON io.github.wusel1007.clamav-gui.png)
+
+install(FILES
+    ${CMAKE_SOURCE_DIR}/extra/icon256/io.github.wusel1007.clamav-gui.png
+    DESTINATION share/icons/hicolor/256x256/apps
+)
+
 
 install(DIRECTORY man 
     DESTINATION usr/share/
@@ -40,12 +68,12 @@ install(FILES CHANGES README
     DESTINATION usr/share/doc/clamav-gui/
 )
 
-install(FILES extra/org.opendesktop.clamav_gui.desktop
-    DESTINATION usr/share/applications/
+install(FILES extra/io.github.wusel1007.clamav-gui.appdata.xml
+    DESTINATION usr/share/metainfo/
 )
 
-install(FILES extra/org.opendesktop.clamav_gui.appdata.xml
-    DESTINATION usr/share/metainfo/
+install(FILES extra/io.github.wusel1007.clamav-gui.metainfo.xml
+    DESTINATION share/metainfo/
 )
 
 install(FILES   ${CMAKE_BINARY_DIR}/clamav-gui-uk_UA.qm
@@ -66,7 +94,7 @@ install(FILES   ${CMAKE_BINARY_DIR}/clamav-gui-uk_UA.qm
                 ${CMAKE_BINARY_DIR}/clamav-uk_UA.qm
                 ${CMAKE_BINARY_DIR}/clamav-zh_CN.qm
                 ${CMAKE_BINARY_DIR}/clamav-de_DE.qm
-    DESTINATION usr/share/clamav-gui/              
+    DESTINATION usr/share/clamav-gui/
 )
 
 
