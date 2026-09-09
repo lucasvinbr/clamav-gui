@@ -9,11 +9,10 @@
   <summary>Graphical frontend for ClamAV</summary>
 
   <developer id="io.github.wusel1007">
-    <name>Joerg Macedo da Costa Zopes</name>
+    <name>Jörg Macedo da Costa Zopes</name>
   </developer>
 
   <metadata_license>FSFAP</metadata_license>
-
   <project_license>GPL-3.0-or-later</project_license>
 
   <content_rating type="oars-1.1">
@@ -45,7 +44,7 @@
 
   <description>
     <p>
-      A front-end (GUI) for ClamAV, freshclam and clamd. It supports
+      A graphical frontend for ClamAV, freshclam and clamd. It supports
       on-demand scanning, a context menu for Dolphin and scheduled scanning.
     </p>
   </description>
@@ -55,19 +54,16 @@
   <screenshots>
     <screenshot type="default">
       <image>https://images.pling.com/img/00/00/10/24/28/1127892/clamav-gui-01.png</image>
+      <caption>ClamAV GUI main window</caption>
     </screenshot>
   </screenshots>
 
+  <releases>
+    <release version="1.4.6" date="2026-09-03">
+      <description>
+        <p>Initial release of ClamAV GUI on Flathub.</p>
+      </description>
+    </release>
+  </releases>
+
 </component>
-
-
-
-
-
-
-
-
-
-
-
-
