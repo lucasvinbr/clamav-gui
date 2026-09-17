@@ -50,7 +50,7 @@
     </message>
     <message>
         <location filename="../src/profilemanager.cpp" line="252"/>
-        <source>Do you realy want to remove this (</source>
+        <source>Do you really want to remove this (</source>
         <translation>您确定要移除此（</translation>
     </message>
     <message>
@@ -2017,7 +2017,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../src/logviewobject.cpp" line="97"/>
-        <source>Do you realy want to remove this partial log?</source>
+        <source>Do you really want to remove this partial log?</source>
         <translation>您确定要删除此部分日志吗？</translation>
     </message>
 </context>
@@ -2051,12 +2051,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../src/logviewerobject.cpp" line="125"/>
-        <source>Do you realy want to remove this partial log?</source>
+        <source>Do you really want to remove this partial log?</source>
         <translation>您确定要删除此部分日志吗？</translation>
     </message>
     <message>
         <location filename="../src/logviewerobject.cpp" line="137"/>
-        <source>Do you realy want to remove the complete log?</source>
+        <source>Do you really want to remove the complete log?</source>
         <translation>您确定要删除完整日志吗？</translation>
     </message>
 </context>
@@ -3048,12 +3048,12 @@ Continue from the Start of the Log?</source>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="187"/>
-        <source>Do you realy want to start this Scan-Job?</source>
+        <source>Do you really want to start this Scan-Job?</source>
         <translation>您确定要开始此扫描任务吗？</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="210"/>
-        <source>Do you realy want to remove this entry?</source>
+        <source>Do you really want to remove this entry?</source>
         <translation>您确定要删除此条目吗？</translation>
     </message>
     <message>

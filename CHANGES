@@ -1,3 +1,8 @@
+* Thu Sep 17 2026 - Version 1.4.6 updated
+- Changed old "NULL" with "nullptr".
+- Fixed some typos in the translation.
+- Fixed a readAllStandardOutput to readAllStandardError in the ErrorHandler Routine.
+
 * Fri Sep 4 2026 - Version 1.4.6 updated
 - Changed in toolbox.cpp the use of QtEnvironment to the older getEnv to keep the code compiling in QT5 and Qt6.
 

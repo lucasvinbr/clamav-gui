@@ -7,7 +7,7 @@ scanTab::scanTab(QWidget* parent, setupFileHandler* setupFile) : QWidget(parent)
 {
     m_ui.setupUi(this);
     m_ui.stopScanButton->setVisible(false);
-    m_logHighLighter = NULL;
+    m_logHighLighter = nullptr;
     m_monochrome = m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter");
     if (m_monochrome == false)
         m_logHighLighter = new highlighter(m_ui.logPlainTextEdit->document());
@@ -116,7 +116,7 @@ void scanTab::slot_updateDeviceList()
     QStringList dirs = dir.entryList(filters, QDir::AllDirs | QDir::NoDotAndDotDot);
 
     m_devicelabel = new QLabel(tr("Devices"));
-    QLayoutItem* item = NULL;
+    QLayoutItem* item = nullptr;
 
     while ((item = m_ui.devicesFrame->layout()->takeAt(0)) != 0)
         delete item->widget();
@@ -308,14 +308,14 @@ void scanTab::slot_add_remove_highlighter(bool state)
 
     if (state == true)
     {
-        if (m_logHighLighter != NULL)
+        if (m_logHighLighter != nullptr)
         {
             delete m_logHighLighter;
-            m_logHighLighter = NULL;
+            m_logHighLighter = nullptr;
         }
     }
     else {
-        if (m_logHighLighter == NULL)
+        if (m_logHighLighter == nullptr)
             m_logHighLighter = new highlighter(m_ui.logPlainTextEdit->document());
         else {
             delete m_logHighLighter;

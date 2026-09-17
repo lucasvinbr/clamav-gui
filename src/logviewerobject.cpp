@@ -141,7 +141,7 @@ void logViewerObject::slot_clearLogButtonClicked()
 
     if (currentTab > -1)
     {
-        if (QMessageBox::question(this, tr("Clear Log"), tr("Do you realy want to remove this partial log?"), QMessageBox::Yes, QMessageBox::No) ==
+        if (QMessageBox::question(this, tr("Clear Log"), tr("Do you really want to remove this partial log?"), QMessageBox::Yes, QMessageBox::No) ==
             QMessageBox::Yes)
         {
             m_ui->logTab->removeTab(currentTab);
@@ -154,7 +154,7 @@ void logViewerObject::slot_clearAllButtonClicked()
 {
     int count = m_ui->logTab->count();
 
-    if ((count > 0) && (QMessageBox::question(this, tr("Clear Log"), tr("Do you realy want to remove the complete log?"), QMessageBox::Yes,
+    if ((count > 0) && (QMessageBox::question(this, tr("Clear Log"), tr("Do you really want to remove the complete log?"), QMessageBox::Yes,
                                               QMessageBox::No) == QMessageBox::Yes))
     {
         for (int i = 0; i < count; i++)

@@ -50,7 +50,7 @@
     </message>
     <message>
         <location filename="../src/profilemanager.cpp" line="252"/>
-        <source>Do you realy want to remove this (</source>
+        <source>Do you really want to remove this (</source>
         <translation>Souhaitez vous vraiment supprimer ceci (</translation>
     </message>
     <message>
@@ -2031,7 +2031,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../src/logviewobject.cpp" line="97"/>
-        <source>Do you realy want to remove this partial log?</source>
+        <source>Do you really want to remove this partial log?</source>
         <translation>Voulez vous vraiment retirer cette partie du journal?</translation>
     </message>
 </context>
@@ -2065,12 +2065,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../src/logviewerobject.cpp" line="125"/>
-        <source>Do you realy want to remove this partial log?</source>
+        <source>Do you really want to remove this partial log?</source>
         <translation>voulez vous vraiment retirer cette partie du journal?</translation>
     </message>
     <message>
         <location filename="../src/logviewerobject.cpp" line="137"/>
-        <source>Do you realy want to remove the complete log?</source>
+        <source>Do you really want to remove the complete log?</source>
         <translation>voulez vous vraiment vider le journal?</translation>
     </message>
 </context>
@@ -3061,12 +3061,12 @@ Continuer à partir depuis le debut du journal?</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="187"/>
-        <source>Do you realy want to start this Scan-Job?</source>
+        <source>Do you really want to start this Scan-Job?</source>
         <translation>Voulez-vous vraiment démarrer ce travail?</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="210"/>
-        <source>Do you realy want to remove this entry?</source>
+        <source>Do you really want to remove this entry?</source>
         <translation>Voulez-vous vraiment supprimer cette occurence?</translation>
     </message>
     <message>

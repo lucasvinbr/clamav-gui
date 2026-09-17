@@ -50,8 +50,8 @@
     </message>
     <message>
         <location filename="../src/profilemanager.cpp" line="252"/>
-        <source>Do you realy want to remove this (</source>
-        <translation>Do you realy want to remove this (</translation>
+        <source>Do you really want to remove this (</source>
+        <translation>Do you really want to remove this (</translation>
     </message>
     <message>
         <location filename="../src/profilemanager.cpp" line="252"/>
@@ -2009,8 +2009,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../src/logviewobject.cpp" line="97"/>
-        <source>Do you realy want to remove this partial log?</source>
-        <translation>Do you realy want to remove this partial log?</translation>
+        <source>Do you really want to remove this partial log?</source>
+        <translation>Do you really want to remove this partial log?</translation>
     </message>
 </context>
 <context>
@@ -2043,13 +2043,13 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../src/logviewerobject.cpp" line="125"/>
-        <source>Do you realy want to remove this partial log?</source>
-        <translation>Do you realy want to remove this partial log?</translation>
+        <source>Do you really want to remove this partial log?</source>
+        <translation>Do you really want to remove this partial log?</translation>
     </message>
     <message>
         <location filename="../src/logviewerobject.cpp" line="137"/>
-        <source>Do you realy want to remove the complete log?</source>
-        <translation>Do you realy want to remove the complete log?</translation>
+        <source>Do you really want to remove the complete log?</source>
+        <translation>Do you really want to remove the complete log?</translation>
     </message>
 </context>
 <context>
@@ -3032,13 +3032,13 @@ Continue from the Start of the Log?</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="187"/>
-        <source>Do you realy want to start this Scan-Job?</source>
-        <translation>Do you realy want to start this Scan-Job?</translation>
+        <source>Do you really want to start this Scan-Job?</source>
+        <translation>Do you really want to start this Scan-Job?</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="210"/>
-        <source>Do you realy want to remove this entry?</source>
-        <translation>Do you realy want to remove this entry?</translation>
+        <source>Do you really want to remove this entry?</source>
+        <translation>Do you really want to remove this entry?</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="210"/>

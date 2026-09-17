@@ -50,7 +50,7 @@
     </message>
     <message>
         <location filename="../src/profilemanager.cpp" line="252"/>
-        <source>Do you realy want to remove this (</source>
+        <source>Do you really want to remove this (</source>
         <translation>Quero mesmo apagar o perfil (</translation>
     </message>
     <message>
@@ -2017,7 +2017,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../src/logviewobject.cpp" line="97"/>
-        <source>Do you realy want to remove this partial log?</source>
+        <source>Do you really want to remove this partial log?</source>
         <translation>Pretende realmente remover este registo parcial?</translation>
     </message>
 </context>
@@ -2051,12 +2051,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../src/logviewerobject.cpp" line="125"/>
-        <source>Do you realy want to remove this partial log?</source>
+        <source>Do you really want to remove this partial log?</source>
         <translation>Pretende realmente remover este registo parcial?</translation>
     </message>
     <message>
         <location filename="../src/logviewerobject.cpp" line="137"/>
-        <source>Do you realy want to remove the complete log?</source>
+        <source>Do you really want to remove the complete log?</source>
         <translation>Pretende realmente remover o registo completo?</translation>
     </message>
 </context>
@@ -3047,7 +3047,7 @@ Continuar do início do registo?</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="187"/>
-        <source>Do you realy want to start this Scan-Job?</source>
+        <source>Do you really want to start this Scan-Job?</source>
         <translation>Quer mesmo iniciar este trabalho de digitalização?</translation>
     </message>
     <message>
@@ -3057,7 +3057,7 @@ Continuar do início do registo?</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="210"/>
-        <source>Do you realy want to remove this entry?</source>
+        <source>Do you really want to remove this entry?</source>
         <translation>Deseja mesmo remover esta entrada?</translation>
     </message>
     <message>

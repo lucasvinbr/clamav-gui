@@ -8,7 +8,7 @@ partialLogObject::partialLogObject(QWidget* parent, QString logText, bool highli
 : QWidget(parent)
 {
     m_ui.setupUi(this);
-    m_logHighlighter = NULL;
+    m_logHighlighter = nullptr;
     if (highlighterDisabled == false)
         m_logHighlighter = new highlighter(m_ui.logPlainText->document());
     setLogText(logText);
@@ -170,14 +170,14 @@ void partialLogObject::slot_add_remove_highlighter(bool state)
 {
     if (state == true)
     {
-        if (m_logHighlighter != NULL)
+        if (m_logHighlighter != nullptr)
         {
             delete m_logHighlighter;
-            m_logHighlighter = NULL;
+            m_logHighlighter = nullptr;
         }
     }
     else {
-        if (m_logHighlighter == NULL)
+        if (m_logHighlighter == nullptr)
             m_logHighlighter = new highlighter(m_ui.logPlainText->document());
         else {
             delete m_logHighlighter;

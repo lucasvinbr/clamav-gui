@@ -12,8 +12,8 @@ freshclamsetter::freshclamsetter(QWidget* parent, setupFileHandler* setupFile) :
     m_startup = true;
 
     m_lockFreshclamConf = true;
-    m_updateLogFileWatcher = NULL;
-    m_updateLogHighLighter = NULL;
+    m_updateLogFileWatcher = nullptr;
+    m_updateLogHighLighter = nullptr;
     m_monochrome = true;
     m_ui.groupBox->setStyleSheet("");
     if (m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter") == false)
@@ -1143,12 +1143,12 @@ void freshclamsetter::slot_add_remove_highlighter(bool state)
 {
     if (state == true)
     {
-        if (m_updateLogHighLighter != NULL)
+        if (m_updateLogHighLighter != nullptr)
         {
             delete m_updateLogHighLighter;
             delete m_freshclamLogHighLighter;
-            m_updateLogHighLighter = NULL;
-            m_freshclamLogHighLighter = NULL;
+            m_updateLogHighLighter = nullptr;
+            m_freshclamLogHighLighter = nullptr;
             m_ui.groupBox->setStyleSheet("");
             m_ui.updateInfoText->setStyleSheet("");
             m_ui.updateNowButton->setStyleSheet(css_mono);
@@ -1156,7 +1156,7 @@ void freshclamsetter::slot_add_remove_highlighter(bool state)
         m_monochrome = true;
     }
     else {
-        if (m_updateLogHighLighter == NULL)
+        if (m_updateLogHighLighter == nullptr)
         {
             m_updateLogHighLighter = new highlighter(m_ui.logPlainText->document());
             m_freshclamLogHighLighter = new highlighter(m_ui.deamonLogText->document());

@@ -191,7 +191,7 @@ void scheduler::updateScheduleList()
 
 void scheduler::slot_scanButtonClicked(int id)
 {
-    int rc = QMessageBox::information(this, tr("Start Scan-Job"), tr("Do you realy want to start this Scan-Job?"), QMessageBox::Yes, QMessageBox::No);
+    int rc = QMessageBox::information(this, tr("Start Scan-Job"), tr("Do you really want to start this Scan-Job?"), QMessageBox::Yes, QMessageBox::No);
     QString profileName;
     qint64 today = QDateTime::currentMSecsSinceEpoch();
     QStringList values;
@@ -215,7 +215,7 @@ void scheduler::slot_scanButtonClicked(int id)
 
 void scheduler::slot_removeButtonClicked(int id)
 {
-    int rc = QMessageBox::information(this, tr("Remove Entry"), tr("Do you realy want to remove this entry?"), QMessageBox::Yes, QMessageBox::No);
+    int rc = QMessageBox::information(this, tr("Remove Entry"), tr("Do you really want to remove this entry?"), QMessageBox::Yes, QMessageBox::No);
     QString jobID;
 
     if (rc == QMessageBox::Yes)

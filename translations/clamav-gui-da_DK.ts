@@ -50,7 +50,7 @@
     </message>
     <message>
         <location filename="../src/profilemanager.cpp" line="252"/>
-        <source>Do you realy want to remove this (</source>
+        <source>Do you really want to remove this (</source>
         <translation>Ønsker du at fjerne denne (</translation>
     </message>
     <message>
@@ -2315,7 +2315,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../src/logviewobject.cpp" line="97"/>
-        <source>Do you realy want to remove this partial log?</source>
+        <source>Do you really want to remove this partial log?</source>
         <translation>Ønsker du at fjerne denne delvise log?</translation>
     </message>
 </context>
@@ -2349,12 +2349,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../src/logviewerobject.cpp" line="125"/>
-        <source>Do you realy want to remove this partial log?</source>
+        <source>Do you really want to remove this partial log?</source>
         <translation>Ønsker du at fjerne denne delvise log?</translation>
     </message>
     <message>
         <location filename="../src/logviewerobject.cpp" line="137"/>
-        <source>Do you realy want to remove the complete log?</source>
+        <source>Do you really want to remove the complete log?</source>
         <translation>Ønsker du at fjerne hele loggen?</translation>
     </message>
 </context>
@@ -3346,12 +3346,12 @@ Fortsæt fra starten af loggen?</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="187"/>
-        <source>Do you realy want to start this Scan-Job?</source>
+        <source>Do you really want to start this Scan-Job?</source>
         <translation>Ønsker du at starte dette scan-job?</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="210"/>
-        <source>Do you realy want to remove this entry?</source>
+        <source>Do you really want to remove this entry?</source>
         <translation>Ønsker du at fjerne denne indtastning?</translation>
     </message>
     <message>

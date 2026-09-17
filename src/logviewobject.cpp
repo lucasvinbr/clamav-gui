@@ -117,7 +117,7 @@ void logViewObject::slot_clearLogButtonClicked()
 
     if (currentTab > -1)
     {
-        if (QMessageBox::question(this, tr("Clear Log"), tr("Do you realy want to remove this partial log?"), QMessageBox::Yes, QMessageBox::No) ==
+        if (QMessageBox::question(this, tr("Clear Log"), tr("Do you really want to remove this partial log?"), QMessageBox::Yes, QMessageBox::No) ==
             QMessageBox::Yes)
         {
             m_ui.logTab->removeTab(currentTab);

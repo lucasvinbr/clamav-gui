@@ -45,7 +45,7 @@ void clamdManager::slot_initClamdSettings()
 {
     m_initprocessrunning = true;
     m_dirsUnderMonitoring = 0;
-    m_logHighlighter = NULL;
+    m_logHighlighter = nullptr;
 
     m_clamdLocation = m_setupFile->getSectionValue("Clamd","ClamdLocation");
     m_clamonaccLocation = m_setupFile->getSectionValue("Clamd","ClamonaccLocation");
@@ -648,15 +648,15 @@ void clamdManager::slot_add_remove_highlighter(bool state)
 {
     if (state == true)
     {
-        if (m_logHighlighter != NULL)
+        if (m_logHighlighter != nullptr)
         {
             delete m_logHighlighter;
-            m_logHighlighter = NULL;
+            m_logHighlighter = nullptr;
         }
         m_monochrome = true;
     }
     else {
-        if (m_logHighlighter == NULL)
+        if (m_logHighlighter == nullptr)
         {
             m_logHighlighter = new highlighter(m_ui.clamdLogPlainTextEdit->document());
         }

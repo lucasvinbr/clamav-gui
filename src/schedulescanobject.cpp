@@ -195,7 +195,7 @@ void scheduleScanObject::slot_scanProcessHasStdOutput()
 
 void scheduleScanObject::slot_scanProcessHasErrOutput()
 {
-    QString message = m_scanProcess->readAllStandardOutput();
+    QString message = m_scanProcess->readAllStandardError();
     QString currentFile;
     int start, end;
 

@@ -171,7 +171,7 @@ void ProfileManager::slot_eraseProfileButtonClicked()
         }
         if (found == false)
         {
-            int rc = QMessageBox::question(this, tr("WARNING"), tr("Do you realy want to remove this (") + profileName + tr(") profile"),
+            int rc = QMessageBox::question(this, tr("WARNING"), tr("Do you really want to remove this (") + profileName + tr(") profile"),
                                            QMessageBox::Yes, QMessageBox::No);
             QFile tempFile(QDir::homePath() + "/.clamav-gui/profiles/" + m_ui->profileComboBox->currentText() + ".ini");
             if (rc == QMessageBox::Yes)
