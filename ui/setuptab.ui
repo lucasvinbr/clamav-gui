@@ -1132,7 +1132,7 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QFrame" name="setupFrame">
+          <widget class="QFrame" name="setupSubFrame">
            <property name="frameShape">
             <enum>QFrame::Shape::Panel</enum>
            </property>
@@ -1266,7 +1266,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QFrame" name="frame_3">
+             <widget class="QFrame" name="clamavVersionFrame">
               <property name="frameShape">
                <enum>QFrame::Shape::Panel</enum>
               </property>
@@ -1448,6 +1448,51 @@
              </widget>
             </item>
             <item>
+             <widget class="QFrame" name="contextMenuFrame">
+              <property name="frameShape">
+               <enum>QFrame::Shape::WinPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Shadow::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <item>
+                <widget class="QLabel" name="filemanagerIntegrationLabel">
+                 <property name="text">
+                  <string>Filemanger Integration for</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="filemanagerComboBox">
+                 <item>
+                  <property name="text">
+                   <string>Dolphin</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Nemo</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>GNome Commander</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="addIntegrationPushButton">
+                 <property name="text">
+                  <string>add</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
              <spacer name="verticalSpacer_2">
               <property name="orientation">
                <enum>Qt::Orientation::Vertical</enum>
@@ -1461,7 +1506,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="QFrame" name="frame_2">
+             <widget class="QFrame" name="logHighlighterFrame">
               <property name="minimumSize">
                <size>
                 <width>0</width>
@@ -1589,8 +1634,8 @@
    <slot>slot_selectedLanguageChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>814</x>
-     <y>306</y>
+     <x>819</x>
+     <y>196</y>
     </hint>
     <hint type="destinationlabel">
      <x>5</x>
@@ -1605,8 +1650,8 @@
    <slot>slot_basicSettingsChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>815</x>
-     <y>191</y>
+     <x>820</x>
+     <y>278</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
@@ -1637,8 +1682,8 @@
    <slot>slot_clamdButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>323</x>
-     <y>128</y>
+     <x>193</x>
+     <y>326</y>
     </hint>
     <hint type="destinationlabel">
      <x>215</x>
@@ -1653,8 +1698,8 @@
    <slot>slot_clamonaccButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>536</x>
-     <y>145</y>
+     <x>193</x>
+     <y>506</y>
     </hint>
     <hint type="destinationlabel">
      <x>539</x>
@@ -1669,8 +1714,8 @@
    <slot>slot_clamdscanComboBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>761</x>
-     <y>104</y>
+     <x>432</x>
+     <y>262</y>
     </hint>
     <hint type="destinationlabel">
      <x>962</x>
@@ -1685,12 +1730,44 @@
    <slot>slot_logHightlighterCheckBoxClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>642</x>
-     <y>345</y>
+     <x>820</x>
+     <y>622</y>
     </hint>
     <hint type="destinationlabel">
      <x>959</x>
      <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>filemanagerComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>setupTab</receiver>
+   <slot>slot_filemanagerComboBoxChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>720</x>
+     <y>526</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>966</x>
+     <y>478</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addIntegrationPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>setupTab</receiver>
+   <slot>slot_addRemoveFilemanagerIntegrationButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>779</x>
+     <y>531</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>962</x>
+     <y>525</y>
     </hint>
    </hints>
   </connection>
@@ -1704,5 +1781,7 @@
   <slot>slot_multithreadingCheckBoxClicked()</slot>
   <slot>slot_clamdscanComboBoxClicked()</slot>
   <slot>slot_logHightlighterCheckBoxClicked()</slot>
+  <slot>slot_filemanagerComboBoxChanged(int)</slot>
+  <slot>slot_addRemoveFilemanagerIntegrationButtonClicked()</slot>
  </slots>
 </ui>

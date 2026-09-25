@@ -48,6 +48,8 @@ private slots:
     void slot_clamdscanComboBoxClicked();
     void slot_logHightlighterCheckBoxClicked();
     void slot_requestFinished(QNetworkReply *reply);
+    void slot_addRemoveFilemanagerIntegrationButtonClicked();
+    void slot_filemanagerComboBoxChanged(int);
     
 signals:
     void switchActiveTab(int);

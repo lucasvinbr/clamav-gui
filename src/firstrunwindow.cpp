@@ -348,14 +348,6 @@ void firstRunWindow::createServiceMenu()
 {
     bool created = createServiceMenus();
 
-// ServiceMenu for GNOME-Commander
-    QStringList gnomecommanderParams;
-
-    m_gsettingsProcess = new QProcess(this);
-    gnomecommanderParams << "get"  << "org.gnome.gnome-commander.preferences.general" << "favorite-apps";
-    connect(m_gsettingsProcess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slot_gsettingsProcessFinished(int,QProcess::ExitStatus)));
-    startProcess(m_gsettingsProcess,"gsettings",gnomecommanderParams);
-
     if (created == true)
     {
         m_ui->dolphinContestMenuStatusLabel->setPixmap(QPixmap(":/icons/icons/create.png"));

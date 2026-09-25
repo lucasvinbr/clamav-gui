@@ -14,6 +14,13 @@
 bool isRunninginFlatPak();
 bool isRunninginAppImage();
 bool createServiceMenus();
+bool addServiceMenuGnomeCommander();
+bool addServiceMenuDolphin();
+bool addServiceMenuNemo();
+bool removeServiceMenuGnomeCommander();
+bool removeServiceMenuDolphin();
+bool removeServiceMenuNemo();
+bool serviceMenuConfigPresent(QString);
 void startProcess(QProcess * process,QString basecommand,QStringList parameters);
 QString runProg(QString basecommand,QStringList parameters);
 bool checkFileExists(const QString path);

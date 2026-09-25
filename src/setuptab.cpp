@@ -40,6 +40,7 @@ setupTab::setupTab(QWidget* parent, setupFileHandler* setupFile) : QWidget(paren
 
     findTranslation();
     slot_updateSystemInfo();
+    slot_filemanagerComboBoxChanged(0);
     m_supressMessage = false;
 }
 
@@ -234,6 +235,44 @@ void setupTab::slot_requestFinished(QNetworkReply * reply)
     }
 
     reply->deleteLater();
+}
+
+void setupTab::slot_addRemoveFilemanagerIntegrationButtonClicked()
+{
+    switch (m_ui.filemanagerComboBox->currentIndex())
+    {
+        case 0  :   if (serviceMenuConfigPresent("dolphin") == false)
+                        addServiceMenuDolphin();
+                    else
+                        removeServiceMenuDolphin();
+                    slot_filemanagerComboBoxChanged(0);
+            break;
+        case 1  :   if (serviceMenuConfigPresent("nemo") == false)
+                        addServiceMenuNemo();
+                    else
+                        removeServiceMenuNemo();
+                    slot_filemanagerComboBoxChanged(1);
+            break;
+        case 2  :   if (serviceMenuConfigPresent("gnome-commander") == false)
+                        addServiceMenuGnomeCommander();
+                    else
+                        removeServiceMenuGnomeCommander();
+                    slot_filemanagerComboBoxChanged(2);
+            break;
+    }
+}
+
+void setupTab::slot_filemanagerComboBoxChanged(int value)
+{
+    switch (value)
+    {
+        case 0  : serviceMenuConfigPresent("dolphin") == true?m_ui.addIntegrationPushButton->setText(tr("remove")):m_ui.addIntegrationPushButton->setText(tr("add"));
+            break;
+        case 1  : serviceMenuConfigPresent("nemo") == true?m_ui.addIntegrationPushButton->setText(tr("remove")):m_ui.addIntegrationPushButton->setText(tr("add"));
+            break;
+        case 2  : serviceMenuConfigPresent("gnome-commander") == true?m_ui.addIntegrationPushButton->setText(tr("remove")):m_ui.addIntegrationPushButton->setText(tr("add"));
+            break;
+    }
 }
 
 void setupTab::findTranslation()

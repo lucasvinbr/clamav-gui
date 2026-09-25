@@ -150,6 +150,142 @@ bool isRunninginAppImage()
 bool createServiceMenus()
 {
     bool created = false;
+
+    if (which("nemo") != "")
+    {
+        addServiceMenuNemo();
+        created = true;
+    }
+    if (which("dolphin") != "")
+    {
+        addServiceMenuDolphin();
+        created = true;
+    }
+    if (which("gnome-commander") != "")
+    {
+        addServiceMenuGnomeCommander();
+        created = true;
+    }
+
+    return created;
+    //*****************************************************************************
+}
+
+bool addServiceMenuNemo(){
+    bool created = false;
+    // Service Menu for NEMO
+    if (QFileInfo::exists(QDir::homePath() + "/.local/share/nemo/actions"))
+    {
+        setupFileHandler* serviceFile = new setupFileHandler(QDir::homePath() + "/.local/share/nemo/actions/scan.nemo_action", nullptr);
+        serviceFile->setSectionValue("Nemo Action", "Name", "scan with ClamAV-GUI");
+        serviceFile->setSectionValue("Nemo Action", "Comment", "scan with ClamAV-GUI");
+        if (isRunninginFlatPak())
+            serviceFile->setSectionValue("Nemo Action", "Exec", "flatpak run --branch=master --arch=x86_64 --command=clamav-gui io.github.wusel1007.clamav-gui --scan %F");
+        else
+            serviceFile->setSectionValue("Nemo Action", "Exec", "clamav-gui --scan %F");
+        //serviceFile->setSectionValue("Nemo Action", "Exec", "clamav-gui --scan %F");
+        serviceFile->setSectionValue("Nemo Action", "Icon-Name", "clamav-gui");
+        serviceFile->setSectionValue("Nemo Action", "Selection", "notnone");
+        serviceFile->setSectionValue("Nemo Action", "Extensions", "any");
+        serviceFile->setSectionValue("Nemo Action", "Quote", "double");
+        delete serviceFile;
+        created = true;
+    }
+    return created;
+}
+
+bool removeServiceMenuNemo() {
+    if (checkFileExists(QDir::homePath() + "/.local/share/nemo/actions/scan.nemo_action"))
+    {
+        QFile file(QDir::homePath() + "/.local/share/nemo/actions/scan.nemo_action");
+        return file.remove();
+    }
+    return true;
+}
+
+bool addServiceMenuGnomeCommander() {
+    bool created = false;
+    // ServiceMenu for GNOME-Commander
+    QStringList gnomecommanderParams;
+    gnomecommanderParams << "get"  << "org.gnome.gnome-commander.preferences.general" << "favorite-apps";
+    QString output = runProg("gsettings",gnomecommanderParams);
+    gnomecommanderParams.clear();
+
+    if (output.indexOf("[]") != -1)
+    {
+        if (isRunninginFlatPak())
+            gnomecommanderParams << "set"  << "org.gnome.gnome-commander.preferences.general" << "favorite-apps" << "[('scan with ClamAV-GUI', 'flatpak run --branch=master --arch=x86_64 --command=clamav-gui io.github.wusel1007.clamav-gui --scan %F', '/usr/share/icons/hicolor/48x48/apps/clamav-gui.png', '', uint32 2, false, true, false)]";
+        else
+            gnomecommanderParams << "set"  << "org.gnome.gnome-commander.preferences.general" << "favorite-apps" << "[('scan with ClamAV-GUI', '/usr/bin/clamav-gui --scan %F', '/usr/share/icons/hicolor/48x48/apps/clamav-gui.png', '', uint32 2, false, true, false)]";
+
+        QProcess::execute("gsettings",gnomecommanderParams);
+    }
+    else {
+        if (output.indexOf("clamav-gui") == -1)
+        {
+            if (isRunninginFlatPak())
+                output = output.mid(0,output.length() - 1) + ", ('scan with ClamAV-GUI', 'flatpak run --branch=master --arch=x86_64 --command=clamav-gui io.github.wusel1007.clamav-gui --scan %F', '/usr/share/icons/hicolor/48x48/apps/clamav-gui.png', '', uint32 2, false, true, false)]";
+            else
+                output = output.mid(0,output.length() - 1) + ", ('scan with ClamAV-GUI', '/usr/bin/clamav-gui --scan %F', '/usr/share/icons/hicolor/48x48/apps/clamav-gui.png', '', uint32 2, false, true, false)]";
+        }
+        gnomecommanderParams << "set" << "org.gnome.gnome-commander.preferences.general" << "favorite-apps"  << output;
+        QProcess::execute("gsettings",gnomecommanderParams);
+    }
+    created = true;
+    //*****************************************************************************
+    return created;
+}
+
+bool removeServiceMenuGnomeCommander()
+{
+    bool removed = false;
+    // ServiceMenu for GNOME-Commander
+    QStringList gnomecommanderParams;
+    gnomecommanderParams << "get"
+                         << "org.gnome.gnome-commander.preferences.general"
+                         << "favorite-apps";
+
+    QString output = runProg("gsettings", gnomecommanderParams);
+
+    if (output != "")
+    {
+        int start = output.indexOf("('scan with ClamAV-GUI'");
+        if (start != -1)
+        {
+            int end = output.indexOf(")",start);
+            QString basereplacer = output.mid(start,end-start + 1);
+
+            QString replacer = ", " + basereplacer + ", ";
+            if (output.indexOf(replacer) == -1)
+                replacer = basereplacer + ", ";
+            if (output.indexOf(replacer) == -1)
+                replacer = basereplacer;
+
+            if (output.indexOf(replacer) != -1)
+            {
+                output = output.replace(replacer,"");
+                gnomecommanderParams.clear();
+                gnomecommanderParams << "set"
+                                     << "org.gnome.gnome-commander.preferences.general"
+                                     << "favorite-apps"
+                                     << output;
+
+                if (QProcess::execute("gsettings", gnomecommanderParams) == 0)
+                    removed = true;
+            }
+            else
+            {
+                // Der Eintrag existiert bereits nicht mehr.
+                removed = true;
+            }
+        }
+    }
+
+    return removed;
+}
+
+bool addServiceMenuDolphin(){
+    bool created = false;
     //*****************************************************************************
     //creating service Menu for Dolphin
     //*****************************************************************************
@@ -210,27 +346,64 @@ bool createServiceMenus()
                             QFileDevice::WriteGroup | QFileDevice::ExeGroup);
         created = true;
     }
-    // Service Menu for NEMO
-    if (QFileInfo::exists(QDir::homePath() + "/.local/share/nemo/actions"))
-    {
-        setupFileHandler* serviceFile = new setupFileHandler(QDir::homePath() + "/.local/share/nemo/actions/scan.nemo_action", nullptr);
-        serviceFile->setSectionValue("Nemo Action", "Name", "scan with ClamAV-GUI");
-        serviceFile->setSectionValue("Nemo Action", "Comment", "scan with ClamAV-GUI");
-        if (isRunninginFlatPak())
-            serviceFile->setSectionValue("Nemo Action", "Exec", "flatpak run --branch=master --arch=x86_64 --command=clamav-gui io.github.wusel1007.clamav-gui --scan %F");
-        else
-            serviceFile->setSectionValue("Nemo Action", "Exec", "clamav-gui --scan &F");
-        //serviceFile->setSectionValue("Nemo Action", "Exec", "clamav-gui --scan &F");
-        serviceFile->setSectionValue("Nemo Action", "Icon-Name", "clamav-gui");
-        serviceFile->setSectionValue("Nemo Action", "Selection", "notnone");
-        serviceFile->setSectionValue("Nemo Action", "Extensions", "any");
-        serviceFile->setSectionValue("Nemo Action", "Separator", ",");
-        serviceFile->setSectionValue("Nemo Action", "Dependencies", "clamav-gui");
-        delete serviceFile;
-    }
 
     return created;
-    //*****************************************************************************
+}
+
+bool removeServiceMenuDolphin() {
+    bool removed = false;
+    QString serviceMenuPath;
+    if (QFileInfo::exists(QDir::homePath() + "/.local/share/kservices5/ServiceMenus"))
+        serviceMenuPath = QDir::homePath() + "/.local/share/kservices5/ServiceMenus";
+
+    if (serviceMenuPath.isEmpty() && QFileInfo::exists(QDir::homePath() + "/.local/share/kio/servicemenus"))
+        serviceMenuPath = QDir::homePath() + "/.local/share/kio/servicemenus";
+
+    if (serviceMenuPath != "")
+    {
+        if (QFileInfo::exists(serviceMenuPath + "/scanWithClamAV-GUI.desktop") == true)
+        {
+            QFile file(serviceMenuPath + "/scanWithClamAV-GUI.desktop");
+            file.remove();
+            removed = !QFileInfo::exists(serviceMenuPath + "/scanWithClamAV-GUI.desktop");
+        }
+    }
+    return removed;
+}
+
+bool serviceMenuConfigPresent(QString filemanager)
+{
+    bool rc = false;
+
+    if (filemanager == "dolphin")
+    {
+        if ((checkFileExists(QDir::homePath() + "/.local/share/kservices5/ServiceMenus/scanWithClamAV-GUI.desktop")) || (checkFileExists(QDir::homePath() + "/.local/share/kio/servicemenus/scanWithClamAV-GUI.desktop")))
+            rc = true;
+    }
+
+    if (filemanager == "nemo")
+    {
+        if (checkFileExists(QDir::homePath() + "/.local/share/nemo/actions/scan.nemo_action"))
+            rc = true;
+    }
+
+    if (filemanager == "gnome-commander")
+    {
+        QStringList gnomecommanderParams;
+        gnomecommanderParams << "get"
+                             << "org.gnome.gnome-commander.preferences.general"
+                             << "favorite-apps";
+
+        QString output = runProg("gsettings", gnomecommanderParams);
+
+        if (output != "")
+        {
+            if (output.indexOf("scan with ClamAV-GUI") != -1)
+                rc = true;
+        }
+    }
+
+    return rc;
 }
 
 QString beautifyString(QString value, int length)
