@@ -1,3 +1,7 @@
+* Mon Sep 28 2026 - Version 1.4.7 updated
+- Changed the arrangement of the elements in the setup tab
+- updated the translation files
+
 * Fri Sep 25 2026 - Version 1.4.7
 - Made changes to the filemanager integation for Dolphin, Nemo and GNome-Commander. Filemanager integration
 - is added during the first run of the application for already installed filemanagers. Nevertheless you can

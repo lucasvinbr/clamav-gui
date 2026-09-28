@@ -264,15 +264,23 @@ void setupTab::slot_addRemoveFilemanagerIntegrationButtonClicked()
 
 void setupTab::slot_filemanagerComboBoxChanged(int value)
 {
+    QString labelText = "";
+    QIcon addIcon(":/icons/icons/add.png");
+    QIcon delIcon(":/icons/icons/trash-can.png");
+
     switch (value)
     {
-        case 0  : serviceMenuConfigPresent("dolphin") == true?m_ui.addIntegrationPushButton->setText(tr("remove")):m_ui.addIntegrationPushButton->setText(tr("add"));
+        case 0  :   serviceMenuConfigPresent("dolphin") == true?labelText = "remove":labelText = "add";
             break;
-        case 1  : serviceMenuConfigPresent("nemo") == true?m_ui.addIntegrationPushButton->setText(tr("remove")):m_ui.addIntegrationPushButton->setText(tr("add"));
+        case 1  : serviceMenuConfigPresent("nemo") == true?labelText = "remove":labelText = "add";
             break;
-        case 2  : serviceMenuConfigPresent("gnome-commander") == true?m_ui.addIntegrationPushButton->setText(tr("remove")):m_ui.addIntegrationPushButton->setText(tr("add"));
+        case 2  : serviceMenuConfigPresent("gnome-commander") == true?labelText = "remove":labelText = "add";
             break;
     }
+
+    m_ui.addIntegrationPushButton->setText(tr(QString(labelText).toLocal8Bit()));
+    labelText == "add"?m_ui.addIntegrationPushButton->setIcon(addIcon):m_ui.addIntegrationPushButton->setIcon(delIcon);
+
 }
 
 void setupTab::findTranslation()

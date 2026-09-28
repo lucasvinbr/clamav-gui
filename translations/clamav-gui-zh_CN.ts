@@ -3107,182 +3107,188 @@ Continue from the Start of the Log?</source>
         <translation>表单</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1030"/>
+        <location filename="../ui/setuptab.ui" line="599"/>
         <source>  Clamonacc</source>
         <translation>Clamonacc</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="234"/>
-        <location filename="../ui/setuptab.ui" line="526"/>
-        <location filename="../ui/setuptab.ui" line="936"/>
+        <location filename="../ui/setuptab.ui" line="236"/>
+        <location filename="../ui/setuptab.ui" line="423"/>
+        <location filename="../ui/setuptab.ui" line="505"/>
         <source>PID: </source>
         <translation>PID：</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="167"/>
-        <location filename="../ui/setuptab.ui" line="209"/>
-        <location filename="../ui/setuptab.ui" line="259"/>
+        <location filename="../ui/setuptab.ui" line="169"/>
+        <location filename="../ui/setuptab.ui" line="211"/>
+        <location filename="../ui/setuptab.ui" line="261"/>
+        <location filename="../ui/setuptab.ui" line="295"/>
         <location filename="../ui/setuptab.ui" line="398"/>
-        <location filename="../ui/setuptab.ui" line="501"/>
-        <location filename="../ui/setuptab.ui" line="571"/>
-        <location filename="../ui/setuptab.ui" line="611"/>
-        <location filename="../ui/setuptab.ui" line="639"/>
-        <location filename="../ui/setuptab.ui" line="667"/>
-        <location filename="../ui/setuptab.ui" line="843"/>
-        <location filename="../ui/setuptab.ui" line="899"/>
-        <location filename="../ui/setuptab.ui" line="995"/>
-        <location filename="../ui/setuptab.ui" line="1068"/>
-        <location filename="../ui/setuptab.ui" line="1096"/>
+        <location filename="../ui/setuptab.ui" line="468"/>
+        <location filename="../ui/setuptab.ui" line="564"/>
+        <location filename="../ui/setuptab.ui" line="637"/>
+        <location filename="../ui/setuptab.ui" line="665"/>
+        <location filename="../ui/setuptab.ui" line="842"/>
+        <location filename="../ui/setuptab.ui" line="870"/>
+        <location filename="../ui/setuptab.ui" line="898"/>
+        <location filename="../ui/setuptab.ui" line="1074"/>
+        <location filename="../ui/setuptab.ui" line="1130"/>
+        <location filename="../ui/setuptab.ui" line="1273"/>
+        <location filename="../ui/setuptab.ui" line="1300"/>
+        <location filename="../ui/setuptab.ui" line="1327"/>
         <location filename="../ui/setuptab.ui" line="1354"/>
-        <location filename="../ui/setuptab.ui" line="1381"/>
-        <location filename="../ui/setuptab.ui" line="1411"/>
-        <location filename="../ui/setuptab.ui" line="1438"/>
         <source>n/a</source>
         <translation>未知</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="117"/>
-        <location filename="../ui/setuptab.ui" line="451"/>
-        <location filename="../ui/setuptab.ui" line="964"/>
+        <location filename="../ui/setuptab.ui" line="119"/>
+        <location filename="../ui/setuptab.ui" line="348"/>
+        <location filename="../ui/setuptab.ui" line="533"/>
         <source>Status: </source>
         <translation>状态：</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="177"/>
+        <location filename="../ui/setuptab.ui" line="179"/>
         <source>  Freshclam</source>
         <translation>Freshclam</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="539"/>
+        <location filename="../ui/setuptab.ui" line="436"/>
         <source>  Clamd</source>
         <translation>Clamd</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="785"/>
+        <location filename="../ui/setuptab.ui" line="1016"/>
         <source>Database</source>
         <translation>数据库</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="812"/>
+        <location filename="../ui/setuptab.ui" line="1043"/>
         <source>Bytecode File: </source>
         <translation>二进制文件:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="692"/>
+        <location filename="../ui/setuptab.ui" line="923"/>
         <source>Daily File: </source>
         <translation>每日文件:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="751"/>
+        <location filename="../ui/setuptab.ui" line="982"/>
         <source>Main File: </source>
         <translation>主文件:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="868"/>
+        <location filename="../ui/setuptab.ui" line="1099"/>
         <source>Last updated: </source>
         <translation>上次更新:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1327"/>
+        <location filename="../ui/setuptab.ui" line="1246"/>
         <source>ClamAV Versions</source>
         <translation>ClamAV 版本</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1347"/>
+        <location filename="../ui/setuptab.ui" line="1266"/>
         <source>Installed :</source>
         <translation>已安装：</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1374"/>
+        <location filename="../ui/setuptab.ui" line="1293"/>
         <source>Latest :</source>
         <translation>最新的 ：</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1404"/>
+        <location filename="../ui/setuptab.ui" line="1320"/>
         <source>LTS Version(s) :</source>
         <translation>LTS 版本：</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1431"/>
+        <location filename="../ui/setuptab.ui" line="1347"/>
         <source>Status :</source>
         <translation>状态 :</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1462"/>
         <source>Filemanger Integration for</source>
-        <translation>Filemanger 集成用于</translation>
+        <translation type="vanished">Filemanger 集成用于</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1470"/>
+        <location filename="../ui/setuptab.ui" line="1584"/>
         <source>Dolphin</source>
         <translation>Dolphin</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1475"/>
+        <location filename="../ui/setuptab.ui" line="1589"/>
         <source>Nemo</source>
         <translation>Nemo</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1480"/>
+        <location filename="../ui/setuptab.ui" line="1594"/>
         <source>GNome Commander</source>
         <translation>GNome-Commander</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1488"/>
-        <location filename="../src/setuptab.cpp" line="269"/>
-        <location filename="../src/setuptab.cpp" line="271"/>
-        <location filename="../src/setuptab.cpp" line="273"/>
+        <location filename="../ui/setuptab.ui" line="1565"/>
         <source>add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1517"/>
+        <location filename="../ui/setuptab.ui" line="1146"/>
         <source>Grayson-Switch</source>
         <translation>格雷森·斯威奇</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1532"/>
+        <location filename="../ui/setuptab.ui" line="1161"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For people with color blindness. Removes all the fancy color stuff from the log files and indicators.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <extracomment>For people with color blindness</extracomment>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;专为色盲人士设计。可从日志文件和指标中移除所有花哨的颜色信息。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1585"/>
+        <location filename="../ui/setuptab.ui" line="1543"/>
+        <source>Filemanager Integration</source>
+        <translation>文件管理器集成</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1576"/>
+        <source>Integration for</source>
+        <translation>集成用于</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1644"/>
         <source>ClamAV System Status</source>
         <translation>ClamAV系统状态</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="323"/>
+        <location filename="../ui/setuptab.ui" line="761"/>
         <source>ClamdScan</source>
         <translation>ClamdScan</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="343"/>
+        <location filename="../ui/setuptab.ui" line="781"/>
         <source>Never, even if available.</source>
         <translation>从不，即使可用。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="348"/>
+        <location filename="../ui/setuptab.ui" line="786"/>
         <source>Always, if available.</source>
         <translation>始终，如果可用。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="353"/>
+        <location filename="../ui/setuptab.ui" line="791"/>
         <source>For scheduled scan, if available.</source>
         <translation>用于计划扫描，如果可用。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="358"/>
+        <location filename="../ui/setuptab.ui" line="796"/>
         <source>For direct scan, if available.</source>
         <translation>用于直接扫描，如果可用。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="363"/>
+        <location filename="../ui/setuptab.ui" line="801"/>
         <source>Ask for permission, if available.</source>
         <translation>询问权限，如果可用。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="335"/>
+        <location filename="../ui/setuptab.ui" line="773"/>
         <source>use ClamdScan with multithreading ...</source>
         <translation>使用ClamdScan多线程...</translation>
     </message>
@@ -3291,27 +3297,27 @@ Continue from the Start of the Log?</source>
         <translation type="vanished">[uk_UA] 乌克兰</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1538"/>
+        <location filename="../ui/setuptab.ui" line="1167"/>
         <source>Switch the application to monochrome mode.</source>
         <translation>将应用程序切换到单色模式。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1163"/>
+        <location filename="../ui/setuptab.ui" line="1386"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1247"/>
+        <location filename="../ui/setuptab.ui" line="1482"/>
         <source>Window State on Startup</source>
         <translation>启动时的窗口状态</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1255"/>
+        <location filename="../ui/setuptab.ui" line="1490"/>
         <source>Show Window maximized</source>
         <translation>显示窗口最大化</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1260"/>
+        <location filename="../ui/setuptab.ui" line="1495"/>
         <source>Show Tray Icon only</source>
         <translation>在任务栏显示图标</translation>
     </message>
@@ -3321,27 +3327,24 @@ Continue from the Start of the Log?</source>
         <translation>好的</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="269"/>
-        <location filename="../src/setuptab.cpp" line="271"/>
-        <location filename="../src/setuptab.cpp" line="273"/>
         <source>remove</source>
-        <translation>删除</translation>
+        <translation type="vanished">删除</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="335"/>
+        <location filename="../src/setuptab.cpp" line="343"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="335"/>
+        <location filename="../src/setuptab.cpp" line="343"/>
         <source>You have to restart the application for changes to take effect!</source>
         <translation>你必须重启程序才能使改变生效！</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="89"/>
-        <location filename="../ui/setuptab.ui" line="423"/>
-        <location filename="../ui/setuptab.ui" line="723"/>
-        <location filename="../ui/setuptab.ui" line="1121"/>
+        <location filename="../ui/setuptab.ui" line="91"/>
+        <location filename="../ui/setuptab.ui" line="320"/>
+        <location filename="../ui/setuptab.ui" line="690"/>
+        <location filename="../ui/setuptab.ui" line="954"/>
         <source>Path: </source>
         <translation>路径：</translation>
     </message>

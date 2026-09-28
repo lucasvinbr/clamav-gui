@@ -3611,207 +3611,213 @@ Vom Anfang des Log beginnen?</translation>
         <translation>Form</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="234"/>
-        <location filename="../ui/setuptab.ui" line="526"/>
-        <location filename="../ui/setuptab.ui" line="936"/>
+        <location filename="../ui/setuptab.ui" line="236"/>
+        <location filename="../ui/setuptab.ui" line="423"/>
+        <location filename="../ui/setuptab.ui" line="505"/>
         <source>PID: </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="167"/>
-        <location filename="../ui/setuptab.ui" line="209"/>
-        <location filename="../ui/setuptab.ui" line="259"/>
+        <location filename="../ui/setuptab.ui" line="169"/>
+        <location filename="../ui/setuptab.ui" line="211"/>
+        <location filename="../ui/setuptab.ui" line="261"/>
+        <location filename="../ui/setuptab.ui" line="295"/>
         <location filename="../ui/setuptab.ui" line="398"/>
-        <location filename="../ui/setuptab.ui" line="501"/>
-        <location filename="../ui/setuptab.ui" line="571"/>
-        <location filename="../ui/setuptab.ui" line="611"/>
-        <location filename="../ui/setuptab.ui" line="639"/>
-        <location filename="../ui/setuptab.ui" line="667"/>
-        <location filename="../ui/setuptab.ui" line="843"/>
-        <location filename="../ui/setuptab.ui" line="899"/>
-        <location filename="../ui/setuptab.ui" line="995"/>
-        <location filename="../ui/setuptab.ui" line="1068"/>
-        <location filename="../ui/setuptab.ui" line="1096"/>
+        <location filename="../ui/setuptab.ui" line="468"/>
+        <location filename="../ui/setuptab.ui" line="564"/>
+        <location filename="../ui/setuptab.ui" line="637"/>
+        <location filename="../ui/setuptab.ui" line="665"/>
+        <location filename="../ui/setuptab.ui" line="842"/>
+        <location filename="../ui/setuptab.ui" line="870"/>
+        <location filename="../ui/setuptab.ui" line="898"/>
+        <location filename="../ui/setuptab.ui" line="1074"/>
+        <location filename="../ui/setuptab.ui" line="1130"/>
+        <location filename="../ui/setuptab.ui" line="1273"/>
+        <location filename="../ui/setuptab.ui" line="1300"/>
+        <location filename="../ui/setuptab.ui" line="1327"/>
         <location filename="../ui/setuptab.ui" line="1354"/>
-        <location filename="../ui/setuptab.ui" line="1381"/>
-        <location filename="../ui/setuptab.ui" line="1411"/>
-        <location filename="../ui/setuptab.ui" line="1438"/>
         <source>n/a</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="117"/>
-        <location filename="../ui/setuptab.ui" line="451"/>
-        <location filename="../ui/setuptab.ui" line="964"/>
+        <location filename="../ui/setuptab.ui" line="119"/>
+        <location filename="../ui/setuptab.ui" line="348"/>
+        <location filename="../ui/setuptab.ui" line="533"/>
         <source>Status: </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1030"/>
+        <location filename="../ui/setuptab.ui" line="599"/>
         <source>  Clamonacc</source>
         <translation>  Clamonacc</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="177"/>
+        <location filename="../ui/setuptab.ui" line="179"/>
         <source>  Freshclam</source>
         <translation>  Freshclam</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="539"/>
+        <location filename="../ui/setuptab.ui" line="436"/>
         <source>  Clamd</source>
         <translation>  ClamD</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="785"/>
+        <location filename="../ui/setuptab.ui" line="1016"/>
         <source>Database</source>
         <translation>Datenbank</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="812"/>
+        <location filename="../ui/setuptab.ui" line="1043"/>
         <source>Bytecode File: </source>
         <translation>Bytecode Datei: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="692"/>
+        <location filename="../ui/setuptab.ui" line="923"/>
         <source>Daily File: </source>
         <translation>Daily Datei: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="751"/>
+        <location filename="../ui/setuptab.ui" line="982"/>
         <source>Main File: </source>
         <translation>Main Datei: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="868"/>
+        <location filename="../ui/setuptab.ui" line="1099"/>
         <source>Last updated: </source>
         <translation>Letztes Update: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1327"/>
+        <location filename="../ui/setuptab.ui" line="1246"/>
         <source>ClamAV Versions</source>
         <translation>ClamAV Versionen</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1347"/>
+        <location filename="../ui/setuptab.ui" line="1266"/>
         <source>Installed :</source>
         <translation>Installiert:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1374"/>
+        <location filename="../ui/setuptab.ui" line="1293"/>
         <source>Latest :</source>
         <translation>Neueste :</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1404"/>
+        <location filename="../ui/setuptab.ui" line="1320"/>
         <source>LTS Version(s) :</source>
         <translation>LTS Version(en) :</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1431"/>
+        <location filename="../ui/setuptab.ui" line="1347"/>
         <source>Status :</source>
         <translation>Status :</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1462"/>
         <source>Filemanger Integration for</source>
-        <translation>Filemanager Integration für</translation>
+        <translation type="vanished">Filemanager Integration für</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1470"/>
+        <location filename="../ui/setuptab.ui" line="1584"/>
         <source>Dolphin</source>
         <translation>Dolphin</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1475"/>
+        <location filename="../ui/setuptab.ui" line="1589"/>
         <source>Nemo</source>
         <translation>Nemo</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1480"/>
+        <location filename="../ui/setuptab.ui" line="1594"/>
         <source>GNome Commander</source>
         <translation>GNome-Commander</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1488"/>
-        <location filename="../src/setuptab.cpp" line="269"/>
-        <location filename="../src/setuptab.cpp" line="271"/>
-        <location filename="../src/setuptab.cpp" line="273"/>
+        <location filename="../ui/setuptab.ui" line="1565"/>
         <source>add</source>
         <translation>hinzufügen</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1517"/>
+        <location filename="../ui/setuptab.ui" line="1146"/>
         <source>Grayson-Switch</source>
         <translation>Grayson Switch</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1532"/>
+        <location filename="../ui/setuptab.ui" line="1161"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For people with color blindness. Removes all the fancy color stuff from the log files and indicators.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <extracomment>For people with color blindness</extracomment>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Für farbenblinde Menschen. Entfernt alle farbigen Sachen in den Log-Dateien oder Anzeigen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1585"/>
+        <location filename="../ui/setuptab.ui" line="1543"/>
+        <source>Filemanager Integration</source>
+        <translation>Dateimanager Integration</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1576"/>
+        <source>Integration for</source>
+        <translation>Integration für</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1644"/>
         <source>ClamAV System Status</source>
         <translation>ClamAV System Status</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="323"/>
+        <location filename="../ui/setuptab.ui" line="761"/>
         <source>ClamdScan</source>
         <translation>ClamdScan</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="343"/>
+        <location filename="../ui/setuptab.ui" line="781"/>
         <source>Never, even if available.</source>
         <translation>Niemals, selbst wenn verfügbar.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="348"/>
+        <location filename="../ui/setuptab.ui" line="786"/>
         <source>Always, if available.</source>
         <translation>Immer, sofern verfügbar.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="353"/>
+        <location filename="../ui/setuptab.ui" line="791"/>
         <source>For scheduled scan, if available.</source>
         <translation>Für Termin-Scans, wenn verfügbar.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="358"/>
+        <location filename="../ui/setuptab.ui" line="796"/>
         <source>For direct scan, if available.</source>
         <translation>Für Direkt-Scans, wenn verfügbar.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="363"/>
+        <location filename="../ui/setuptab.ui" line="801"/>
         <source>Ask for permission, if available.</source>
         <translation>Um Erlaubnis bitten, falls verfügbar.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="335"/>
+        <location filename="../ui/setuptab.ui" line="773"/>
         <source>use ClamdScan with multithreading ...</source>
         <translation>Verwende ClamdScan mit Multithreading ...</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1538"/>
+        <location filename="../ui/setuptab.ui" line="1167"/>
         <source>Switch the application to monochrome mode.</source>
         <translation>Schaltet die Anwendung in den Monochrome-Modus</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1163"/>
+        <location filename="../ui/setuptab.ui" line="1386"/>
         <source>Language</source>
         <translation>Sprache</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1247"/>
+        <location filename="../ui/setuptab.ui" line="1482"/>
         <source>Window State on Startup</source>
         <translation>Fensterstatus bei Programmstart</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1255"/>
+        <location filename="../ui/setuptab.ui" line="1490"/>
         <source>Show Window maximized</source>
         <translation>Fenster maximiert anzeigen</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1260"/>
+        <location filename="../ui/setuptab.ui" line="1495"/>
         <source>Show Tray Icon only</source>
         <translation>Nur Tray-Icon anzeigen</translation>
     </message>
@@ -3821,27 +3827,24 @@ Vom Anfang des Log beginnen?</translation>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="269"/>
-        <location filename="../src/setuptab.cpp" line="271"/>
-        <location filename="../src/setuptab.cpp" line="273"/>
         <source>remove</source>
-        <translation>entfernen</translation>
+        <translation type="vanished">entfernen</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="335"/>
+        <location filename="../src/setuptab.cpp" line="343"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="335"/>
+        <location filename="../src/setuptab.cpp" line="343"/>
         <source>You have to restart the application for changes to take effect!</source>
         <translation>Sie müssen die Anwendung neu starten damit die Änderungen übernommen werden!</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="89"/>
-        <location filename="../ui/setuptab.ui" line="423"/>
-        <location filename="../ui/setuptab.ui" line="723"/>
-        <location filename="../ui/setuptab.ui" line="1121"/>
+        <location filename="../ui/setuptab.ui" line="91"/>
+        <location filename="../ui/setuptab.ui" line="320"/>
+        <location filename="../ui/setuptab.ui" line="690"/>
+        <location filename="../ui/setuptab.ui" line="954"/>
         <source>Path: </source>
         <translation>Pfad: </translation>
     </message>
