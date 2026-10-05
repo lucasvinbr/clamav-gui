@@ -337,14 +337,10 @@ void clamav_gui::checkAppImage()
  */
 void clamav_gui::slot_scanRequest(QStringList scanObjects)
 {
-    QStringList selectedOptions = m_setupFile->getKeywords("SelectedOptions");
-    QStringList scanLimitations = m_setupFile->getKeywords("ScanLimitations");
-    QStringList directoryOptions = m_setupFile->getKeywords("Directories");
     QStringList parameters;
     QString moveDirectory = m_optionTab->getMoveDirectory();
     QString copyDirectory = m_optionTab->getCopyDirectory();
     QString checked;
-    QString option;
     QString value;
     QString temp;
     bool useclamdscan = false;
@@ -438,82 +434,7 @@ void clamav_gui::slot_scanRequest(QStringList scanObjects)
         if (m_scannerTab->recursivChecked() == true)
             parameters << "-r";
 
-        for (int i = 0; i < selectedOptions.count(); i++)
-        {
-            parameters << selectedOptions.at(i).left(selectedOptions.indexOf("|")).replace("<equal>", "=");
-        }
-
-        // Directory Options
-        for (int i = 0; i < directoryOptions.count(); i++)
-        {
-            option = directoryOptions.at(i);
-            value = m_setupFile->getSectionValue("Directories", option);
-            checked = value.left(value.indexOf("|"));
-            value = value.mid(value.indexOf("|") + 1);
-
-            if ((checked == "checked") && (value != ""))
-            {
-                for (int idx = 0; idx < directoryOptionKeywords.size(); idx++)
-                {
-                    if (directoryOptionKeywords.at(idx) == option)
-                    {
-                        if (directoryOptionKeywords.at(idx) == "ScanReportToFile")
-                        {
-                            if (value != "")
-                            {
-                                parameters << "--log=" + value;
-                                QFile file(value);
-                                if (file.open(QIODevice::ReadWrite | QIODevice::Append | QIODevice::Text))
-                                {
-                                    QTextStream stream(&file);
-                                    stream << "\n<Scanning startet> " << QDateTime::currentDateTime().toString("yyyy/M/d - hh:mm");
-                                    file.close();
-                                }
-                            }
-                        }
-                        else
-                            parameters << directoryOptionSwitches.at(idx) + "=" + value;
-                    }
-                }
-            }
-        }
-
-        // Scan Limitations
-        for (int i = 0; i < scanLimitations.count(); i++)
-        {
-            option = scanLimitations.at(i);
-            value = m_setupFile->getSectionValue("ScanLimitations", option);
-            checked = value.left(value.indexOf("|"));
-            value = value.mid(value.indexOf("|") + 1);
-            if (checked == "checked")
-            {
-                for (int i = 0; i < scanLimitKeywords.length(); i++)
-                {
-                    if (option == scanLimitKeywords.at(i))
-                        parameters << scanLimitSwitches.at(i) + "=" + value;
-                }
-            }
-        }
-
-        // REGEXP and Include Exclude Options
-        for (int idx = 0; idx < inclExclKeywords.size(); idx++)
-        {
-            if (idx < 4)
-            {
-                value = m_setupFile->getSectionValue("REGEXP_and_IncludeExclude",inclExclKeywords.at(idx));
-                checked = value.left(value.indexOf("|"));
-                value = value.mid(value.indexOf("|") + 1);
-                if (checked == "checked") parameters << inclExclSwitches.at(idx) + "=" + value;
-            }
-            else {
-                if (m_setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude","EnablePUAOptions") == true)
-                {
-                    if ((m_setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude",inclExclKeywords.at(idx)) == true) &&
-                        (inclExclKeywords.at(idx) != "EnablePUAOptions"))
-                        parameters << inclExclSwitches.at(idx);
-                }
-            }
-        }
+        assembleScanParameters(m_setupFile, &parameters);
 
         temp = (useclamdscan == true)?"clamdscan":"clamscan";
 

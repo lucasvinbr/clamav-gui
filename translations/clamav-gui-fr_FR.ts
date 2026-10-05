@@ -44,48 +44,48 @@
         <translation>Profil:</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="174"/>
+        <location filename="../src/profilemanager.cpp" line="177"/>
         <source>WARNING</source>
         <translation>ATTENTION</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="174"/>
+        <location filename="../src/profilemanager.cpp" line="177"/>
         <source>Do you really want to remove this (</source>
         <translation>Souhaitez vous vraiment supprimer ceci (</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="174"/>
+        <location filename="../src/profilemanager.cpp" line="177"/>
         <source>) profile</source>
         <translation>) profil</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="184"/>
-        <location filename="../src/profilemanager.cpp" line="194"/>
+        <location filename="../src/profilemanager.cpp" line="187"/>
+        <location filename="../src/profilemanager.cpp" line="197"/>
         <source>Info</source>
         <translation>Info</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="185"/>
+        <location filename="../src/profilemanager.cpp" line="188"/>
         <source>There is a log-file associated with this profile. Shall I remove the log-file as well?</source>
         <translation>Il y a un fichier journal associé à ce profil. Dois-je le supprimer aussi?</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="194"/>
+        <location filename="../src/profilemanager.cpp" line="197"/>
         <source>Profile &quot;</source>
         <translation>Profil &quot;</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="194"/>
+        <location filename="../src/profilemanager.cpp" line="197"/>
         <source>&quot; removed</source>
         <translation>&quot; effacé</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="202"/>
+        <location filename="../src/profilemanager.cpp" line="205"/>
         <source>ERROR</source>
         <translation>ERREUR</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="202"/>
+        <location filename="../src/profilemanager.cpp" line="205"/>
         <source>Profile can not be removed because it is in use by the scheduler!</source>
         <translation>Le profile est en cours d&apos;utilisation par le programateur et ne peut etre supprimé!</translation>
     </message>
@@ -728,71 +728,71 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="356"/>
+        <location filename="../src/clamav_gui.cpp" line="352"/>
         <source>Scanning started .......</source>
         <translation>Recherche démarré .......</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="371"/>
+        <location filename="../src/clamav_gui.cpp" line="367"/>
         <source>Use ClamdScan</source>
         <translation>Utiliser ClamdScan</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="371"/>
+        <location filename="../src/clamav_gui.cpp" line="367"/>
         <source>Perform scanning using clamdscan instead of clamscan?</source>
         <translation>Effectuer l&apos;analyse en utilisant clamdscan au lieu de clamscan ?</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="575"/>
+        <location filename="../src/clamav_gui.cpp" line="496"/>
         <source>Scan-Process aborted ......</source>
         <translation>Recherche annulé ......</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="576"/>
-        <location filename="../src/clamav_gui.cpp" line="583"/>
-        <location filename="../src/clamav_gui.cpp" line="590"/>
-        <location filename="../src/clamav_gui.cpp" line="595"/>
+        <location filename="../src/clamav_gui.cpp" line="497"/>
+        <location filename="../src/clamav_gui.cpp" line="504"/>
+        <location filename="../src/clamav_gui.cpp" line="511"/>
+        <location filename="../src/clamav_gui.cpp" line="516"/>
         <source>Scan-Status</source>
         <translation>Etat de la recherche</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="576"/>
+        <location filename="../src/clamav_gui.cpp" line="497"/>
         <source>Scan Process aborted .....</source>
         <translation>Recherche annulé .....</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="582"/>
+        <location filename="../src/clamav_gui.cpp" line="503"/>
         <source>Scan-Process finished ...... no Virus found!</source>
         <translation>Recherche terminée ...... Pas de virus trouvé!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="583"/>
+        <location filename="../src/clamav_gui.cpp" line="504"/>
         <source>Scan Process finished ..... no virus found!</source>
         <translation>Recherche terminée ..... Pas de virus trouvé!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="589"/>
+        <location filename="../src/clamav_gui.cpp" line="510"/>
         <source>Scan-Process finished ...... Virus found!</source>
         <translation>Recherche terminée ..... un virus à été trouvé!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="590"/>
+        <location filename="../src/clamav_gui.cpp" line="511"/>
         <source>Scan Process finished ..... a virus was found!</source>
         <translation>Recherche terminée ..... un virus à été trouvé!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="594"/>
+        <location filename="../src/clamav_gui.cpp" line="515"/>
         <source>Scan-Process finished ...... an error occured!</source>
         <translation>Recherche terminée ..... Erreur survenue!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="595"/>
+        <location filename="../src/clamav_gui.cpp" line="516"/>
         <source>Scan Process finished ..... an error occurred!</source>
         <translation>Recherche terminée ..... Une erreur est survenue!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="615"/>
-        <location filename="../src/clamav_gui.cpp" line="616"/>
+        <location filename="../src/clamav_gui.cpp" line="536"/>
+        <location filename="../src/clamav_gui.cpp" line="537"/>
         <source>Scan-Process aborted!</source>
         <translation>Recherche terminée!</translation>
     </message>
@@ -2770,116 +2770,116 @@ Continuer à partir depuis le debut du journal?</translation>
         <translation>Status : </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="120"/>
+        <location filename="../src/schedulescanobject.cpp" line="123"/>
         <source>Scanning started .......</source>
         <translation>Recherche demarré .......</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="189"/>
-        <location filename="../src/schedulescanobject.cpp" line="210"/>
+        <location filename="../src/schedulescanobject.cpp" line="192"/>
+        <location filename="../src/schedulescanobject.cpp" line="213"/>
         <source>Scanning : </source>
         <translation>Recherche : </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="233"/>
-        <location filename="../src/schedulescanobject.cpp" line="235"/>
+        <location filename="../src/schedulescanobject.cpp" line="239"/>
+        <location filename="../src/schedulescanobject.cpp" line="241"/>
         <source>Scan Process aborted .....</source>
         <translation>Recherche annulé .....</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="26"/>
-        <location filename="../src/schedulescanobject.cpp" line="235"/>
+        <location filename="../src/schedulescanobject.cpp" line="29"/>
+        <location filename="../src/schedulescanobject.cpp" line="241"/>
         <source>Scan-Job: </source>
         <translation>Scan: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="27"/>
+        <location filename="../src/schedulescanobject.cpp" line="30"/>
         <source>Scheduled Scan-Job: </source>
         <translation>scan programmé: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="71"/>
+        <location filename="../src/schedulescanobject.cpp" line="74"/>
         <source>Use ClamdScan</source>
         <translation>Utiliser ClamdScan</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="71"/>
+        <location filename="../src/schedulescanobject.cpp" line="74"/>
         <source>Perform scanning using clamdscan instead of clamscan?</source>
         <translation>Effectuer l&apos;analyse en utilisant clamdscan au lieu de clamscan ?</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="239"/>
-        <location filename="../src/schedulescanobject.cpp" line="241"/>
+        <location filename="../src/schedulescanobject.cpp" line="245"/>
+        <location filename="../src/schedulescanobject.cpp" line="247"/>
         <source>Scan-Process finished ...... no Virus found!</source>
         <translation>Recherche terminée ...... pas de Virus trouvé!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="254"/>
+        <location filename="../src/schedulescanobject.cpp" line="260"/>
         <source>Scan-Process finished ...... a Virus was found!</source>
         <translation>Recherche terminée ...... Virus trouvé!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="256"/>
+        <location filename="../src/schedulescanobject.cpp" line="262"/>
         <source>Scan Process finished ..... a Virus was found!</source>
         <translation>Recherche terminée ..... Virus trouvé!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="259"/>
+        <location filename="../src/schedulescanobject.cpp" line="265"/>
         <source>Scan-Process finished ...... an Error occurred!</source>
         <translation>Recherche terminée ...... Erreur survenue!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="261"/>
+        <location filename="../src/schedulescanobject.cpp" line="267"/>
         <source>Scan Process finished ..... an Error occurred!</source>
         <translation>Recherche terminée ..... Erreur survenue!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="275"/>
+        <location filename="../src/schedulescanobject.cpp" line="281"/>
         <source>Engine Version: </source>
         <translation>Version du moteur: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="278"/>
+        <location filename="../src/schedulescanobject.cpp" line="284"/>
         <source>Engine Version: n/a</source>
         <translation>Version du moteur: n/a</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="284"/>
+        <location filename="../src/schedulescanobject.cpp" line="290"/>
         <source>Infected files: </source>
         <translation>Fichiers infectés: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="287"/>
+        <location filename="../src/schedulescanobject.cpp" line="293"/>
         <source>Infected files: n/a</source>
         <translation>Fichiers infectés: n/a</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="293"/>
+        <location filename="../src/schedulescanobject.cpp" line="299"/>
         <source>Scanned Directories: </source>
         <translation>Dossiers scannés: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="296"/>
+        <location filename="../src/schedulescanobject.cpp" line="302"/>
         <source>Scanned Directories: n/a</source>
         <translation>Dossiers scannés: n/a</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="302"/>
+        <location filename="../src/schedulescanobject.cpp" line="308"/>
         <source>Scanned Files: </source>
         <translation>Fichiers scannés: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="305"/>
+        <location filename="../src/schedulescanobject.cpp" line="311"/>
         <source>Scanned Files: n/a</source>
         <translation>Fichiers scannés: n/a</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="311"/>
+        <location filename="../src/schedulescanobject.cpp" line="317"/>
         <source>Total Errors: </source>
         <translation>Erreurs totales: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="314"/>
+        <location filename="../src/schedulescanobject.cpp" line="320"/>
         <source>Total Errors: 0</source>
         <translation>Erreurs totales: 0</translation>
     </message>
@@ -3144,15 +3144,15 @@ Continuer à partir depuis le debut du journal?</translation>
         <location filename="../ui/setuptab.ui" line="564"/>
         <location filename="../ui/setuptab.ui" line="637"/>
         <location filename="../ui/setuptab.ui" line="665"/>
-        <location filename="../ui/setuptab.ui" line="842"/>
-        <location filename="../ui/setuptab.ui" line="870"/>
-        <location filename="../ui/setuptab.ui" line="898"/>
-        <location filename="../ui/setuptab.ui" line="1074"/>
-        <location filename="../ui/setuptab.ui" line="1130"/>
-        <location filename="../ui/setuptab.ui" line="1273"/>
-        <location filename="../ui/setuptab.ui" line="1300"/>
-        <location filename="../ui/setuptab.ui" line="1327"/>
-        <location filename="../ui/setuptab.ui" line="1354"/>
+        <location filename="../ui/setuptab.ui" line="814"/>
+        <location filename="../ui/setuptab.ui" line="841"/>
+        <location filename="../ui/setuptab.ui" line="868"/>
+        <location filename="../ui/setuptab.ui" line="895"/>
+        <location filename="../ui/setuptab.ui" line="1084"/>
+        <location filename="../ui/setuptab.ui" line="1112"/>
+        <location filename="../ui/setuptab.ui" line="1140"/>
+        <location filename="../ui/setuptab.ui" line="1316"/>
+        <location filename="../ui/setuptab.ui" line="1372"/>
         <source>n/a</source>
         <translation></translation>
     </message>
@@ -3179,52 +3179,52 @@ Continuer à partir depuis le debut du journal?</translation>
         <translation>  Clamd</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1016"/>
+        <location filename="../ui/setuptab.ui" line="1258"/>
         <source>Database</source>
         <translation>Base de données</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1043"/>
+        <location filename="../ui/setuptab.ui" line="1285"/>
         <source>Bytecode File: </source>
         <translation>Fichier Bytecode : </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="923"/>
+        <location filename="../ui/setuptab.ui" line="1165"/>
         <source>Daily File: </source>
         <translation>Fichier Daily : </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="982"/>
+        <location filename="../ui/setuptab.ui" line="1224"/>
         <source>Main File: </source>
         <translation>Fichier Main : </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1099"/>
+        <location filename="../ui/setuptab.ui" line="1341"/>
         <source>Last updated: </source>
         <translation>Dernière mise à jour : </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1246"/>
+        <location filename="../ui/setuptab.ui" line="787"/>
         <source>ClamAV Versions</source>
         <translation>Versions de ClamAV</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1266"/>
+        <location filename="../ui/setuptab.ui" line="807"/>
         <source>Installed :</source>
         <translation>Installé :</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1293"/>
+        <location filename="../ui/setuptab.ui" line="834"/>
         <source>Latest :</source>
         <translation>Dernier :</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1320"/>
+        <location filename="../ui/setuptab.ui" line="861"/>
         <source>LTS Version(s) :</source>
         <translation>Version(s) LTS :</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1347"/>
+        <location filename="../ui/setuptab.ui" line="888"/>
         <source>Status :</source>
         <translation>Statut :</translation>
     </message>
@@ -3233,113 +3233,141 @@ Continuer à partir depuis le debut du journal?</translation>
         <translation type="vanished">Intégration de Filemanger pour</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1584"/>
+        <location filename="../ui/setuptab.ui" line="1777"/>
         <source>Dolphin</source>
         <translation>Dolphin</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1589"/>
+        <location filename="../ui/setuptab.ui" line="1782"/>
         <source>Nemo</source>
         <translation>Nemo</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1594"/>
+        <location filename="../ui/setuptab.ui" line="1787"/>
         <source>GNome Commander</source>
         <translation>GNome-Commander</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1565"/>
+        <location filename="../ui/setuptab.ui" line="1765"/>
         <source>add</source>
         <translation>ajouter</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1146"/>
+        <location filename="../ui/setuptab.ui" line="1012"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; color:#000000;&quot;&gt;Eicar Test.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The EICAR Anti-Virus Test File or EICAR test file is a computer file that was developed by the &lt;span style=&quot; font-weight:700;&quot;&gt;European Institute for Computer Antivirus Research (EICAR)&lt;/span&gt; and Computer Antivirus Research Organization to test the response of computer antivirus programs.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Instead of using real malware, which could cause real damage, this file allows people to safely test anti-virus software.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; color:#000000;&quot;&gt;Eicar Test.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le fichier de test antivirus EICAR, ou fichier de test EICAR, est un fichier informatique développé par l&apos;&lt;span style=&quot;font-weight:700;&quot;&gt;Institut européen de recherche sur les antivirus (EICAR)&lt;/span&gt; et l&apos;Organisation de recherche sur les antivirus, afin de tester la réactivité des logiciels antivirus.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Au lieu d&apos;utiliser de véritables logiciels malveillants, susceptibles de causer de réels dommages, ce fichier permet de tester en toute sécurité les logiciels antivirus.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1031"/>
+        <source> Start Eicar Test</source>
+        <translation> Lancer le test Eicar</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1388"/>
         <source>Grayson-Switch</source>
         <translation>Grayson Switch</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1161"/>
+        <location filename="../ui/setuptab.ui" line="1403"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For people with color blindness. Removes all the fancy color stuff from the log files and indicators.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <extracomment>For people with color blindness</extracomment>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pour les personnes daltoniennes. Supprime tous les éléments colorés superflus des fichiers journaux et des indicateurs..&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1543"/>
+        <location filename="../ui/setuptab.ui" line="1736"/>
         <source>Filemanager Integration</source>
         <translation>Intégration de Filemanger</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1576"/>
+        <location filename="../ui/setuptab.ui" line="1758"/>
         <source>Integration for</source>
         <translation>Intégration pour</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1644"/>
+        <location filename="../ui/setuptab.ui" line="1850"/>
         <source>ClamAV System Status</source>
         <translation>ClamAV System Status</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="761"/>
+        <location filename="../ui/setuptab.ui" line="1473"/>
         <source>ClamdScan</source>
         <translation>ClamdScan</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="781"/>
+        <location filename="../ui/setuptab.ui" line="1493"/>
         <source>Never, even if available.</source>
         <translation>Jamais, même si elle est disponible.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="786"/>
+        <location filename="../ui/setuptab.ui" line="1498"/>
         <source>Always, if available.</source>
         <translation>Toujours, si disponible.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="791"/>
+        <location filename="../ui/setuptab.ui" line="1503"/>
         <source>For scheduled scan, if available.</source>
         <translation>Pour l&apos;analyse programmée, si disponible.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="796"/>
+        <location filename="../ui/setuptab.ui" line="1508"/>
         <source>For direct scan, if available.</source>
         <translation>Pour le balayage direct, si disponible.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="801"/>
+        <location filename="../ui/setuptab.ui" line="1513"/>
         <source>Ask for permission, if available.</source>
         <translation>Demander l&apos;autorisation, si possible.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="773"/>
+        <location filename="../ui/setuptab.ui" line="1485"/>
         <source>use ClamdScan with multithreading ...</source>
         <translation>utiliser ClamdScan en multithreading ...</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1167"/>
+        <location filename="../ui/setuptab.ui" line="1409"/>
         <source>Switch the application to monochrome mode.</source>
         <translation>Passer l&apos;application en mode monochrome.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1386"/>
+        <location filename="../ui/setuptab.ui" line="1585"/>
         <source>Language</source>
         <translation>langue</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1482"/>
+        <location filename="../ui/setuptab.ui" line="1676"/>
         <source>Window State on Startup</source>
         <translation>État de la fenêtre au démarrage</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1490"/>
+        <location filename="../ui/setuptab.ui" line="1654"/>
         <source>Show Window maximized</source>
         <translation>Afficher la fenêtre maximisée</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1495"/>
+        <location filename="../ui/setuptab.ui" line="1659"/>
         <source>Show Tray Icon only</source>
         <translation>Afficher uniquement l&apos;icône de la barre d&apos;état système</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="234"/>
+        <location filename="../src/setuptab.cpp" line="237"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -3349,11 +3377,28 @@ Continuer à partir depuis le debut du journal?</translation>
     </message>
     <message>
         <location filename="../src/setuptab.cpp" line="343"/>
+        <source>Eicar-Test finished successfully!</source>
+        <translation>Le test Eicar s&apos;est déroulé avec succès !</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="349"/>
+        <source>Eica-Test finished with an error!
+The test was interrupted by a user action.</source>
+        <translation>Le test Eicar s&apos;est terminé par une erreur !
+Le test a été interrompu par une action de l&apos;utilisateur.</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="353"/>
+        <source>Eica-Test finished with an error!</source>
+        <translation>Le test Eicar s&apos;est terminé par une erreur !</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="416"/>
         <source>Warning</source>
         <translation>Attention</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="343"/>
+        <location filename="../src/setuptab.cpp" line="416"/>
         <source>You have to restart the application for changes to take effect!</source>
         <translation>Vous devez redémarrer l&apos;application pour que les modifications soient prises en compte !</translation>
     </message>
@@ -3361,7 +3406,7 @@ Continuer à partir depuis le debut du journal?</translation>
         <location filename="../ui/setuptab.ui" line="91"/>
         <location filename="../ui/setuptab.ui" line="320"/>
         <location filename="../ui/setuptab.ui" line="690"/>
-        <location filename="../ui/setuptab.ui" line="954"/>
+        <location filename="../ui/setuptab.ui" line="1196"/>
         <source>Path: </source>
         <translation>Trajectoire : </translation>
     </message>

@@ -254,88 +254,11 @@ void scheduler::startScanJob(QString profileName)
 {
     setupFileHandler* setupFile = new setupFileHandler(QDir::homePath() + "/.clamav-gui/profiles/" + profileName + ".ini", this);
     QStringList parameters;
-    QStringList selectedOptions = setupFile->getKeywords("SelectedOptions");
-    QStringList directoryOptions = setupFile->getKeywords("Directories");
-    QStringList scanLimitations = setupFile->getKeywords("ScanLimitations");
-    QString option;
-    QString checked;
-    QString value;
 
     if (setupFile->getSectionBoolValue(profileName, "Recursion") == true)
         parameters << "-r";
 
-    for (int i = 0; i < selectedOptions.count(); i++)
-        parameters << selectedOptions.at(i).left(selectedOptions.indexOf("|")).replace("<equal>", "=");
-
-    // Directory Options
-    for (int i = 0; i < directoryOptions.count(); i++)
-    {
-        option = directoryOptions.at(i);
-        value = setupFile->getSectionValue("Directories", option);
-        checked = value.left(value.indexOf("|"));
-        value = value.mid(value.indexOf("|") + 1);
-
-        if ((checked == "checked") && (value != ""))
-        {
-            for (int idx = 0; idx < directoryOptionKeywords.size(); idx++)
-            {
-                if (directoryOptionKeywords.at(idx) == option)
-                {
-                    if (directoryOptionKeywords.at(idx) == "ScanReportToFile")
-                    {
-                        if (value != "")
-                        {
-                            parameters << "--log=" + value;
-                            QFile file(value);
-                            if (file.open(QIODevice::ReadWrite | QIODevice::Append | QIODevice::Text))
-                            {
-                                QTextStream stream(&file);
-                                stream << "\n<Scanning startet> " << QDateTime::currentDateTime().toString("yyyy/M/d - hh:mm");
-                                file.close();
-                            }
-                        }
-                    }
-                    else
-                        parameters << directoryOptionSwitches.at(idx) + "=" + value;
-                }
-            }
-        }
-    }
-
-    // Scan Limitations
-    for (int i = 0; i < scanLimitations.count(); i++)
-    {
-        option = scanLimitations.at(i);
-        value = setupFile->getSectionValue("ScanLimitations", option);
-        checked = value.left(value.indexOf("|"));
-        value = value.mid(value.indexOf("|") + 1);
-        if (checked == "checked")
-        {
-            for (int idx = 0; idx < scanLimitKeywords.size(); idx ++)
-                if (option == scanLimitKeywords.at(idx))
-                    parameters << scanLimitSwitches.at(idx) + "=" + value;
-        }
-    }
-
-    // REGEXP and Include Exclude Options
-    for (int idx = 0; idx < inclExclKeywords.size(); idx++)
-    {
-        if (idx < 4)
-        {
-            value = setupFile->getSectionValue("REGEXP_and_IncludeExclude",inclExclKeywords.at(idx));
-            checked = value.left(value.indexOf("|"));
-            value = value.mid(value.indexOf("|") + 1);
-            if (checked == "checked") parameters << inclExclSwitches.at(idx) + "=" + value;
-        }
-        else {
-            if (setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude","EnablePUAOptions") == true)
-            {
-                if ((setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude",inclExclKeywords.at(idx)) == true) &&
-                    (inclExclKeywords.at(idx) != "EnablePUAOptions"))
-                    parameters << inclExclSwitches.at(idx);
-            }
-        }
-    }
+    assembleScanParameters(setupFile, &parameters);
 
     QStringList directories = setupFile->getSectionValue(profileName, "Directories").split("\n");
 

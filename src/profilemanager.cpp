@@ -43,6 +43,10 @@ void ProfileManager::checkMonochromeSettings()
 void ProfileManager::slot_readProfileSettings()
 {
     QString profileName = m_ui->profileComboBox->currentText();
+    m_ui->targetsListLabel->setText("");
+    m_ui->optionsListLabel->setText("");
+    m_ui->filenameTextLabel->setText("");
+
     if (profileName == "")
         return;
 
@@ -136,7 +140,6 @@ void ProfileManager::slot_addProfileButtonClicked()
     connect(m_profileWizard, SIGNAL(signal_profileSaved()), this, SLOT(slot_profileSaved()));
     m_profileWizard->setModal(true);
     m_profileWizard->show();
-    slot_readProfileSettings();
 }
 
 void ProfileManager::slot_editProfileButtonClicked()
@@ -207,6 +210,7 @@ void ProfileManager::slot_profileSaved()
 {
     emit triggerProfilesChanged();
     getProfileList();
+    slot_readProfileSettings();
 }
 
 void ProfileManager::monochromeModeChanged(bool state)

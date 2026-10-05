@@ -32,6 +32,7 @@
 #include "ui_scheduler.h"
 #include "setupfilehandler.h"
 #include "logviewobject.h"
+#include "toolbox.h"
 
 namespace Ui {
 class scheduler;

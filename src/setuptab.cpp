@@ -38,6 +38,9 @@ setupTab::setupTab(QWidget* parent, setupFileHandler* setupFile) : QWidget(paren
     connect(manager,SIGNAL(finished(QNetworkReply*)),SLOT(slot_requestFinished(QNetworkReply*)));
     manager->get(QNetworkRequest(QUrl("https://www.clamav.net/download")));
 
+    eicarManager = new QNetworkAccessManager(this);
+    connect(eicarManager,SIGNAL(finished(QNetworkReply*)),SLOT(slot_eicarRequestFinished(QNetworkReply*)));
+
     findTranslation();
     slot_updateSystemInfo();
     slot_filemanagerComboBoxChanged(0);
@@ -237,6 +240,39 @@ void setupTab::slot_requestFinished(QNetworkReply * reply)
     reply->deleteLater();
 }
 
+void setupTab::slot_eicarRequestFinished(QNetworkReply *reply)
+{
+    if(reply->error())
+    {
+        QMessageBox::information(this,"ERROR",reply->errorString());
+    }
+    else
+    {
+        QStringList parameters;
+        QString replyString = reply->readAll();
+        QFile file(QDir::homePath() + "/.cache/eicartest/eicar.com.txt");
+
+        if (file.open(QIODevice::Text|QIODevice::WriteOnly))
+        {
+            QTextStream stream(&file);
+            stream << replyString;
+            file.close();
+        }
+
+        assembleScanParameters(m_setupFile,&parameters);
+
+        parameters << QDir::homePath() + "/.cache/eicartest/eicar.com.txt";
+
+        scheduleScanObject * scanObject = new scheduleScanObject(this,"Eicar Test",parameters);
+        connect(scanObject,SIGNAL(sendStatusReport(int,QString,QString)),this,SLOT(slot_eicarTestStatusReport(int,QString,QString)));
+        scanObject->setWindowTitle("EICAR Test");
+        scanObject->setWindowIcon(QIcon(":/icons/icons/media.png"));
+        scanObject->setModal(true);
+        scanObject->exec();
+        delete scanObject;
+    }
+}
+
 void setupTab::slot_addRemoveFilemanagerIntegrationButtonClicked()
 {
     switch (m_ui.filemanagerComboBox->currentIndex())
@@ -281,6 +317,43 @@ void setupTab::slot_filemanagerComboBoxChanged(int value)
     m_ui.addIntegrationPushButton->setText(tr(QString(labelText).toLocal8Bit()));
     labelText == "add"?m_ui.addIntegrationPushButton->setIcon(addIcon):m_ui.addIntegrationPushButton->setIcon(delIcon);
 
+}
+
+void setupTab::slot_startEicarTest()
+{
+    QDir eicarTestDir(QDir::homePath() + "/.cache/eicartest");
+    eicarTestDir.mkpath(QDir::homePath() + "/.cache/eicartest");
+
+    eicarManager->get(QNetworkRequest(QUrl("https://secure.eicar.org/eicar.com.txt")));
+}
+
+void setupTab::slot_eicarTestStatusReport(int rc, QString text1, QString text2)
+{
+    Q_UNUSED(text1);
+    Q_UNUSED(text2);
+
+    if (QFileInfo::exists(QDir::homePath() + "/.cache/eicartest/eicar.com.txt"))
+    {
+        QFile eraseFile(QDir::homePath() + "/.cache/eicartest/eicar.com.txt");
+        eraseFile.remove();
+    }
+
+    if (rc == 2)
+    {
+        QMessageBox::information(this,"EICAR-TEST",tr("Eicar-Test finished successfully!"));
+        m_ui.eicarTestResultButton->setIcon(QIcon(":/icons/icons/create.png"));
+    }
+    else {
+        if (rc == 1)
+        {
+            QMessageBox::warning(this,"EICAR-TEST",tr("Eica-Test finished with an error!\nThe test was interrupted by a user action."));
+            m_ui.eicarTestResultButton->setIcon(QIcon(":/icons/icons/cancel.png"));
+        }
+        else {
+            QMessageBox::warning(this,"EICAR-TEST",tr("Eica-Test finished with an error!"));
+            m_ui.eicarTestResultButton->setIcon(QIcon(":/icons/icons/cancel.png"));
+        }
+    }
 }
 
 void setupTab::findTranslation()

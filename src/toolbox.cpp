@@ -2,6 +2,7 @@
  * Toolbox with procedures helping with the flatpak handling
 *******************************************************************/
 #include "toolbox.h"
+#include "sharedvars.cpp"
 
 bool isRunninginFlatPak()
 {
@@ -136,6 +137,93 @@ QString runProg(QString command, QStringList parameters)
     return QString::fromLocal8Bit(process.readAllStandardOutput()).trimmed();
 }
 
+void assembleScanParameters(setupFileHandler * m_setupFile, QStringList * parameters) {
+    QStringList selectedOptions = m_setupFile->getKeywords("SelectedOptions");
+    QStringList scanLimitations = m_setupFile->getKeywords("ScanLimitations");
+    QStringList directoryOptions = m_setupFile->getKeywords("Directories");
+    QString option;
+    QString checked;
+    QString value;
+
+    for (int i = 0; i < selectedOptions.count(); i++)
+    {
+        *parameters << selectedOptions.at(i).left(selectedOptions.indexOf("|")).replace("<equal>", "=");
+    }
+
+    // Directory Options
+    for (int i = 0; i < directoryOptions.count(); i++)
+    {
+        option = directoryOptions.at(i);
+        value = m_setupFile->getSectionValue("Directories", option);
+        checked = value.left(value.indexOf("|"));
+        value = value.mid(value.indexOf("|") + 1);
+
+        if ((checked == "checked") && (value != ""))
+        {
+            for (int idx = 0; idx < directoryOptionKeywords.size(); idx++)
+            {
+                if (directoryOptionKeywords.at(idx) == option)
+                {
+                    if (directoryOptionKeywords.at(idx) == "ScanReportToFile")
+                    {
+                        if (value != "")
+                        {
+                            *parameters << "--log=" + value;
+                            QFile file(value);
+                            if (file.open(QIODevice::ReadWrite | QIODevice::Append | QIODevice::Text))
+                            {
+                                QTextStream stream(&file);
+                                stream << "\n<Scanning startet> " << QDateTime::currentDateTime().toString("yyyy/M/d - hh:mm");
+                                file.close();
+                            }
+                        }
+                    }
+                    else
+                        *parameters << directoryOptionSwitches.at(idx) + "=" + value;
+                }
+            }
+        }
+    }
+
+    // Scan Limitations
+    for (int i = 0; i < scanLimitations.count(); i++)
+    {
+        option = scanLimitations.at(i);
+        value = m_setupFile->getSectionValue("ScanLimitations", option);
+        checked = value.left(value.indexOf("|"));
+        value = value.mid(value.indexOf("|") + 1);
+        if (checked == "checked")
+        {
+            for (int i = 0; i < scanLimitKeywords.length(); i++)
+            {
+                if (option == scanLimitKeywords.at(i))
+                    *parameters << scanLimitSwitches.at(i) + "=" + value;
+            }
+        }
+    }
+
+    // REGEXP and Include Exclude Options
+    for (int idx = 0; idx < inclExclKeywords.size(); idx++)
+    {
+        if (idx < 4)
+        {
+            value = m_setupFile->getSectionValue("REGEXP_and_IncludeExclude",inclExclKeywords.at(idx));
+            checked = value.left(value.indexOf("|"));
+            value = value.mid(value.indexOf("|") + 1);
+            if (checked == "checked") *parameters << inclExclSwitches.at(idx) + "=" + value;
+        }
+        else {
+            if (m_setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude","EnablePUAOptions") == true)
+            {
+                if ((m_setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude",inclExclKeywords.at(idx)) == true) &&
+                    (inclExclKeywords.at(idx) != "EnablePUAOptions"))
+                    *parameters << inclExclSwitches.at(idx);
+            }
+        }
+    }
+
+}
+
 bool isRunninginAppImage()
 {
     QString AppImagePath = qEnvironmentVariable("APPIMAGE");
@@ -173,6 +261,11 @@ bool createServiceMenus()
 
 bool addServiceMenuNemo(){
     bool created = false;
+    QDir mkpathDir(QDir::homePath());
+
+    if (QFileInfo::exists(QDir::homePath() + "/.local/share/nemo/actions") == false)
+        mkpathDir.mkpath(QDir::homePath() + "/.local/share/nemo/actions");
+
     // Service Menu for NEMO
     if (QFileInfo::exists(QDir::homePath() + "/.local/share/nemo/actions"))
     {
@@ -286,6 +379,8 @@ bool removeServiceMenuGnomeCommander()
 
 bool addServiceMenuDolphin(){
     bool created = false;
+    QDir mkpathDir(QDir::homePath());
+
     //*****************************************************************************
     //creating service Menu for Dolphin
     //*****************************************************************************
@@ -293,16 +388,14 @@ bool addServiceMenuDolphin(){
     if (QFileInfo::exists(QDir::homePath() + "/.local/share/kservices5/ServiceMenus"))
         serviceMenuPath = QDir::homePath() + "/.local/share/kservices5/ServiceMenus";
 
-    if (serviceMenuPath.isEmpty() && QFileInfo::exists(QDir::homePath() + "/.local/share/kio/servicemenus"))
+    if (serviceMenuPath.isEmpty())
         serviceMenuPath = QDir::homePath() + "/.local/share/kio/servicemenus";
 
-    if (serviceMenuPath != "")
+    if (!QFileInfo::exists(serviceMenuPath))
+        mkpathDir.mkpath(serviceMenuPath);
+
+    if (QFileInfo::exists(serviceMenuPath) == true)
     {
-        if (!QFileInfo::exists(serviceMenuPath))
-        {
-            QDir dir(serviceMenuPath);
-            dir.mkpath(serviceMenuPath);
-        }
         setupFileHandler* serviceFile = new setupFileHandler(serviceMenuPath + "/scanWithClamAV-GUI.desktop", nullptr);
         serviceFile->setSectionValue("Desktop Entry", "Type", "Service");
         serviceFile->setSectionValue("Desktop Entry", "ServiceTypes", "KonqPopupMenu/Plugin");

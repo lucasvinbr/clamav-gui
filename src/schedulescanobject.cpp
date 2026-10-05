@@ -11,10 +11,13 @@ scheduleScanObject::scheduleScanObject(QWidget* parent, QString name, QStringLis
     setWindowFlags(((this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowCloseButtonHint & ~Qt::WindowContextHelpButtonHint));
     m_ui.setupUi(this);
 
-    if (name == "Direct Scan")
+    if ((name == "Direct Scan") || (name == "Eicar Test"))
     {
         m_directScan = true;
-        m_ui.headerLabel->setText("Direct Scan");
+        if (name == "Direct Scan")
+            m_ui.headerLabel->setText("Direct Scan");
+        else
+            m_ui.headerLabel->setText("Eicar Test");
     }
     else
         m_directScan = false;
@@ -216,6 +219,9 @@ void scheduleScanObject::slot_scanProcessHasErrOutput()
 
 void scheduleScanObject::slot_scanProcessFinished(int exitCode, QProcess::ExitStatus status)
 {
+    if (scanJob == "Eicar Test")
+        accept();
+
     exitCode = exitCode;
     status = status;
     QString temp;

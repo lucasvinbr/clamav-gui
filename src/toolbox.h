@@ -23,6 +23,7 @@ bool removeServiceMenuNemo();
 bool serviceMenuConfigPresent(QString);
 void startProcess(QProcess * process,QString basecommand,QStringList parameters);
 QString runProg(QString basecommand,QStringList parameters);
+void assembleScanParameters(setupFileHandler * m_setupFile, QStringList * parameters);
 bool checkFileExists(const QString path);
 bool processRunning(QString);
 QString pidof(QString progname);

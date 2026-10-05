@@ -44,48 +44,48 @@
         <translation>配置：</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="174"/>
+        <location filename="../src/profilemanager.cpp" line="177"/>
         <source>WARNING</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="174"/>
+        <location filename="../src/profilemanager.cpp" line="177"/>
         <source>Do you really want to remove this (</source>
         <translation>您确定要移除此（</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="174"/>
+        <location filename="../src/profilemanager.cpp" line="177"/>
         <source>) profile</source>
         <translation>）配置</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="184"/>
-        <location filename="../src/profilemanager.cpp" line="194"/>
+        <location filename="../src/profilemanager.cpp" line="187"/>
+        <location filename="../src/profilemanager.cpp" line="197"/>
         <source>Info</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="185"/>
+        <location filename="../src/profilemanager.cpp" line="188"/>
         <source>There is a log-file associated with this profile. Shall I remove the log-file as well?</source>
         <translation>此配置关联有日志文件。是否同时删除日志文件？</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="194"/>
+        <location filename="../src/profilemanager.cpp" line="197"/>
         <source>Profile &quot;</source>
         <translation>Profile &quot;</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="194"/>
+        <location filename="../src/profilemanager.cpp" line="197"/>
         <source>&quot; removed</source>
         <translation>&quot; removed</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="202"/>
+        <location filename="../src/profilemanager.cpp" line="205"/>
         <source>ERROR</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="202"/>
+        <location filename="../src/profilemanager.cpp" line="205"/>
         <source>Profile can not be removed because it is in use by the scheduler!</source>
         <translation>无法删除配置，因为它正在被调度器使用！</translation>
     </message>
@@ -715,71 +715,71 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="356"/>
+        <location filename="../src/clamav_gui.cpp" line="352"/>
         <source>Scanning started .......</source>
         <translation>扫描已开始......</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="371"/>
+        <location filename="../src/clamav_gui.cpp" line="367"/>
         <source>Use ClamdScan</source>
         <translation>使用ClamdScan</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="371"/>
+        <location filename="../src/clamav_gui.cpp" line="367"/>
         <source>Perform scanning using clamdscan instead of clamscan?</source>
         <translation>是否使用clamdscan代替clamscan执行扫描？</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="575"/>
+        <location filename="../src/clamav_gui.cpp" line="496"/>
         <source>Scan-Process aborted ......</source>
         <translation>扫描进程已中止......</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="576"/>
-        <location filename="../src/clamav_gui.cpp" line="583"/>
-        <location filename="../src/clamav_gui.cpp" line="590"/>
-        <location filename="../src/clamav_gui.cpp" line="595"/>
+        <location filename="../src/clamav_gui.cpp" line="497"/>
+        <location filename="../src/clamav_gui.cpp" line="504"/>
+        <location filename="../src/clamav_gui.cpp" line="511"/>
+        <location filename="../src/clamav_gui.cpp" line="516"/>
         <source>Scan-Status</source>
         <translation>扫描状态</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="576"/>
+        <location filename="../src/clamav_gui.cpp" line="497"/>
         <source>Scan Process aborted .....</source>
         <translation>扫描进程已中止.....</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="582"/>
+        <location filename="../src/clamav_gui.cpp" line="503"/>
         <source>Scan-Process finished ...... no Virus found!</source>
         <translation>扫描进程完成......未发现病毒！</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="583"/>
+        <location filename="../src/clamav_gui.cpp" line="504"/>
         <source>Scan Process finished ..... no virus found!</source>
         <translation>扫描进程完成.....未发现病毒！</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="589"/>
+        <location filename="../src/clamav_gui.cpp" line="510"/>
         <source>Scan-Process finished ...... Virus found!</source>
         <translation>扫描进程完成......发现病毒！</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="590"/>
+        <location filename="../src/clamav_gui.cpp" line="511"/>
         <source>Scan Process finished ..... a virus was found!</source>
         <translation>扫描进程完成.....发现病毒！</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="594"/>
+        <location filename="../src/clamav_gui.cpp" line="515"/>
         <source>Scan-Process finished ...... an error occured!</source>
         <translation>扫描进程完成......发生错误！</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="595"/>
+        <location filename="../src/clamav_gui.cpp" line="516"/>
         <source>Scan Process finished ..... an error occurred!</source>
         <translation>扫描进程完成.....发生错误！</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="615"/>
-        <location filename="../src/clamav_gui.cpp" line="616"/>
+        <location filename="../src/clamav_gui.cpp" line="536"/>
+        <location filename="../src/clamav_gui.cpp" line="537"/>
         <source>Scan-Process aborted!</source>
         <translation>扫描进程已中止！</translation>
     </message>
@@ -2749,116 +2749,116 @@ Continue from the Start of the Log?</source>
         <translation>状态：</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="120"/>
+        <location filename="../src/schedulescanobject.cpp" line="123"/>
         <source>Scanning started .......</source>
         <translation>扫描已开始......</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="189"/>
-        <location filename="../src/schedulescanobject.cpp" line="210"/>
+        <location filename="../src/schedulescanobject.cpp" line="192"/>
+        <location filename="../src/schedulescanobject.cpp" line="213"/>
         <source>Scanning : </source>
         <translation>正在扫描：</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="233"/>
-        <location filename="../src/schedulescanobject.cpp" line="235"/>
+        <location filename="../src/schedulescanobject.cpp" line="239"/>
+        <location filename="../src/schedulescanobject.cpp" line="241"/>
         <source>Scan Process aborted .....</source>
         <translation>扫描进程已中止.....</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="26"/>
-        <location filename="../src/schedulescanobject.cpp" line="235"/>
+        <location filename="../src/schedulescanobject.cpp" line="29"/>
+        <location filename="../src/schedulescanobject.cpp" line="241"/>
         <source>Scan-Job: </source>
         <translation>扫描任务：</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="27"/>
+        <location filename="../src/schedulescanobject.cpp" line="30"/>
         <source>Scheduled Scan-Job: </source>
         <translation>计划扫描任务：</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="71"/>
+        <location filename="../src/schedulescanobject.cpp" line="74"/>
         <source>Use ClamdScan</source>
         <translation>使用ClamdScan</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="71"/>
+        <location filename="../src/schedulescanobject.cpp" line="74"/>
         <source>Perform scanning using clamdscan instead of clamscan?</source>
         <translation>是否使用clamdscan代替clamscan执行扫描？</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="239"/>
-        <location filename="../src/schedulescanobject.cpp" line="241"/>
+        <location filename="../src/schedulescanobject.cpp" line="245"/>
+        <location filename="../src/schedulescanobject.cpp" line="247"/>
         <source>Scan-Process finished ...... no Virus found!</source>
         <translation>扫描进程完成......未发现病毒！</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="254"/>
+        <location filename="../src/schedulescanobject.cpp" line="260"/>
         <source>Scan-Process finished ...... a Virus was found!</source>
         <translation>Scan-Process finished ...... a Virus was found!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="256"/>
+        <location filename="../src/schedulescanobject.cpp" line="262"/>
         <source>Scan Process finished ..... a Virus was found!</source>
         <translation>Scan Process finished ..... a Virus was found!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="259"/>
+        <location filename="../src/schedulescanobject.cpp" line="265"/>
         <source>Scan-Process finished ...... an Error occurred!</source>
         <translation>Scan-Process finished ...... an Error occurred!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="261"/>
+        <location filename="../src/schedulescanobject.cpp" line="267"/>
         <source>Scan Process finished ..... an Error occurred!</source>
         <translation>Scan Process finished ..... an Error occurred!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="275"/>
+        <location filename="../src/schedulescanobject.cpp" line="281"/>
         <source>Engine Version: </source>
         <translation>引擎版本：</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="278"/>
+        <location filename="../src/schedulescanobject.cpp" line="284"/>
         <source>Engine Version: n/a</source>
         <translation>引擎版本：未知</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="284"/>
+        <location filename="../src/schedulescanobject.cpp" line="290"/>
         <source>Infected files: </source>
         <translation>Infected files: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="287"/>
+        <location filename="../src/schedulescanobject.cpp" line="293"/>
         <source>Infected files: n/a</source>
         <translation>感染文件：未知</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="293"/>
+        <location filename="../src/schedulescanobject.cpp" line="299"/>
         <source>Scanned Directories: </source>
         <translation>已扫描目录：</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="296"/>
+        <location filename="../src/schedulescanobject.cpp" line="302"/>
         <source>Scanned Directories: n/a</source>
         <translation>已扫描目录：未知</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="302"/>
+        <location filename="../src/schedulescanobject.cpp" line="308"/>
         <source>Scanned Files: </source>
         <translation>已扫描文件：</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="305"/>
+        <location filename="../src/schedulescanobject.cpp" line="311"/>
         <source>Scanned Files: n/a</source>
         <translation>已扫描文件：未知</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="311"/>
+        <location filename="../src/schedulescanobject.cpp" line="317"/>
         <source>Total Errors: </source>
         <translation>错误总数：</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="314"/>
+        <location filename="../src/schedulescanobject.cpp" line="320"/>
         <source>Total Errors: 0</source>
         <translation>错误总数：0</translation>
     </message>
@@ -3128,15 +3128,15 @@ Continue from the Start of the Log?</source>
         <location filename="../ui/setuptab.ui" line="564"/>
         <location filename="../ui/setuptab.ui" line="637"/>
         <location filename="../ui/setuptab.ui" line="665"/>
-        <location filename="../ui/setuptab.ui" line="842"/>
-        <location filename="../ui/setuptab.ui" line="870"/>
-        <location filename="../ui/setuptab.ui" line="898"/>
-        <location filename="../ui/setuptab.ui" line="1074"/>
-        <location filename="../ui/setuptab.ui" line="1130"/>
-        <location filename="../ui/setuptab.ui" line="1273"/>
-        <location filename="../ui/setuptab.ui" line="1300"/>
-        <location filename="../ui/setuptab.ui" line="1327"/>
-        <location filename="../ui/setuptab.ui" line="1354"/>
+        <location filename="../ui/setuptab.ui" line="814"/>
+        <location filename="../ui/setuptab.ui" line="841"/>
+        <location filename="../ui/setuptab.ui" line="868"/>
+        <location filename="../ui/setuptab.ui" line="895"/>
+        <location filename="../ui/setuptab.ui" line="1084"/>
+        <location filename="../ui/setuptab.ui" line="1112"/>
+        <location filename="../ui/setuptab.ui" line="1140"/>
+        <location filename="../ui/setuptab.ui" line="1316"/>
+        <location filename="../ui/setuptab.ui" line="1372"/>
         <source>n/a</source>
         <translation>未知</translation>
     </message>
@@ -3158,52 +3158,52 @@ Continue from the Start of the Log?</source>
         <translation>Clamd</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1016"/>
+        <location filename="../ui/setuptab.ui" line="1258"/>
         <source>Database</source>
         <translation>数据库</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1043"/>
+        <location filename="../ui/setuptab.ui" line="1285"/>
         <source>Bytecode File: </source>
         <translation>二进制文件:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="923"/>
+        <location filename="../ui/setuptab.ui" line="1165"/>
         <source>Daily File: </source>
         <translation>每日文件:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="982"/>
+        <location filename="../ui/setuptab.ui" line="1224"/>
         <source>Main File: </source>
         <translation>主文件:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1099"/>
+        <location filename="../ui/setuptab.ui" line="1341"/>
         <source>Last updated: </source>
         <translation>上次更新:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1246"/>
+        <location filename="../ui/setuptab.ui" line="787"/>
         <source>ClamAV Versions</source>
         <translation>ClamAV 版本</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1266"/>
+        <location filename="../ui/setuptab.ui" line="807"/>
         <source>Installed :</source>
         <translation>已安装：</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1293"/>
+        <location filename="../ui/setuptab.ui" line="834"/>
         <source>Latest :</source>
         <translation>最新的 ：</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1320"/>
+        <location filename="../ui/setuptab.ui" line="861"/>
         <source>LTS Version(s) :</source>
         <translation>LTS 版本：</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1347"/>
+        <location filename="../ui/setuptab.ui" line="888"/>
         <source>Status :</source>
         <translation>状态 :</translation>
     </message>
@@ -3212,83 +3212,111 @@ Continue from the Start of the Log?</source>
         <translation type="vanished">Filemanger 集成用于</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1584"/>
+        <location filename="../ui/setuptab.ui" line="1777"/>
         <source>Dolphin</source>
         <translation>Dolphin</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1589"/>
+        <location filename="../ui/setuptab.ui" line="1782"/>
         <source>Nemo</source>
         <translation>Nemo</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1594"/>
+        <location filename="../ui/setuptab.ui" line="1787"/>
         <source>GNome Commander</source>
         <translation>GNome-Commander</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1565"/>
+        <location filename="../ui/setuptab.ui" line="1765"/>
         <source>add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1146"/>
+        <location filename="../ui/setuptab.ui" line="1012"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; color:#000000;&quot;&gt;Eicar Test.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The EICAR Anti-Virus Test File or EICAR test file is a computer file that was developed by the &lt;span style=&quot; font-weight:700;&quot;&gt;European Institute for Computer Antivirus Research (EICAR)&lt;/span&gt; and Computer Antivirus Research Organization to test the response of computer antivirus programs.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Instead of using real malware, which could cause real damage, this file allows people to safely test anti-virus software.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; color:#000000;&quot;&gt;Eicar Test.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;EICAR 反病毒测试文件或 EICAR 测试文件是由 &lt;span style=&quot; font-weight:700;&quot;&gt;欧洲计算机反病毒研究所（EICAR）&lt;/span&gt; 和计算机反病毒研究组织开发的计算机文件，用于测试计算机反病毒程序的响应能力。&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;与可能造成实际损害的真实恶意软件不同，该文件允许用户安全地测试杀毒软件。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1031"/>
+        <source> Start Eicar Test</source>
+        <translation> 开始 Eicar 测试</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1388"/>
         <source>Grayson-Switch</source>
         <translation>格雷森·斯威奇</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1161"/>
+        <location filename="../ui/setuptab.ui" line="1403"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For people with color blindness. Removes all the fancy color stuff from the log files and indicators.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <extracomment>For people with color blindness</extracomment>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;专为色盲人士设计。可从日志文件和指标中移除所有花哨的颜色信息。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1543"/>
+        <location filename="../ui/setuptab.ui" line="1736"/>
         <source>Filemanager Integration</source>
         <translation>文件管理器集成</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1576"/>
+        <location filename="../ui/setuptab.ui" line="1758"/>
         <source>Integration for</source>
         <translation>集成用于</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1644"/>
+        <location filename="../ui/setuptab.ui" line="1850"/>
         <source>ClamAV System Status</source>
         <translation>ClamAV系统状态</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="761"/>
+        <location filename="../ui/setuptab.ui" line="1473"/>
         <source>ClamdScan</source>
         <translation>ClamdScan</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="781"/>
+        <location filename="../ui/setuptab.ui" line="1493"/>
         <source>Never, even if available.</source>
         <translation>从不，即使可用。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="786"/>
+        <location filename="../ui/setuptab.ui" line="1498"/>
         <source>Always, if available.</source>
         <translation>始终，如果可用。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="791"/>
+        <location filename="../ui/setuptab.ui" line="1503"/>
         <source>For scheduled scan, if available.</source>
         <translation>用于计划扫描，如果可用。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="796"/>
+        <location filename="../ui/setuptab.ui" line="1508"/>
         <source>For direct scan, if available.</source>
         <translation>用于直接扫描，如果可用。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="801"/>
+        <location filename="../ui/setuptab.ui" line="1513"/>
         <source>Ask for permission, if available.</source>
         <translation>询问权限，如果可用。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="773"/>
+        <location filename="../ui/setuptab.ui" line="1485"/>
         <source>use ClamdScan with multithreading ...</source>
         <translation>使用ClamdScan多线程...</translation>
     </message>
@@ -3297,32 +3325,32 @@ Continue from the Start of the Log?</source>
         <translation type="vanished">[uk_UA] 乌克兰</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1167"/>
+        <location filename="../ui/setuptab.ui" line="1409"/>
         <source>Switch the application to monochrome mode.</source>
         <translation>将应用程序切换到单色模式。</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1386"/>
+        <location filename="../ui/setuptab.ui" line="1585"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1482"/>
+        <location filename="../ui/setuptab.ui" line="1676"/>
         <source>Window State on Startup</source>
         <translation>启动时的窗口状态</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1490"/>
+        <location filename="../ui/setuptab.ui" line="1654"/>
         <source>Show Window maximized</source>
         <translation>显示窗口最大化</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1495"/>
+        <location filename="../ui/setuptab.ui" line="1659"/>
         <source>Show Tray Icon only</source>
         <translation>在任务栏显示图标</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="234"/>
+        <location filename="../src/setuptab.cpp" line="237"/>
         <source>OK</source>
         <translation>好的</translation>
     </message>
@@ -3332,11 +3360,28 @@ Continue from the Start of the Log?</source>
     </message>
     <message>
         <location filename="../src/setuptab.cpp" line="343"/>
+        <source>Eicar-Test finished successfully!</source>
+        <translation>Eicar 测试已成功完成！</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="349"/>
+        <source>Eica-Test finished with an error!
+The test was interrupted by a user action.</source>
+        <translation>Eicar-Test 测试因错误而结束！
+测试因用户操作而被中断。</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="353"/>
+        <source>Eica-Test finished with an error!</source>
+        <translation>Eicar-Test 运行时出现错误！</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="416"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="343"/>
+        <location filename="../src/setuptab.cpp" line="416"/>
         <source>You have to restart the application for changes to take effect!</source>
         <translation>你必须重启程序才能使改变生效！</translation>
     </message>
@@ -3344,7 +3389,7 @@ Continue from the Start of the Log?</source>
         <location filename="../ui/setuptab.ui" line="91"/>
         <location filename="../ui/setuptab.ui" line="320"/>
         <location filename="../ui/setuptab.ui" line="690"/>
-        <location filename="../ui/setuptab.ui" line="954"/>
+        <location filename="../ui/setuptab.ui" line="1196"/>
         <source>Path: </source>
         <translation>路径：</translation>
     </message>
