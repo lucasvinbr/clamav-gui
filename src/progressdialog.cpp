@@ -1,3 +1,6 @@
+/************************************************************************
+ * Round progress dialog used by freshclamsetter
+************************************************************************/
 #include "progressdialog.h"
 
 progressDialog::progressDialog(QWidget* parent) 

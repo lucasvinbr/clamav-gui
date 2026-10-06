@@ -1,3 +1,6 @@
+/*************************************************************************
+ * Pushbutton for the drag - drop action of the dropzone.
+ *************************************************************************/
 #include "dragablepushbutton.h"
 
 dragablePushButton::dragablePushButton(QWidget* parent) : QPushButton(parent)

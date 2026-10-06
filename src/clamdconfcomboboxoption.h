@@ -4,7 +4,7 @@
 #include "ui_clamdconfcomboboxoption.h"
 #include "clamdconfoptionbaseclass.h"
 #include "setupfilehandler.h"
-#include "translator.h"
+#include "toolbox.h"
 
 #include <QWidget>
 #include <QMessageBox>

@@ -3,7 +3,7 @@
 
 #include "setupfilehandler.h"
 #include "clamdconfoptionbaseclass.h"
-#include "translator.h"
+#include "toolbox.h"
 #include "ui_clamdconfstringoption.h"
 
 #include <QWidget>

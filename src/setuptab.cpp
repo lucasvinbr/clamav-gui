@@ -1,3 +1,6 @@
+/************************************************************************
+ * Setup Tab of the applicatino
+ ************************************************************************/
 #include "setuptab.h"
 #define css_red "background-color:red;color:white"
 #define css_yellow "background-color:yellow;color:black"
@@ -9,7 +12,6 @@ setupTab::setupTab(QWidget* parent, setupFileHandler* setupFile) : QWidget(paren
     m_ui.setupUi(this);
     m_supressMessage = true;  // verhindert, dass bei der Initialisierung der Sprachauswahl die Warnmeldung kommt.
 
-    //m_setupFile = new setupFileHandler(QDir::homePath() + "/.clamav-gui/settings.ini", this); --> uses the setupFileHandler provided by the clamav_gui class
     m_monochrome = false;
     if (m_setupFile->keywordExists("Setup", "DisableLogHighlighter") == true)
         m_monochrome = m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter");
@@ -23,27 +25,25 @@ setupTab::setupTab(QWidget* parent, setupFileHandler* setupFile) : QWidget(paren
     }
 
     if (m_setupFile->keywordExists("Clamd", "ClamdScanMultithreading") == true)
-    {
         m_ui.clamdscanComboBox->setCurrentIndex(m_setupFile->getSectionIntValue("Clamd", "ClamdScanMultithreading"));
-    }
-    else {
+    else
         m_setupFile->setSectionValue("Clamd", "ClamdScanMultithreading", 0);
-    }
 
     if (m_setupFile->keywordExists("Setup", "DisableLogHighlighter") == true)
-    {
         m_ui.logHighlighterCheckBox->setChecked(m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter"));
-    }
-    else {
+    else
         m_setupFile->setSectionValue("Setup", "DisableLogHighlighter", false);
-    }
 
     manager = new QNetworkAccessManager(this);
     connect(manager,SIGNAL(finished(QNetworkReply*)),SLOT(slot_requestFinished(QNetworkReply*)));
     manager->get(QNetworkRequest(QUrl("https://www.clamav.net/download")));
 
+    eicarManager = new QNetworkAccessManager(this);
+    connect(eicarManager,SIGNAL(finished(QNetworkReply*)),SLOT(slot_eicarRequestFinished(QNetworkReply*)));
+
     findTranslation();
     slot_updateSystemInfo();
+    slot_filemanagerComboBoxChanged(0);
     m_supressMessage = false;
 }
 
@@ -51,9 +51,7 @@ QString setupTab::checkmonochrome(QString color)
 {
     QString rc = "";
     if (m_monochrome == true)
-    {
         rc = css_mono;
-    }
     else {
         if (color == "red")
             rc = css_red;
@@ -242,6 +240,122 @@ void setupTab::slot_requestFinished(QNetworkReply * reply)
     reply->deleteLater();
 }
 
+void setupTab::slot_eicarRequestFinished(QNetworkReply *reply)
+{
+    if(reply->error())
+    {
+        QMessageBox::information(this,"ERROR",reply->errorString());
+    }
+    else
+    {
+        QStringList parameters;
+        QString replyString = reply->readAll();
+        QFile file(QDir::homePath() + "/.cache/eicartest/eicar.com.txt");
+
+        if (file.open(QIODevice::Text|QIODevice::WriteOnly))
+        {
+            QTextStream stream(&file);
+            stream << replyString;
+            file.close();
+        }
+
+        assembleScanParameters(m_setupFile,&parameters);
+
+        parameters << QDir::homePath() + "/.cache/eicartest/eicar.com.txt";
+
+        scheduleScanObject * scanObject = new scheduleScanObject(this,"Eicar Test",parameters);
+        connect(scanObject,SIGNAL(sendStatusReport(int,QString,QString)),this,SLOT(slot_eicarTestStatusReport(int,QString,QString)));
+        scanObject->setWindowTitle("EICAR Test");
+        scanObject->setWindowIcon(QIcon(":/icons/icons/media.png"));
+        scanObject->setModal(true);
+        scanObject->exec();
+        delete scanObject;
+    }
+}
+
+void setupTab::slot_addRemoveFilemanagerIntegrationButtonClicked()
+{
+    switch (m_ui.filemanagerComboBox->currentIndex())
+    {
+        case 0  :   if (serviceMenuConfigPresent("dolphin") == false)
+                        addServiceMenuDolphin();
+                    else
+                        removeServiceMenuDolphin();
+                    slot_filemanagerComboBoxChanged(0);
+            break;
+        case 1  :   if (serviceMenuConfigPresent("nemo") == false)
+                        addServiceMenuNemo();
+                    else
+                        removeServiceMenuNemo();
+                    slot_filemanagerComboBoxChanged(1);
+            break;
+        case 2  :   if (serviceMenuConfigPresent("gnome-commander") == false)
+                        addServiceMenuGnomeCommander();
+                    else
+                        removeServiceMenuGnomeCommander();
+                    slot_filemanagerComboBoxChanged(2);
+            break;
+    }
+}
+
+void setupTab::slot_filemanagerComboBoxChanged(int value)
+{
+    QString labelText = "";
+    QIcon addIcon(":/icons/icons/add.png");
+    QIcon delIcon(":/icons/icons/trash-can.png");
+
+    switch (value)
+    {
+        case 0  :   serviceMenuConfigPresent("dolphin") == true?labelText = "remove":labelText = "add";
+            break;
+        case 1  : serviceMenuConfigPresent("nemo") == true?labelText = "remove":labelText = "add";
+            break;
+        case 2  : serviceMenuConfigPresent("gnome-commander") == true?labelText = "remove":labelText = "add";
+            break;
+    }
+
+    m_ui.addIntegrationPushButton->setText(tr(QString(labelText).toLocal8Bit()));
+    labelText == "add"?m_ui.addIntegrationPushButton->setIcon(addIcon):m_ui.addIntegrationPushButton->setIcon(delIcon);
+
+}
+
+void setupTab::slot_startEicarTest()
+{
+    QDir eicarTestDir(QDir::homePath() + "/.cache/eicartest");
+    eicarTestDir.mkpath(QDir::homePath() + "/.cache/eicartest");
+
+    eicarManager->get(QNetworkRequest(QUrl("https://secure.eicar.org/eicar.com.txt")));
+}
+
+void setupTab::slot_eicarTestStatusReport(int rc, QString text1, QString text2)
+{
+    Q_UNUSED(text1);
+    Q_UNUSED(text2);
+
+    if (QFileInfo::exists(QDir::homePath() + "/.cache/eicartest/eicar.com.txt"))
+    {
+        QFile eraseFile(QDir::homePath() + "/.cache/eicartest/eicar.com.txt");
+        eraseFile.remove();
+    }
+
+    if (rc == 2)
+    {
+        QMessageBox::information(this,"EICAR-TEST",tr("Eicar-Test finished successfully!"));
+        m_ui.eicarTestResultButton->setIcon(QIcon(":/icons/icons/create.png"));
+    }
+    else {
+        if (rc == 1)
+        {
+            QMessageBox::warning(this,"EICAR-TEST",tr("Eica-Test finished with an error!\nThe test was interrupted by a user action."));
+            m_ui.eicarTestResultButton->setIcon(QIcon(":/icons/icons/cancel.png"));
+        }
+        else {
+            QMessageBox::warning(this,"EICAR-TEST",tr("Eica-Test finished with an error!"));
+            m_ui.eicarTestResultButton->setIcon(QIcon(":/icons/icons/cancel.png"));
+        }
+    }
+}
+
 void setupTab::findTranslation()
 {
     int index = -1;
@@ -299,9 +413,7 @@ void setupTab::slot_selectedLanguageChanged()
 {
     m_setupFile->setSectionValue("Setup", "language", m_ui.languageSelectComboBox->currentText().mid(0, 7));
     if (m_supressMessage == false)
-    {
         QMessageBox::information(this, tr("Warning"), tr("You have to restart the application for changes to take effect!"));
-    }
 }
 
 void setupTab::slot_basicSettingsChanged()

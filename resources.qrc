@@ -74,6 +74,7 @@
         <file>icons/pt_TL.png</file>
         <file>icons/uk_UA.png</file>
         <file>icons/biohazard.png</file>
+        <file>icons/eicar.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

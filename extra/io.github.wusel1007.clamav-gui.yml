@@ -26,5 +26,5 @@ modules:
     sources:
       - type: git
         url: https://github.com/wusel1007/clamav-gui.git
-        tag: v.1.4.5
-        commit: 217502030221ec93c528559afad616ec9d0d2ae4
+        tag: v1.4.6-updated
+        commit: 8ff171a22583535248b0d6384d69309d847a81f4

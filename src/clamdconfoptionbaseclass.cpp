@@ -1,3 +1,6 @@
+/*****************************************************
+ * Basis class for all clamdconfoption classes
+******************************************************/
 #include "clamdconfoptionbaseclass.h"
 
 ClamdConfOptionBaseClass::ClamdConfOptionBaseClass(QWidget* parent) : QWidget{parent} {}

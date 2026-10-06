@@ -1,3 +1,7 @@
+/*******************************************************************
+ * Tab object that displays the logs for a profile within the
+ * logviewerobject
+ *******************************************************************/
 #include "logviewobject.h"
 
 logViewObject::logViewObject(QWidget* parent, QString fileName) : QDialog(parent)
@@ -29,7 +33,6 @@ void logViewObject::loadLogFile(QString filename)
     QString tabHeader;
     QWidget * tempwidget = nullptr;
 
-    //setupFileHandler* sf = new setupFileHandler(QDir::homePath() + "/.clamav-gm_ui/settings.ini", this);
     bool css = setupFileHandler::getSectionBoolValue(QDir::homePath() + "/.clamav-gm_ui/settings.ini","Setup", "DisableLogHighlighter");
 
     while (m_ui.logTab->count() > 0)
@@ -114,7 +117,7 @@ void logViewObject::slot_clearLogButtonClicked()
 
     if (currentTab > -1)
     {
-        if (QMessageBox::question(this, tr("Clear Log"), tr("Do you realy want to remove this partial log?"), QMessageBox::Yes, QMessageBox::No) ==
+        if (QMessageBox::question(this, tr("Clear Log"), tr("Do you really want to remove this partial log?"), QMessageBox::Yes, QMessageBox::No) ==
             QMessageBox::Yes)
         {
             m_ui.logTab->removeTab(currentTab);

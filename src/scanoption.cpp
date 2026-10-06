@@ -1,3 +1,6 @@
+/************************************************************************
+ * Checkable Scan Option element for the scan option tab
+ ************************************************************************/
 #include "scanoption.h"
 #define css "background-color:#404040;color:white"
 
@@ -31,7 +34,7 @@ scanoption::scanoption(QWidget *parent, QString setupFileName, QString section, 
         m_setupFile->setSectionValue(m_setupFileSection,m_option,m_com);
     }
 
-    m_ui.checkBox->setText(translator::beautifyString(m_com));
+    m_ui.checkBox->setText(beautifyString(m_com));
     m_ui.checkBox->setToolTip(m_option);
 }
 

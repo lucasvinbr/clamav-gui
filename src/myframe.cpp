@@ -1,3 +1,6 @@
+/*******************************************************************
+ * Overloaded frame class to display a costum background
+ *******************************************************************/
 #include "myframe.h"
 
 myFrame::myFrame(QWidget* parent) : QFrame(parent)

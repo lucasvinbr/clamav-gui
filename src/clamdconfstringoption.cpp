@@ -1,3 +1,7 @@
+/**************************************************************
+ * Editable string options for the clamd.conf file configuration
+ * in the clamd tab.
+ **************************************************************/
 #include "clamdconfstringoption.h"
 #define css_mono "background-color:#404040;color:white"
 
@@ -31,7 +35,7 @@ clamdConfStringOption::clamdConfStringOption(QWidget* parent, QString keyword, b
 
     m_comment = label;
     label = QCoreApplication::translate("ClamAV", label.toUtf8().constData());
-    label = translator::beautifyString(label, 120);
+    label = beautifyString(label, 120);
 
     m_ui.checkBox->setText(label);
     m_ui.checkBox->setToolTip(keyword);

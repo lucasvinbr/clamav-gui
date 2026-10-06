@@ -9,83 +9,83 @@
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/profilemanager.ui" line="223"/>
+        <location filename="../ui/profilemanager.ui" line="210"/>
         <source>erase Profile</source>
         <translation>видалити профілі</translation>
     </message>
     <message>
-        <location filename="../ui/profilemanager.ui" line="201"/>
+        <location filename="../ui/profilemanager.ui" line="188"/>
         <source>Log-File:</source>
         <translation>Лог-файл:</translation>
     </message>
     <message>
-        <location filename="../ui/profilemanager.ui" line="429"/>
+        <location filename="../ui/profilemanager.ui" line="303"/>
         <source>add Profile</source>
         <translation>додати профіль</translation>
     </message>
     <message>
-        <location filename="../ui/profilemanager.ui" line="400"/>
+        <location filename="../ui/profilemanager.ui" line="274"/>
         <source>edit Profile</source>
         <translation>редагувати профілі</translation>
     </message>
     <message>
-        <location filename="../ui/profilemanager.ui" line="318"/>
+        <location filename="../ui/profilemanager.ui" line="372"/>
         <source>Targets:</source>
         <translation>Цілі:</translation>
     </message>
     <message>
-        <location filename="../ui/profilemanager.ui" line="126"/>
+        <location filename="../ui/profilemanager.ui" line="113"/>
         <source>Options:</source>
         <translation>Варіанти:</translation>
     </message>
     <message>
-        <location filename="../ui/profilemanager.ui" line="249"/>
+        <location filename="../ui/profilemanager.ui" line="236"/>
         <source>Profile:</source>
         <translation>Профілі:</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="252"/>
+        <location filename="../src/profilemanager.cpp" line="177"/>
         <source>WARNING</source>
         <translation>ПОПЕРЕДЖЕННЯ</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="252"/>
-        <source>Do you realy want to remove this (</source>
+        <location filename="../src/profilemanager.cpp" line="177"/>
+        <source>Do you really want to remove this (</source>
         <translation>Ви дійсно хочете видалити це (</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="252"/>
+        <location filename="../src/profilemanager.cpp" line="177"/>
         <source>) profile</source>
         <translation>) профіль</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="260"/>
-        <location filename="../src/profilemanager.cpp" line="269"/>
+        <location filename="../src/profilemanager.cpp" line="187"/>
+        <location filename="../src/profilemanager.cpp" line="197"/>
         <source>Info</source>
         <translation>Інформація</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="261"/>
+        <location filename="../src/profilemanager.cpp" line="188"/>
         <source>There is a log-file associated with this profile. Shall I remove the log-file as well?</source>
         <translation>З цим профілем пов&apos;язаний лог-файл. Чи потрібно видалити файл журналу також?</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="269"/>
+        <location filename="../src/profilemanager.cpp" line="197"/>
         <source>Profile &quot;</source>
         <translation>Профілі «</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="269"/>
+        <location filename="../src/profilemanager.cpp" line="197"/>
         <source>&quot; removed</source>
         <translation>« видалено</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="277"/>
+        <location filename="../src/profilemanager.cpp" line="205"/>
         <source>ERROR</source>
         <translation>ПОМИЛКА</translation>
     </message>
     <message>
-        <location filename="../src/profilemanager.cpp" line="277"/>
+        <location filename="../src/profilemanager.cpp" line="205"/>
         <source>Profile can not be removed because it is in use by the scheduler!</source>
         <translation>Профіль не може бути видалений, оскільки він використовується планувальником!</translation>
     </message>
@@ -103,7 +103,6 @@
         <translation>Майстер профілю</translation>
     </message>
     <message>
-        <location filename="../ui/profilewizarddialog.ui" line="181"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -117,7 +116,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Adobe Helvetica&apos;; font-size:12pt;&quot;&gt;to control the behaviour and the actions the virus scanner takes.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Adobe Helvetica&apos;; font-size:12pt;&quot;&gt;Here you set up the log behaviour, log file to use, whether to scan&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Adobe Helvetica&apos;; font-size:12pt;&quot;&gt;recursively and what to do if a virus was found.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
@@ -133,12 +132,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Adobe Helvetica&apos;; font-size:12pt;&quot;&gt;рекурсивно і що робити, якщо знайдено вірус.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/profilewizarddialog.ui" line="215"/>
+        <location filename="../ui/profilewizarddialog.ui" line="228"/>
         <source>Profile name:</source>
         <translation>Ім&apos;я профілю:</translation>
     </message>
     <message>
-        <location filename="../ui/profilewizarddialog.ui" line="245"/>
+        <location filename="../ui/profilewizarddialog.ui" line="242"/>
         <source>First of all please enter a unique name for the profile.</source>
         <translation>Перш за все, будь ласка, введіть унікальне ім&apos;я для профілю.</translation>
     </message>
@@ -485,6 +484,23 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Не сканувати імена файлів, що збігаються з REGEX</translation>
     </message>
     <message>
+        <location filename="../ui/profilewizarddialog.ui" line="181"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Adobe Helvetica&apos;; font-size:12pt;&quot;&gt;Welcom to the Profile Wizard.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Adobe Helvetica&apos;; font-size:12pt;&quot;&gt;This Wizard will guide you through the steps to create a new profile.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Adobe Helvetica&apos;; font-size:12pt;&quot;&gt;What is a profile? A profile is a set of settings for the virus scanner&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Adobe Helvetica&apos;; font-size:12pt;&quot;&gt;to control the behaviour and the actions the virus scanner takes.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Adobe Helvetica&apos;; font-size:12pt;&quot;&gt;Here you set up the log behaviour, log file to use, whether to scan&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Adobe Helvetica&apos;; font-size:12pt;&quot;&gt;recursively and what to do if a virus was found.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
         <location filename="../ui/profilewizarddialog.ui" line="2187"/>
         <source>Minimum number of seconds to Wait for Response</source>
         <translation>Мінімальна кількість секунд для очікування відповіді</translation>
@@ -600,37 +616,37 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="23"/>
+        <location filename="../src/profilewizarddialog.cpp" line="28"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="643"/>
+        <location filename="../src/profilewizarddialog.cpp" line="666"/>
         <source>Signature Folder</source>
         <translation>Папка для підписів</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="650"/>
+        <location filename="../src/profilewizarddialog.cpp" line="673"/>
         <source>Log-File</source>
         <translation>Лог-файл</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="657"/>
+        <location filename="../src/profilewizarddialog.cpp" line="680"/>
         <source>Scan from File</source>
         <translation>Сканування з файлу</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="664"/>
+        <location filename="../src/profilewizarddialog.cpp" line="687"/>
         <source>Folder for temporary files</source>
         <translation>Папка для тимчасових файлів</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="671"/>
+        <location filename="../src/profilewizarddialog.cpp" line="694"/>
         <source>Move Folder for infected Files</source>
         <translation>Перемістити папку для заражених файлів</translation>
     </message>
     <message>
-        <location filename="../src/profilewizarddialog.cpp" line="678"/>
+        <location filename="../src/profilewizarddialog.cpp" line="701"/>
         <source>Copy Folder for infected Files</source>
         <translation>Скопіювати папку для заражених файлів</translation>
     </message>
@@ -652,32 +668,32 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../ui/clamav_gui.ui" line="43"/>
-        <location filename="../src/clamav_gui.cpp" line="58"/>
+        <location filename="../src/clamav_gui.cpp" line="71"/>
         <source>Scan</source>
         <translation>Сканування.</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="61"/>
+        <location filename="../src/clamav_gui.cpp" line="72"/>
         <source>Options</source>
         <translation>Варіанти</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="64"/>
+        <location filename="../src/clamav_gui.cpp" line="73"/>
         <source>Profile Manager</source>
         <translation>Менеджер профілів</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="74"/>
+        <location filename="../src/clamav_gui.cpp" line="76"/>
         <source>FreshClam</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="67"/>
+        <location filename="../src/clamav_gui.cpp" line="74"/>
         <source>Scheduler</source>
         <translation>Планувальник</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="70"/>
+        <location filename="../src/clamav_gui.cpp" line="75"/>
         <source>Logs</source>
         <translation>Журнали</translation>
     </message>
@@ -687,96 +703,96 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="80"/>
+        <location filename="../src/clamav_gui.cpp" line="78"/>
         <source>Setup</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="83"/>
+        <location filename="../src/clamav_gui.cpp" line="79"/>
         <source>About</source>
         <translation>Про</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="168"/>
+        <location filename="../src/clamav_gui.cpp" line="209"/>
         <source>Show/Hide MainWindow</source>
         <translation>Показати/приховати MainWindow</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="171"/>
+        <location filename="../src/clamav_gui.cpp" line="212"/>
         <source>Show/Hide DropZone</source>
         <translation>Показати/приховати DropZone</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="174"/>
+        <location filename="../src/clamav_gui.cpp" line="215"/>
         <source>Quit</source>
         <translation>Звільнися</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="279"/>
+        <location filename="../src/clamav_gui.cpp" line="352"/>
         <source>Scanning started .......</source>
         <translation>Сканування розпочато .......</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="296"/>
+        <location filename="../src/clamav_gui.cpp" line="367"/>
         <source>Use ClamdScan</source>
         <translation>Використовуйте ClamdScan</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="296"/>
+        <location filename="../src/clamav_gui.cpp" line="367"/>
         <source>Perform scanning using clamdscan instead of clamscan?</source>
         <translation>Виконувати сканування за допомогою clamdscan замість clamscan?</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="530"/>
+        <location filename="../src/clamav_gui.cpp" line="496"/>
         <source>Scan-Process aborted ......</source>
         <translation>Процес сканування перервано ......</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="531"/>
-        <location filename="../src/clamav_gui.cpp" line="537"/>
-        <location filename="../src/clamav_gui.cpp" line="542"/>
-        <location filename="../src/clamav_gui.cpp" line="547"/>
+        <location filename="../src/clamav_gui.cpp" line="497"/>
+        <location filename="../src/clamav_gui.cpp" line="504"/>
+        <location filename="../src/clamav_gui.cpp" line="511"/>
+        <location filename="../src/clamav_gui.cpp" line="516"/>
         <source>Scan-Status</source>
         <translation>Статус сканування</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="531"/>
+        <location filename="../src/clamav_gui.cpp" line="497"/>
         <source>Scan Process aborted .....</source>
         <translation>Процес сканування перервано .....</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="536"/>
+        <location filename="../src/clamav_gui.cpp" line="503"/>
         <source>Scan-Process finished ...... no Virus found!</source>
         <translation>Процес сканування завершено ...... Вірус не знайдено!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="537"/>
+        <location filename="../src/clamav_gui.cpp" line="504"/>
         <source>Scan Process finished ..... no virus found!</source>
         <translation>Процес сканування завершено ..... вірусу не знайдено!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="541"/>
+        <location filename="../src/clamav_gui.cpp" line="510"/>
         <source>Scan-Process finished ...... Virus found!</source>
         <translation>Процес сканування завершено ...... Вірус знайдено!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="542"/>
+        <location filename="../src/clamav_gui.cpp" line="511"/>
         <source>Scan Process finished ..... a virus was found!</source>
         <translation>Процес сканування завершено ..... знайдено вірус!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="546"/>
+        <location filename="../src/clamav_gui.cpp" line="515"/>
         <source>Scan-Process finished ...... an error occured!</source>
         <translation>Процес сканування завершено ...... сталася помилка!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="547"/>
+        <location filename="../src/clamav_gui.cpp" line="516"/>
         <source>Scan Process finished ..... an error occurred!</source>
         <translation>Процес сканування завершено ..... сталася помилка!</translation>
     </message>
     <message>
-        <location filename="../src/clamav_gui.cpp" line="566"/>
-        <location filename="../src/clamav_gui.cpp" line="567"/>
+        <location filename="../src/clamav_gui.cpp" line="536"/>
+        <location filename="../src/clamav_gui.cpp" line="537"/>
         <source>Scan-Process aborted!</source>
         <translation>Процес сканування перервано!</translation>
     </message>
@@ -810,37 +826,46 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="46"/>
         <source>Clamd &amp;&amp; Scan on Access</source>
-        <translation>Затискання та сканування в доступі</translation>
+        <translation type="vanished">Затискання та сканування в доступі</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="117"/>
+        <location filename="../ui/clamdmanager.ui" line="108"/>
         <source>  clamd not running - start clamd</source>
         <translation>  clamd не працює - запустити clamd</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="455"/>
+        <location filename="../ui/clamdmanager.ui" line="133"/>
+        <source>Clamd Scan on Access Settings</source>
+        <translation>Налаштування сканування Clamd у програмі Access</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="446"/>
         <source>Filter: </source>
         <translation>Фільтр:</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="482"/>
+        <location filename="../ui/clamdmanager.ui" line="473"/>
         <source>show selected</source>
         <translation>показати вибране</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="489"/>
+        <location filename="../ui/clamdmanager.ui" line="480"/>
         <source>show unselected</source>
         <translation>показати невибране</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="92"/>
+        <location filename="../ui/clamdmanager.ui" line="83"/>
         <source>Clamd &amp; Scan on Access</source>
         <translation>Затискання та сканування в Access</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="285"/>
+        <location filename="../ui/clamdmanager.ui" line="37"/>
+        <source>Clamd Scan on Access</source>
+        <translation>Сканування Clamd під час доступу</translation>
+    </message>
+    <message>
+        <location filename="../ui/clamdmanager.ui" line="276"/>
         <source>Start Clamd on Startup</source>
         <translation>Запустіть Clamd під час запуску</translation>
     </message>
@@ -853,100 +878,97 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation type="vanished">Налаштування ClamonAcc</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="376"/>
+        <location filename="../ui/clamdmanager.ui" line="367"/>
         <source>Folder under monitoring</source>
         <translation>Папка під моніторингом</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="142"/>
         <source>Clamd &amp;&amp; Scan on Access Settings</source>
-        <translation>Затискання та сканування в налаштуваннях доступу</translation>
+        <translation type="vanished">Затискання та сканування в налаштуваннях доступу</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="214"/>
+        <location filename="../ui/clamdmanager.ui" line="205"/>
         <source>Clamd &amp; Scan on Access Settings</source>
         <translation>Затискання та сканування в налаштуваннях доступу</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="236"/>
+        <location filename="../ui/clamdmanager.ui" line="227"/>
         <source>Clamd has to be restarted
 for changes made to take effect.</source>
         <translation>Clamd потрібно перезапустити
 щоб внесені зміни набули чинності.</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="72"/>
+        <location filename="../src/clamdmanager.cpp" line="891"/>
         <source>  Clamd running - Stop clamd</source>
         <translation>  Запуск кластера - Зупинка кластера</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="248"/>
-        <location filename="../src/clamdmanager.cpp" line="601"/>
+        <location filename="../src/clamdmanager.cpp" line="336"/>
+        <location filename="../src/clamdmanager.cpp" line="716"/>
         <source>WARNING</source>
         <translation>ПОПЕРЕДЖЕННЯ</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="307"/>
+        <location filename="../src/clamdmanager.cpp" line="413"/>
         <source>  Clamd starting. Please wait!</source>
         <translation>  Запускаю захват. Будь ласка, зачекайте!</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="347"/>
+        <location filename="../src/clamdmanager.cpp" line="449"/>
         <source>  Stopping Clamd. Please wait!</source>
         <translation>  Зупинити Кламда. Зачекайте, будь ласка!</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="386"/>
-        <location filename="../src/clamdmanager.cpp" line="449"/>
-        <location filename="../src/clamdmanager.cpp" line="567"/>
+        <location filename="../src/clamdmanager.cpp" line="492"/>
+        <location filename="../src/clamdmanager.cpp" line="680"/>
+        <location filename="../src/clamdmanager.cpp" line="901"/>
         <source>  Clamd not running - Start Clamd</source>
         <translation>  Clamd не працює - Запустити Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="420"/>
-        <location filename="../src/clamdmanager.cpp" line="463"/>
         <source>  Clamd running - Stop Clamd</source>
-        <translation>  Clamd працює - зупинити Clamd</translation>
+        <translation type="vanished">  Clamd працює - зупинити Clamd</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="590"/>
+        <location filename="../src/clamdmanager.cpp" line="703"/>
         <source>Directory to monitor</source>
         <translation>Каталог для моніторингу</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="601"/>
+        <location filename="../src/clamdmanager.cpp" line="716"/>
         <source>Path already under monitoring</source>
         <translation>Шлях вже під моніторингом</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="610"/>
+        <location filename="../src/clamdmanager.cpp" line="726"/>
         <source>Remove Folder from monitoring</source>
         <translation>Видалити папку з моніторингу</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="611"/>
+        <location filename="../src/clamdmanager.cpp" line="727"/>
         <source>Path: </source>
         <translation>Шлях: </translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="611"/>
+        <location filename="../src/clamdmanager.cpp" line="727"/>
         <source>Do you want to remove the folder from the monitoring list?</source>
         <translation>Ви хочете видалити папку зі списку моніторингу?</translation>
     </message>
     <message>
-        <location filename="../src/clamdmanager.cpp" line="674"/>
+        <location filename="../src/clamdmanager.cpp" line="782"/>
         <source>  Clamd restarting. Please wait!</source>
         <translation>  Перезапуск кластера. Будь ласка, зачекайте!</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="308"/>
+        <location filename="../ui/clamdmanager.ui" line="299"/>
         <source>Update list of available 
 clamd.conf parameters.</source>
         <translation>Оновити список параметрів, 
 доступних у файлі clamd.conf.</translation>
     </message>
     <message>
-        <location filename="../ui/clamdmanager.ui" line="305"/>
+        <location filename="../ui/clamdmanager.ui" line="296"/>
         <source>determin the current available parameters for clamd.conf. Useful after an update of clamav.</source>
         <translation>Визначте поточні доступні параметри для файлу clamd.conf. Це корисно після оновлення clamav.</translation>
     </message>
@@ -1146,36 +1168,36 @@ clamd.conf parameters.</source>
         <translation>Група застосувань:</translation>
     </message>
     <message>
-        <location filename="../src/firstrunwindow.cpp" line="111"/>
-        <location filename="../src/firstrunwindow.cpp" line="121"/>
-        <location filename="../src/firstrunwindow.cpp" line="131"/>
-        <location filename="../src/firstrunwindow.cpp" line="140"/>
-        <location filename="../src/firstrunwindow.cpp" line="168"/>
+        <location filename="../src/firstrunwindow.cpp" line="154"/>
+        <location filename="../src/firstrunwindow.cpp" line="166"/>
+        <location filename="../src/firstrunwindow.cpp" line="178"/>
+        <location filename="../src/firstrunwindow.cpp" line="190"/>
+        <location filename="../src/firstrunwindow.cpp" line="222"/>
         <source>ERROR</source>
         <translation>ПОМИЛКА</translation>
     </message>
     <message>
-        <location filename="../src/firstrunwindow.cpp" line="111"/>
+        <location filename="../src/firstrunwindow.cpp" line="154"/>
         <source>Clamad is missing. Please install!</source>
         <translation>Clamad відсутній. Будь ласка, встановіть!</translation>
     </message>
     <message>
-        <location filename="../src/firstrunwindow.cpp" line="121"/>
+        <location filename="../src/firstrunwindow.cpp" line="166"/>
         <source>Freshclam is missing. Please install!</source>
         <translation>Freshclam відсутній. Будь ласка, встановіть!</translation>
     </message>
     <message>
-        <location filename="../src/firstrunwindow.cpp" line="131"/>
+        <location filename="../src/firstrunwindow.cpp" line="178"/>
         <source>Clamonacc is missing. Please install!</source>
         <translation>Бракує Clamonacc. Будь ласка, встановіть!</translation>
     </message>
     <message>
-        <location filename="../src/firstrunwindow.cpp" line="140"/>
+        <location filename="../src/firstrunwindow.cpp" line="190"/>
         <source>Clamav is missing. Please install!</source>
         <translation>Clamav відсутній. Будь ласка, встановіть!</translation>
     </message>
     <message>
-        <location filename="../src/firstrunwindow.cpp" line="168"/>
+        <location filename="../src/firstrunwindow.cpp" line="222"/>
         <source>Neither &apos;pkexe&apos; nor &apos;kdesu&apos; os installed. Please install at least one of this applications!</source>
         <translation>Не встановлено ні ОС &apos;pkexe&apos;, ні &apos;kdesu&apos;. Будь ласка, встановіть хоча б одну з цих програм!</translation>
     </message>
@@ -1188,131 +1210,119 @@ clamd.conf parameters.</source>
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="114"/>
-        <location filename="../src/freshclamsetter.cpp" line="286"/>
-        <location filename="../src/freshclamsetter.cpp" line="400"/>
-        <location filename="../src/freshclamsetter.cpp" line="726"/>
+        <location filename="../ui/freshclamsetter.ui" line="117"/>
+        <location filename="../src/freshclamsetter.cpp" line="306"/>
+        <location filename="../src/freshclamsetter.cpp" line="423"/>
+        <location filename="../src/freshclamsetter.cpp" line="810"/>
         <source>Deamon not running - start deamon</source>
         <translation>Deamon не працює - запустіть deamon</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="127"/>
-        <location filename="../ui/freshclamsetter.ui" line="166"/>
+        <location filename="../ui/freshclamsetter.ui" line="130"/>
+        <location filename="../ui/freshclamsetter.ui" line="169"/>
         <source>Ctrl+S, Ctrl+W</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="137"/>
+        <location filename="../ui/freshclamsetter.ui" line="140"/>
         <source>Deamon Log-Messages</source>
         <translation>Повідомлення журналу Deamon</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="81"/>
-        <location filename="../ui/freshclamsetter.ui" line="153"/>
+        <location filename="../ui/freshclamsetter.ui" line="84"/>
+        <location filename="../ui/freshclamsetter.ui" line="156"/>
         <source>Clear Log</source>
         <translation>Очистити журнал</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="28"/>
+        <location filename="../ui/freshclamsetter.ui" line="31"/>
         <source>Freshclam</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="45"/>
+        <location filename="../ui/freshclamsetter.ui" line="48"/>
         <source>Update now!</source>
         <translation>Оновіть зараз!</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="65"/>
+        <location filename="../ui/freshclamsetter.ui" line="68"/>
         <source>Freshclam Log-Messages</source>
         <translation>Лог-повідомлення Freshclam</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="187"/>
+        <location filename="../ui/freshclamsetter.ui" line="190"/>
         <source>Update Info</source>
         <translation>Інформація про оновлення</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="202"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-li.unchecked::marker { content: &quot;\2610&quot;; }
-li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/freshclamsetter.ui" line="224"/>
-        <location filename="../ui/freshclamsetter.ui" line="267"/>
+        <location filename="../ui/freshclamsetter.ui" line="227"/>
+        <location filename="../ui/freshclamsetter.ui" line="270"/>
         <source>Freshclam Settings</source>
         <translation>Налаштування Freshclam</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="456"/>
-        <location filename="../ui/freshclamsetter.ui" line="544"/>
-        <location filename="../ui/freshclamsetter.ui" line="590"/>
-        <location filename="../ui/freshclamsetter.ui" line="614"/>
+        <location filename="../ui/freshclamsetter.ui" line="459"/>
+        <location filename="../ui/freshclamsetter.ui" line="547"/>
+        <location filename="../ui/freshclamsetter.ui" line="593"/>
+        <location filename="../ui/freshclamsetter.ui" line="617"/>
         <source>yes</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="451"/>
-        <location filename="../ui/freshclamsetter.ui" line="549"/>
-        <location filename="../ui/freshclamsetter.ui" line="595"/>
-        <location filename="../ui/freshclamsetter.ui" line="619"/>
+        <location filename="../ui/freshclamsetter.ui" line="454"/>
+        <location filename="../ui/freshclamsetter.ui" line="552"/>
+        <location filename="../ui/freshclamsetter.ui" line="598"/>
+        <location filename="../ui/freshclamsetter.ui" line="622"/>
         <source>no</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="533"/>
+        <location filename="../ui/freshclamsetter.ui" line="536"/>
         <source>Rotate log file. Requires LogFileMaxSize option set prior to this option.</source>
         <translation>Повернути файл журналу. Потребує встановлення параметра LogFileMaxSize перед цим параметром.</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="536"/>
+        <location filename="../ui/freshclamsetter.ui" line="539"/>
         <source>LogRotate:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="352"/>
+        <location filename="../ui/freshclamsetter.ui" line="355"/>
         <source>/tmp/freshclam.pid</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="426"/>
+        <location filename="../ui/freshclamsetter.ui" line="429"/>
         <source>database.clamav.net</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="384"/>
+        <location filename="../ui/freshclamsetter.ui" line="387"/>
         <source>When started by root, drop privileges to a specified user. The user will be determined by the application and must match the owner of the database directory</source>
         <translation>Якщо запущено адміністратором, скинути привілеї для вказаного користувача. Користувач визначатиметься програмою та має відповідати власнику каталогу бази даних</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="387"/>
+        <location filename="../ui/freshclamsetter.ui" line="390"/>
         <source>DatabaseOwner:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="290"/>
+        <location filename="../ui/freshclamsetter.ui" line="293"/>
         <source>not found</source>
         <translation>не знайдено</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="440"/>
+        <location filename="../ui/freshclamsetter.ui" line="443"/>
         <source>Enable logging to Syslog. May be used in combination with UpdateLogFile.</source>
         <translation>Увімкнути ведення журналу в Syslog. Може використовуватися у поєднанні з UpdateLogFile.</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="443"/>
+        <location filename="../ui/freshclamsetter.ui" line="446"/>
         <source>LogSysLog:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="408"/>
+        <location filename="../ui/freshclamsetter.ui" line="411"/>
         <source>DatabaseMirror specifies to which mirror(s) freshclam should connect.
 You should have at least one entries: database.clamav.net. 
 Now that CloudFlare is being used as our Content Delivery Network (CDN),  this  one  domain
@@ -1326,292 +1336,302 @@ Default: database.clamav.net
 За замовчуванням: database.clamav.net</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="416"/>
+        <location filename="../ui/freshclamsetter.ui" line="419"/>
         <source>DatabaseMirror:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="579"/>
+        <location filename="../ui/freshclamsetter.ui" line="582"/>
         <source>Log time with each message.</source>
         <translation>Записуйте час з кожним повідомленням.</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="582"/>
+        <location filename="../ui/freshclamsetter.ui" line="585"/>
         <source>LogTime:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="274"/>
+        <location filename="../ui/freshclamsetter.ui" line="277"/>
         <source>autodecteced location of the freshclam binary</source>
         <translation>автоматично визначене розташування двійкового файлу freshclam</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="277"/>
+        <location filename="../ui/freshclamsetter.ui" line="280"/>
         <source>freshclam (Info)</source>
         <translation>freshclam (інформація)</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="486"/>
+        <location filename="../ui/freshclamsetter.ui" line="489"/>
         <source>Specify the type of syslog messages - please refer to &apos;man syslog&apos; for facility names.
               Default: LOG_LOCAL6</source>
         <translation>Укажіть тип повідомлень системного журналу - будь ласка, зверніться до &apos;man syslog&apos; для назв засобів.
  За замовчуванням: LOG_LOCAL6</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="490"/>
+        <location filename="../ui/freshclamsetter.ui" line="493"/>
         <source>LogFacility:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="374"/>
-        <location filename="../ui/freshclamsetter.ui" line="479"/>
-        <location filename="../ui/freshclamsetter.ui" line="526"/>
-        <location filename="../ui/freshclamsetter.ui" line="572"/>
+        <location filename="../ui/freshclamsetter.ui" line="377"/>
+        <location filename="../ui/freshclamsetter.ui" line="482"/>
+        <location filename="../ui/freshclamsetter.ui" line="529"/>
+        <location filename="../ui/freshclamsetter.ui" line="575"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="498"/>
+        <location filename="../ui/freshclamsetter.ui" line="501"/>
         <source>LOG_LOCAL6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="503"/>
+        <location filename="../ui/freshclamsetter.ui" line="506"/>
         <source>LOG_MAIL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="603"/>
+        <location filename="../ui/freshclamsetter.ui" line="606"/>
         <source>Enable verbose logging.</source>
         <translation>Увімкнути розгорнуте ведення журналу.</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="606"/>
+        <location filename="../ui/freshclamsetter.ui" line="609"/>
         <source>LogVerbose</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="652"/>
+        <location filename="../ui/freshclamsetter.ui" line="655"/>
         <source>FreshClam Daemon</source>
         <translation>Демон FreshClam</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="330"/>
+        <location filename="../ui/freshclamsetter.ui" line="333"/>
         <source>This option allows you to save the process identifier of the daemon to a file specified in the argument.</source>
         <translation>Ця опція дозволяє зберегти ідентифікатор процесу демона у файл, вказаний в аргументі.</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="313"/>
+        <location filename="../ui/freshclamsetter.ui" line="205"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/freshclamsetter.ui" line="316"/>
         <source>HTTPProxyServer</source>
         <translation>HTTPProxyServer</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="333"/>
+        <location filename="../ui/freshclamsetter.ui" line="336"/>
         <source>PID-File:</source>
         <translation>PID-файл:</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="668"/>
+        <location filename="../ui/freshclamsetter.ui" line="671"/>
         <source>Path to a directory containing database files.</source>
         <translation>Шлях до каталогу з файлами бази даних.</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="671"/>
+        <location filename="../ui/freshclamsetter.ui" line="674"/>
         <source>DatabaseDirectory</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="693"/>
+        <location filename="../ui/freshclamsetter.ui" line="763"/>
         <source>Which database to update
 Default: all</source>
         <translation>Яку базу даних оновлювати
 За замовчуванням: усі</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="697"/>
+        <location filename="../ui/freshclamsetter.ui" line="767"/>
         <source>Update Database</source>
         <translation>Оновлення бази даних</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="705"/>
+        <location filename="../ui/freshclamsetter.ui" line="775"/>
         <source>All</source>
         <translation>Усе.</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="710"/>
+        <location filename="../ui/freshclamsetter.ui" line="780"/>
         <source>main</source>
         <translation>головний</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="715"/>
+        <location filename="../ui/freshclamsetter.ui" line="785"/>
         <source>daily</source>
         <translation>щодня</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="720"/>
+        <location filename="../ui/freshclamsetter.ui" line="790"/>
         <source>bytecode</source>
         <translation>байт-код</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="728"/>
+        <location filename="../ui/freshclamsetter.ui" line="798"/>
         <source>Start daemon automatically
 at program start</source>
         <translation>Автоматично запускати демон
 на початку програми</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="743"/>
+        <location filename="../ui/freshclamsetter.ui" line="813"/>
         <source>Number of database checks per day.</source>
         <translation>Кількість перевірок бази даних на день.</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="746"/>
+        <location filename="../ui/freshclamsetter.ui" line="816"/>
         <source>Check for Updates</source>
         <translation>Перевірте наявність оновлень</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="763"/>
+        <location filename="../ui/freshclamsetter.ui" line="833"/>
         <source>times per days</source>
         <translation>разів на день</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="770"/>
+        <location filename="../ui/freshclamsetter.ui" line="840"/>
         <source>Execute Daemon and
 manual update as root</source>
         <translation>Запустіть Daemon і
 оновити вручну від імені root</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="793"/>
+        <location filename="../ui/freshclamsetter.ui" line="697"/>
         <source>HTTPProxy Port</source>
         <translation>HTTPProxy Port</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="803"/>
+        <location filename="../ui/freshclamsetter.ui" line="707"/>
         <source>HTTPProxyUsername</source>
         <translation>HTTPProxyUsername</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="813"/>
+        <location filename="../ui/freshclamsetter.ui" line="717"/>
         <source>HTTPProxyPassword</source>
         <translation>HTTPProxyPassword</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="823"/>
+        <location filename="../ui/freshclamsetter.ui" line="727"/>
         <source>OnUpdateExecute</source>
         <translation>OnUpdateExecute</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="833"/>
+        <location filename="../ui/freshclamsetter.ui" line="737"/>
         <source>OnErrorExecute</source>
         <translation>OnErrorExecute</translation>
     </message>
     <message>
-        <location filename="../ui/freshclamsetter.ui" line="843"/>
+        <location filename="../ui/freshclamsetter.ui" line="747"/>
         <source>OnOutdatedExecute</source>
         <translation>OnOutdatedExecute</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="106"/>
+        <location filename="../src/freshclamsetter.cpp" line="108"/>
         <source>Update process startet .....</source>
         <translation>Процес оновлення розпочато .....</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="259"/>
-        <location filename="../src/freshclamsetter.cpp" line="389"/>
-        <location filename="../src/freshclamsetter.cpp" line="713"/>
+        <location filename="../src/freshclamsetter.cpp" line="289"/>
+        <location filename="../src/freshclamsetter.cpp" line="414"/>
+        <location filename="../src/freshclamsetter.cpp" line="792"/>
         <source>Deamon running - stop deamon</source>
         <translation>Deamon працює - зупинити deamon</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="375"/>
+        <location filename="../src/freshclamsetter.cpp" line="401"/>
         <source>INFO</source>
         <translation>ІНФОРМАЦІЯ</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="375"/>
+        <location filename="../src/freshclamsetter.cpp" line="401"/>
         <source>Update-Process finished</source>
         <translation>Процес оновлення завершено</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="379"/>
+        <location filename="../src/freshclamsetter.cpp" line="405"/>
         <source>WARNING</source>
         <translation>ПОПЕРЕДЖЕННЯ</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="379"/>
+        <location filename="../src/freshclamsetter.cpp" line="405"/>
         <source>Update-Process failed!
 Read log-messages for possible reason.</source>
         <translation>Процес оновлення завершився невдало!
 Прочитайте лог-повідомлення, щоб дізнатися про можливу причину.</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="615"/>
+        <location filename="../src/freshclamsetter.cpp" line="683"/>
         <source>Database origin : &lt;/td&gt;&lt;td&gt;</source>
         <translation>Походження бази даних :&lt;/td&gt;&lt;td&gt;</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="618"/>
+        <location filename="../src/freshclamsetter.cpp" line="686"/>
         <source>Last Update : &lt;/td&gt;&lt;td&gt;</source>
         <translation>Останнє оновлення : &lt;/td&gt;&lt;td&gt;</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="621"/>
+        <location filename="../src/freshclamsetter.cpp" line="689"/>
         <source>Main File : &lt;/td&gt;&lt;td&gt;</source>
         <translation>Основний файл : &lt;/td&gt;&lt;td&gt;</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="624"/>
+        <location filename="../src/freshclamsetter.cpp" line="692"/>
         <source>Daily File : &lt;/td&gt;&lt;td&gt;</source>
         <translation>Щоденний файл : &lt;/td&gt;&lt;td&gt;</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="627"/>
+        <location filename="../src/freshclamsetter.cpp" line="695"/>
         <source>ByteCode File : &lt;/td&gt;&lt;td&gt;</source>
         <translation>Файл байтового коду : &lt;/td&gt;&lt;td&gt;</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="973"/>
+        <location filename="../src/freshclamsetter.cpp" line="1058"/>
         <source>Select Folder for the PID-File</source>
         <translation>Виберіть папку для PID-файлу</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="871"/>
         <source>Virus definitions missing!</source>
-        <translation>Визначення вірусів відсутні!</translation>
+        <translation type="vanished">Визначення вірусів відсутні!</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="873"/>
         <source>No virus definitions found in the database folder. Should the virus definitions be downloaded?</source>
-        <translation>У теці бази даних не знайдено визначень вірусів. Чи потрібно завантажувати визначення вірусів?</translation>
+        <translation type="vanished">У теці бази даних не знайдено визначень вірусів. Чи потрібно завантажувати визначення вірусів?</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="1018"/>
+        <location filename="../src/freshclamsetter.cpp" line="1104"/>
         <source>On Update Execute</source>
         <translation>При виконанні оновлення</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="1018"/>
+        <location filename="../src/freshclamsetter.cpp" line="1104"/>
         <source>Select a programm that will be executed when the database is updated.</source>
         <translation>Виберіть програму, яка буде виконуватися при оновленні бази даних.</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="1026"/>
+        <location filename="../src/freshclamsetter.cpp" line="1112"/>
         <source>On Error Execute</source>
         <translation>При виконанні помилки</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="1026"/>
+        <location filename="../src/freshclamsetter.cpp" line="1112"/>
         <source>Select a programm that will be executed when an error occured.</source>
         <translation>Виберіть програму, яка буде виконана при виникненні помилки.</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="1035"/>
+        <location filename="../src/freshclamsetter.cpp" line="1121"/>
         <source>On Outdated Execute</source>
         <translation>Про застаріле виконання</translation>
     </message>
     <message>
-        <location filename="../src/freshclamsetter.cpp" line="1035"/>
+        <location filename="../src/freshclamsetter.cpp" line="1121"/>
         <source>Select a programm that will be executed when the database is outdated.</source>
         <translation>Виберіть програму, яка буде виконуватися, коли база даних застаріє.</translation>
     </message>
@@ -2013,23 +2033,23 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>близько</translation>
     </message>
     <message>
-        <location filename="../src/logviewobject.cpp" line="65"/>
+        <location filename="../src/logviewobject.cpp" line="76"/>
         <source>INFO</source>
         <translation>ІНФОРМАЦІЯ</translation>
     </message>
     <message>
-        <location filename="../src/logviewobject.cpp" line="65"/>
+        <location filename="../src/logviewobject.cpp" line="76"/>
         <source>Log-File was modified. Do you wanna save the changes?</source>
         <translation>Лог-файл було змінено. Ви хочете зберегти зміни?</translation>
     </message>
     <message>
-        <location filename="../src/logviewobject.cpp" line="97"/>
+        <location filename="../src/logviewobject.cpp" line="120"/>
         <source>Clear Log</source>
         <translation>Очистити журнал</translation>
     </message>
     <message>
-        <location filename="../src/logviewobject.cpp" line="97"/>
-        <source>Do you realy want to remove this partial log?</source>
+        <location filename="../src/logviewobject.cpp" line="120"/>
+        <source>Do you really want to remove this partial log?</source>
         <translation>Ви дійсно хочете видалити цей частковий журнал?</translation>
     </message>
 </context>
@@ -2056,19 +2076,19 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Очистити все.</translation>
     </message>
     <message>
-        <location filename="../src/logviewerobject.cpp" line="125"/>
-        <location filename="../src/logviewerobject.cpp" line="137"/>
+        <location filename="../src/logviewerobject.cpp" line="144"/>
+        <location filename="../src/logviewerobject.cpp" line="157"/>
         <source>Clear Log</source>
         <translation>Очистити журнал</translation>
     </message>
     <message>
-        <location filename="../src/logviewerobject.cpp" line="125"/>
-        <source>Do you realy want to remove this partial log?</source>
+        <location filename="../src/logviewerobject.cpp" line="144"/>
+        <source>Do you really want to remove this partial log?</source>
         <translation>Ви дійсно хочете видалити цей частковий журнал?</translation>
     </message>
     <message>
-        <location filename="../src/logviewerobject.cpp" line="137"/>
-        <source>Do you realy want to remove the complete log?</source>
+        <location filename="../src/logviewerobject.cpp" line="157"/>
+        <source>Do you really want to remove the complete log?</source>
         <translation>Ви дійсно хочете видалити весь журнал?</translation>
     </message>
 </context>
@@ -2079,6 +2099,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <source>Frame</source>
         <translation>Рамка</translation>
     </message>
+    <message>
+        <location filename="../ui/myframe.ui" line="87"/>
+        <source>n.a</source>
+        <translation></translation>
+    </message>
 </context>
 <context>
     <name>optionsDialog</name>
@@ -2088,129 +2113,125 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="641"/>
+        <location filename="../ui/optionsdialog.ui" line="23"/>
         <source>ClamAV Version : </source>
         <translation>Версія ClamAV : </translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="36"/>
-        <location filename="../src/optionsdialog.cpp" line="9"/>
+        <location filename="../ui/optionsdialog.ui" line="40"/>
+        <location filename="../src/optionsdialog.cpp" line="11"/>
         <source>Options</source>
         <translation>Варіанти</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="42"/>
+        <location filename="../ui/optionsdialog.ui" line="46"/>
         <source>Available Options</source>
         <translation>Доступні опції</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="59"/>
+        <location filename="../ui/optionsdialog.ui" line="63"/>
         <source>Filter: </source>
         <translation>Фільтр:</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="86"/>
+        <location filename="../ui/optionsdialog.ui" line="90"/>
         <source>show selected</source>
         <translation>показати вибране</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="93"/>
+        <location filename="../ui/optionsdialog.ui" line="97"/>
         <source>show unselected</source>
         <translation>показати невибране</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="199"/>
-        <source>Tab 1</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/optionsdialog.ui" line="390"/>
+        <location filename="../ui/optionsdialog.ui" line="393"/>
         <source>Move infected files into DIRECTORY</source>
         <translation>Перемістіть заражені файли в ДИРЕКТОР</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="585"/>
+        <location filename="../ui/optionsdialog.ui" line="588"/>
         <source>Follow directory symlinks</source>
         <translation>Переходьте за посиланнями на каталоги</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="258"/>
-        <location filename="../ui/optionsdialog.ui" line="303"/>
-        <location filename="../ui/optionsdialog.ui" line="365"/>
-        <location filename="../ui/optionsdialog.ui" line="410"/>
-        <location filename="../ui/optionsdialog.ui" line="458"/>
-        <location filename="../ui/optionsdialog.ui" line="503"/>
+        <location filename="../ui/optionsdialog.ui" line="261"/>
+        <location filename="../ui/optionsdialog.ui" line="306"/>
+        <location filename="../ui/optionsdialog.ui" line="368"/>
+        <location filename="../ui/optionsdialog.ui" line="413"/>
+        <location filename="../ui/optionsdialog.ui" line="461"/>
+        <location filename="../ui/optionsdialog.ui" line="506"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="483"/>
+        <location filename="../ui/optionsdialog.ui" line="486"/>
         <source>Create temporary files in DIRECTORY</source>
         <translation>Створіть тимчасові файли в ДИРЕКТОРІЇ</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="549"/>
-        <location filename="../ui/optionsdialog.ui" line="612"/>
+        <location filename="../ui/optionsdialog.ui" line="552"/>
+        <location filename="../ui/optionsdialog.ui" line="615"/>
         <source>never</source>
         <translation>Ніколи.</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="554"/>
-        <location filename="../ui/optionsdialog.ui" line="617"/>
+        <location filename="../ui/optionsdialog.ui" line="557"/>
+        <location filename="../ui/optionsdialog.ui" line="620"/>
         <source>direct</source>
         <translation>прямий</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="559"/>
-        <location filename="../ui/optionsdialog.ui" line="622"/>
+        <location filename="../ui/optionsdialog.ui" line="562"/>
+        <location filename="../ui/optionsdialog.ui" line="625"/>
         <source>always</source>
         <translation>завжди</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="328"/>
+        <location filename="../ui/optionsdialog.ui" line="331"/>
         <source>Save scan report to FILE</source>
         <translation>Зберегти звіт про сканування у ФАЙЛІ</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="528"/>
+        <location filename="../ui/optionsdialog.ui" line="531"/>
         <source>Follow file symlinks</source>
         <translation>Переходьте за посиланнями на файли</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="283"/>
+        <location filename="../ui/optionsdialog.ui" line="286"/>
         <source>Copy infected files into DIRECTORY</source>
         <translation>Скопіюйте заражені файли в ДІРЕКТОР</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="435"/>
+        <location filename="../ui/optionsdialog.ui" line="438"/>
         <source>Use the antivirus database from DIR</source>
         <translation>Використовуйте антивірусну базу від DIR</translation>
     </message>
     <message>
-        <location filename="../ui/optionsdialog.ui" line="248"/>
+        <location filename="../ui/optionsdialog.ui" line="251"/>
         <source>Scan files from file</source>
         <translation>Сканувати файли з файлу</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="10"/>
+        <location filename="../ui/optionsdialog.ui" line="202"/>
+        <location filename="../src/optionsdialog.cpp" line="12"/>
         <source>Directories</source>
         <translation>Каталоги</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="12"/>
+        <location filename="../src/optionsdialog.cpp" line="14"/>
         <source>Scan Limitations</source>
         <translation>Обмеження сканування</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="18"/>
+        <location filename="../src/optionsdialog.cpp" line="20"/>
         <source>Include/Exclude</source>
         <translation>Включити/виключити</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="365"/>
-        <location filename="../src/optionsdialog.cpp" line="393"/>
-        <location filename="../src/optionsdialog.cpp" line="402"/>
-        <location filename="../src/optionsdialog.cpp" line="431"/>
+        <location filename="../src/optionsdialog.cpp" line="384"/>
+        <location filename="../src/optionsdialog.cpp" line="403"/>
+        <location filename="../src/optionsdialog.cpp" line="412"/>
+        <location filename="../src/optionsdialog.cpp" line="441"/>
         <source>Select Directory</source>
         <translation>Виберіть каталог</translation>
     </message>
@@ -2223,18 +2244,18 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <translation type="vanished">У теці бази даних не знайдено визначень вірусів. Чи потрібно завантажувати визначення вірусів?</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="412"/>
         <location filename="../src/optionsdialog.cpp" line="422"/>
+        <location filename="../src/optionsdialog.cpp" line="432"/>
         <source>Select File</source>
         <translation>Виберіть Файл</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="621"/>
+        <location filename="../src/optionsdialog.cpp" line="635"/>
         <source>Database files missing!</source>
         <translation>Відсутні файли бази даних!</translation>
     </message>
     <message>
-        <location filename="../src/optionsdialog.cpp" line="622"/>
+        <location filename="../src/optionsdialog.cpp" line="636"/>
         <source>The virus definition files are missing in the database directory. Start download of the missing files?</source>
         <translation>У каталозі бази даних відсутні файли визначення вірусів. Почати завантаження відсутніх файлів?</translation>
     </message>
@@ -2248,7 +2269,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../ui/partiallogobject.ui" line="47"/>
-        <location filename="../src/partiallogobject.cpp" line="106"/>
+        <location filename="../src/partiallogobject.cpp" line="111"/>
         <source>search</source>
         <translation>пошук</translation>
     </message>
@@ -2284,50 +2305,50 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </message>
     <message>
         <location filename="../ui/partiallogobject.ui" line="148"/>
-        <location filename="../src/partiallogobject.cpp" line="64"/>
+        <location filename="../src/partiallogobject.cpp" line="62"/>
         <source>Infected Files: </source>
         <translation>Заражені файли: </translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="60"/>
+        <location filename="../src/partiallogobject.cpp" line="58"/>
         <source>Engine Version: </source>
         <translation>Версія двигуна:</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="61"/>
+        <location filename="../src/partiallogobject.cpp" line="59"/>
         <source>Scanned Directories: </source>
         <translation>Відскановані каталоги:</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="62"/>
+        <location filename="../src/partiallogobject.cpp" line="60"/>
         <source>Scanned Files: </source>
         <translation>Відскановані файли:</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="63"/>
+        <location filename="../src/partiallogobject.cpp" line="61"/>
         <source>Total Errors: </source>
         <translation>Тотальні помилки:</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="77"/>
-        <location filename="../src/partiallogobject.cpp" line="90"/>
+        <location filename="../src/partiallogobject.cpp" line="78"/>
+        <location filename="../src/partiallogobject.cpp" line="94"/>
         <source>continue</source>
         <translation>продовжити</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="85"/>
+        <location filename="../src/partiallogobject.cpp" line="87"/>
         <source>Searchstring not found!
 Continue from the Start of the Log?</source>
         <translation>Пошуковий рядок не знайдено!
 Продовжити з початку журналу?</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="98"/>
+        <location filename="../src/partiallogobject.cpp" line="103"/>
         <source>INFO</source>
         <translation>ІНФОРМАЦІЯ</translation>
     </message>
     <message>
-        <location filename="../src/partiallogobject.cpp" line="98"/>
+        <location filename="../src/partiallogobject.cpp" line="103"/>
         <source>Searchstring not found!</source>
         <translation>Пошуковий рядок не знайдено!</translation>
     </message>
@@ -2553,83 +2574,93 @@ Continue from the Start of the Log?</source>
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="397"/>
+        <location filename="../ui/scantab.ui" line="283"/>
         <source>When a virus is found</source>
         <translation>Коли виявлено вірус</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="321"/>
+        <location filename="../ui/scantab.ui" line="291"/>
         <source>just report</source>
         <translation>Просто повідомте.</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="330"/>
+        <location filename="../ui/scantab.ui" line="300"/>
         <source>remove file (be careful)</source>
         <translation>видаліть файл (будьте обережні)</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="339"/>
+        <location filename="../ui/scantab.ui" line="309"/>
         <source>move file to qurantine folder</source>
         <translation>перемістити файл до теки qurantine</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="348"/>
+        <location filename="../ui/scantab.ui" line="318"/>
         <source>copy file to quarantine folder</source>
         <translation>скопіювати файл до папки карантину</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="390"/>
+        <location filename="../ui/scantab.ui" line="252"/>
         <source>scan recursive</source>
         <translation>рекурсивне сканування</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="404"/>
+        <location filename="../ui/scantab.ui" line="259"/>
         <source>show hidden folders</source>
         <translation>показати приховані папки</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="288"/>
+        <location filename="../ui/scantab.ui" line="369"/>
+        <source>dicard selection</source>
+        <translation>вибір дискарда</translation>
+    </message>
+    <message>
+        <location filename="../ui/scantab.ui" line="395"/>
+        <source>Selected Directories</source>
+        <translation>Вибрані каталоги</translation>
+    </message>
+    <message>
+        <location filename="../ui/scantab.ui" line="541"/>
         <source>Status / Log-Messages</source>
         <translation>Статус / Повідомлення журналу</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="272"/>
+        <location filename="../ui/scantab.ui" line="563"/>
         <source>Info: </source>
         <translation>Інформація: </translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="360"/>
+        <location filename="../ui/scantab.ui" line="402"/>
         <source>start</source>
         <translation>початок</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="303"/>
+        <location filename="../ui/scantab.ui" line="422"/>
         <source>stop</source>
         <translation>стоп</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="95"/>
+        <location filename="../ui/scantab.ui" line="97"/>
         <source>Home</source>
         <translation>Головна сторінка</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="118"/>
+        <location filename="../ui/scantab.ui" line="120"/>
         <source>Root</source>
         <translation>Корінь</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="153"/>
+        <location filename="../ui/scantab.ui" line="155"/>
         <source>Pathes</source>
         <translation>Патес</translation>
     </message>
     <message>
-        <location filename="../ui/scantab.ui" line="187"/>
-        <location filename="../src/scantab.cpp" line="100"/>
+        <location filename="../ui/scantab.ui" line="189"/>
+        <location filename="../src/scantab.cpp" line="118"/>
         <source>Devices</source>
         <translation>Пристрої</translation>
     </message>
     <message>
-        <location filename="../src/scantab.cpp" line="231"/>
+        <location filename="../src/scantab.cpp" line="209"/>
         <source>Scanning aborted ......</source>
         <translation>Сканування перервано ......</translation>
     </message>
@@ -2733,116 +2764,116 @@ Continue from the Start of the Log?</source>
         <translation>Заражені файли: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="22"/>
-        <location filename="../src/schedulescanobject.cpp" line="220"/>
+        <location filename="../src/schedulescanobject.cpp" line="29"/>
+        <location filename="../src/schedulescanobject.cpp" line="241"/>
         <source>Scan-Job: </source>
         <translation>Скан-Джоб: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="23"/>
+        <location filename="../src/schedulescanobject.cpp" line="30"/>
         <source>Scheduled Scan-Job: </source>
         <translation>Запланована робота зі сканування</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="63"/>
+        <location filename="../src/schedulescanobject.cpp" line="74"/>
         <source>Use ClamdScan</source>
         <translation>Використовуйте ClamdScan</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="63"/>
+        <location filename="../src/schedulescanobject.cpp" line="74"/>
         <source>Perform scanning using clamdscan instead of clamscan?</source>
         <translation>Виконувати сканування за допомогою clamdscan замість clamscan?</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="109"/>
+        <location filename="../src/schedulescanobject.cpp" line="123"/>
         <source>Scanning started .......</source>
         <translation>Сканування розпочато .......</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="177"/>
-        <location filename="../src/schedulescanobject.cpp" line="197"/>
+        <location filename="../src/schedulescanobject.cpp" line="192"/>
+        <location filename="../src/schedulescanobject.cpp" line="213"/>
         <source>Scanning : </source>
         <translation>Сканування: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="218"/>
-        <location filename="../src/schedulescanobject.cpp" line="220"/>
+        <location filename="../src/schedulescanobject.cpp" line="239"/>
+        <location filename="../src/schedulescanobject.cpp" line="241"/>
         <source>Scan Process aborted .....</source>
         <translation>Процес сканування перервано .....</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="223"/>
-        <location filename="../src/schedulescanobject.cpp" line="225"/>
+        <location filename="../src/schedulescanobject.cpp" line="245"/>
+        <location filename="../src/schedulescanobject.cpp" line="247"/>
         <source>Scan-Process finished ...... no Virus found!</source>
         <translation>Процес сканування завершено ...... Вірус не знайдено!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="237"/>
+        <location filename="../src/schedulescanobject.cpp" line="260"/>
         <source>Scan-Process finished ...... a Virus was found!</source>
         <translation>Процес сканування завершено ..... знайдено вірус!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="239"/>
+        <location filename="../src/schedulescanobject.cpp" line="262"/>
         <source>Scan Process finished ..... a Virus was found!</source>
         <translation>Процес сканування завершено ..... знайдено вірус!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="242"/>
+        <location filename="../src/schedulescanobject.cpp" line="265"/>
         <source>Scan-Process finished ...... an Error occurred!</source>
         <translation>Процес сканування завершено ...... сталася помилка!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="244"/>
+        <location filename="../src/schedulescanobject.cpp" line="267"/>
         <source>Scan Process finished ..... an Error occurred!</source>
         <translation>Процес сканування завершено ..... сталася помилка!</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="256"/>
+        <location filename="../src/schedulescanobject.cpp" line="281"/>
         <source>Engine Version: </source>
         <translation>Версія двигуна: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="259"/>
+        <location filename="../src/schedulescanobject.cpp" line="284"/>
         <source>Engine Version: n/a</source>
         <translation>Версія двигуна: n/a</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="265"/>
+        <location filename="../src/schedulescanobject.cpp" line="290"/>
         <source>Infected files: </source>
         <translation>Заражені файли: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="268"/>
+        <location filename="../src/schedulescanobject.cpp" line="293"/>
         <source>Infected files: n/a</source>
         <translation>Заражені файли: n/a</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="274"/>
+        <location filename="../src/schedulescanobject.cpp" line="299"/>
         <source>Scanned Directories: </source>
         <translation>Відскановані каталоги: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="277"/>
+        <location filename="../src/schedulescanobject.cpp" line="302"/>
         <source>Scanned Directories: n/a</source>
         <translation>Відскановані каталоги: н/д</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="283"/>
+        <location filename="../src/schedulescanobject.cpp" line="308"/>
         <source>Scanned Files: </source>
         <translation>Відскановані файли: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="286"/>
+        <location filename="../src/schedulescanobject.cpp" line="311"/>
         <source>Scanned Files: n/a</source>
         <translation>Відскановані файли: n/a</translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="292"/>
+        <location filename="../src/schedulescanobject.cpp" line="317"/>
         <source>Total Errors: </source>
         <translation>Тотальні помилки: </translation>
     </message>
     <message>
-        <location filename="../src/schedulescanobject.cpp" line="295"/>
+        <location filename="../src/schedulescanobject.cpp" line="320"/>
         <source>Total Errors: 0</source>
         <translation>Тотальні помилки: 0</translation>
     </message>
@@ -3002,83 +3033,83 @@ Continue from the Start of the Log?</source>
         <translation>Лог-файл:</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="10"/>
+        <location filename="../src/scheduler.cpp" line="14"/>
         <source>ID</source>
         <translation>ID</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="10"/>
+        <location filename="../src/scheduler.cpp" line="14"/>
         <source>Interval</source>
         <translation>Інтервал</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="10"/>
+        <location filename="../src/scheduler.cpp" line="14"/>
         <source>Profile</source>
         <translation>Профіль</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="10"/>
+        <location filename="../src/scheduler.cpp" line="14"/>
         <source>Last Scan</source>
         <translation>Останнє сканування</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="10"/>
+        <location filename="../src/scheduler.cpp" line="14"/>
         <source>Next Scan</source>
         <translation>Наступне сканування</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="10"/>
+        <location filename="../src/scheduler.cpp" line="14"/>
         <source>Remove</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="10"/>
+        <location filename="../src/scheduler.cpp" line="14"/>
         <source>Scan Now</source>
         <translation>Сканувати зараз</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="10"/>
-        <location filename="../src/scheduler.cpp" line="173"/>
+        <location filename="../src/scheduler.cpp" line="14"/>
+        <location filename="../src/scheduler.cpp" line="180"/>
         <source>Log-File</source>
         <translation>Лог-файл</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="169"/>
+        <location filename="../src/scheduler.cpp" line="176"/>
         <source>remove task</source>
         <translation>видалити завдання</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="171"/>
+        <location filename="../src/scheduler.cpp" line="178"/>
         <source>scan now</source>
         <translation>Проскануйте зараз.</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="187"/>
+        <location filename="../src/scheduler.cpp" line="194"/>
         <source>Start Scan-Job</source>
         <translation>Почати роботу зі сканування</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="187"/>
-        <source>Do you realy want to start this Scan-Job?</source>
+        <location filename="../src/scheduler.cpp" line="194"/>
+        <source>Do you really want to start this Scan-Job?</source>
         <translation>Ви справді хочете почати цю роботу зі сканування?</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="210"/>
+        <location filename="../src/scheduler.cpp" line="218"/>
         <source>Remove Entry</source>
         <translation>Видалити запис</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="210"/>
-        <source>Do you realy want to remove this entry?</source>
+        <location filename="../src/scheduler.cpp" line="218"/>
+        <source>Do you really want to remove this entry?</source>
         <translation>Ви дійсно хочете видалити цей запис?</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="238"/>
+        <location filename="../src/scheduler.cpp" line="248"/>
         <source>INFO</source>
         <translation>ІНФОРМАЦІЯ</translation>
     </message>
     <message>
-        <location filename="../src/scheduler.cpp" line="238"/>
+        <location filename="../src/scheduler.cpp" line="248"/>
         <source>No active log-file for this profile specified!</source>
         <translation>Для цього профілю не вказано активного лог-файлу!</translation>
     </message>
@@ -3091,202 +3122,285 @@ Continue from the Start of the Log?</source>
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1247"/>
+        <location filename="../ui/setuptab.ui" line="1676"/>
         <source>Window State on Startup</source>
         <translation>Стан вікна під час запуску</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1255"/>
+        <location filename="../ui/setuptab.ui" line="1654"/>
         <source>Show Window maximized</source>
         <translation>Показати вікно розгорнутим</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1260"/>
+        <location filename="../ui/setuptab.ui" line="1659"/>
         <source>Show Tray Icon only</source>
         <translation>Показати лише піктограму лотка</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="234"/>
-        <location filename="../ui/setuptab.ui" line="526"/>
-        <location filename="../ui/setuptab.ui" line="936"/>
+        <location filename="../ui/setuptab.ui" line="236"/>
+        <location filename="../ui/setuptab.ui" line="423"/>
+        <location filename="../ui/setuptab.ui" line="505"/>
         <source>PID: </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="167"/>
-        <location filename="../ui/setuptab.ui" line="209"/>
-        <location filename="../ui/setuptab.ui" line="259"/>
+        <location filename="../ui/setuptab.ui" line="169"/>
+        <location filename="../ui/setuptab.ui" line="211"/>
+        <location filename="../ui/setuptab.ui" line="261"/>
+        <location filename="../ui/setuptab.ui" line="295"/>
         <location filename="../ui/setuptab.ui" line="398"/>
-        <location filename="../ui/setuptab.ui" line="501"/>
-        <location filename="../ui/setuptab.ui" line="571"/>
-        <location filename="../ui/setuptab.ui" line="611"/>
-        <location filename="../ui/setuptab.ui" line="639"/>
-        <location filename="../ui/setuptab.ui" line="667"/>
-        <location filename="../ui/setuptab.ui" line="843"/>
-        <location filename="../ui/setuptab.ui" line="899"/>
-        <location filename="../ui/setuptab.ui" line="995"/>
-        <location filename="../ui/setuptab.ui" line="1068"/>
-        <location filename="../ui/setuptab.ui" line="1096"/>
-        <location filename="../ui/setuptab.ui" line="1354"/>
-        <location filename="../ui/setuptab.ui" line="1381"/>
-        <location filename="../ui/setuptab.ui" line="1411"/>
-        <location filename="../ui/setuptab.ui" line="1438"/>
+        <location filename="../ui/setuptab.ui" line="468"/>
+        <location filename="../ui/setuptab.ui" line="564"/>
+        <location filename="../ui/setuptab.ui" line="637"/>
+        <location filename="../ui/setuptab.ui" line="665"/>
+        <location filename="../ui/setuptab.ui" line="814"/>
+        <location filename="../ui/setuptab.ui" line="841"/>
+        <location filename="../ui/setuptab.ui" line="868"/>
+        <location filename="../ui/setuptab.ui" line="895"/>
+        <location filename="../ui/setuptab.ui" line="1084"/>
+        <location filename="../ui/setuptab.ui" line="1112"/>
+        <location filename="../ui/setuptab.ui" line="1140"/>
+        <location filename="../ui/setuptab.ui" line="1316"/>
+        <location filename="../ui/setuptab.ui" line="1372"/>
         <source>n/a</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="117"/>
-        <location filename="../ui/setuptab.ui" line="451"/>
-        <location filename="../ui/setuptab.ui" line="964"/>
+        <location filename="../ui/setuptab.ui" line="119"/>
+        <location filename="../ui/setuptab.ui" line="348"/>
+        <location filename="../ui/setuptab.ui" line="533"/>
         <source>Status: </source>
         <translation>Статус : </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1030"/>
+        <location filename="../ui/setuptab.ui" line="599"/>
         <source>  Clamonacc</source>
         <translation>  Clamonacc</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="177"/>
+        <location filename="../ui/setuptab.ui" line="179"/>
         <source>  Freshclam</source>
         <translation>  Freshclam</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="539"/>
+        <location filename="../ui/setuptab.ui" line="436"/>
         <source>  Clamd</source>
         <translation>  Clamd</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="785"/>
+        <location filename="../ui/setuptab.ui" line="1258"/>
         <source>Database</source>
         <translation>База даних</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="812"/>
+        <location filename="../ui/setuptab.ui" line="1285"/>
         <source>Bytecode File: </source>
         <translation>Байтовий файл: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="692"/>
+        <location filename="../ui/setuptab.ui" line="1165"/>
         <source>Daily File: </source>
         <translation>Щоденна добірка: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="751"/>
+        <location filename="../ui/setuptab.ui" line="1224"/>
         <source>Main File: </source>
         <translation>Головний файл: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="868"/>
+        <location filename="../ui/setuptab.ui" line="1341"/>
         <source>Last updated: </source>
         <translation>Останнє оновлення: </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1327"/>
+        <location filename="../ui/setuptab.ui" line="787"/>
         <source>ClamAV Versions</source>
         <translation>Версії ClamAV</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1347"/>
+        <location filename="../ui/setuptab.ui" line="807"/>
         <source>Installed :</source>
         <translation>Встановлено:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1374"/>
+        <location filename="../ui/setuptab.ui" line="834"/>
         <source>Latest :</source>
         <translation>Встановлено:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1404"/>
+        <location filename="../ui/setuptab.ui" line="861"/>
         <source>LTS Version(s) :</source>
         <translation>Версія(ї) LTS:</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1431"/>
+        <location filename="../ui/setuptab.ui" line="888"/>
         <source>Status :</source>
         <translation>Статус : </translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1472"/>
+        <source>Filemanger Integration for</source>
+        <translation type="vanished">Інтеграція Filemanger для</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1777"/>
+        <source>Dolphin</source>
+        <translation>Dolphin</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1782"/>
+        <source>Nemo</source>
+        <translation>Nemo</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1787"/>
+        <source>GNome Commander</source>
+        <translation>GNome-Commander</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1765"/>
+        <source>add</source>
+        <translation>додати</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1012"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; color:#000000;&quot;&gt;Eicar Test.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The EICAR Anti-Virus Test File or EICAR test file is a computer file that was developed by the &lt;span style=&quot; font-weight:700;&quot;&gt;European Institute for Computer Antivirus Research (EICAR)&lt;/span&gt; and Computer Antivirus Research Organization to test the response of computer antivirus programs.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Instead of using real malware, which could cause real damage, this file allows people to safely test anti-virus software.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; color:#000000;&quot;&gt;Eicar Test.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Тестовий файл EICAR або тестовий файл EICAR — це комп’ютерний файл, розроблений &lt;span style=&quot;font-weight:700;&quot;&gt;Європейським інститутом досліджень у галузі комп’ютерних антивірусів (EICAR)&lt;/span&gt; та Організацією досліджень у галузі комп’ютерних антивірусів для перевірки реакції антивірусних програм.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Замість використання справжнього шкідливого програмного забезпечення, яке може завдати реальної шкоди, цей файл дає змогу безпечно перевіряти роботу антивірусного програмного забезпечення.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1031"/>
+        <source> Start Eicar Test</source>
+        <translation> Запустити тест Eicar</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1388"/>
         <source>Grayson-Switch</source>
         <translation>Grayson Switch</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1487"/>
+        <location filename="../ui/setuptab.ui" line="1403"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For people with color blindness. Removes all the fancy color stuff from the log files and indicators.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <extracomment>For people with color blindness</extracomment>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Для людей з дальтонізмом. Видаляє всі зайві кольори з файлів журналів та індикаторів.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1540"/>
+        <location filename="../ui/setuptab.ui" line="1736"/>
+        <source>Filemanager Integration</source>
+        <translation>Інтеграція Filemanger</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1758"/>
+        <source>Integration for</source>
+        <translation>Інтеграція для</translation>
+    </message>
+    <message>
+        <location filename="../ui/setuptab.ui" line="1850"/>
         <source>ClamAV System Status</source>
         <translation>ClamAV System Status</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="323"/>
+        <location filename="../ui/setuptab.ui" line="1473"/>
         <source>ClamdScan</source>
         <translation>ClamdScan</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="343"/>
+        <location filename="../ui/setuptab.ui" line="1493"/>
         <source>Never, even if available.</source>
         <translation>Ніколи, навіть якщо вони доступні.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="348"/>
+        <location filename="../ui/setuptab.ui" line="1498"/>
         <source>Always, if available.</source>
         <translation>Завжди, якщо є можливість.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="353"/>
+        <location filename="../ui/setuptab.ui" line="1503"/>
         <source>For scheduled scan, if available.</source>
         <translation>Для планового сканування, якщо воно доступне.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="358"/>
+        <location filename="../ui/setuptab.ui" line="1508"/>
         <source>For direct scan, if available.</source>
         <translation>Для прямого сканування, якщо доступно.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="363"/>
+        <location filename="../ui/setuptab.ui" line="1513"/>
         <source>Ask for permission, if available.</source>
         <translation>Попросіть дозволу, якщо він є.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="335"/>
+        <location filename="../ui/setuptab.ui" line="1485"/>
         <source>use ClamdScan with multithreading ...</source>
         <translation>використовувати ClamdScan з багатопотоковістю ...</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1493"/>
+        <location filename="../ui/setuptab.ui" line="1409"/>
         <source>Switch the application to monochrome mode.</source>
         <translation>Переключіть програму в монохромний режим.</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="1163"/>
+        <location filename="../ui/setuptab.ui" line="1585"/>
         <source>Language</source>
         <translation>Мова</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="219"/>
+        <location filename="../src/setuptab.cpp" line="237"/>
         <source>OK</source>
         <translation>Гаразд</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="273"/>
+        <source>remove</source>
+        <translation type="vanished">видалити</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="343"/>
+        <source>Eicar-Test finished successfully!</source>
+        <translation>Тест Ейкара завершився успішно!</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="349"/>
+        <source>Eica-Test finished with an error!
+The test was interrupted by a user action.</source>
+        <translation>Eicar-Test завершився з помилкою!
+Тест було перервано внаслідок дії користувача.</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="353"/>
+        <source>Eica-Test finished with an error!</source>
+        <translation>Тест Eicar завершився з помилкою!</translation>
+    </message>
+    <message>
+        <location filename="../src/setuptab.cpp" line="416"/>
         <source>Warning</source>
         <translation>ПОПЕРЕДЖЕННЯ</translation>
     </message>
     <message>
-        <location filename="../src/setuptab.cpp" line="273"/>
+        <location filename="../src/setuptab.cpp" line="416"/>
         <source>You have to restart the application for changes to take effect!</source>
         <translation>Вам необхідно перезапустити програму, щоб зміни набули чинності!</translation>
     </message>
     <message>
-        <location filename="../ui/setuptab.ui" line="89"/>
-        <location filename="../ui/setuptab.ui" line="423"/>
-        <location filename="../ui/setuptab.ui" line="723"/>
-        <location filename="../ui/setuptab.ui" line="1121"/>
+        <location filename="../ui/setuptab.ui" line="91"/>
+        <location filename="../ui/setuptab.ui" line="320"/>
+        <location filename="../ui/setuptab.ui" line="690"/>
+        <location filename="../ui/setuptab.ui" line="1196"/>
         <source>Path: </source>
         <translation>Шлях: </translation>
     </message>

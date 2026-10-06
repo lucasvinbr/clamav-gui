@@ -1,3 +1,7 @@
+/**************************************************************
+ * Editable combobox options for the clamd.conf file configuration
+ * in the clamd tab.
+ **************************************************************/
 #include "clamdconfmultioption.h"
 #include "ui_clamdconfmultioption.h"
 #define css_mono "background-color:#404040;color:white"
@@ -14,7 +18,7 @@ clamdconfmultioption::clamdconfmultioption(QWidget* parent, QString keyword, boo
 
     m_comment = label;
     m_label = QCoreApplication::translate("ClamAV", m_label.toUtf8().constData());
-    m_label = translator::beautifyString(m_label,120);
+    m_label = beautifyString(m_label,120);
     m_ui->checkBox->setToolTip(m_keyword);
 
     if (m_values.length() > 0)

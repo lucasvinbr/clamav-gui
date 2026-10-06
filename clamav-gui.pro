@@ -46,8 +46,7 @@ SOURCES += src/main.cpp\
     src/profilewizarddialog.cpp \
     src/profilemanager.cpp \
     src/sharedvars.cpp \
-    src/toolbox.cpp \
-    src/translator.cpp
+    src/toolbox.cpp
 
 HEADERS  += src/clamav_gui.h \
     src/scanoptionbaseclass.h \
@@ -82,8 +81,7 @@ HEADERS  += src/clamav_gui.h \
     src/progressdialog.h \
     src/profilewizarddialog.h \
     src/profilemanager.h \
-    src/toolbox.h \
-    src/translator.h
+    src/toolbox.h
 
 FORMS    += ui/clamav_gui.ui \
     ui/scanoptionbaseclass.ui \
@@ -157,7 +155,7 @@ INSTALLS += target \
     manpages_pt \
     documents \
     langicons \
-    metadata
+    metadata \
 
 target.path = /$(DESTDIR)/usr/bin
 target.files = clamav-gui
@@ -184,10 +182,10 @@ icon256.path = /$(DESTDIR)/usr/share/icons/hicolor/256x256/apps
 icon256.files = extra/icon256/clamav-gui.png
 
 desktopfile.path = /$(DESTDIR)/usr/share/applications
-desktopfile.files = data/io.github.wusel1007.clamav-gui.desktop
+desktopfile.files = extra/io.github.wusel1007.clamav-gui.desktop
 
 metadata.path = /$(DESTDIR)/usr/share/metainfo
-metadata.files = extra/org.opendesktop.clamav_gui.appdata.xml
+metadata.files = extra/io.github.wusel1007.clamav-gui.metainfo.xml
 
 translation.path = /$(DESTDIR)/usr/share/clamav-gui
 translation.files = translations/clamav-gui-de_DE.qm translations/clamav-gui-en_GB.qm translations/clamav-gui-da_DK.qm translations/clamav-gui-es_ES.qm translations/clamav-gui-fr_FR.qm translations/clamav-gui-pt_PT.qm translations/clamav-gui-it_IT.qm translations/clamav-gui-uk_UA.qm translations/clamav-de_DE.qm translations/clamav-en_GB.qm translations/clamav-da_DK.qm translations/clamav-es_ES.qm translations/clamav-fr_FR.qm translations/clamav-pt_PT.qm translations/clamav-it_IT.qm translations/clamav-uk_UA.qm
@@ -221,14 +219,4 @@ manpages_pt.files = man/pt/clamav-gui.1.gz
 
 documents.path = /$(DESTDIR)/usr/share/doc/ClamAV-GUI
 documents.files = README CHANGES
-
-DISTFILES += \
-    data/icons/hicolor/128x128/apps/io.github.wusel1007.clamav-gui.png \
-    data/icons/hicolor/64x64/apps/io.github.wusel1007.clamav-gui.png \
-    data/icons/hicolor/scalable/apps/io.github.wusel1007.clamav-gui.svg \
-    data/io.github.wusel1007.clamav-gui.desktop \
-    extra/io.github.wusel1007.clamav-gui.appdata.xml \
-    extra/io.github.wusel1007.clamav-gui.metainfo.xml \
-    extra/io.github.wusel1007.clamav-gui.yml
-
 

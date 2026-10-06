@@ -1,3 +1,7 @@
+/************************************************************************
+ * Scheduler Tab of the application. Creating, editing and removing
+ * scheduled scan jobs.
+ ************************************************************************/
 #include "scheduler.h"
 #include "sharedvars.cpp"
 
@@ -22,7 +26,7 @@ scheduler::scheduler(QWidget* parent, setupFileHandler* setupFile)
     m_checkTimer = new QTimer(this);
     m_checkTimer->setSingleShot(false);
     connect(m_checkTimer, SIGNAL(timeout()), this, SLOT(slot_checkTimerTimeout()));
-    m_checkTimer->start(120000);
+    m_checkTimer->start(15000);
 }
 
 void scheduler::slot_addDailyScanJobButtonClicked()
@@ -68,9 +72,7 @@ void scheduler::slot_addWeeklyScanJobButtonClicked()
         }
         else {
             if (QTime::currentTime() > QTime::fromString(scanTime))
-            {
                 nextScanObject = nextScanObject = nextScanObject.addDays(7);
-            }
         }
     }
     nextScanObject = QDateTime(nextScanObject.date(), QTime::fromString(scanTime));
@@ -90,9 +92,8 @@ void scheduler::slot_addMonthlyScanJobButtonClicked()
         QDateTime(QDate(QDate::currentDate().year(), QDate::currentDate().month(), m_ui.monthlyDaySpinBox->value()), QTime::fromString(scanTime));
 
     if (nextScanObject < QDateTime::currentDateTime())
-    {
         nextScanObject = nextScanObject.addMonths(1);
-    }
+
     entry = "monthly|" + m_ui.profileComboBox->currentText() + "|" + "never" + "|" + QString::number(nextScanObject.toMSecsSinceEpoch());
     m_setupFile->setSectionValue("ScanJobs", id, entry);
     updateScheduleList();
@@ -159,16 +160,13 @@ void scheduler::updateScheduleList()
         rowCount = m_ui.scanJobTableWidget->rowCount();
         m_ui.scanJobTableWidget->insertRow(rowCount);
         for (int i = 0; i < 8; i++)
-        {
             m_ui.scanJobTableWidget->setColumnWidth(i, width[i]);
-        }
+
         m_ui.scanJobTableWidget->setItem(rowCount, 0, new QTableWidgetItem(job));
         m_ui.scanJobTableWidget->setItem(rowCount, 1, new QTableWidgetItem(jobData[0]));
         m_ui.scanJobTableWidget->setItem(rowCount, 2, new QTableWidgetItem(jobData[1]));
         if (jobData[2] == "never")
-        {
             m_ui.scanJobTableWidget->setItem(rowCount, 3, new QTableWidgetItem("Never"));
-        }
         else {
             tempDateTime.setMSecsSinceEpoch(jobData[2].toLongLong());
             m_ui.scanJobTableWidget->setItem(rowCount, 3, new QTableWidgetItem(tempDateTime.toString("dd.MM.yyyy 'at' hh:mm")));
@@ -185,16 +183,15 @@ void scheduler::updateScheduleList()
         m_ui.scanJobTableWidget->setCellWidget(rowCount, 6, scanNowButton);
         m_ui.scanJobTableWidget->setCellWidget(rowCount, 7, logButton);
         for (int i = 0; i < 5; i++)
-        {
             m_ui.scanJobTableWidget->item(rowCount, i)->setTextAlignment(Qt::AlignCenter);
-        }
+
         id++;
     }
 }
 
 void scheduler::slot_scanButtonClicked(int id)
 {
-    int rc = QMessageBox::information(this, tr("Start Scan-Job"), tr("Do you realy want to start this Scan-Job?"), QMessageBox::Yes, QMessageBox::No);
+    int rc = QMessageBox::information(this, tr("Start Scan-Job"), tr("Do you really want to start this Scan-Job?"), QMessageBox::Yes, QMessageBox::No);
     QString profileName;
     qint64 today = QDateTime::currentMSecsSinceEpoch();
     QStringList values;
@@ -218,7 +215,7 @@ void scheduler::slot_scanButtonClicked(int id)
 
 void scheduler::slot_removeButtonClicked(int id)
 {
-    int rc = QMessageBox::information(this, tr("Remove Entry"), tr("Do you realy want to remove this entry?"), QMessageBox::Yes, QMessageBox::No);
+    int rc = QMessageBox::information(this, tr("Remove Entry"), tr("Do you really want to remove this entry?"), QMessageBox::Yes, QMessageBox::No);
     QString jobID;
 
     if (rc == QMessageBox::Yes)
@@ -247,9 +244,8 @@ void scheduler::slot_logButtonClicked(int id)
         logViewer->setModal(true);
         logViewer->showMaximized();
     }
-    else {
+    else
         QMessageBox::information(this, tr("INFO"), tr("No active log-file for this profile specified!"));
-    }
 
     delete tempSF;
 }
@@ -258,104 +254,17 @@ void scheduler::startScanJob(QString profileName)
 {
     setupFileHandler* setupFile = new setupFileHandler(QDir::homePath() + "/.clamav-gui/profiles/" + profileName + ".ini", this);
     QStringList parameters;
-    QStringList selectedOptions = setupFile->getKeywords("SelectedOptions");
-    QStringList directoryOptions = setupFile->getKeywords("Directories");
-    QStringList scanLimitations = setupFile->getKeywords("ScanLimitations");
-    QString option;
-    QString checked;
-    QString value;
 
     if (setupFile->getSectionBoolValue(profileName, "Recursion") == true)
-    {
         parameters << "-r";
-    }
-    for (int i = 0; i < selectedOptions.count(); i++)
-    {
-        parameters << selectedOptions.at(i).left(selectedOptions.indexOf("|")).replace("<equal>", "=");
-    }
 
-    // Directory Options
-    for (int i = 0; i < directoryOptions.count(); i++)
-    {
-        option = directoryOptions.at(i);
-        value = setupFile->getSectionValue("Directories", option);
-        checked = value.left(value.indexOf("|"));
-        value = value.mid(value.indexOf("|") + 1);
-
-        if ((checked == "checked") && (value != ""))
-        {
-            for (int idx = 0; idx < directoryOptionKeywords.size(); idx++)
-            {
-                if (directoryOptionKeywords.at(idx) == option)
-                {
-                    if (directoryOptionKeywords.at(idx) == "ScanReportToFile")
-                    {
-                        if (value != "")
-                        {
-                            parameters << "--log=" + value;
-                            QFile file(value);
-                            if (file.open(QIODevice::ReadWrite | QIODevice::Append | QIODevice::Text))
-                            {
-                                QTextStream stream(&file);
-                                stream << "\n<Scanning startet> " << QDateTime::currentDateTime().toString("yyyy/M/d - hh:mm");
-                                file.close();
-                            }
-                        }
-                    }
-                    else {
-                        parameters << directoryOptionSwitches.at(idx) + "=" + value;
-                    }
-                }
-            }
-        }
-    }
-
-    // Scan Limitations
-    for (int i = 0; i < scanLimitations.count(); i++)
-    {
-        option = scanLimitations.at(i);
-        value = setupFile->getSectionValue("ScanLimitations", option);
-        checked = value.left(value.indexOf("|"));
-        value = value.mid(value.indexOf("|") + 1);
-        if (checked == "checked")
-        {
-            for (int idx = 0; idx < scanLimitKeywords.size(); idx ++)
-            {
-                if (option == scanLimitKeywords.at(idx))
-                {
-                    parameters << scanLimitSwitches.at(idx) + "=" + value;
-                }
-            }
-        }
-    }
-
-    // REGEXP and Include Exclude Options
-    for (int idx = 0; idx < inclExclKeywords.size(); idx++)
-    {
-        if (idx < 4)
-        {
-            value = setupFile->getSectionValue("REGEXP_and_IncludeExclude",inclExclKeywords.at(idx));
-            checked = value.left(value.indexOf("|"));
-            value = value.mid(value.indexOf("|") + 1);
-            if (checked == "checked") parameters << inclExclSwitches.at(idx) + "=" + value;
-        }
-        else {
-            if (setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude","EnablePUAOptions") == true)
-            {
-                if ((setupFile->getSectionBoolValue("REGEXP_and_IncludeExclude",inclExclKeywords.at(idx)) == true) &&
-                    (inclExclKeywords.at(idx) != "EnablePUAOptions"))
-                    parameters << inclExclSwitches.at(idx);
-            }
-        }
-    }
+    assembleScanParameters(setupFile, &parameters);
 
     QStringList directories = setupFile->getSectionValue(profileName, "Directories").split("\n");
 
     for (int i = 0; i < directories.count(); i++)
-    {
         if (directories.at(i) != "")
             parameters << directories.at(i);
-    }
 
     emit triggerScanJob(profileName, parameters);
 
@@ -381,25 +290,19 @@ void scheduler::slot_checkTimerTimeout()
             {
                 scanDateTime = QDateTime::fromMSecsSinceEpoch(scanDate);
                 while (scanDateTime.toMSecsSinceEpoch() < today)
-                {
                     scanDateTime = scanDateTime.addDays(1);
-                }
             }
             if (values[0] == "weekly")
             {
                 scanDateTime = QDateTime::fromMSecsSinceEpoch(scanDate);
                 while (scanDateTime.toMSecsSinceEpoch() < today)
-                {
                     scanDateTime = scanDateTime.addDays(7);
-                }
             }
             if (values[0] == "monthly")
             {
                 scanDateTime = QDateTime::fromMSecsSinceEpoch(scanDate);
                 while (scanDateTime.toMSecsSinceEpoch() < today)
-                {
                     scanDateTime = scanDateTime.addMonths(1);
-                }
             }
             line = values[0] + "|" + values[1] + "|" + QString::number(today) + "|" + QString::number(scanDateTime.toMSecsSinceEpoch());
             m_setupFile->setSectionValue("ScanJobs", scanJob, line);
@@ -428,26 +331,23 @@ void scheduler::slot_profileSelectionChanged()
 
     if ((targets[0] != "") & (targets.count() > 0))
         targetLabel = targetLabel + targets[0];
+
     for (int i = 1; i < targets.count(); i++)
     {
         if ((targets[i] != "") & (targetLabel != ""))
-        {
             targetLabel = targetLabel + "\n" + targets[i];
-        }
-        else {
+        else
             if (targets[i] != "")
                 targetLabel = targets[i];
-        }
     }
 
     m_ui.targetInfoLabel->setText(targetLabel);
 
     if (options.count() > 0)
         optionLabel = optionLabel + options[0];
+
     for (int i = 1; i < options.count(); i++)
-    {
         optionLabel = optionLabel + "\n" + options[i];
-    }
 
     for (int idx = 0; idx < inclExclKeywords.size(); idx++)
     {
@@ -482,24 +382,19 @@ void scheduler::slot_profileSelectionChanged()
     if (tempSetupFile->getSectionBoolValue(profileName, "Recursion") == true)
     {
         if (optionLabel != "")
-        {
             optionLabel = optionLabel + "\n" + "-r";
-        }
-        else {
+        else
             optionLabel = "-r";
-        }
     }
 
     optionLabel = optionLabel.replace("<equal>", "=");
     m_ui.optionsInfoLabel->setText(optionLabel);
 
     if (logFile.left(logFile.indexOf("|")) == "checked")
-    {
         logFile = logFile.mid(logFile.indexOf("|") + 1);
-    }
-    else {
+    else
         logFile = "";
-    }
+
     m_ui.logFileLabel->setText("Log-File : " + logFile);
 
     delete tempSetupFile;

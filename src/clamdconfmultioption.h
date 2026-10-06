@@ -6,7 +6,7 @@
 #include <QFileDialog>
 #include "setupfilehandler.h"
 #include "clamdconfoptionbaseclass.h"
-#include "translator.h"
+#include "toolbox.h"
 
 namespace Ui
 {

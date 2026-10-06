@@ -1,3 +1,6 @@
+/************************************************************************
+ * Scan Option base element
+ ************************************************************************/
 #include "scanoptionbaseclass.h"
 #include "ui_scanoptionbaseclass.h"
 

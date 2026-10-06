@@ -58,8 +58,6 @@ private:
     setupFileHandler    * m_freshclamConf;
     QProcess            * m_updater;
     QProcess            * m_startDeamonProcess;
-    //QProcess            * m_ps_process;
-    //QProcess            * m_getDBUserProcess;
     QTimer              * m_startDelayTimer;
     QTimer              * m_processWatcher;
     progressDialog      * m_busyLabel;

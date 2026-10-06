@@ -1,3 +1,6 @@
+/*******************************************************************
+ * Scan Option tab
+ *******************************************************************/
 #include "optionsdialog.h"
 #include "sharedvars.cpp"
 #define css "background-color:#404040;color:white"
@@ -24,7 +27,6 @@ optionsDialog::optionsDialog(QWidget* parent, setupFileHandler* setupFile) : QWi
 
     QStringList parameters;
     parameters << "--help";
-    //m_getClamscanParametersProcess->start(setupFileHandler::getSectionValue(QDir::homePath()+"/.clamav-gui/settings.ini","RequiredApplications","clamscan"), parameters);
     startProcess(m_getClamscanParametersProcess,setupFileHandler::getSectionValue(QDir::homePath()+"/.clamav-gui/settings.ini","RequiredApplications","clamscan"), parameters);
 }
 
@@ -61,22 +63,15 @@ void optionsDialog::createScanOptionElements()
                 label.indexOf("yes/no(*)") == -1 ? yes_no = "yes" : yes_no = "no";
                 label = label.left(label.indexOf("="));
                 if (m_setupFile->keywordExists("SelectedOptions", label + "<equal>no") == true)
-                {
                     label = label + "<equal>no";
-                }
                 else {
                     if (m_setupFile->keywordExists("SelectedOptions", label + "<equal>yes") == true)
-                    {
                         label = label + "<equal>yes";
-                    }
                     else {
                         if (yes_no == "yes")
-                        {
                             label = label + "<equal>yes";
-                        }
-                        else {
+                        else
                             label = label + "<equal>no";
-                        }
                     }
                 }
             }
@@ -94,7 +89,6 @@ void optionsDialog::createScanOptionElements()
                         m_ui.optionLayout->addWidget(option);
                         scanOptions << option;
                         flipflop = true;
-
                     }
                     else {
                         m_ui.optionLayout_2->addWidget(option);
@@ -165,18 +159,11 @@ void optionsDialog::slot_scanOptionFilterChanged()
     if ((m_ui.unselectedCheckBox->isChecked()) || (m_ui.selectedCheckBox->isChecked()))
     {
         if (m_ui.selectedCheckBox->isChecked())
-        {
             foreach (scanOptionBaseClass *item, scanOptions)
-            {
                 item->setVisible(item->isChecked());
-            }
-        }
-        else {
+        else
             foreach (scanOptionBaseClass *item, scanOptions)
-            {
                 item->setVisible(!item->isChecked());
-            }
-        }
     }
     else {
         foreach (scanOptionBaseClass *item, scanOptions)
@@ -242,9 +229,8 @@ void optionsDialog::slot_getClamscanProcessFinished()
     for (int x = 0; x < linehelper.size(); x++)
     {
         if (linehelper[x] == "Environment Variables:")
-        {
             skip = true;
-        }
+
         if (skip == false)
         {
             if (linehelper[x].trimmed().indexOf("--") == 0)
@@ -256,9 +242,8 @@ void optionsDialog::slot_getClamscanProcessFinished()
                 }
                 line2 = linehelper[x];
             }
-            else {
+            else
                 line2 = line2 + " " + linehelper[x];
-            }
         }
     }
     if (line2 != "") lines << line2;
@@ -316,27 +301,27 @@ void optionsDialog::slot_getClamscanProcessFinished()
                 int length = line.indexOf("]") - start;
                 parameter = line.mid(start, length);
             }
-            else {
+            else
                 keyword = keyword.left(keyword.indexOf("="));
-            }
+
             if (excludeList.indexOf(keyword) == -1)
             {
                 if (value == "")
                     value = keyword;
                 else
                     value = value + "\n" + keyword;
+
                 if (parameter != "")
-                {
                     value = value + "=" + parameter;
-                }
+
                 comment = line.mid(commentStart);
                 comment = comment.trimmed();
                 while (comment.indexOf("  ") != -1)
                     comment = comment.replace("  ", " ");
+
                 if (comment.left(1) == "-")
-                {
                     comment = comment.mid(comment.indexOf(" ") + 1);
-                }
+
                 comment = tr(comment.toLocal8Bit());
                 comments.append(comment);
                 commentSum == "" ? commentSum = comment : commentSum = commentSum + "|" + comment;
@@ -352,13 +337,11 @@ void optionsDialog::slot_getClamscanProcessFinished()
                         m_setupFile->setSectionValue("AvailableOptions", keyword + "<equal>no", comment);
                     }
                 }
-                else {
+                else
                     m_setupFile->setSectionValue("AvailableOptions", keyword, comment);
-                }
             }
-            else {
+            else
                 m_setupFile->setSectionValue("OtherKeywords", keyword, "exists");
-            }
         }
     }
 
@@ -476,55 +459,55 @@ void optionsDialog::updateDirectories()
         {
             switch (i)
             {
-                case 0:
+                case LoadSupportedDBFiles:
                     m_ui.loadVirusDatabaseCheckBox->setChecked(true);
                     m_ui.databaseFrame->setStyleSheet(css);
                     m_ui.loadVirusDatabaseLineEdit->setEnabled(true);
                     m_ui.selectLVDButton->setEnabled(true);
                     m_ui.loadVirusDatabaseLineEdit->setText(value);
                     break;
-                case 1:
+                case ScanReportToFile:
                     m_ui.scanReportToFileCheckBox->setChecked(true);
                     m_ui.scanReportFrame->setStyleSheet(css);
                     m_ui.scanReportToFileLineEdit->setEnabled(true);
                     m_ui.selectSCRFButton->setEnabled(true);
                     m_ui.scanReportToFileLineEdit->setText(value);
                     break;
-                case 2:
+                case ScanFilesFromFile:
                     m_ui.scanFilesFromFileCheckBox->setChecked(true);
                     m_ui.scanFileFrame->setStyleSheet(css);
                     m_ui.scanFilesFromFileLineEdit->setEnabled(true);
                     m_ui.selectSFFButton->setEnabled(true);
                     m_ui.scanFilesFromFileLineEdit->setText(value);
                     break;
-                case 3:
+                case TmpFile:
                     m_ui.tempFileCheckBox->setChecked(true);
                     m_ui.tempFileFrame->setStyleSheet(css);
                     m_ui.tempFilesLineEdit->setEnabled(true);
                     m_ui.selectTFButton->setEnabled(true);
                     m_ui.tempFilesLineEdit->setText(value);
                     break;
-                case 4:
+                case MoveInfectedFiles:
                     m_ui.moveDirectoryCheckBox->setChecked(true);
                     m_ui.moveFrame->setStyleSheet(css);
                     m_ui.moveDirectoryLineEdit->setEnabled(true);
                     m_ui.selectMDButton->setEnabled(true);
                     m_ui.moveDirectoryLineEdit->setText(value);
                     break;
-                case 5:
+                case CopyInfectedFiles:
                     m_ui.copyDirectoryCheckBox->setChecked(true);
                     m_ui.copyFrame->setStyleSheet(css);
                     m_ui.copyDirectoryLineEdit->setEnabled(true);
                     m_ui.selectCFButton->setEnabled(true);
                     m_ui.copyDirectoryLineEdit->setText(value);
                     break;
-                case 6:
+                case FollowDirectorySymLinks:
                     m_ui.followDirectorySymlinksCheckBox->setChecked(true);
                     m_ui.followDirLinksFrame->setStyleSheet(css);
                     m_ui.followDirectorySymlinksComboBox->setEnabled(true);
                     m_ui.followDirectorySymlinksComboBox->setCurrentIndex(value.toInt());
                     break;
-                case 7:
+                case FollowFileSymLinks:
                     m_ui.followFileSymlinksCheckBox->setChecked(true);
                     m_ui.followFileLinksFrame->setStyleSheet(css);
                     m_ui.followFileSymlinksComboBox->setEnabled(true);
@@ -535,55 +518,55 @@ void optionsDialog::updateDirectories()
         else {
             switch (i)
             {
-                case 0:
+                case LoadSupportedDBFiles:
                     m_ui.loadVirusDatabaseCheckBox->setChecked(false);
                     m_ui.databaseFrame->setStyleSheet("");
                     m_ui.loadVirusDatabaseLineEdit->setEnabled(false);
                     m_ui.selectLVDButton->setEnabled(false);
                     m_ui.loadVirusDatabaseLineEdit->setText(value);
                     break;
-                case 1:
+                case ScanReportToFile:
                     m_ui.scanReportToFileCheckBox->setChecked(false);
                     m_ui.scanReportFrame->setStyleSheet("");
                     m_ui.scanReportToFileLineEdit->setEnabled(false);
                     m_ui.selectSCRFButton->setEnabled(false);
                     m_ui.scanReportToFileLineEdit->setText(value);
                     break;
-                case 2:
+                case ScanFilesFromFile:
                     m_ui.scanFilesFromFileCheckBox->setChecked(false);
                     m_ui.scanFileFrame->setStyleSheet("");
                     m_ui.scanFilesFromFileLineEdit->setEnabled(false);
                     m_ui.selectSFFButton->setEnabled(false);
                     m_ui.scanFilesFromFileLineEdit->setText(value);
                     break;
-                case 3:
+                case TmpFile:
                     m_ui.tempFileCheckBox->setChecked(false);
                     m_ui.tempFileFrame->setStyleSheet("");
                     m_ui.tempFilesLineEdit->setEnabled(false);
                     m_ui.selectTFButton->setEnabled(false);
                     m_ui.tempFilesLineEdit->setText(value);
                     break;
-                case 4:
+                case MoveInfectedFiles:
                     m_ui.moveDirectoryCheckBox->setChecked(false);
                     m_ui.moveFrame->setStyleSheet("");
                     m_ui.moveDirectoryLineEdit->setEnabled(false);
                     m_ui.selectMDButton->setEnabled(false);
                     m_ui.moveDirectoryLineEdit->setText(value);
                     break;
-                case 5:
+                case CopyInfectedFiles:
                     m_ui.copyDirectoryCheckBox->setChecked(false);
                     m_ui.copyFrame->setStyleSheet("");
                     m_ui.copyDirectoryLineEdit->setEnabled(false);
                     m_ui.selectCFButton->setEnabled(false);
                     m_ui.copyDirectoryLineEdit->setText(value);
                     break;
-                case 6:
+                case FollowDirectorySymLinks:
                     m_ui.followDirectorySymlinksCheckBox->setChecked(false);
                     m_ui.followDirLinksFrame->setStyleSheet("");
                     m_ui.followDirectorySymlinksComboBox->setEnabled(false);
                     m_ui.followDirectorySymlinksComboBox->setCurrentIndex(value.toInt());
                     break;
-                case 7:
+                case FollowFileSymLinks:
                     m_ui.followFileSymlinksCheckBox->setChecked(false);
                     m_ui.followFileLinksFrame->setStyleSheet("");
                     m_ui.followFileSymlinksComboBox->setEnabled(false);
@@ -603,35 +586,35 @@ void optionsDialog::writeDirectories()
     {
         switch (idx)
         {
-            case 0 :
+            case LoadSupportedDBFiles :
                 value = m_ui.loadVirusDatabaseLineEdit->text();
                 m_ui.loadVirusDatabaseCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 1 :
+            case ScanReportToFile :
                 value = m_ui.scanReportToFileLineEdit->text();
                 m_ui.scanReportToFileCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 2 :
+            case ScanFilesFromFile :
                 value = m_ui.scanFilesFromFileLineEdit->text();
                 m_ui.scanFilesFromFileCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 3 :
+            case TmpFile :
                 value = m_ui.tempFilesLineEdit->text();
                 m_ui.tempFileCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 4 :
+            case MoveInfectedFiles :
                 value = m_ui.moveDirectoryLineEdit->text();
                 m_ui.moveDirectoryCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 5 :
+            case CopyInfectedFiles :
                 value = m_ui.copyDirectoryLineEdit->text();
                 m_ui.copyDirectoryCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 6 :
+            case FollowDirectorySymLinks :
                 value = QString::number(m_ui.followDirectorySymlinksComboBox->currentIndex());
                 m_ui.followDirectorySymlinksCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 7 :
+            case FollowFileSymLinks :
                 value = QString::number(m_ui.followFileSymlinksComboBox->currentIndex());
                 m_ui.followFileSymlinksCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
@@ -652,15 +635,13 @@ void optionsDialog::writeDirectories()
                 if (QMessageBox::warning(this, tr("Database files missing!"),
                                          tr("The virus definition files are missing in the database directory. Start download of the missing files?"),
                                          QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
-                {
                     emit updateDatabase();
-                }
             }
         }
     }
-    else {
+    else
         emit databasePathChanged("/var/lib/clamav");
-    }
+
     updateDirectories();
 }
 

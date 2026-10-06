@@ -1,3 +1,6 @@
+/***************************************************************************************
+ * Filesystem model for directory tree used in the scan tab and profile wizard class.
+****************************************************************************************/
 #include "cfilesystemmodel.h"
 #include <QDebug>
 

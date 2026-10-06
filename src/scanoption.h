@@ -4,7 +4,7 @@
 #include "ui_scanoption.h"
 #include "scanoptionbaseclass.h"
 #include "setupfilehandler.h"
-#include "translator.h"
+#include "toolbox.h"
 #include <QWidget>
 
 namespace Ui {

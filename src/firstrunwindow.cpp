@@ -1,3 +1,7 @@
+/**************************************************************
+ * Initiated at the first start of the application for setting
+ * up the initial directory structur and configuration files.
+ **************************************************************/
 #include "firstrunwindow.h"
 #include "ui_firstrunwindow.h"
 
@@ -36,6 +40,7 @@ firstRunWindow::~firstRunWindow()
 
 void firstRunWindow::slot_findRequiredApplications()
 {
+    // List of applications required for clamav-gui to run.
     m_initCommands << "whereis" << "whereis" << "whereis" << "whereis" << "whereis" << "whereis" << "whereis" << "whoami" << "groups" << "man";
     m_initParameters  << "clamd" << "freshclam"<< "clamonacc" << "clamscan" << "clamdscan" << "pkexec" << "kdesu" << "" << "" << "clamd.conf";
     m_initIndex = 0;
@@ -45,7 +50,6 @@ void firstRunWindow::slot_findRequiredApplications()
 
     m_processParameters.clear();
     m_processParameters << m_initParameters.at(m_initIndex);
-    //m_initProcess->start(m_initCommands.at(m_initIndex),m_processParameters);
     startProcess(m_initProcess,m_initCommands.at(m_initIndex),m_processParameters);
 }
 
@@ -58,7 +62,7 @@ void firstRunWindow::slot_startupModeChanged()
 {
     if (m_ui->startupModeComboBox->currentIndex() == 0)
         m_setupFile->setSectionValue("Setup", "WindowState", "maximized");
-    if (m_ui->startupModeComboBox->currentIndex() == 1)
+    else
         m_setupFile->setSectionValue("Setup", "WindowState", "minimized");
 }
 
@@ -75,13 +79,20 @@ void firstRunWindow::slot_gsettingsProcessFinished(int rc, QProcess::ExitStatus)
     {
         if (output.indexOf("[]") != -1)
         {
-            gnomecommanderParams << "set"  << "org.gnome.gnome-commander.preferences.general" << "favorite-apps" << "[('scan with ClamAV-GUI', '/usr/bin/clamav-gui --scan %F', '/usr/share/icons/hicolor/48x48/apps/clamav-gui.png', '', uint32 2, false, true, false)]";
+            if (isRunninginFlatPak())
+                gnomecommanderParams << "set"  << "org.gnome.gnome-commander.preferences.general" << "favorite-apps" << "[('scan with ClamAV-GUI', 'flatpak run --branch=master --arch=x86_64 --command=clamav-gui io.github.wusel1007.clamav-gui --scan %F', '/usr/share/icons/hicolor/48x48/apps/clamav-gui.png', '', uint32 2, false, true, false)]";
+            else
+                gnomecommanderParams << "set"  << "org.gnome.gnome-commander.preferences.general" << "favorite-apps" << "[('scan with ClamAV-GUI', '/usr/bin/clamav-gui --scan %F', '/usr/share/icons/hicolor/48x48/apps/clamav-gui.png', '', uint32 2, false, true, false)]";
+
             QProcess::execute("gsettings",gnomecommanderParams);
         }
         else {
             if (output.indexOf("clamav-gui") == -1)
             {
-                output = output.mid(0,output.length() - 2) + ", ('scan with ClamAV-GUI', '/usr/bin/clamav-gui --scan %F', '/usr/share/icons/hicolor/48x48/apps/clamav-gui.png', '', uint32 2, false, true, false)]";
+                if (isRunninginAppImage())
+                    output = output.mid(0,output.length() - 2) + ", ('scan with ClamAV-GUI', 'flatpak run --branch=master --arch=x86_64 --command=clamav-gui io.github.wusel1007.clamav-gui --scan %F', '/usr/share/icons/hicolor/48x48/apps/clamav-gui.png', '', uint32 2, false, true, false)]";
+                else
+                    output = output.mid(0,output.length() - 2) + ", ('scan with ClamAV-GUI', '/usr/bin/clamav-gui --scan %F', '/usr/share/icons/hicolor/48x48/apps/clamav-gui.png', '', uint32 2, false, true, false)]";
             }
             gnomecommanderParams << "set" << "org.gnome.gnome-commander.preferences.general" << "favorite-apps"  << output;
             QProcess::execute("gsettings",gnomecommanderParams);
@@ -251,12 +262,10 @@ void firstRunWindow::slot_initProcessFinished()
             if (m_initParameters.at(m_initIndex) != "")
             {
                 m_processParameters << m_initParameters.at(m_initIndex);
-                //m_initProcess->start(m_initCommands.at(m_initIndex),m_processParameters);
                 startProcess(m_initProcess,m_initCommands.at(m_initIndex),m_processParameters);
             }
             else {
                 m_processParameters << m_initParameters.at(m_initIndex);
-                //m_initProcess->start(m_initCommands.at(m_initIndex),QStringList());
                 startProcess(m_initProcess,m_initCommands.at(m_initIndex),QStringList());
             }
         }
@@ -338,15 +347,6 @@ void firstRunWindow::createBaseDirStructure()
 void firstRunWindow::createServiceMenu()
 {
     bool created = createServiceMenus();
-
-// ServiceMenu for GNOME-Commander
-    QStringList gnomecommanderParams;
-
-    m_gsettingsProcess = new QProcess(this);
-    gnomecommanderParams << "get"  << "org.gnome.gnome-commander.preferences.general" << "favorite-apps";
-    connect(m_gsettingsProcess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slot_gsettingsProcessFinished(int,QProcess::ExitStatus)));
-    //m_gsettingsProcess->start("gsettings",gnomecommanderParams);
-    startProcess(m_gsettingsProcess,"gsettings",gnomecommanderParams);
 
     if (created == true)
     {
@@ -453,8 +453,8 @@ void firstRunWindow::createClamdConfFile()
         m_clamdConf->setSingleLineValue("OnAccessDenyOnError", "no");
         m_clamdConf->setSingleLineValue("OnAccessExtraScanning", "yes");
         m_clamdConf->setSingleLineValue("OnAccessRetryAttempts", "0");
-        m_clamdConf->setSingleLineValue("OnAccessExcludeUname", "root","This option allows exclusions via user names when using the on- access scanning client. It can be used multiple times, and has the same potential race condition limitations of the OnAccessEx? cludeUID option. Default: disabled");
-        m_clamdConf->setSingleLineValue("OnAccessExcludeUID", "0","With this option you can exclude specific UIDs. Processes with these UIDs will be able to access all files without triggering scans or permission denied events. This option can be used multiple times (one per line). Note: using a value of 0 on any line will disable this option en? tirely. To exclude the root UID (0) please enable the OnAccessEx? cludeRootUID option. Also note that if clamd cannot check the uid of the process that generated an on-access scan event (e.g., because OnAccessPreven? tion was not enabled, and the process already exited), clamd will perform a scan. Thus, setting OnAccessExcludeUID is not guaran? teed to prevent every access by the specified uid from triggering a scan (unless OnAccessPrevention is enabled). Default: disabled");
+        m_clamdConf->setSingleLineValue("OnAccessExcludeUname", "root","This option allows exclusions via user names when using the on- access scanning client. It can be used multiple times, and has the same potential race condition limitations of the OnAccessEx‐ cludeUID option. Default: disabled");
+        m_clamdConf->setSingleLineValue("OnAccessExcludeUID", "0","With this option you can exclude specific UIDs. Processes with these UIDs will be able to access all files without triggering scans or permission denied events. This option can be used multiple times (one per line). Note: using a value of 0 on any line will disable this option en‐ tirely. To exclude the root UID (0) please enable the OnAccessEx‐ cludeRootUID option. Also note that if clamd cannot check the uid of the process that generated an on-access scan event (e.g., because OnAccessPreven‐ tion was not enabled, and the process already exited), clamd will perform a scan. Thus, setting OnAccessExcludeUID is not guaran‐ teed to prevent every access by the specified uid from triggering a scan (unless OnAccessPrevention is enabled). Default: disabled");
         delete m_clamdConf;
     }
 

@@ -1,3 +1,6 @@
+/*************************************************************************
+ * Include / Exclude Options for clamscan
+ *************************************************************************/
 #include "includeexcludeoptions.h"
 #include "ui_includeexcludeoptions.h"
 #include "sharedvars.cpp"
@@ -34,69 +37,69 @@ void includeExcludeOptions::slot_writeSettings()
         {
             switch (idx)
             {
-                case 0  :
+                case DontScanFileNamesMatchingRegExp  :
                     value = m_ui->dontScanFileNameLineEdit->text();
                     checked = m_ui->dontScanFileNameCheckBox->isChecked()?"checked":"not checked";
                     break;
-                case 1  :
+                case DontScanDirectoriesMatchingRegExp  :
                     value = m_ui->dontScanDirLineEdit->text();
                     checked = m_ui->dontScanDirCheckBox->isChecked()?"checked":"notChecked";
                     break;
-                case 2  :
+                case OnlyScanFileNamesMatchingRegExp  :
                     value = m_ui->onlyScanFileNameLineEdit->text();
                     checked = m_ui->onlyScanFileNameCheckBox->isChecked()?"checked":"notChecked";
                     break;
-                case 3  :
+                case OnlyScanDirectoriesMatchingRegExp  :
                     value = m_ui->onlyScanDirLineEdit->text();
                     checked = m_ui->onlyScanDirCheckBox->isChecked()?"checked":"not checked";
                     break;
-                case 4  :
+                case EnablePUAOptions  :
                     value = "";
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->enablePUACheckBox->isChecked());
                     break;
-                case 5  :
+                case LoadPUAPacked  :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAPackedRadioButon->isChecked());
                     break;
-                case 6  :
+                case LoadPUAPWTool  :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAPWToolRadioButton->isChecked());
                     break;
-                case 7  :
+                case LoadPUANetTool  :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUANetToolRadioButton->isChecked());
                     break;
-                case 8  :
+                case LoadPUAP2P  :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAP2PRadioButton->isChecked());
                     break;
-                case 9  :
+                case LoadPUAIRC  :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAIRCRadioButton->isChecked());
                     break;
-                case 10 :
+                case LoadPUARAT :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUARATRadioButton->isChecked());
                     break;
-                case 11 :
+                case LoadPUANetToolSpy :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUANetToolSpyRadioButton->isChecked());
                     break;
-                case 12 :
+                case LoadPUAServer :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAServerRadioButton->isChecked());
                     break;
-                case 13 :
+                case LoadPUAScript :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAScriptRadioButton->isChecked());
                     break;
-                case 14 :
+                case LoadPUAAndr :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAAndrRadioButton->isChecked());
                     break;
-                case 15 :
+                case LoadPUAJava :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAJavaRadioButton->isChecked());
                     break;
-                case 16 :
+                case LoadPUAOsx :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAOsxRadioButton->isChecked());
                     break;
-                case 17 :
+                case LoadPUATool :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAToolRadioButton->isChecked());
                     break;
-                case 18 :
+                case LoadPUAUnix :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAUnixRadioButton->isChecked());
                     break;
-                case 19 :
+                case LoadPUAWin :
                     m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), m_ui->loadPUAWinRadioButton->isChecked());
                     break;
             }
@@ -104,7 +107,6 @@ void includeExcludeOptions::slot_writeSettings()
             if (value != "")
                 m_setupFile->setSectionValue(section, inclExclKeywords.at(idx), checked + "|" + value);
         }
-
 
         emit updateClamdConf();
     }
@@ -123,69 +125,69 @@ void includeExcludeOptions::readSettings()
         value = value.mid(value.indexOf("|") + 1);
         switch (idx)
         {
-            case  0 :
+            case  DontScanFileNamesMatchingRegExp :
                 checked == "checked" ? m_ui->dontScanFileNameCheckBox->setChecked(true) : m_ui->dontScanFileNameCheckBox->setChecked(false);
                 m_ui->dontScanFileNameLineEdit->setText(value);
                 break;
-            case 1  :
+            case DontScanDirectoriesMatchingRegExp  :
                 checked == "checked" ? m_ui->dontScanDirCheckBox->setChecked(true) : m_ui->dontScanDirCheckBox->setChecked(false);
                 m_ui->dontScanDirLineEdit->setText(value);
                 break;
-            case 2  :
+            case OnlyScanFileNamesMatchingRegExp  :
                 checked == "checked" ? m_ui->onlyScanFileNameCheckBox->setChecked(true) : m_ui->onlyScanFileNameCheckBox->setChecked(false);
                 m_ui->onlyScanFileNameLineEdit->setText(value);
                 break;
-            case 3  :
+            case OnlyScanDirectoriesMatchingRegExp  :
                 checked == "checked" ? m_ui->onlyScanDirCheckBox->setChecked(true) : m_ui->onlyScanDirCheckBox->setChecked(false);
                 m_ui->onlyScanDirLineEdit->setText(value);
                 break;
-            case 4  :
+            case EnablePUAOptions  :
                 m_ui->enablePUACheckBox->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 m_ui->PUAFrame->setEnabled(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 5  :
+            case LoadPUAPacked  :
                 m_ui->loadPUAPackedRadioButon->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 6  :
+            case LoadPUAPWTool  :
                 m_ui->loadPUAPWToolRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 7  :
+            case LoadPUANetTool  :
                 m_ui->loadPUANetToolRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 8  :
+            case LoadPUAP2P  :
                 m_ui->loadPUAP2PRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 9  :
+            case LoadPUAIRC  :
                 m_ui->loadPUAIRCRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 10 :
+            case LoadPUARAT :
                 m_ui->loadPUARATRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 11 :
+            case LoadPUANetToolSpy :
                 m_ui->loadPUANetToolSpyRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 12 :
+            case LoadPUAServer :
                 m_ui->loadPUAServerRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 13 :
+            case LoadPUAScript :
                 m_ui->loadPUAScriptRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 14 :
+            case LoadPUAAndr :
                 m_ui->loadPUAAndrRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 15 :
+            case LoadPUAJava :
                 m_ui->loadPUAJavaRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 16 :
+            case LoadPUAOsx :
                 m_ui->loadPUAOsxRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 17 :
+            case LoadPUATool :
                 m_ui->loadPUAToolRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 18 :
+            case LoadPUAUnix :
                 m_ui->loadPUAUnixRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 19 :
+            case LoadPUAWin :
                 m_ui->loadPUAWinRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
         }

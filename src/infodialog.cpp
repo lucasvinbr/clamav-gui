@@ -1,8 +1,11 @@
+/***************************************************************
+ * Info tab with licence agreement an cedits of supporters.
+ ***************************************************************/
 #include "infodialog.h"
 
 infoDialog::infoDialog(QWidget* parent) : QWidget(parent)
 {
-    QString version = "1.4.5 (QT5/QT6)";
+    QString version = "1.4.8 (QT5/QT6)";
     QString iconPath;
     if (isRunninginFlatPak())
         iconPath = "/app/usr/share/clamav-gui/";
@@ -51,7 +54,7 @@ infoDialog::infoDialog(QWidget* parent) : QWidget(parent)
     infoText += "          </td>";
     infoText += "          <td>";
     infoText += "            <p>";
-    infoText += "              <span style=' font-size:14px;'>Martin Eilss�e &lt;martin.eilsoe@gmail.com&gt;</span>";
+    infoText += "              <span style=' font-size:14px;'>Martin Eilssøe &lt;martin.eilsoe@gmail.com&gt;</span>";
     infoText += "            </p>";
     infoText += "          </td>";
     infoText += "          <td>";
@@ -72,7 +75,7 @@ infoDialog::infoDialog(QWidget* parent) : QWidget(parent)
     infoText += "          </td>";
     infoText += "          <td>";
     infoText += "            <p>";
-    infoText += "              <span style=' font-size:14px;'>Pedro �lamo &lt;palamodz@gmail.com&gt;</span>";
+    infoText += "              <span style=' font-size:14px;'>Pedro Álamo &lt;palamodz@gmail.com&gt;</span>";
     infoText += "            </p>";
     infoText += "          </td>";
     infoText += "        </tr>";
@@ -278,8 +281,8 @@ infoDialog::infoDialog(QWidget* parent) : QWidget(parent)
     infoText += "          </td>";
     infoText += "          <td>";
     infoText += "            <p>";
-    infoText += "              <span style=' font-size:14px;'>Yet another helpful soul who has invested<br/>time and effort in making the programme safer and helped<br/>to defuse a ?sleeping time bomb? in the code.<br/>";
-    infoText += "              Thank you very much for that.\nWithout this support ? and feedback from users ? I wouldn?t<br/>be able to improve the quality of the programme.<br/>";
+    infoText += "              <span style=' font-size:14px;'>Yet another helpful soul who has invested<br/>time and effort in making the programme safer and helped<br/>to defuse a ‘sleeping time bomb’ in the code.<br/>";
+    infoText += "              Thank you very much for that.\nWithout this support – and feedback from users – I wouldn’t<br/>be able to improve the quality of the programme.<br/>";
     infoText += "              <br/>";
     infoText += "              Thank you Roberto</span>";
     infoText += "            </p>";

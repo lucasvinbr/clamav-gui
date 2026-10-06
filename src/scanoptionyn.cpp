@@ -1,3 +1,7 @@
+/************************************************************************
+ * Checkable Scan Option element for the scan option tab with yes/no
+ * combobox.
+ ************************************************************************/
 #include "scanoptionyn.h"
 #define css "background-color:#404040;color:white"
 
@@ -27,7 +31,7 @@ scanoptionyn::scanoptionyn(QWidget *parent, QString setupFileName, QString secti
     if (checked)
         this->setStyleSheet(css);
 
-    m_ui.checkBox->setText(translator::beautifyString(m_com));
+    m_ui.checkBox->setText(beautifyString(m_com));
     m_ui.checkBox->setToolTip(m_option);
 
     if (label.indexOf("<equal>yes") != -1) m_ui.comboBox->setCurrentText("yes");else m_ui.comboBox->setCurrentText("no");

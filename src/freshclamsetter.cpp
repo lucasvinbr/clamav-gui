@@ -1,3 +1,6 @@
+/**************************************************************
+ * Freshclam configuration and update tab
+ **************************************************************/
 #include "freshclamsetter.h"
 #define css_green "background-color:green;color:yellow"
 #define css_red "background-color:red;color:yellow"
@@ -5,14 +8,12 @@
 
 freshclamsetter::freshclamsetter(QWidget* parent, setupFileHandler* setupFile) : QWidget(parent), m_setupFile(setupFile)
 {
-    QDir tempDir;
-
     m_ui.setupUi(this);
     m_startup = true;
 
     m_lockFreshclamConf = true;
-    m_updateLogFileWatcher = NULL;
-    m_updateLogHighLighter = NULL;
+    m_updateLogFileWatcher = nullptr;
+    m_updateLogHighLighter = nullptr;
     m_monochrome = true;
     m_ui.groupBox->setStyleSheet("");
     if (m_setupFile->getSectionBoolValue("Setup", "DisableLogHighlighter") == false)
@@ -46,16 +47,13 @@ freshclamsetter::freshclamsetter(QWidget* parent, setupFileHandler* setupFile) :
     m_updateLogFileWatcher = new QFileSystemWatcher(this);
     connect(m_updateLogFileWatcher, SIGNAL(fileChanged(QString)), this, SLOT(slot_updateFileWatcherTriggered()));
 
-    /*m_ps_process = new QProcess;
-    connect(m_ps_process, SIGNAL(finished(int)), this, SLOT(slot_ps_processFinished(int)));*/
-
     m_freshclamStartupCounter = 5;
     m_startDelayTimer = new QTimer(this);
     m_startDelayTimer->setSingleShot(true);
     connect(m_startDelayTimer, SIGNAL(timeout()), this, SLOT(slot_startDelayTimerExpired()));
 
     QFile file(QDir::homePath() + "/.clamav-gui/update.log");
-    if (tempDir.exists(QDir::homePath() + "/.clamav-gui/update.log") == true)
+    if (QFileInfo::exists(QDir::homePath() + "/.clamav-gui/update.log") == true)
     {
         slot_updateFileWatcherTriggered();
         file.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ReadUser | QFileDevice::WriteUser |
@@ -75,7 +73,7 @@ freshclamsetter::freshclamsetter(QWidget* parent, setupFileHandler* setupFile) :
         }
 
     QFile fileFreshclamLog(QDir::homePath() + "/.clamav-gui/freshclam.log");
-    if (tempDir.exists(QDir::homePath() + "/.clamav-gui/freshclam.log") == true)
+    if (QFileInfo::exists(QDir::homePath() + "/.clamav-gui/freshclam.log") == true)
     {
         fileFreshclamLog.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ReadUser | QFileDevice::WriteUser |
                                         QFileDevice::ReadGroup | QFileDevice::WriteGroup | QFileDevice::ReadOther | QFileDevice::WriteOther);
@@ -97,8 +95,6 @@ freshclamsetter::freshclamsetter(QWidget* parent, setupFileHandler* setupFile) :
     m_processWatcher->start(5000);
 
     checkDaemonRunning();
-
-    // initFreshclamSettings();
 }
 
 void freshclamsetter::slot_updateNowButtonClicked()
@@ -152,7 +148,6 @@ void freshclamsetter::slot_updateNowButtonClicked()
         parameters << QDir::homePath() + "/.clamav-gui/startfreshclam.sh";
         if (m_sudoGUI == "")
             m_sudoGUI = m_setupFile->getSectionValue("Settings", "SudoGUI");
-        //m_updater->start(m_sudoGUI, parameters);
         startProcess(m_updater,m_sudoGUI, parameters);
     }
     else {
@@ -168,7 +163,6 @@ void freshclamsetter::slot_updateNowButtonClicked()
         parameters << "-l" << QDir::homePath() + "/.clamav-gui/update.log";
         parameters << "--show-progress";
         parameters << "--config-file" << QDir::homePath() + "/.clamav-gui/freshclam.conf";
-        //m_updater->start(m_setupFile->getSectionValue("FreshclamSettings", "FreshclamLocation"), parameters);
         startProcess(m_updater,m_setupFile->getSectionValue("FreshclamSettings", "FreshclamLocation"), parameters);
     }
     if (m_updateLogFileWatcher->directories().size() > 0)
@@ -186,7 +180,6 @@ void freshclamsetter::slot_updateNowButtonClicked()
 void freshclamsetter::slot_startStopDeamonButtonClicked()
 {
     QStringList parameters;
-//    if (m_pidFile == "")
     if (pidof("freshclam") == "")
     {
         if (m_logFile != "")
@@ -225,7 +218,6 @@ void freshclamsetter::slot_startStopDeamonButtonClicked()
                 parameters << QDir::homePath() + "/.clamav-gui/startfreshclam.sh";
                 if (m_sudoGUI == "")
                     m_sudoGUI = m_setupFile->getSectionValue("Settings", "SudoGUI");
-                //m_startDeamonProcess->start(m_sudoGUI, parameters);
                 startProcess(m_startDeamonProcess,m_sudoGUI, parameters);
             }
             else {
@@ -236,22 +228,11 @@ void freshclamsetter::slot_startStopDeamonButtonClicked()
             parameters << "-d";
             parameters << "-l" << m_logFile;
             parameters << "--config-file" << QDir::homePath() + "/.clamav-gui/freshclam.conf";
-            //m_startDeamonProcess->start(m_setupFile->getSectionValue("FreshclamSettings", "FreshclamLocation"), parameters);
             startProcess(m_startDeamonProcess,m_setupFile->getSectionValue("FreshclamSettings", "FreshclamLocation"), parameters);
         }
     }
     else {
-        //QFile tempFile(m_pidFile);
         QString pidString = pidof("freshclam");
-        /*if (tempFile.exists() == true)
-        {
-            if (tempFile.open(QIODevice::ReadOnly))
-            {
-                QTextStream stream(&tempFile);
-                pidString = stream.readLine();
-                tempFile.close();
-            }
-        }*/
         if (m_setupFile->getSectionBoolValue("FreshClam", "runasroot") == true)
         {
             QString para = "/bin/kill -sigterm " + pidString + " && rm " + m_pidFile;
@@ -270,39 +251,24 @@ void freshclamsetter::slot_startStopDeamonButtonClicked()
             if (m_sudoGUI == "")
                 m_sudoGUI = m_setupFile->getSectionValue("Settings", "SudoGUI");
             if (isRunninginFlatPak())
-            {
                 QProcess::execute("flatpack-spawn",{"--host",QDir::homePath() + "/.clamav-gui/stopfreshclam.sh"});
-            }
-            else {
+            else
                 QProcess::execute(m_sudoGUI, parameters);
-            }
             checkDaemonRunning();
         }
         else {
             parameters << "-sigterm" << pidString;
             if (isRunninginFlatPak())
-            {
                 QProcess::execute("flatpak-spawn",{"--host","kill","-sigterm",pidString});
-            }
-            else {
+            else
                 QProcess::execute("kill", parameters);
-            }
             checkDaemonRunning();
         }
     }
 }
 
-/*void freshclamsetter::checkDaemonRunning()
-{
-    QStringList ps_parameters;
-    ps_parameters << "-s" << "freshclam";
-    //m_ps_process->start("pidof", ps_parameters);
-    startProcess(m_ps_process,"pidof", ps_parameters);
-}*/
-
 void freshclamsetter::checkDaemonRunning()
 {
-    QFile tempFile;
     QString pidString = pidof("freshclam");
 
     if (pidString != "")
@@ -323,7 +289,6 @@ void freshclamsetter::checkDaemonRunning()
         m_ui.startStopDeamonButton->setText(tr("Deamon running - stop deamon"));
         m_ui.startStopDeamonButton->setStyleSheet(selectColor("green"));
         m_ui.updateNowButton->setStyleSheet(selectColor("green"));
-        /*        if (monochrome == false) ui->frame->setStyleSheet("background-color:#c0c0c0;"); else ui->frame->setStyleSheet("");*/
         m_ui.startStopDeamonButton->setIcon(QIcon(":/icons/icons/Clam.png"));
 
         m_setupFile->setSectionValue("Freshclam", "Started", true);
@@ -332,17 +297,6 @@ void freshclamsetter::checkDaemonRunning()
 
         slot_setFreshclamsettingsFrameState(false);
 
-        /*QFile tempFile(m_pidFile);
-        QString pidString;
-        if (tempFile.exists() == true)
-        {
-            if (tempFile.open(QIODevice::ReadOnly))
-            {
-                QTextStream stream(&tempFile);
-                pidString = stream.readLine();
-                tempFile.close();
-            }
-        }*/
         m_setupFile->setSectionValue("Freshclam", "Pid", pidString);
         emit systemStatusChanged();
     }
@@ -353,7 +307,6 @@ void freshclamsetter::checkDaemonRunning()
         m_ui.startStopDeamonButton->setStyleSheet(selectColor("red"));
         m_ui.updateNowButton->setStyleSheet(selectColor("green"));
 
-        //        if (monochrome == false) ui->frame->setStyleSheet("background-color:#c0c0c0;"); else ui->frame->setStyleSheet("");
         m_ui.startStopDeamonButton->setIcon(QIcon(":/icons/icons/Clam.png"));
 
         m_setupFile->setSectionValue("Freshclam", "Started", false);
@@ -373,14 +326,14 @@ void freshclamsetter::checkDaemonRunning()
         }
     }
 
-    if ((m_logFile != "") && (tempFile.exists(m_logFile) == true))
+    if ((m_logFile != "") && (QFileInfo::exists(m_logFile) == true))
     {
         m_logFileWatcher->addPath(m_logFile);
         slot_logFileWatcherTriggered();
     }
     else {
         m_logFile = QDir::homePath() + "/.clamav-gui/freshclam.log";
-        if (tempFile.exists(m_logFile) == true)
+        if (QFileInfo::exists(m_logFile) == true)
         {
             m_logFileWatcher->addPath(m_logFile);
             slot_logFileWatcherTriggered();
@@ -426,14 +379,12 @@ void freshclamsetter::slot_startDelayTimerExpired()
         parameters << QDir::homePath() + "/.clamav-gui/startfreshclam.sh";
         if (m_sudoGUI == "")
             m_sudoGUI = m_setupFile->getSectionValue("Settings", "SudoGUI");
-        //m_startDeamonProcess->start(m_sudoGUI, parameters);
         startProcess(m_startDeamonProcess,m_sudoGUI, parameters);
     }
     else {
         parameters << "-d";
         parameters << "-l" << m_logFile;
         parameters << "--config-file" << QDir::homePath() + "/.clamav-gui/freshclam.conf";
-        //m_startDeamonProcess->start(m_setupFile->getSectionValue("FreshclamSettings", "FreshclamLocation"), parameters);
         startProcess(m_startDeamonProcess,m_setupFile->getSectionValue("FreshclamSettings", "FreshclamLocation"), parameters);
         m_startup = false;
         emit freshclamStarted();
@@ -444,7 +395,6 @@ void freshclamsetter::slot_updaterFinished(int rc)
 {
     m_busyLabel->hide();
     delete m_busyLabel;
-    //QString rcstring = m_updater->readAll();
 
     if (rc == 0)
     {
@@ -459,15 +409,11 @@ void freshclamsetter::slot_updaterFinished(int rc)
 
 void freshclamsetter::slot_fileSystemWatcherTriggered()
 {
-    QDir tempDir;
-
-    if ((m_pidFile != "") && (tempDir.exists(m_pidFile) == true))
+    if ((m_pidFile != "") && (QFileInfo::exists(m_pidFile) == true))
     {
         m_ui.startStopDeamonButton->setText(tr("Deamon running - stop deamon"));
         m_ui.startStopDeamonButton->setStyleSheet(selectColor("green"));
         m_ui.updateNowButton->setStyleSheet("green");
-
-        //        if (monochrome == false) ui->frame->setStyleSheet("background-color:#c0c0c0;"); else ui->frame->setStyleSheet("");
 
         m_ui.startStopDeamonButton->setIcon(QIcon(":/icons/icons/Clam.png"));
         m_pidFileWatcher->addPath(m_pidFile);
@@ -485,15 +431,15 @@ void freshclamsetter::slot_fileSystemWatcherTriggered()
 
 void freshclamsetter::slot_clearLogButtonClicked()
 {
-    QFile file(QDir::homePath() + "/.clamav-gui/update.log");
+    QFile logFile(QDir::homePath() + "/.clamav-gui/update.log");
 
-    if (file.exists())
-        file.remove();
-    if (file.open(QIODevice::ReadWrite))
+    if (logFile.exists())
+        logFile.remove();
+    if (logFile.open(QIODevice::ReadWrite))
     {
-        QTextStream stream(&file);
+        QTextStream stream(&logFile);
         stream << "";
-        file.close();
+        logFile.close();
     }
     m_ui.logPlainText->setPlainText("");
 }
@@ -1002,9 +948,7 @@ void freshclamsetter::slot_initFreshclamSettings()
     if (m_freshclamConf->singleLineExists("OnOutdatedExecute") == true)
         m_ui.onOutdatedExecuteLineEdit->setText(m_freshclamConf->getSingleLineValue("OnOutdatedExecute"));
 
-    QDir dbDir;
-
-    if (dbDir.exists(m_ui.databaseDirectoryPathLabel->text()) == true)
+    if (QFileInfo::exists(m_ui.databaseDirectoryPathLabel->text()) == true)
     {
         QFileInfo dbDirectoryPath(m_ui.databaseDirectoryPathLabel->text());
         m_freshclamConf->setSingleLineValue("DatabaseOwner", dbDirectoryPath.owner(), "When started by root, drop privileges to a specified user. Default: vscan");
@@ -1015,19 +959,7 @@ void freshclamsetter::slot_initFreshclamSettings()
     m_clamscanlocationProcessOutput = "";
     m_freshclamlocationProcessOutput = "";
 
-    /*QFile file(m_freshclamConf->getSingleLineValue("DatabaseDirectory") + "/freshclam.dat");
-    if ((file.exists() == false) && (m_setupFile->getSectionBoolValue("Setup","FirstRun") == false))
-    {
-        if (QMessageBox::warning(this, tr("Virus definitions missing!"),
-                                 m_ui.databaseDirectoryPathLabel->text() + "\n" +
-                                 tr("No virus definitions found in the database folder. Should the virus definitions be downloaded?"),
-                                 QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
-        {
-            emit updateDatabase();
-        }
-    }*/
-
-    setUpdaterInfo();
+     setUpdaterInfo();
 }
 
 void freshclamsetter::slot_runasrootCheckBoxChanged()
@@ -1112,8 +1044,7 @@ void freshclamsetter::slot_dbPathChanged(QString dbPath)
 
         QStringList parameters;
         parameters << "-ld" << m_ui.databaseDirectoryPathLabel->text();
-        QDir dbDir;
-        if (dbDir.exists(m_ui.databaseDirectoryPathLabel->text()) == true)
+        if (QFileInfo::exists(m_ui.databaseDirectoryPathLabel->text()) == true)
         {
             QFileInfo dbDirectoryPath(m_ui.databaseDirectoryPathLabel->text());
             m_freshclamConf->setSingleLineValue("DatabaseOwner", dbDirectoryPath.owner(), "When started by root, drop privileges to a specified user. Default: vscan");
@@ -1197,10 +1128,9 @@ void freshclamsetter::slot_processWatcherExpired()
 {
     QString freshclamPid = m_setupFile->getSectionValue("Freshclam", "Pid");
 
-    QDir checkDir;
     if (freshclamPid != "n/a")
     {
-        if (checkDir.exists("/proc/" + freshclamPid) == false)
+        if (QFileInfo::exists("/proc/" + freshclamPid) == false)
         {
             m_setupFile->setSectionValue("Freshclam", "Pid", "n/a");
             emit systemStatusChanged();
@@ -1213,12 +1143,12 @@ void freshclamsetter::slot_add_remove_highlighter(bool state)
 {
     if (state == true)
     {
-        if (m_updateLogHighLighter != NULL)
+        if (m_updateLogHighLighter != nullptr)
         {
             delete m_updateLogHighLighter;
             delete m_freshclamLogHighLighter;
-            m_updateLogHighLighter = NULL;
-            m_freshclamLogHighLighter = NULL;
+            m_updateLogHighLighter = nullptr;
+            m_freshclamLogHighLighter = nullptr;
             m_ui.groupBox->setStyleSheet("");
             m_ui.updateInfoText->setStyleSheet("");
             m_ui.updateNowButton->setStyleSheet(css_mono);
@@ -1226,7 +1156,7 @@ void freshclamsetter::slot_add_remove_highlighter(bool state)
         m_monochrome = true;
     }
     else {
-        if (m_updateLogHighLighter == NULL)
+        if (m_updateLogHighLighter == nullptr)
         {
             m_updateLogHighLighter = new highlighter(m_ui.logPlainText->document());
             m_freshclamLogHighLighter = new highlighter(m_ui.deamonLogText->document());

@@ -1,3 +1,6 @@
+/*********************************************************************
+ * A guided creation of a scan profile
+ *********************************************************************/
 #include "profilewizarddialog.h"
 #include "ui_profilewizarddialog.h"
 #include "sharedvars.cpp"
@@ -81,12 +84,10 @@ void ProfileWizardDialog::readSettings()
     // DIRTREE
     m_ui->treeView->collapseAll();
     if (m_newProfile == true)
-    {
         m_ui->recursivCheckBox->setChecked(m_setupFile->getSectionBoolValue("Settings", "RecursivScan"));
-    }
-    else {
+    else
         m_ui->recursivCheckBox->setChecked(m_setupFile->getSectionBoolValue(m_profileName, "Recursion"));
-    }
+
     m_model->unCheckAll();
     foreach (QString dir, directories)
     {
@@ -164,69 +165,69 @@ void ProfileWizardDialog::readSettings()
         value = value.mid(value.indexOf("|") + 1);
         switch (idx)
         {
-            case  0 :
+            case  DontScanFileNamesMatchingRegExp :
                 checked == "checked" ? m_ui->pwdontScanFileNameCheckBox->setChecked(true) : m_ui->pwdontScanFileNameCheckBox->setChecked(false);
                 m_ui->pwdontScanFileNameLineEdit->setText(value);
                 break;
-            case 1  :
+            case DontScanDirectoriesMatchingRegExp  :
                 checked == "checked" ? m_ui->pwdontScanDirCheckBox->setChecked(true) : m_ui->pwdontScanDirCheckBox->setChecked(false);
                 m_ui->pwdontScanDirLineEdit->setText(value);
                 break;
-            case 2  :
+            case OnlyScanFileNamesMatchingRegExp  :
                 checked == "checked" ? m_ui->pwonlyScanFileNameCheckBox->setChecked(true) : m_ui->pwonlyScanFileNameCheckBox->setChecked(false);
                 m_ui->pwonlyScanFileNameLineEdit->setText(value);
                 break;
-            case 3  :
+            case OnlyScanDirectoriesMatchingRegExp  :
                 checked == "checked" ? m_ui->pwonlyScanDirCheckBox->setChecked(true) : m_ui->pwonlyScanDirCheckBox->setChecked(false);
                 m_ui->pwonlyScanDirLineEdit->setText(value);
                 break;
-            case 4  :
+            case EnablePUAOptions  :
                 m_ui->pwenablePUACheckBox->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 m_ui->pwPUAFrame->setEnabled(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 5  :
+            case LoadPUAPacked  :
                 m_ui->pwloadPUAPackedRadioButon->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 6  :
+            case LoadPUAPWTool  :
                 m_ui->pwloadPUAPWToolRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 7  :
+            case LoadPUANetTool  :
                 m_ui->pwloadPUANetToolRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 8  :
+            case LoadPUAP2P  :
                 m_ui->pwloadPUAP2PRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 9  :
+            case LoadPUAIRC  :
                 m_ui->pwloadPUAIRCRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 10 :
+            case LoadPUARAT :
                 m_ui->pwloadPUARATRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 11 :
+            case LoadPUANetToolSpy :
                 m_ui->pwloadPUANetToolSpyRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 12 :
+            case LoadPUAServer :
                 m_ui->pwloadPUAServerRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 13 :
+            case LoadPUAScript :
                 m_ui->pwloadPUAScriptRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 14 :
+            case LoadPUAAndr :
                 m_ui->pwloadPUAAndrRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 15 :
+            case LoadPUAJava :
                 m_ui->pwloadPUAJavaRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 16 :
+            case LoadPUAOsx :
                 m_ui->pwloadPUAOsxRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 17 :
+            case LoadPUATool :
                 m_ui->pwloadPUAToolRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 18 :
+            case LoadPUAUnix :
                 m_ui->pwloadPUAUnixRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
-            case 19 :
+            case LoadPUAWin :
                 m_ui->pwloadPUAWinRadioButton->setChecked(m_setupFile->getSectionBoolValue(section, inclExclKeywords.at(idx)));
                 break;
         }
@@ -241,9 +242,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwfilesLargerThanThisComboBox->setCurrentIndex(m_ui->pwfilesLargerThanThisComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwfilesLargerThanThisComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwfilesLargerThanThisCheckBox->setChecked(true) : m_ui->pwfilesLargerThanThisCheckBox->setChecked(false);
     m_ui->pwfilesLargerThanThisSpinBox->setValue(value.toInt());
 
@@ -255,9 +256,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwmaxAmountForContainerComboBox->setCurrentIndex(m_ui->pwmaxAmountForContainerComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwmaxAmountForContainerComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwmaxAmountForContainerCheckBox->setChecked(true) : m_ui->pwmaxAmountForContainerCheckBox->setChecked(false);
     m_ui->pwmaxAmountForContainerSpinBox->setValue(value.toInt());
 
@@ -269,9 +270,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwmaxNumberForContainerComboBox->setCurrentIndex(m_ui->pwmaxNumberForContainerComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwmaxNumberForContainerComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwmaxNumberForContainerCheckBox->setChecked(true) : m_ui->pwmaxNumberForContainerCheckBox->setChecked(false);
     m_ui->pwmaxNumberForContainerSpinBox->setValue(value.toInt());
 
@@ -283,9 +284,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwmaxArchiveRecursionForContainerComboBox->setCurrentIndex(m_ui->pwmaxArchiveRecursionForContainerComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwmaxArchiveRecursionForContainerComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwmaxArchiveRecursionForContainerCheckBox->setChecked(true)
                          : m_ui->pwmaxArchiveRecursionForContainerCheckBox->setChecked(false);
     m_ui->pwmaxArchiveRecursionForContainerSpinBox->setValue(value.toInt());
@@ -298,9 +299,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwmaxDirRecursionLevelComboBox->setCurrentIndex(m_ui->pwmaxDirRecursionLevelComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwmaxDirRecursionLevelComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwmaxDirRecursionLevelCheckBox->setChecked(true) : m_ui->pwmaxDirRecursionLevelCheckBox->setChecked(false);
     m_ui->pwmaxDirRecursionLevelSpinBox->setValue(value.toInt());
 
@@ -312,9 +313,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwmaxSizeFileForPEComboBox->setCurrentIndex(m_ui->pwmaxSizeFileForPEComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwmaxSizeFileForPEComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwmaxSizeFileForPECheckBox->setChecked(true) : m_ui->pwmaxSizeFileForPECheckBox->setChecked(false);
     m_ui->pwmaxSizeFileForPESpinBox->setValue(value.toInt());
 
@@ -326,9 +327,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwmaxSizeHTMLFileToNormalizeComboBox->setCurrentIndex(m_ui->pwmaxSizeHTMLFileToNormalizeComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwmaxSizeHTMLFileToNormalizeComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwmaxSizeHTMLFileToNormalizeCheckBox->setChecked(true)
                          : m_ui->pwmaxSizeHTMLFileToNormalizeCheckBox->setChecked(false);
     m_ui->pwmaxSizeHTMLFileToNormalizeSpinBox->setValue(value.toInt());
@@ -341,9 +342,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwmaxSizeOfNormalizedHTMLFileComboBox->setCurrentIndex(m_ui->pwmaxSizeOfNormalizedHTMLFileComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwmaxSizeOfNormalizedHTMLFileComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwmaxSizeOfNormalizedHTMLFileCheckBox->setChecked(true)
                          : m_ui->pwmaxSizeOfNormalizedHTMLFileCheckBox->setChecked(false);
     m_ui->pwmaxSizeOfNormalizedHTMLFileSpinBox->setValue(value.toInt());
@@ -356,9 +357,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwmaxSizeOfScriptFileToNormalizeComboBox->setCurrentIndex(m_ui->pwmaxSizeOfScriptFileToNormalizeComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwmaxSizeOfScriptFileToNormalizeComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwmaxSizeOfScriptFileToNormalizeCheckBox->setChecked(true)
                          : m_ui->pwmaxSizeOfScriptFileToNormalizeCheckBox->setChecked(false);
     m_ui->pwmaxSizeOfScriptFileToNormalizeSpinBox->setValue(value.toInt());
@@ -371,9 +372,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwmaxSizeZipToTypeReanalzeComboBox->setCurrentIndex(m_ui->pwmaxSizeZipToTypeReanalzeComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwmaxSizeZipToTypeReanalzeComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwmaxSizeZipToTypeReanalzeCheckBox->setChecked(true) : m_ui->pwmaxSizeZipToTypeReanalzeCheckBox->setChecked(false);
     m_ui->pwmaxSizeZipToTypeReanalzeSpinBox->setValue(value.toInt());
 
@@ -385,9 +386,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwmaxNumberOfPartitionsInDiskImageComboBox->setCurrentIndex(m_ui->pwmaxNumberOfPartitionsInDiskImageComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwmaxNumberOfPartitionsInDiskImageComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwmaxNumberOfPartitionsInDiskImageCheckBox->setChecked(true)
                          : m_ui->pwmaxNumberOfPartitionsInDiskImageCheckBox->setChecked(false);
     m_ui->pwmaxNumberOfPartitionsInDiskImageSpinBox->setValue(value.toInt());
@@ -400,9 +401,9 @@ void ProfileWizardDialog::readSettings()
         m_ui->pwmaxNumberOfIconsInPEFileComboBox->setCurrentIndex(m_ui->pwmaxNumberOfIconsInPEFileComboBox->findText(value.right(1)));
         value = value.left(value.length() - 1);
     }
-    else {
+    else
         m_ui->pwmaxNumberOfIconsInPEFileComboBox->setCurrentIndex(0);
-    }
+
     checked == "checked" ? m_ui->pwmaxNumberOfIconsInPEFileCheckBox->setChecked(true) : m_ui->pwmaxNumberOfIconsInPEFileCheckBox->setChecked(false);
     m_ui->pwmaxNumberOfIconsInPEFileSpinBox->setValue(value.toInt());
 
@@ -771,69 +772,69 @@ void ProfileWizardDialog::slot_createButtonClicked()
     {
         switch (idx)
         {
-            case 0  :
+            case DontScanFileNamesMatchingRegExp  :
                 value = m_ui->pwdontScanFileNameLineEdit->text();
                 checked = m_ui->pwdontScanFileNameCheckBox->isChecked()?"checked":"not checked";
                 break;
-            case 1  :
+            case DontScanDirectoriesMatchingRegExp  :
                 value = m_ui->pwdontScanDirLineEdit->text();
                 checked = m_ui->pwdontScanDirCheckBox->isChecked()?"checked":"notChecked";
                 break;
-            case 2  :
+            case OnlyScanFileNamesMatchingRegExp  :
                 value = m_ui->pwonlyScanFileNameLineEdit->text();
                 checked = m_ui->pwonlyScanFileNameCheckBox->isChecked()?"checked":"notChecked";
                 break;
-            case 3  :
+            case OnlyScanDirectoriesMatchingRegExp  :
                 value = m_ui->pwonlyScanDirLineEdit->text();
                 checked = m_ui->pwonlyScanDirCheckBox->isChecked()?"checked":"not checked";
                 break;
-            case 4  :
+            case EnablePUAOptions  :
                 value = "";
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwenablePUACheckBox->isChecked());
                 break;
-            case 5  :
+            case LoadPUAPacked  :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAPackedRadioButon->isChecked());
                 break;
-            case 6  :
+            case LoadPUAPWTool  :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAPWToolRadioButton->isChecked());
                 break;
-            case 7  :
+            case LoadPUANetTool  :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUANetToolRadioButton->isChecked());
                 break;
-            case 8  :
+            case LoadPUAP2P  :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAP2PRadioButton->isChecked());
                 break;
-            case 9  :
+            case LoadPUAIRC  :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAIRCRadioButton->isChecked());
                 break;
-            case 10 :
+            case LoadPUARAT :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUARATRadioButton->isChecked());
                 break;
-            case 11 :
+            case LoadPUANetToolSpy :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUANetToolSpyRadioButton->isChecked());
                 break;
-            case 12 :
+            case LoadPUAServer :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAServerRadioButton->isChecked());
                 break;
-            case 13 :
+            case LoadPUAScript :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAScriptRadioButton->isChecked());
                 break;
-            case 14 :
+            case LoadPUAAndr :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAAndrRadioButton->isChecked());
                 break;
-            case 15 :
+            case LoadPUAJava :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAJavaRadioButton->isChecked());
                 break;
-            case 16 :
+            case LoadPUAOsx :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAOsxRadioButton->isChecked());
                 break;
-            case 17 :
+            case LoadPUATool :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAToolRadioButton->isChecked());
                 break;
-            case 18 :
+            case LoadPUAUnix :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAUnixRadioButton->isChecked());
                 break;
-            case 19 :
+            case LoadPUAWin :
                 profiles->setSectionValue(section, inclExclKeywords.at(idx), m_ui->pwloadPUAWinRadioButton->isChecked());
                 break;
         }
@@ -846,103 +847,103 @@ void ProfileWizardDialog::slot_createButtonClicked()
     {
         switch (idx)
         {
-            case 0  :
+            case FilesLargerThanThis  :
                 value = QString::number(m_ui->pwfilesLargerThanThisSpinBox->value()) + m_ui->pwfilesLargerThanThisComboBox->currentText();
                 m_ui->pwfilesLargerThanThisCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 1  :
+            case MaxAmountOfData  :
                 value = QString::number(m_ui->pwmaxAmountForContainerSpinBox->value()) + m_ui->pwmaxAmountForContainerComboBox->currentText();
                 m_ui->pwmaxAmountForContainerCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 2  :
+            case MinNumberOfFiles  :
                 value = QString::number(m_ui->pwmaxNumberForContainerSpinBox->value()) + m_ui->pwmaxNumberForContainerComboBox->currentText();
                 m_ui->pwmaxNumberForContainerCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 3  :
+            case MaxArchiveRecursion  :
                 value = QString::number(m_ui->pwmaxArchiveRecursionForContainerSpinBox->value()) + m_ui->pwmaxArchiveRecursionForContainerComboBox->currentText();
                 m_ui->pwmaxArchiveRecursionForContainerCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 4  :
+            case MaxDirectoryRecursion  :
                 value = QString::number(m_ui->pwmaxDirRecursionLevelSpinBox->value()) + m_ui->pwmaxDirRecursionLevelComboBox->currentText();
                 m_ui->pwmaxDirRecursionLevelCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 5  :
+            case MaxSizeFilePE  :
                 value = QString::number(m_ui->pwmaxSizeFileForPESpinBox->value()) + m_ui->pwmaxSizeFileForPEComboBox->currentText();
                 m_ui->pwmaxSizeFileForPECheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 6  :
+            case MaxSizeHTMLNormalize  :
                 value = QString::number(m_ui->pwmaxSizeHTMLFileToNormalizeSpinBox->value()) + m_ui->pwmaxSizeHTMLFileToNormalizeComboBox->currentText();
                 m_ui->pwmaxSizeHTMLFileToNormalizeCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 7  :
+            case MaxSizeNormalizedHTML  :
                 value = QString::number(m_ui->pwmaxSizeOfNormalizedHTMLFileSpinBox->value()) + m_ui->pwmaxSizeOfNormalizedHTMLFileComboBox->currentText();
                 m_ui->pwmaxSizeOfNormalizedHTMLFileCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 8  :
+            case MaxSizeScriptFileNormalize  :
                 value = QString::number(m_ui->pwmaxSizeOfScriptFileToNormalizeSpinBox->value()) + m_ui->pwmaxSizeOfScriptFileToNormalizeComboBox->currentText();
                 m_ui->pwmaxSizeOfScriptFileToNormalizeCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 9  :
+            case MaxSizeZIPReanalyze  :
                 value = QString::number(m_ui->pwmaxSizeZipToTypeReanalzeSpinBox->value()) + m_ui->pwmaxSizeZipToTypeReanalzeComboBox->currentText();
                 m_ui->pwmaxSizeZipToTypeReanalzeCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 10 :
+            case MaxNumberPartitions :
                 value = QString::number(m_ui->pwmaxNumberOfPartitionsInDiskImageSpinBox->value()) + m_ui->pwmaxNumberOfPartitionsInDiskImageComboBox->currentText();
                 m_ui->pwmaxNumberOfPartitionsInDiskImageCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 11 :
+            case MaxNumberIconsPE :
                 value = QString::number(m_ui->pwmaxNumberOfIconsInPEFileSpinBox->value()) + m_ui->pwmaxNumberOfIconsInPEFileComboBox->currentText();
                 m_ui->pwmaxNumberOfIconsInPEFileCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 12 :
+            case NumberSecondsStatsTimeout :
                 value = QString::number(m_ui->pwnumberOfSecondsForResponseSpinBox->value());
                 m_ui->pwnumberOfSecondsForResponseCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 13 :
+            case BytecodeTimeout :
                 value = QString::number(m_ui->pwBytecodeTimeoutSpinBox->value());
                 m_ui->pwBytecodeTimeoutCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 14 :
+            case CollectAndPrint :
                 value = QString::number(m_ui->pwExecutionStatisticsComboBox->currentIndex());
                 m_ui->pwExecutionStatisticsCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 15 :
+            case StructSSNFormat :
                 value = QString::number(m_ui->pwStructuredSSNFormatComboBox->currentIndex());
                 m_ui->pwstructuredSSNFormatCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 16 :
+            case StructSSNCount :
                 value = QString::number(m_ui->pwStructuredSSNCountSpinBox->value());
                 m_ui->pwStructuredSSNCountCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 17 :
+            case StructCCCount :
                 value = QString::number(m_ui->pwStructuredCCCountSpinBox->value());
                 m_ui->pwStructuredCCCountCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 18 :
+            case StructCCMode :
                 value = QString::number(m_ui->pwStructuredCCModeComboBox->currentIndex());
                 m_ui->pwStructuredCCModeCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 19 :
+            case MaxScanTime :
                 value = QString::number(m_ui->pwMaxScanTimeSpinBox->value());
                 m_ui->pwMaxScanTimeCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 20 :
+            case MaxRecursionHWP3 :
                 value = QString::number(m_ui->pwMaxRecursionHWP3SpinBox->value());
                 m_ui->pwMaxRecursionHWP3CheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 21 :
+            case MaxCallsPCRE :
                 value = QString::number(m_ui->pwMaxCallsPCREMatchFunctionSpinBox->value());
                 m_ui->pwMaxCallsPCREMatchFunctionCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 22 :
+            case MaxRecursionCallsPCRE :
                 value = QString::number(m_ui->pwMaxRecursionCallsPCREMatchFunctionCpinBox->value());
                 m_ui->pwMaxRecursionCallsPCREMatchFunctionCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 23 :
+            case MaxPCREFileSize :
                 value = QString::number(m_ui->pwMaxPCREFileSizeSpinBox->value()) + m_ui->pwMaxPCREFileSizeComboBox->currentText();
                 m_ui->pwMaxPCREFileSizeCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;
-            case 24 :
+            case DatabaseOutdated :
                 value = QString::number(m_ui->pwdatabaseOutdatedSpinBox->value());
                 m_ui->pwdatabaseOutdatedCheckbox->isChecked() == true ? checked = "checked" : checked = "not checked";
                 break;

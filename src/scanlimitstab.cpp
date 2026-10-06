@@ -1,3 +1,6 @@
+/************************************************************************
+ * Tab with scan limitations for clamscan
+ ************************************************************************/
 #include "scanlimitstab.h"
 #include "sharedvars.cpp"
 #define css "background-color:#404040;color:white"
@@ -24,7 +27,7 @@ void scanLimitsTab::writeLimits()
         {
             keyword = scanLimitKeywords.at(i);
             switch (i)
-            {//TODO: use switch with enum class but not integer - done!
+            {
                 case FilesLargerThanThis:
                     value = QString::number(m_ui.filesLargerThanThisSpinBox->value()) + m_ui.filesLargerThanThisComboBox->currentText();
                     m_ui.filesLargerThanThisCheckBox->isChecked() == true ? checked = "checked" : checked = "not checked";

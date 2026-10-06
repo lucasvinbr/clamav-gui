@@ -11,6 +11,10 @@ enum scanLimits {FilesLargerThanThis,MaxAmountOfData,MinNumberOfFiles,MaxArchive
 // --------------------------------------------------------------------------------------------------------------------------------------------------
 // Used in : clamav-gui.cpp, includeexcludeoptions.cpp, main.cpp, profilemanager.cpp, profilewizarddialog.cpp, scheduler.cpp
 // --------------------------------------------------------------------------------------------------------------------------------------------------
+enum  inclExclKeys {DontScanFileNamesMatchingRegExp,DontScanDirectoriesMatchingRegExp,OnlyScanFileNamesMatchingRegExp,OnlyScanDirectoriesMatchingRegExp,
+    EnablePUAOptions,LoadPUAPacked,LoadPUAPWTool,LoadPUANetTool,LoadPUAP2P,LoadPUAIRC,LoadPUARAT,LoadPUANetToolSpy,LoadPUAServer,LoadPUAScript,
+    LoadPUAAndr,LoadPUAJava,LoadPUAOsx,LoadPUATool,LoadPUAUnix,LoadPUAWin};
+
 const QStringList inclExclKeywords = QString("DontScanFileNamesMatchingRegExp|"
                                          "DontScanDirectoriesMatchingRegExp|"
                                          "OnlyScanFileNamesMatchingRegExp|"
@@ -118,6 +122,7 @@ const QStringList scanLimitSwitches = QString("--max-filesize|"
 // --------------------------------------------------------------------------------------------------------------------------------------------------
 // Used in : clamav-gui.cpp, main.cpp, optiondialog.cpp, scheduler.cpp
 // --------------------------------------------------------------------------------------------------------------------------------------------------
+enum optionKeywords {LoadSupportedDBFiles,ScanReportToFile,ScanFilesFromFile,TmpFile,MoveInfectedFiles,CopyInfectedFiles,FollowDirectorySymLinks,FollowFileSymLinks};
 const QStringList directoryOptionKeywords = QString("LoadSupportedDBFiles|"
                                                 "ScanReportToFile|"
                                                 "ScanFilesFromFile|"

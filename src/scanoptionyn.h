@@ -5,7 +5,7 @@
 #include "ui_scanoptionyn.h"
 #include "scanoptionbaseclass.h"
 #include "setupfilehandler.h"
-#include "translator.h"
+#include "toolbox.h"
 
 namespace Ui {
 class scanoptionyn;

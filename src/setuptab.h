@@ -6,16 +6,19 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QTranslator>
+#include <QTextStream>
 #include <QFileDialog>
 #include <QPixmap>
 #include <QWidget>
 #include <QMovie>
+#include <QFile>
 #include <QUrl>
 #include <QDir>
 
 #include "ui_setuptab.h"
 #include "highlighter.h"
 #include "setupfilehandler.h"
+#include "schedulescanobject.h"
 #include "toolbox.h"
 namespace Ui {
 class setupTab;
@@ -35,6 +38,7 @@ private:
     bool                      m_supressMessage;
     bool                      m_monochrome;
     QNetworkAccessManager   * manager;
+    QNetworkAccessManager   * eicarManager;
     QString checkmonochrome(QString color);
     void findTranslation();
 
@@ -48,6 +52,11 @@ private slots:
     void slot_clamdscanComboBoxClicked();
     void slot_logHightlighterCheckBoxClicked();
     void slot_requestFinished(QNetworkReply *reply);
+    void slot_eicarRequestFinished(QNetworkReply *reply);
+    void slot_addRemoveFilemanagerIntegrationButtonClicked();
+    void slot_filemanagerComboBoxChanged(int);
+    void slot_startEicarTest();
+    void slot_eicarTestStatusReport(int,QString,QString);
     
 signals:
     void switchActiveTab(int);

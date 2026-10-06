@@ -3,7 +3,7 @@
 
 #include "ui_clamdconfspinboxoption.h"
 
-#include "translator.h"
+#include "toolbox.h"
 #include "setupfilehandler.h"
 #include "clamdconfoptionbaseclass.h"
 

@@ -1,3 +1,6 @@
+/*******************************************************************
+ * Application tab for displaying log files
+ *******************************************************************/
 #include "logviewerobject.h"
 #include "ui_logviewerobject.h"
 
@@ -27,8 +30,7 @@ void logViewerObject::slot_profilesChanged()
         values = sf.getSectionValue("Directories", "ScanReportToFile").split("|");
         if (values.count() == 2)
         {
-            QFile tempFile(values[1]);
-            if (tempFile.exists())
+            if (QFileInfo::exists(values[1]))
                 profilesWithLog << profile;
         }
     }
@@ -54,7 +56,6 @@ void logViewerObject::slot_profilesChanged()
 
 void logViewerObject::loadLogFile(QString profile)
 {
-    //setupFileHandler* sf = new setupFileHandler(QDir::homePath() + "/.clamav-gui/profiles/" + profile + ".ini", this);
     bool css = m_setupfile->getSectionBoolValue("Setup", "DisableLogHighlighter");
     QString buffer;
     QStringList logs;
@@ -68,18 +69,14 @@ void logViewerObject::loadLogFile(QString profile)
         m_ui->logTab->removeTab(0);
 
         if (tempwidget != nullptr)
-        {
             delete tempwidget;
-        }
     }
 
     if (profile == "Direct Scan")
-    {
         values = m_setupfile->getSectionValue("Directories", "ScanReportToFile").split("|");
-    } else
-    {
+    else
         values = setupFileHandler::getSectionValue(QDir::homePath() + "/.clamav-gui/profiles/" + profile + ".ini","Directories", "ScanReportToFile").split("|");
-    }
+
     if (values.count() == 2)
     {
         if (values[1] != "")
@@ -109,8 +106,6 @@ void logViewerObject::loadLogFile(QString profile)
             }
         }
     }
-
-    //delete sf;
 }
 
 void logViewerObject::slot_profileSeclectionChanged()
@@ -146,7 +141,7 @@ void logViewerObject::slot_clearLogButtonClicked()
 
     if (currentTab > -1)
     {
-        if (QMessageBox::question(this, tr("Clear Log"), tr("Do you realy want to remove this partial log?"), QMessageBox::Yes, QMessageBox::No) ==
+        if (QMessageBox::question(this, tr("Clear Log"), tr("Do you really want to remove this partial log?"), QMessageBox::Yes, QMessageBox::No) ==
             QMessageBox::Yes)
         {
             m_ui->logTab->removeTab(currentTab);
@@ -159,13 +154,11 @@ void logViewerObject::slot_clearAllButtonClicked()
 {
     int count = m_ui->logTab->count();
 
-    if ((count > 0) && (QMessageBox::question(this, tr("Clear Log"), tr("Do you realy want to remove the complete log?"), QMessageBox::Yes,
+    if ((count > 0) && (QMessageBox::question(this, tr("Clear Log"), tr("Do you really want to remove the complete log?"), QMessageBox::Yes,
                                               QMessageBox::No) == QMessageBox::Yes))
     {
         for (int i = 0; i < count; i++)
-        {
             m_ui->logTab->removeTab(m_ui->logTab->currentIndex());
-        }
     }
     saveLog();
 }

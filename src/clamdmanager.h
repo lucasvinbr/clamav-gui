@@ -9,7 +9,6 @@
 #include "setupfilehandler.h"
 #include "ui_clamdmanager.h"
 #include "highlighter.h"
-#include "translator.h"
 #include "toolbox.h"
 
 #include <QFileSystemWatcher>
@@ -41,11 +40,9 @@ private:
     setupFileHandler* m_clamdConf;  // clamd
     setupFileHandler* m_freshclamConf;
     QProcess* m_startClamdProcess;         // clamd
-    QProcess* m_findclamonaccProcess;      // clamd
     QProcess* m_restartClamonaccProcess;   // clamd
     QProcess* m_killProcess;
     QProcess* m_getClamdConfParametersProcess;
-    QProcess* m_findClamdProcess;
     QString m_clamdLocation;      // clamd
     QString m_clamonaccLocation;  // clamd
     QString m_clamonaccPid;       // clamd
@@ -66,10 +63,11 @@ private:
     bool m_clamdManagerLocked;
     int m_clamdStartupCounter;
 
-    QString trimLocationOutput(QString);
     void restartClamonacc();   // clamd
     bool checkClamdRunning();  // clamd
     void getClamdConfElements();
+    void findClamdProcess();
+    void findClamonaccProcess();
     QString selectColor(QString color);
 
 private slots:
@@ -79,7 +77,6 @@ private slots:
     void slot_pidWatcherTriggered();
     void slot_startClamdProcessFinished(int exitCode, QProcess::ExitStatus exitStatus);
     void slot_killClamdProcessFinished();
-    void slot_findclamonaccProcessFinished(int rc);
     void slot_monitoringAddButtonClicked();
     void slot_monitoringDelButtonClicked();
     void slot_restartClamonaccProcessFinished();
@@ -97,7 +94,6 @@ private slots:
     void slot_filterChanged(QString);
     void slot_showSelectedChecked();
     void slot_showUnselectedChecked();
-    void slot_findClamdProcessFinished();
 
 
 signals:

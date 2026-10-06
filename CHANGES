@@ -1,10 +1,38 @@
+* Mon Oct 5 2026 - Version 1.4.8
+- Fixed an issue in the profile manager.
+- Fixed an issue in the creation of the filemanager integration.
+- Created in the toolbox a function for assembling the selected scan parameters used in main.cpp, clamav_gui.cpp, scheduler.cpp and profile manager.
+- Added a "Eicar Test" to the setup tab. This test downloads a virus test file from the Eicar homepage and startet a scan run on this file
+- for testing the virus database and the scanning engin of clamav.
+
+* Mon Sep 28 2026 - Version 1.4.7 updated
+- Changed the arrangement of the elements in the setup tab
+- updated the translation files
+
+* Fri Sep 25 2026 - Version 1.4.7
+- Made changes to the filemanager integation for Dolphin, Nemo and GNome-Commander. Filemanager integration
+- is added during the first run of the application for already installed filemanagers. Nevertheless you can
+- add or remove the integration for a given filemanager in the setup tab.
+- Update of the translation files.
+
+* Thu Sep 17 2026 - Version 1.4.6 updated
+- Changed old "NULL" with "nullptr".
+- Fixed some typos in the translation.
+- Fixed a readAllStandardOutput to readAllStandardError in the ErrorHandler Routine.
+
+* Fri Sep 4 2026 - Version 1.4.6 updated
+- Changed in toolbox.cpp the use of QtEnvironment to the older getEnv to keep the code compiling in QT5 and Qt6.
+
+* Thu Sep 3 2026 - Version 1.4.6
+- Complete code review and clean up.
+
 * Wed Aug 19 2026 - Version 1.4.5
 - Extensive code modification for implementation of FlatPak. (Hope I didn't kill the app ...)
 
 * Sat Aug 1 2026 - Version 1.4.4
 - Fixed an error in the "Re-Read Function" for the clamd.conf parameters.
 
-*Fri Jul 31 2026 - Version 1.4.3
+* Fri Jul 31 2026 - Version 1.4.3
 - Modification made for the show/hide behaviour of the main window for the inital run (setup/config) and the standard operation.
 - The routine for parsing the available options for the clamd.conf file was compromised by a version of "man" used by Manjero Linux.
 - This caused a segmentation fault. Changed the parser in a way that the output of the "man clamd.conf" command is normalized to
