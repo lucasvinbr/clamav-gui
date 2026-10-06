@@ -156,9 +156,14 @@ clamav_gui::clamav_gui(QWidget* parent) : QWidget(parent)
  * This is alos called through the freshclam tab every time freshclam updates
  * virus signatures
  */
-void clamav_gui::slot_receiveVersionInformation(QString info)
+void clamav_gui::slot_receiveVersionInformation(QString)
 {
-    m_ui.frame->setVersionLabel(info);
+    //m_ui.frame->setVersionLabel(info);
+}
+
+void clamav_gui::slot_getVersionProcessFinished(int, QProcess::ExitStatus)
+{
+    //m_ui.frame->setVersionLabel(info);
 }
 
 /* Getting the version information from freshclam and setting the version label
