@@ -3,7 +3,6 @@
 *******************************************************************/
 #include "toolbox.h"
 #include "sharedvars.cpp"
-#include <QDateTime>
 
 bool isRunninginFlatPak()
 {
@@ -109,7 +108,7 @@ QString whoami()
     if (isRunninginFlatPak())
         process.start("flatpak-spawn", {"--host","whoami"});
     else
-        process.start("whoami", {}, QIODevice::ReadWrite);
+        process.start("whoami", {});
 
     if (!process.waitForFinished(3000))
         return "";
@@ -521,4 +520,20 @@ QString beautifyString(QString value, int length)
     }
 
     return rc;
+}
+
+QString getClamAVVersion()
+{
+    QString buffer = runProg("freshclam", {"--config-file", QString(QDir::homePath() + "/.clamav-gui/freshclam.conf"), "-V"});
+    QStringList versionSections = buffer.split("/");
+    while (versionSections.length() < 3)
+        versionSections << "n/a";
+    QString scannerVersion = versionSections.at(0).mid(6);
+    QString value = versionSections.at(1);
+    QString lastUpdate = versionSections.at(2);
+
+    QString systemInfo = "<div style='font-size:12px;line-height:20px;'><b>Scanner: <font color='navy'>" + scannerVersion +
+                         "</font><br>Database: <font color='navy'>" + value + "</font><br>";
+    systemInfo += "Date: <font color='navy'>" + lastUpdate + "</font></b></div>";
+    return systemInfo;
 }

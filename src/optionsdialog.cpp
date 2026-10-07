@@ -25,6 +25,7 @@ optionsDialog::optionsDialog(QWidget* parent, setupFileHandler* setupFile) : QWi
     connect(m_getClamscanParametersProcess, SIGNAL(readyReadStandardOutput()), this, SLOT(slot_getClamscanProcessHasOutput()));
     connect(m_getClamscanParametersProcess, SIGNAL(finished(int)), this, SLOT(slot_getClamscanProcessFinished()));
 
+
     QStringList parameters;
     parameters << "--help";
     startProcess(m_getClamscanParametersProcess,setupFileHandler::getSectionValue(QDir::homePath()+"/.clamav-gui/settings.ini","RequiredApplications","clamscan"), parameters);
@@ -47,7 +48,6 @@ void optionsDialog::createScanOptionElements()
             parameters = listHelper.at(0).trimmed().split("\n");
             comments = listHelper.at(1).trimmed().split("|");
         }
-
         scanoption* option;
         scanoptionyn* optionyn;
         QString label;
