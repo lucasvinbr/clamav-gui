@@ -144,11 +144,10 @@ clamav_gui::clamav_gui(QWidget* parent) : QWidget(parent)
         connect(m_showLogoTimer, SIGNAL(timeout()), this, SLOT(slot_showLogoTimerTimeout()));
         m_showLogoTimer->start(250);
 
-        getVersion();
+        slot_receiveVersionInformation(getClamAVVersion());
 
         if(!firstrun) emit doneit();
         checkAppImage();
-        //createServiceMenus();
     }
 }
 
@@ -159,27 +158,6 @@ clamav_gui::clamav_gui(QWidget* parent) : QWidget(parent)
 void clamav_gui::slot_receiveVersionInformation(QString info)
 {
     m_ui.frame->setVersionLabel(info);
-}
-
-/* Getting the version information from freshclam and setting the version label
- * through the "slot_receiveVersionInformation" function
- */
-void clamav_gui::getVersion()
-{
-    QString buffer = runProg("freshclam", {"-V"});
-    if (buffer.isEmpty())
-        buffer = runProg("freshclam", {"--config-file", QString(QDir::homePath() + "/.clamav-gui/freshclam.conf"), "-V"});
-    QStringList versionSections = buffer.split("/");
-    while (versionSections.length() < 3)
-        versionSections << "n/a";
-    QString scannerVersion = versionSections.at(0).mid(6);
-    QString value = versionSections.at(1);
-    QString lastUpdate = versionSections.at(2);
-
-    QString systemInfo = "<div style='font-size:12px;line-height:20px;'><b>Scanner: <font color='navy'>" + scannerVersion +
-                 "</font><br>Database: <font color='navy'>" + value + "</font><br>";
-    systemInfo += "Date: <font color='navy'>" + lastUpdate + "</font></b></div>";
-    slot_receiveVersionInformation(systemInfo);
 }
 
 /* preventing the application from quitting when the close button in the window header is clicked. Minimizing the window instead. */

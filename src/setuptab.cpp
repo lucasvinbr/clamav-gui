@@ -82,14 +82,12 @@ void setupTab::slot_updateSystemInfo()
         m_ui.databaseMainFile->setText(m_setupFile->getSectionValue("Updater", "MainVersion"));
         m_ui.databaseDailyFile->setText(m_setupFile->getSectionValue("Updater", "DailyVersion"));
         m_ui.databaseBytecodeFile->setText(m_setupFile->getSectionValue("Updater", "BytecodeVersion"));
-
-        QString value = m_setupFile->getSectionValue("Updater", "DailyVersion");
-        QString scannerVersion = m_setupFile->getSectionValue("Updater", "Version");
-        scannerVersion = scannerVersion.replace("Scanner ", "");
-        value = value.mid(value.indexOf(" "), value.indexOf(",") - value.indexOf(" "));
-        systemInfo = "<div style='font-size:12px;line-height:20px;'><b>Scanner: <font color='navy'>" + scannerVersion +
-                     "</font><br>Database: <font color='navy'>" + value + "</font><br>";
-        systemInfo += "Date: <font color='navy'>" + m_setupFile->getSectionValue("Updater", "LastUpdate") + "</font></b></div>";
+        m_ui.databasePath->setToolTip(m_ui.databasePath->text());
+        m_ui.databaseLastUpdate->setToolTip(m_ui.databaseLastUpdate->text());
+        m_ui.databaseMainFile->setToolTip(m_ui.databaseMainFile->text());
+        m_ui.databaseDailyFile->setToolTip(m_ui.databaseDailyFile->text());
+        m_ui.databaseBytecodeFile->setToolTip(m_ui.databaseBytecodeFile->text());
+        systemInfo = getClamAVVersion();
         emit sendSystemInfo(systemInfo);
     }
 
@@ -198,7 +196,10 @@ void setupTab::slot_requestFinished(QNetworkReply * reply)
 {
     int pos, len, ltsCount = 0;
     QString ltsVersions = "n/a";
-    m_ui.clamavInstalled->setText(m_setupFile->getSectionValue("Updater","Version").trimmed().replace("Scanner ",""));
+    QString version = m_setupFile->getSectionValue("Updater","Version").trimmed().replace("Scanner ","");
+    if (version.indexOf("ClamAV") != -1) version = version.replace("ClamAV","");
+    m_ui.clamavInstalled->setText(version);
+    m_setupFile->setSectionValue("Updater","Version",version);
 
     if(reply->error())
     {
@@ -234,7 +235,7 @@ void setupTab::slot_requestFinished(QNetworkReply * reply)
             }
         }
         m_ui.clamavLTS1->setText(ltsVersions);
-        if (m_ui.clamavInstalled->text() == m_ui.clamavLatest->text()) m_ui.clamavStatus->setText(tr("OK")); else m_ui.clamavStatus->setText("Update available: " + m_ui.clamavLatest->text());
+        if (m_ui.clamavInstalled->text() == m_ui.clamavLatest->text()) m_ui.clamavStatus->setText(tr("OK")); else m_ui.clamavStatus->setText("update");
     }
 
     reply->deleteLater();

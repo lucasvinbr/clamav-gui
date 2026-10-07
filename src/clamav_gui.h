@@ -98,7 +98,6 @@ private:
     void createTrayIcon();
     void createDropZone();
     void checkAppImage();
-    void getVersion();
 
 private slots:
     void slot_setMainWindowState(bool);
